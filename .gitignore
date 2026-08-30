@@ -1,0 +1,20 @@
+# large binaries — see docs/ARTIFACTS.md (regenerate or transfer)
+*.pt
+*.pth
+*.dat
+*.npz
+*.npy
+*.tar
+*.tar.gz
+*.zip
+*.mha
+*.tif
+*.tiff
+*.h5
+cpsam_models/
+datasets/
+__pycache__/
+*.pyc
+.DS_Store
+# keep the small reference result JSONs and norm consts under results/
+!results/*.json
