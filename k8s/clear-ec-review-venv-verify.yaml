@@ -1,0 +1,55 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: clear-ec-review-venv-0912b
+  namespace: p-ajou-mlxp-project
+  labels: {app: clear-ec, workload: review-venv-verification}
+spec:
+  backoffLimit: 0
+  activeDeadlineSeconds: 2700
+  ttlSecondsAfterFinished: 3600
+  template:
+    metadata:
+      labels: {app: clear-ec, workload: review-venv-verification}
+    spec:
+      restartPolicy: Never
+      automountServiceAccountToken: false
+      priorityClassName: private-zone
+      nodeSelector:
+        mlx.navercorp.com/zone: private-h200-ajou-mlxp-0
+      tolerations:
+        - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+      containers:
+        - name: verifier
+          image: python:3.12-slim-bookworm@sha256:782412e85d0f0984994c290652577d4018aff08145c85b262bb63dc0c7522254
+          imagePullPolicy: IfNotPresent
+          command: [bash, -lc]
+          args:
+            - |
+              set -euo pipefail
+              mkdir /work/review
+              tar -xzf /bundle/review.tar.gz -C /work/review
+              cd /work/review
+              LAMDA_PYTHON=python3 bash scripts/setup_venv.sh
+              .venv/bin/python scripts/k8s_verify_venv.py
+          env:
+            - {name: PYTHONNOUSERSITE, value: "1"}
+            - {name: PYTHONDONTWRITEBYTECODE, value: "1"}
+            - {name: PIP_NO_CACHE_DIR, value: "1"}
+            - {name: OMP_NUM_THREADS, value: "4"}
+            - {name: OPENBLAS_NUM_THREADS, value: "4"}
+            - {name: NVIDIA_VISIBLE_DEVICES, value: void}
+          resources:
+            requests: {cpu: "4", memory: 8Gi}
+            limits: {cpu: "8", memory: 16Gi}
+          volumeMounts:
+            - {name: bundle, mountPath: /bundle, readOnly: true}
+            - {name: work, mountPath: /work}
+            - {name: reference, mountPath: /reference, readOnly: true}
+      volumes:
+        - name: bundle
+          configMap: {name: clear-ec-review-venv-src-0912b}
+        - name: work
+          emptyDir: {sizeLimit: 24Gi}
+        - name: reference
+          persistentVolumeClaim: {claimName: clear-ec-workspace, readOnly: true}

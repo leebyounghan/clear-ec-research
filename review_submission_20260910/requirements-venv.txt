@@ -1,0 +1,7 @@
+# Inference only. Install the cu126 torch wheels first (scripts/setup_venv.sh).
+# Constrain resolved dependencies to the exported submission environment.
+-c provenance/runtime-lock.txt
+-r app/requirements.txt
+torch==2.11.0+cu126
+torchvision==0.26.0+cu126
+segment-anything==1.0

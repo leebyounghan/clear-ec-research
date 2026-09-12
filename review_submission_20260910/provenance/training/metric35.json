@@ -1,0 +1,33 @@
+{
+  "recipe": "metric35",
+  "seed": 42,
+  "selected_steps": 4470,
+  "oof_selected_steps": 4470,
+  "oof_total_schedule_steps": 5215,
+  "schedule": "cosine_floor005_warmup200_matched_by_optimizer_update",
+  "batch_size": 48,
+  "k_crops": 1,
+  "objective": "mixed_mape",
+  "pool": "mean",
+  "lm": [
+    7.919919967651367,
+    -0.9824771285057068,
+    -0.6211431622505188
+  ],
+  "ls": [
+    0.18971863389015198,
+    0.18813571333885193,
+    0.2748945653438568
+  ],
+  "train_rows": 8998,
+  "validation_rows": 0,
+  "selection": "median of five OOF best optimizer-update counts, frozen before all-data fit",
+  "last_batch": "included",
+  "all_9000_reconciled": true,
+  "excluded_nonpositive_hex": 2,
+  "source_sha256": {
+    "code/train_deploy_methods.py": "3c7135c3f134f99510a02b317537ea1e2eedff60b36e4cb4b79200ccfd488627",
+    "code/final_candidate_core.py": "08707772ed211c366651e257ec59c3193d80a2890486417b2095d619b4f912dd",
+    "code/method_training_core.py": "f821c64d00a58412b143a11d5cf9f70008ac959a51af93dd1e4644715e584134"
+  }
+}

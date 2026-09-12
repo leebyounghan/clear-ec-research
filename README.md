@@ -1,5 +1,40 @@
 # CLEAR-EC — Research & Training Repo
 
+> **September 10 Lamda submission:** use the
+> [review-package README](review_submission_20260910/README.md) for the frozen
+> six-member model, **Linux NVIDIA GPU + Python venv quick start**, Docker execution
+> and checkpoint instructions. The model archive is separate from the image.
+> The older v4 description and score table below are historical research notes,
+> not the current submission identity, ranking or verified performance ceiling.
+> The review directory is still a local release draft; hosting/access and GPU parity
+> validation must be completed before technical-review dispatch.
+
+## Lamda inference quick start (Linux NVIDIA GPU)
+
+Python 3.12 and a CUDA 12.6-compatible NVIDIA driver are required. From this clone:
+
+```bash
+cd review_submission_20260910
+bash scripts/setup_venv.sh
+source .venv/bin/activate
+python scripts/check_environment.py
+```
+
+Download and verify the unchanged model archive following
+[checkpoint placement](review_submission_20260910/README.md#b-obtain-and-verify-the-model-docker-image-download-is-optional).
+The external download URL is still awaiting publication. Once all eight resources
+are present in `checkpoints/model/`:
+
+```bash
+python scripts/predict_image.py --image /absolute/path/to/case.mha \
+  --model checkpoints/model --output predictions/case001 --gpu 0
+```
+
+This produces three scalar JSON files (CD, CV, HEX) without Docker. The original
+submitted inference sources and model bytes are unchanged; clean-venv GPU parity
+is not yet certified. For the original archived image, follow the review README's
+Docker path. The remaining sections below describe the older research baseline.
+
 Training, evaluation, and analysis code for the [CLEAR-EC Grand Challenge](https://clear-ec.grand-challenge.org/)
 (Corneal Learning for Endothelial Assessment and Review). The task: predict three clinical metrics per
 specular-microscopy image — **Cell Density (CD)**, **Coefficient of Variation (CV)**, **Hexagonality (HEX)**.

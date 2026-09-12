@@ -1,0 +1,41 @@
+{
+  "name": "model_full_quality77_20260909.tar.gz",
+  "bytes": 7964629097,
+  "sha256": "51d8074a5fa45a71139bd6dd12c768dea7246c43c7002f8456777984396d0830",
+  "members": {
+    "cpsam_v2": {
+      "sha256": "0f1cc3f7ecdd8a037a57c6c48d9d8921391be4cbce3fa9f13c3e3a2e1253c667",
+      "bytes": 1233586851
+    },
+    "seed42.pt": {
+      "sha256": "f9ba4e281d3044d4a9e17da84cb2846fcafff1891d37b301c4e9c5910a03df3c",
+      "bytes": 1218701062
+    },
+    "seed77.pt": {
+      "sha256": "a89edd82c4ce59ca942b3214f151ac63c14641bfcc67ac9f09b1748d4e0caa76",
+      "bytes": 1218701062
+    },
+    "seed2026.pt": {
+      "sha256": "174fdac5400442634aa571ad60ef86e8e693aee4f5b7ec3c7d862ee890d1bef5",
+      "bytes": 1218701062
+    },
+    "metric35.pt": {
+      "sha256": "6a476b4cb393f54f2c7ae6df1598798bc67ce18b09706c24945cc93c224db44b",
+      "bytes": 1218701318
+    },
+    "predbag2_35.pt": {
+      "sha256": "c3988da61340443731b61fa58ad4672d8c941710b40132a8380bb351d0db295c",
+      "bytes": 1218701382
+    },
+    "full_quality_seed77.pt": {
+      "sha256": "619a0263340da2d18ef837fc29306d00dff8162241e36d85edf9cf4fdd453f03",
+      "bytes": 1218701958
+    },
+    "candidate6_full_quality.json": {
+      "sha256": "c4dd5c748a428b6c9e4ab2689897ab8391f7004eb730f8cf68749556964c026e",
+      "bytes": 469
+    }
+  },
+  "archived_hashes_verified": true,
+  "created_at": "2026-09-09T16:36:48-0400"
+}

@@ -1,0 +1,250 @@
+{
+  "name": "clear_ec_full_quality77_20260909.tar.gz",
+  "bytes": 4064075652,
+  "sha256": "cfa6c2c8a234a5aefc8cf0ff0a3413bbaf7a353fc3e131cd7cddf33434896c8a",
+  "format": "legacy Docker tar",
+  "image_config": {
+    "architecture": "amd64",
+    "config": {
+      "User": "10001:10001",
+      "Env": [
+        "PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "NVIDIA_VISIBLE_DEVICES=all",
+        "NVIDIA_DRIVER_CAPABILITIES=compute,utility",
+        "LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64",
+        "PYTORCH_VERSION=2.11.0",
+        "PYTHONUNBUFFERED=1",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "OMP_NUM_THREADS=4",
+        "OPENBLAS_NUM_THREADS=4",
+        "MKL_NUM_THREADS=4",
+        "MALLOC_ARENA_MAX=2",
+        "HOME=/tmp",
+        "XDG_CACHE_HOME=/tmp/.cache",
+        "TORCH_HOME=/tmp/torch",
+        "HF_HUB_OFFLINE=1",
+        "HF_DATASETS_OFFLINE=1"
+      ],
+      "Entrypoint": [
+        "python",
+        "/opt/app/inference.py",
+        "--config",
+        "candidate6_full_quality.json",
+        "--fp16"
+      ],
+      "WorkingDir": "/opt/app",
+      "Labels": {
+        "com.nvidia.volumes.needed": "nvidia_driver",
+        "org.opencontainers.image.ref.name": "ubuntu",
+        "org.opencontainers.image.version": "24.04"
+      }
+    },
+    "created": "2026-09-09T19:37:09.425548095Z",
+    "history": [
+      {
+        "created": "2026-02-23T17:17:53.377372197Z",
+        "created_by": "/bin/sh -c #(nop)  ARG RELEASE",
+        "empty_layer": true
+      },
+      {
+        "created": "2026-02-23T17:17:53.408508506Z",
+        "created_by": "/bin/sh -c #(nop)  ARG LAUNCHPAD_BUILD_ARCH",
+        "empty_layer": true
+      },
+      {
+        "created": "2026-02-23T17:17:53.45626953Z",
+        "created_by": "/bin/sh -c #(nop)  LABEL org.opencontainers.image.ref.name=ubuntu",
+        "empty_layer": true
+      },
+      {
+        "created": "2026-02-23T17:17:53.486399083Z",
+        "created_by": "/bin/sh -c #(nop)  LABEL org.opencontainers.image.version=24.04",
+        "empty_layer": true
+      },
+      {
+        "created": "2026-02-23T17:17:55.728281038Z",
+        "created_by": "/bin/sh -c #(nop) ADD file:3f78aa860931e0853077f09eb31eddbeeef8a9dd70977305b4876aa176770721 in / "
+      },
+      {
+        "created": "2026-02-23T17:17:56.132176015Z",
+        "created_by": "/bin/sh -c #(nop)  CMD [\"/bin/bash\"]",
+        "empty_layer": true
+      },
+      {
+        "created": "2026-03-23T18:48:11.30498873Z",
+        "created_by": "ARG PYTORCH_VERSION=2.11.0",
+        "comment": "buildkit.dockerfile.v0",
+        "empty_layer": true
+      },
+      {
+        "created": "2026-03-23T18:48:11.30498873Z",
+        "created_by": "ARG TRITON_VERSION=",
+        "comment": "buildkit.dockerfile.v0",
+        "empty_layer": true
+      },
+      {
+        "created": "2026-03-23T18:48:11.30498873Z",
+        "created_by": "ARG TARGETPLATFORM=linux/amd64",
+        "comment": "buildkit.dockerfile.v0",
+        "empty_layer": true
+      },
+      {
+        "created": "2026-03-23T18:48:11.30498873Z",
+        "created_by": "ARG CUDA_VERSION=12.6.3",
+        "comment": "buildkit.dockerfile.v0",
+        "empty_layer": true
+      },
+      {
+        "created": "2026-03-23T18:48:11.30498873Z",
+        "created_by": "LABEL com.nvidia.volumes.needed=nvidia_driver",
+        "comment": "buildkit.dockerfile.v0",
+        "empty_layer": true
+      },
+      {
+        "created": "2026-03-23T18:48:11.30498873Z",
+        "created_by": "RUN |4 PYTORCH_VERSION=2.11.0 TRITON_VERSION= TARGETPLATFORM=linux/amd64 CUDA_VERSION=12.6.3 /bin/sh -c apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends         ca-certificates         libjpeg-dev         libpng-dev         python-is-python3         python3         python3-dev         python3-pip         && rm -rf /var/lib/apt/lists/* # buildkit",
+        "comment": "buildkit.dockerfile.v0"
+      },
+      {
+        "created": "2026-03-23T18:51:18.709727217Z",
+        "created_by": "COPY /usr/local/lib/python3.12 /usr/local/lib/python3.12 # buildkit",
+        "comment": "buildkit.dockerfile.v0"
+      },
+      {
+        "created": "2026-03-23T18:51:18.930611556Z",
+        "created_by": "COPY /usr/local/bin /usr/local/bin # buildkit",
+        "comment": "buildkit.dockerfile.v0"
+      },
+      {
+        "created": "2026-03-23T18:51:28.391492754Z",
+        "created_by": "RUN |4 PYTORCH_VERSION=2.11.0 TRITON_VERSION= TARGETPLATFORM=linux/amd64 CUDA_VERSION=12.6.3 /bin/sh -c if test -n \"${CUDA_VERSION}\" -a \"${TARGETPLATFORM}\" != \"linux/arm64\"; then         apt-get update -qq &&         DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends gcc &&         rm -rf /var/lib/apt/lists/*;     fi # buildkit",
+        "comment": "buildkit.dockerfile.v0"
+      },
+      {
+        "created": "2026-03-23T18:51:28.391492754Z",
+        "created_by": "ENV NVIDIA_VISIBLE_DEVICES=all",
+        "comment": "buildkit.dockerfile.v0",
+        "empty_layer": true
+      },
+      {
+        "created": "2026-03-23T18:51:28.391492754Z",
+        "created_by": "ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility",
+        "comment": "buildkit.dockerfile.v0",
+        "empty_layer": true
+      },
+      {
+        "created": "2026-03-23T18:51:28.391492754Z",
+        "created_by": "ENV LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64",
+        "comment": "buildkit.dockerfile.v0",
+        "empty_layer": true
+      },
+      {
+        "created": "2026-03-23T18:51:28.391492754Z",
+        "created_by": "ENV PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "comment": "buildkit.dockerfile.v0",
+        "empty_layer": true
+      },
+      {
+        "created": "2026-03-23T18:51:28.391492754Z",
+        "created_by": "ENV PYTORCH_VERSION=2.11.0",
+        "comment": "buildkit.dockerfile.v0",
+        "empty_layer": true
+      },
+      {
+        "created": "2026-03-23T18:51:28.430095101Z",
+        "created_by": "WORKDIR /workspace",
+        "comment": "buildkit.dockerfile.v0"
+      },
+      {
+        "created": "2026-09-09T19:33:50.190316253Z",
+        "created_by": "ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 MKL_NUM_THREADS=4 MALLOC_ARENA_MAX=2 HOME=/tmp XDG_CACHE_HOME=/tmp/.cache TORCH_HOME=/tmp/torch HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1",
+        "comment": "buildkit.dockerfile.v0",
+        "empty_layer": true
+      },
+      {
+        "created": "2026-09-09T19:33:50.190316253Z",
+        "created_by": "WORKDIR /opt/app",
+        "comment": "buildkit.dockerfile.v0"
+      },
+      {
+        "created": "2026-09-09T19:33:50.319142836Z",
+        "created_by": "COPY app/requirements.txt /opt/app/requirements.txt # buildkit",
+        "comment": "buildkit.dockerfile.v0"
+      },
+      {
+        "created": "2026-09-09T19:33:50.350228169Z",
+        "created_by": "COPY constraints.txt /opt/app/constraints.txt # buildkit",
+        "comment": "buildkit.dockerfile.v0"
+      },
+      {
+        "created": "2026-09-09T19:37:09.13146072Z",
+        "created_by": "RUN /bin/sh -c python -m pip install --break-system-packages --no-cache-dir -c constraints.txt -r requirements.txt     && python -m pip check     && python -c \"import torch, cellpose.models, SimpleITK, cv2; assert torch.__version__.split('+')[0] == '2.11.0'; assert torch.version.cuda == '12.6'\"     && python -m pip freeze > /opt/app/runtime-lock.txt # buildkit",
+        "comment": "buildkit.dockerfile.v0"
+      },
+      {
+        "created": "2026-09-09T19:37:09.40792247Z",
+        "created_by": "RUN /bin/sh -c groupadd --gid 10001 algorithm     && useradd --uid 10001 --gid algorithm --no-create-home algorithm     && mkdir -p /opt/ml/model /input /output     && chown algorithm:algorithm /output # buildkit",
+        "comment": "buildkit.dockerfile.v0"
+      },
+      {
+        "created": "2026-09-09T19:37:09.425548095Z",
+        "created_by": "COPY app/*.py /opt/app/ # buildkit",
+        "comment": "buildkit.dockerfile.v0"
+      },
+      {
+        "created": "2026-09-09T19:37:09.425548095Z",
+        "created_by": "USER 10001:10001",
+        "comment": "buildkit.dockerfile.v0",
+        "empty_layer": true
+      },
+      {
+        "created": "2026-09-09T19:37:09.425548095Z",
+        "created_by": "ENTRYPOINT [\"python\" \"/opt/app/inference.py\" \"--config\" \"candidate6_full_quality.json\" \"--fp16\"]",
+        "comment": "buildkit.dockerfile.v0",
+        "empty_layer": true
+      }
+    ],
+    "os": "linux",
+    "rootfs": {
+      "type": "layers",
+      "diff_ids": [
+        "sha256:f2a7f072635332d307212e318e07284948b89f4167fce5c4d7c9cfb7590b74b6",
+        "sha256:4a890b88d6d29cdb3f2667fdfaedf64326cd1a374936467fc9973f6e1c3732f9",
+        "sha256:ef2627bb508ad017f21fc5296e224cfd900661515e52e77982d715d1a7773030",
+        "sha256:cfd7c0b44a4aaa8a1d91120dd4093743a3ee95efad36e5536ae31f8d5e7115d4",
+        "sha256:f36f5b56489592f0b8e8e1fcb982b721f929bd18b697461ad6d32ca91fd8525b",
+        "sha256:7bf38c21afd94b007a79c720096b9c7d37c6cc4c4bb010108253036c8429bdcb",
+        "sha256:4a3f534d149ac67fd858d1b1b657b0374b028b7c4183fcb0b71591f13f3ee187",
+        "sha256:c70fa163a945c76e48010794f2124e64ca7dffa76bd520b33ddb5583c97f1fec",
+        "sha256:ef943424836fc64f40406151c8de3e5fb237096464eccd3fdb34991b510c293b",
+        "sha256:df01989a9281e8869b97dc29feaa43314b1b3767abfa13d45cbcc4c692503740",
+        "sha256:518713db57220ab05a5935ee0b6f9c805804254d7828c9a9c9aa79b0a2ed37b5",
+        "sha256:ac4badf7b05c3e40283b0b66d61e5c972281f7daf2b88b86874010d4d6c2b9c2"
+      ]
+    }
+  },
+  "manifest": [
+    {
+      "Config": "blobs/sha256/275803d816ef934ef6665a12c693a2cd31bc1e418fdb734a7672a51404111a7d",
+      "RepoTags": [
+        "clear-ec:full-quality77-20260909"
+      ],
+      "Layers": [
+        "blobs/sha256/18dbadc1f2f937d7ebdfa4481fb1f6f43b26e93f5bdc4cef3cef98d7f0ae77aa",
+        "blobs/sha256/401a3ec38736f307c25704e5c0e2e248357eaf23c91f187a22358e7814a0b2de",
+        "blobs/sha256/9593a8937df22d2190a695e43b80b2b3de66d02c83c3ad20dac2d062e87d813b",
+        "blobs/sha256/2c60f879f526f857f8d14c0e1d38a327b1f8ef80b3a7ef30b238c87f46d9fc8e",
+        "blobs/sha256/dbe8dc8ef95930238aa47854da520254840038464d040bdebccd9d756d4c4fe2",
+        "blobs/sha256/52bc87c02ffd03c8fc752cb99fedaacf47a6ff6e9b7614e21a6abfd90ccad4ad",
+        "blobs/sha256/7307e03566d4f817c72ae56fb41250722774203632920d0e74521ed5102f3d8e",
+        "blobs/sha256/990cce27c86dac7de147e8ccd0d4206b039d7182db1405e43cd446310b137a9a",
+        "blobs/sha256/3a1c8f78d65af680d2d3bd45de6f6725f59c6458445a4ca8ad0083e98971bcd5",
+        "blobs/sha256/c5f74161a191ff595ba53da6cd8e893c22bd21d5c404cd9577199eea9a1de7cd",
+        "blobs/sha256/96e5a0bdd8d1e7ad6064466a8fd6caf8ab55e58e4875fe1a05474cb931db1bf4",
+        "blobs/sha256/1e50bb2c83093faeedcedf6cf9a66d99facccdbfee38ee13f34efc6f26dd6f24"
+      ]
+    }
+  ],
+  "gpu_container_validated": false,
+  "created_at": "2026-09-09T15:46:07-0400"
+}

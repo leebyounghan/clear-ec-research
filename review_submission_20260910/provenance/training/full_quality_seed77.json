@@ -1,0 +1,41 @@
+{
+  "recipe": "full_quality",
+  "seed": 77,
+  "selected_steps": 4917,
+  "oof_selected_steps": 4917,
+  "oof_total_schedule_steps": 5215,
+  "schedule": "cosine_floor005_warmup200_matched_by_optimizer_update",
+  "batch_size": 48,
+  "k_crops": 2,
+  "objective": "mixed_mape",
+  "pool": "mean",
+  "lm": [
+    7.919919967651367,
+    -0.9824771285057068,
+    -0.6211431622505188
+  ],
+  "ls": [
+    0.18971863389015198,
+    0.18813571333885193,
+    0.2748945653438568
+  ],
+  "train_rows": 8998,
+  "validation_rows": 0,
+  "selection": "median of five OOF best optimizer-update counts, frozen before all-data fit",
+  "last_batch": "included",
+  "all_9000_reconciled": true,
+  "excluded_nonpositive_hex": 2,
+  "initialization": "single_head_construction_v2",
+  "region_policy": "full_quality",
+  "adapter_sha256": "223277cbf062a18f62561fd5f14bcd166eca3ab61f8436aa3a2a88ca442c8e52",
+  "adapter_substitutions": {
+    "seed = 42": "seed = 77",
+    "images = np.memmap(DATA / \"img_native_512.dat\", dtype=np.uint8, mode=\"r\", shape=(9000, 512, 512))": "images = build_regions(args.recipe)",
+    "initialization=\"single_head_construction_v2\",": "initialization=\"single_head_construction_v2\", region_policy=args.recipe, adapter_sha256=ADAPTER_HASH, adapter_substitutions=SUBSTITUTIONS,"
+  },
+  "source_sha256": {
+    "train_deploy_methods.py": "8cafb7ca1bacfc398d2769113d41e6f8aacd3cb7b112a600e7298e4cb9079a97",
+    "final_candidate_core.py": "92207fff4ad29feeef1cbc37746de730a2f7fbd076d00207fc6795bcece268f4",
+    "method_training_core.py": "f821c64d00a58412b143a11d5cf9f70008ac959a51af93dd1e4644715e584134"
+  }
+}

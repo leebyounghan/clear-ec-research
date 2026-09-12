@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "frozen_inference_modules": 6,
+  "historical_training_source_checks": 16,
+  "python_syntax_files": 25,
+  "config_hash_verified": true,
+  "model_files_verified": 0,
+  "archives_verified": 0,
+  "model_archive_verified": true,
+  "clean_gpu_inference_tested": false,
+  "clean_retraining_tested": false,
+  "reviewer_access_verified": false,
+  "scope": "Byte identities and syntax only; not a numerical reproduction certificate."
+}

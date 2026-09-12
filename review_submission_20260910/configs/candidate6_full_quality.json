@@ -1,0 +1,19 @@
+{
+  "region_policy": "full_quality",
+  "members": [
+    "seed42.pt",
+    "seed77.pt",
+    "seed2026.pt",
+    "metric35.pt",
+    "predbag2_35.pt",
+    "full_quality_seed77.pt"
+  ],
+  "calibration": [
+    0.9970446110788349,
+    0.987972130802936,
+    0.9892234872488541
+  ],
+  "view_batch": 8,
+  "experimental_only": true,
+  "provenance": "Fixed equal-weight six members, scalar calibration on historical BF16 OOF; not nested validation. No all-data validation score."
+}
