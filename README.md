@@ -4,9 +4,10 @@
 > [review-package README](review_submission_20260910/README.md) for the frozen
 > six-member model, **Linux NVIDIA GPU + Python venv quick start**, Docker execution
 > and checkpoint instructions. The model archive is separate from the image.
-> The older v4 description and score table below are historical research notes,
-> not the current submission identity, ranking or verified performance ceiling.
-> The review directory is still a local release draft; hosting/access and GPU parity
+> Official Phase I score: **8.7042**; leaderboard position **1** when checked on
+> September 12, 2026. [Evaluation](https://clear-ec.grand-challenge.org/evaluation/0a82fe58-7f9a-4a88-b744-bcfa84b1e43a/).
+> [Technical report (PDF)](review_submission_20260910/output/pdf/Technical_Report.pdf).
+> The review directory is still a release draft; hosting/access and GPU parity
 > validation must be completed before technical-review dispatch.
 
 ## Lamda inference quick start (Linux NVIDIA GPU)
@@ -33,14 +34,16 @@ python scripts/predict_image.py --image /absolute/path/to/case.mha \
 This produces three scalar JSON files (CD, CV, HEX) without Docker. The original
 submitted inference sources and model bytes are unchanged; clean-venv GPU parity
 is not yet certified. For the original archived image, follow the review README's
-Docker path. The remaining sections below describe the older research baseline.
+Docker path. Older research scripts and documents remain for historical reference.
 
 Training, evaluation, and analysis code for the [CLEAR-EC Grand Challenge](https://clear-ec.grand-challenge.org/)
 (Corneal Learning for Endothelial Assessment and Review). The task: predict three clinical metrics per
 specular-microscopy image — **Cell Density (CD)**, **Coefficient of Variation (CV)**, **Hexagonality (HEX)**.
 
-This repo is the **research/training** side. The **submission container** lives in a separate repo,
-[`clear-ec-algo`](https://github.com/leebyounghan/clear-ec-algo) (a mirror of `submission/` here).
+This repo contains research/training history and the frozen September 10 review
+package under `review_submission_20260910/`. The older `submission/` directory and
+[`clear-ec-algo`](https://github.com/leebyounghan/clear-ec-algo) repository are historical;
+use the review package for the current six-member submission.
 
 > **Continuing on a new GPU?** Read [`docs/REPRODUCE.md`](docs/REPRODUCE.md) first (env + data + how to
 > retrain), then [`docs/ARTIFACTS.md`](docs/ARTIFACTS.md) (which large files to copy over), then
@@ -50,33 +53,41 @@ This repo is the **research/training** side. The **submission container** lives 
 
 ## Where we stand
 
-| | CD | CV | HEX | **Overall (mean MAPE)** |
-|---|---|---|---|---|
-| Leaderboard #1 (external) | — | — | — | **8.7720** |
-| **Our submitted** (single s2, v2 container) | — | — | — | **9.0009** (2nd place) |
-| Internal held-out ensemble (measured) | 6.41 | 10.39 | 9.97 | **8.92** |
-| + CV/HEX calibration | 6.41 | 10.29 | 9.92 | **8.89** |
-| **v4** (all-9000 + slide-smooth + calib) | — | — | — | ~8.8 *(est; unmeasurable — see below)* |
+| Submission | Official Phase I score | Status |
+|---|---:|---|
+| **Lamda — September 10 submission** | **[8.7042](https://clear-ec.grand-challenge.org/evaluation/0a82fe58-7f9a-4a88-b744-bcfa84b1e43a/)** | Succeeded; **rank 1** when checked September 12, 2026 |
+| Earlier Lamda submission | [9.0009](https://clear-ec.grand-challenge.org/evaluation/84234081-8f49-4142-8440-9790f5de11bb/) | Historical result; not the current model |
 
-Metric = mean of the three per-metric MAPEs (%). Lower is better. Scored on a hidden ROI per image.
+Metric = mean of the three per-metric MAPEs (%); lower is better. Rank can change.
+The linked September 10 page reports evaluation ID `0a82fe58-7f9a-4a88-b744-bcfa84b1e43a`,
+image version `730ff3f7-ea96-4180-936d-bc02a4eca762` and model version
+`db061942-478a-42b6-a6d7-b6dff1626108`. Per-metric official scores are not displayed
+on that page. Internal validation scores, calibration estimates and later research
+experiments are not official challenge results. No proven performance ceiling is asserted.
 
 ## The one-paragraph summary
 
-A **Cellpose-SAM ViT-L encoder + small per-metric regression heads**, trained on ~7000 images with
-log-space targets and 40-view (C5×8-dihedral) test-time augmentation, then combined into a **per-metric
-greedy ensemble**. CD is at 6.4% MAPE; **CV/HEX are stuck near ~10%** and we have *proven* (two independent
-experiments) that this is a **noise floor**, not a model limitation — see [`docs/FINDINGS.md`](docs/FINDINGS.md).
-The final submission model (`v4`) retrains the winning recipe on **all 9000 images** with **slide-averaged
-targets** and a small **β=−1 calibration** on CV/HEX.
+A **Cellpose-SAM encoder with shared features and three regression heads** predicts
+CD, CV and HEX in standardized log space. The final fits use **8,998 eligible images**
+from the 9,000-image training archive, with slide-averaged positive labels. The
+submitted ensemble has **six equally weighted models**: three central-crop seeds,
+one mixed-loss central model, one two-crop central model and one quality-selected
+full-native-field model. Each member uses five native256 crops with eight dihedral
+transforms (40 views), then decoded member predictions are averaged and fixed
+per-metric calibration is applied. Inference is FP16. Later domain-SSL and raw-label
+experiments are not part of this release. See the
+[technical report](review_submission_20260910/output/pdf/Technical_Report.pdf) and
+[historical training recipes](review_submission_20260910/TRAINING.md).
 
 ## Repo layout
 
 ```
-code/            all training + eval + analysis scripts (65 files; see docs/REPRODUCE.md for the map)
-submission/      the Grand Challenge algorithm container (Dockerfile, inference.py, requirements.txt)
+review_submission_20260910/  frozen six-member inference, training recipes and technical PDF
+code/            historical training + eval + analysis scripts
+submission/      older Grand Challenge container; not the September 10 release
 docs/
   METHODOLOGY.md   the pipeline, metric definitions, model/ensemble design
-  FINDINGS.md      what worked, what failed, and the CV/HEX noise-floor proof
+  FINDINGS.md      historical experiments and hypotheses; not proof of a noise floor
   REPRODUCE.md     env setup, data regeneration, exact training commands
   ARTIFACTS.md     manifest of large files (checkpoints, caches) + how to transfer/regenerate
   NEXT_STEPS.md    prioritized roadmap for the next GPU
@@ -86,6 +97,12 @@ env/             environment.yml / requirements-clearec.txt
 
 ## Current best submission
 
-`v4` container image (weights baked in, ~8.8GB compressed). Build it with
-`code/finalize_container.sh` after the four `final9000_*.pt` checkpoints exist. Upload the single
-`clear-ec-algo-image-v4.tar.gz` to the Grand Challenge **Containers** tab — no separate Model upload needed.
+The September 10 release uses **separate container and model archives**:
+
+- Container: `clear_ec_full_quality77_20260909.tar.gz` (approximately4.06GB).
+- Model: `model_full_quality77_20260909.tar.gz` (approximately7.96GB), mounted at `/opt/ml/model`.
+- Configuration: `candidate6_full_quality.json`, six members, FP16 inference.
+
+Use the [review-package instructions](review_submission_20260910/README.md) and
+[technical report PDF](review_submission_20260910/output/pdf/Technical_Report.pdf).
+The old v4 single-archive instructions do not reproduce this submission.

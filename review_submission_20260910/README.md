@@ -5,8 +5,16 @@ Algorithm name: **Lamda**. Team name: **pending confirmation**; Lamda is the pro
 
 This directory preserves the submitted candidate, not the latest research branch.
 It is not yet an access-complete submission: see `RELEASE_CHECKLIST.md` before sharing.
-The successful Grand Challenge evaluation URL and its image/model IDs still need to be attached.
-No leaderboard score is asserted by this document.
+The official [September 10 evaluation](https://clear-ec.grand-challenge.org/evaluation/0a82fe58-7f9a-4a88-b744-bcfa84b1e43a/)
+reports **Succeeded**, score **8.7042**, and leaderboard position **1** when checked
+on September 12, 2026 (rank can change). User: Leebyounghan; algorithm: Lamda.
+Image version: `730ff3f7-ea96-4180-936d-bc02a4eca762`.
+Model version: `db061942-478a-42b6-a6d7-b6dff1626108`.
+These are platform version IDs, not archive checksums. The page does not expose
+per-metric scores or independently establish byte identity with the local archives.
+
+[Read the technical report (PDF)](output/pdf/Technical_Report.pdf).
+The existing PDF is preserved; the newly verified official result is recorded here.
 
 ## Quick start: Python venv, no Docker required
 
