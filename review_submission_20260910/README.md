@@ -1,5 +1,13 @@
 # Lamda - CLEAR-EC Phase I technical review
 
+> **Current reviewer workflow: [Docker-only execution](../docker_review_20260914/README.md).**
+> The user selected the archived Docker image with separately mounted models.
+> No Kubernetes/kubeconfig/private-cluster setup or host venv is required. The
+> guide links the September 14 SSL model, while this directory's model manifest,
+> training recipes and PDF remain the September 10 historical baseline.
+> The venv steps below are retained as optional historical documentation, not
+> required review checks. No new K8s installation test is planned.
+
 Local review draft for the package prepared on 9 September UTC / 10 September KST, 2026.
 Algorithm name: **Lamda**. Team name: **pending confirmation**; Lamda is the proposed matching team name.
 
@@ -16,7 +24,7 @@ per-metric scores or independently establish byte identity with the local archiv
 [Read the technical report (PDF)](output/pdf/Technical_Report.pdf).
 The existing PDF is preserved; the newly verified official result is recorded here.
 
-## Quick start: Python venv, no Docker required
+## Optional historical alternative: Python venv
 
 **Supported host:** Linux x86_64, Python 3.12 with `venv`/pip, and an NVIDIA GPU
 with a working CUDA 12.6-compatible driver (`nvidia-smi` must work). Install OS

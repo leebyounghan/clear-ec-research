@@ -26,5 +26,9 @@ __pycache__/
 .venv/
 *.pem
 *.key
+/docker_review_20260914/artifacts/
+/docker_review_20260914/checkpoints/
+/docker_review_20260914/test_input/
+/docker_review_20260914/test_output/
 # keep the small reference result JSONs and norm consts under results/
 !results/*.json

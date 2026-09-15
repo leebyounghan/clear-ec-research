@@ -10,7 +10,10 @@
 > part of that reported submission. Score/rank were supplied by the team, not
 > freshly verified against platform model IDs in this repository update.
 >
-> **Frozen September 10 baseline:** use the
+> **Reviewer execution:** use the [Docker-only guide](docker_review_20260914/README.md).
+> No Kubernetes cluster/configuration or host Python environment is required.
+>
+> **Frozen September 10 baseline (historical):** use the
 > [review-package README](review_submission_20260910/README.md) for the frozen
 > six-member model, **Linux NVIDIA GPU + Python venv quick start**, Docker execution
 > and checkpoint instructions. The model archive is separate from the image.
@@ -20,31 +23,28 @@
 > The review directory is still a release draft; hosting/access and GPU parity
 > validation must be completed before technical-review dispatch.
 
-## September 10 baseline inference quick start (Linux NVIDIA GPU)
+## Inference quick start — Docker only (Linux NVIDIA GPU)
 
-Python 3.12 and a CUDA 12.6-compatible NVIDIA driver are required. From this clone:
-
-```bash
-cd review_submission_20260910
-bash scripts/setup_venv.sh
-source .venv/bin/activate
-python scripts/check_environment.py
-```
-
-Download and verify the unchanged model archive following
-[checkpoint placement](review_submission_20260910/README.md#b-obtain-and-verify-the-model-docker-image-download-is-optional).
-The external download URL is still awaiting publication. Once all eight resources
-are present in `checkpoints/model/`:
+Follow [artifact verification, input preparation and Docker execution](docker_review_20260914/README.md).
+After loading the original Docker image and extracting the checksum-verified
+September 14 SSL model, run:
 
 ```bash
-python scripts/predict_image.py --image /absolute/path/to/case.mha \
-  --model checkpoints/model --output predictions/case001 --gpu 0
+cd docker_review_20260914
+bash run.sh test_input checkpoints/model test_output 0
 ```
 
-This produces three scalar JSON files (CD, CV, HEX) without Docker. The original
-submitted inference sources and model bytes are unchanged; clean-venv GPU parity
-is not yet certified. For the original archived image, follow the review README's
-Docker path. Older research scripts and documents remain for historical reference.
+The runner verifies eight model hashes and the original image ID, then executes
+the unchanged FP16 inference inside an offline container. It writes three scalar
+JSON files (CD, CV, HEX). Models and input are read-only mounts; output is a
+dedicated empty directory. No host Python/venv, kubectl, kubeconfig, private
+registry, namespace, PVC or H200 cluster configuration is needed for this path.
+The host still needs Docker with NVIDIA GPU support and a compatible driver.
+
+External artifact hosting and a full Docker GPU smoke test remain separate
+readiness items; adding this guide does not certify that test. The historical
+September 10 venv instructions are retained as an optional alternative, not a
+reviewer prerequisite. No new Kubernetes reproducibility test is required.
 
 Training, evaluation, and analysis code for the [CLEAR-EC Grand Challenge](https://clear-ec.grand-challenge.org/)
 (Corneal Learning for Endothelial Assessment and Review). The task: predict three clinical metrics per
@@ -97,7 +97,9 @@ experiments are not part of this release. See the
 
 ```
 review_submission_20260910/  frozen six-member inference, training recipes and technical PDF
+docker_review_20260914/      primary Docker execution guide, exact model hashes and runner
 code/            historical training + eval + analysis scripts
+k8s/             historical private-cluster job manifests; NOT needed for reviewer inference
 submission/      older Grand Challenge container; not the September 10 release
 docs/
   METHODOLOGY.md   the pipeline, metric definitions, model/ensemble design

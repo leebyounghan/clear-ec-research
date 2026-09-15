@@ -1,0 +1,2 @@
+cfa6c2c8a234a5aefc8cf0ff0a3413bbaf7a353fc3e131cd7cddf33434896c8a  clear_ec_full_quality77_20260909.tar.gz
+e37c83db830cc5fa5215f7fd63267beb11e6c09a8778aefe2b8c6180a37a9730  model_full_quality77_ssl_raw_20260914.tar.gz

@@ -3,6 +3,12 @@
 Status: **organized local draft; not ready to email as a complete technical submission**.
 Organizer deadline: September 16; the supplied email does not specify a timezone.
 
+Current reviewer execution is [Docker-only](../docker_review_20260914/README.md),
+per the user's September 15 direction. Kubernetes configuration, a replicated
+private cluster and host-venv installation are NOT reviewer prerequisites.
+This historical September 10 checklist/PDF must be reconciled with the latest
+SSL model before dispatch; the latest model hashes are in the Docker guide.
+
 ## Completed in this local organization
 
 - [x] Isolated the September 10 candidate from later research.
@@ -27,8 +33,9 @@ Organizer deadline: September 16; the supplied email does not specify a timezone
 - [ ] Check data and third-party code/weight terms; add required notices.
 - [ ] Test inference from this clean checkout with the original image and model archives,
       preferably on a T4, with no network and documented output comparison tolerance.
-- [ ] Verify full clean-venv CUDA inference against the archived-image outputs;
-      installation/import checks alone do not close this gate.
+- [ ] Verify archived-image CUDA execution with only documented input/output/model
+      mounts; no K8s or host-venv reproduction is required. Do not mark this passed
+      from script syntax or earlier import checks alone.
 - [ ] Close the training-environment lock/data-bootstrap/OOF-selection reproduction
       gaps described in TRAINING.md. Do not claim complete retraining reproduction yet.
 - [ ] Remove local-only notes and unresolved draft fields after evidence is attached.

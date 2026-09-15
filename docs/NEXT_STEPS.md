@@ -6,7 +6,10 @@ Read [STATUS_20260915.md](STATUS_20260915.md) first. The latest team-reported
 official result is 8.7010. Preserve its sixth-only SSL release separately from
 the all-five SSL retraining wave. Next priority is technical-review reproducibility:
 exact submission-to-artifact mapping, accessible checkpoint hosting, an updated
-technical report and clean K8s execution. None is certified merely by pushing code.
+technical report and archived-image Docker execution on a Linux NVIDIA host.
+Use [the Docker guide](../docker_review_20260914/README.md); our K8s environment
+and host-venv reproduction are not reviewer requirements. No runtime result is
+certified merely by pushing code.
 Do not execute the historical roadmap below as current training authorization.
 
 > **Historical plan — superseded Sep3/4 2026.** Read
