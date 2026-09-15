@@ -1,5 +1,10 @@
 # Historical training reproduction notes
 
+These recipes describe the September 10 baseline. The first five members are
+retained in the September 14 release, but its sixth member instead follows the
+[SSL/raw release recipe](../docs/SSL_RELEASE_20260914.md). For reviewer inference,
+use the [Docker guide](../docker_review_20260914/README.md); retraining is separate.
+
 This is a faithful source/recipe inventory, not a claim that clean retraining has
 already passed. The submitted weights are the reproduction target; inference from
 those weights is the primary scored-result reproduction path.
@@ -60,7 +65,7 @@ cd training
 python code/cache_native.py
 python code/prepare_fullframe_cache.py \
   --archive /absolute/path/to/authorized/raw-archive.tar.gz \
-  --sha256 <verified-raw-archive-sha256>
+  --sha256 "REPLACE_WITH_VERIFIED_RAW_ARCHIVE_SHA256"
 python code/audit_raw_id_aliases.py
 python code/prepare_final9000_candidate.py
 python experiments/region_search_20260905/source/code/fullframe_views.py

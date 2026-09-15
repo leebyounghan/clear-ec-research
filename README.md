@@ -1,133 +1,67 @@
-# CLEAR-EC — Research & Training Repo
+# Lamda&KIM — CLEAR-EC Phase I
 
-개발 기록·제출본·재현 코드·데이터/PVC 위치는 [개발 기록 및 재현 자료 인덱스](docs/DEVLOG_INDEX.md)를 참고하세요.
+Code and documentation for the September 14, 2026 submission. The model predicts
+cell density (CD), coefficient of variation (CV) and hexagonality (HEX) from a
+single corneal specular microscopy image.
 
-> **Latest reported Phase I result: 8.7010 (September 14, Lamda&KIM).**
-> [Evaluation](https://clear-ec.grand-challenge.org/evaluation/7606a2b6-818f-46d0-a1fc-d060648fc2c6/).
-> See [September 15 status and version map](docs/STATUS_20260915.md) and
-> [SSL + raw-label release](docs/SSL_RELEASE_20260914.md). The prepared release
-> replaces only the sixth member; the separately retrained first five are NOT
-> part of that reported submission. Score/rank were supplied by the team, not
-> freshly verified against platform model IDs in this repository update.
->
-> **Reviewer execution:** use the [Docker-only guide](docker_review_20260914/README.md).
-> No Kubernetes cluster/configuration or host Python environment is required.
->
-> **Frozen September 10 baseline (historical):** use the
-> [review-package README](review_submission_20260910/README.md) for the frozen
-> six-member model, **Linux NVIDIA GPU + Python venv quick start**, Docker execution
-> and checkpoint instructions. The model archive is separate from the image.
-> Official Phase I score: **8.7042**; leaderboard position **1** when checked on
-> September 12, 2026. [Evaluation](https://clear-ec.grand-challenge.org/evaluation/0a82fe58-7f9a-4a88-b744-bcfa84b1e43a/).
-> [Technical report (PDF)](review_submission_20260910/output/pdf/Technical_Report.pdf).
-> The review directory is still a release draft; hosting/access and GPU parity
-> validation must be completed before technical-review dispatch.
+| Resource | Link |
+|---|---|
+| Technical report, including experiment timeline | [PDF](output/pdf/Lamda_KIM_CLEAR_EC_Technical_Report.pdf) |
+| Model weights and Docker image | [Google Drive](https://drive.google.com/drive/folders/1QyNtGhaEpePwBEyjj-UorqRkSFDRmKUn?usp=sharing) |
+| Installation and inference | [Docker guide](docker_review_20260914/README.md) |
+| Model recipe and training evidence | [Method](docs/METHODOLOGY.md) · [Release record](docs/SSL_RELEASE_20260914.md) |
+| File identities | [Artifact manifest](docs/ARTIFACTS.md) |
 
-## Inference quick start — Docker only (Linux NVIDIA GPU)
+## Results
 
-Follow [artifact verification, input preparation and Docker execution](docker_review_20260914/README.md).
-After loading the original Docker image and extracting the checksum-verified
-September 14 SSL model, run:
+| Submission | Phase I score |
+|---|---:|
+| September 14 | [8.7010](https://clear-ec.grand-challenge.org/evaluation/7606a2b6-818f-46d0-a1fc-d060648fc2c6/) |
+| September 10 baseline | [8.7042](https://clear-ec.grand-challenge.org/evaluation/0a82fe58-7f9a-4a88-b744-bcfa84b1e43a/) |
+
+Lower is better. The latest score was supplied by the team; internal development
+scores are reported separately in the technical report. Exact platform
+model-version-to-archive binding remains an open verification item.
+
+## Method
+
+Six equally weighted Cellpose-SAM regression models use native 256 × 256 tiles
+and 40 views per member. Five sample the central field; the sixth uses
+quality-selected regions across the original image. Predictions are decoded
+before ensemble averaging and fixed per-metric calibration.
+
+The September 14 package retains the first five checkpoints and replaces only
+the sixth with custom masked-EMA SSL followed by raw-label regression:
+9,000 training images / 6,000 SSL updates, then 8,998 valid labeled images /
+5,215 regression updates. The container and calibration are unchanged.
+
+## Run inference
+
+Use Linux x86_64 with Docker, NVIDIA Container Toolkit and a CUDA 12.6-compatible
+GPU driver. No Kubernetes or host Python environment is required.
+
+1. Clone this repository.
+2. Follow the [Docker guide](docker_review_20260914/README.md) to download and
+   verify the archives, load the image, and prepare one MHA input.
+3. Run:
 
 ```bash
 cd docker_review_20260914
 bash run.sh test_input checkpoints/model test_output 0
 ```
 
-The runner verifies eight model hashes and the original image ID, then executes
-the unchanged FP16 inference inside an offline container. It writes three scalar
-JSON files (CD, CV, HEX). Models and input are read-only mounts; output is a
-dedicated empty directory. No host Python/venv, kubectl, kubeconfig, private
-registry, namespace, PVC or H200 cluster configuration is needed for this path.
-The host still needs Docker with NVIDIA GPU support and a compatible driver.
+The container writes three JSON numbers: CD in cells/mm², CV and HEX as fractions.
+Models and input are mounted read-only; output must be a new, writable directory.
 
-External artifact hosting and a full Docker GPU smoke test remain separate
-readiness items; adding this guide does not certify that test. The historical
-September 10 venv instructions are retained as an optional alternative, not a
-reviewer prerequisite. No new Kubernetes reproducibility test is required.
+## Repository map
 
-Training, evaluation, and analysis code for the [CLEAR-EC Grand Challenge](https://clear-ec.grand-challenge.org/)
-(Corneal Learning for Endothelial Assessment and Review). The task: predict three clinical metrics per
-specular-microscopy image — **Cell Density (CD)**, **Coefficient of Variation (CV)**, **Hexagonality (HEX)**.
+- `docker_review_20260914/`: current Docker instructions, runner and checksums.
+- `review_submission_20260910/`: unchanged inference source and historical training recipes.
+- `output/pdf/`: current technical report.
+- `docs/`: concise method, artifact and development summaries.
+- `docs/archive/`: historical research/operations records, not reviewer setup instructions.
+- `code/`, `results/`, `k8s/`: research code, aggregate evidence and historical job manifests.
 
-This repo contains research/training history and the frozen September 10 review
-package under `review_submission_20260910/`. The older `submission/` directory is
-historical. Grand Challenge currently links to
-[`clear-ec-algo`](https://github.com/leebyounghan/clear-ec-algo) according to the team;
-that repository has NOT been synchronized by this research-repository update.
-The September 10 PDF and review package remain historical snapshots, not updated
-documentation of the September 14 SSL weights.
-
-> **Continuing on a new GPU?** Read [`docs/REPRODUCE.md`](docs/REPRODUCE.md) first (env + data + how to
-> retrain), then [`docs/ARTIFACTS.md`](docs/ARTIFACTS.md) (which large files to copy over), then
-> [`docs/NEXT_STEPS.md`](docs/NEXT_STEPS.md) (what to work on).
-
----
-
-## Where we stand
-
-| Submission | Official Phase I score | Status |
-|---|---:|---|
-| **Lamda&KIM — September 14 submission** | **[8.7010](https://clear-ec.grand-challenge.org/evaluation/7606a2b6-818f-46d0-a1fc-d060648fc2c6/)** | Latest team-reported result; rank 2 in supplied row; improvement 0.0032 over September 10 |
-| **Lamda — September 10 submission** | **[8.7042](https://clear-ec.grand-challenge.org/evaluation/0a82fe58-7f9a-4a88-b744-bcfa84b1e43a/)** | Succeeded; **rank 1** when checked September 12, 2026 |
-| Earlier Lamda submission | [9.0009](https://clear-ec.grand-challenge.org/evaluation/84234081-8f49-4142-8440-9790f5de11bb/) | Historical result; not the current model |
-
-Metric = mean of the three per-metric MAPEs (%); lower is better. Rank can change.
-The linked September 10 page reports evaluation ID `0a82fe58-7f9a-4a88-b744-bcfa84b1e43a`,
-image version `730ff3f7-ea96-4180-936d-bc02a4eca762` and model version
-`db061942-478a-42b6-a6d7-b6dff1626108`. Per-metric official scores are not displayed
-on that page. Internal validation scores, calibration estimates and later research
-experiments are not official challenge results. No proven performance ceiling is asserted.
-
-## September 10 baseline methodology
-
-A **Cellpose-SAM encoder with shared features and three regression heads** predicts
-CD, CV and HEX in standardized log space. The final fits use **8,998 eligible images**
-from the 9,000-image training archive, with slide-averaged positive labels. The
-submitted ensemble has **six equally weighted models**: three central-crop seeds,
-one mixed-loss central model, one two-crop central model and one quality-selected
-full-native-field model. Each member uses five native256 crops with eight dihedral
-transforms (40 views), then decoded member predictions are averaged and fixed
-per-metric calibration is applied. Inference is FP16. Later domain-SSL and raw-label
-experiments are not part of this release. See the
-[technical report](review_submission_20260910/output/pdf/Technical_Report.pdf) and
-[historical training recipes](review_submission_20260910/TRAINING.md).
-
-## Repo layout
-
-```
-review_submission_20260910/  frozen six-member inference, training recipes and technical PDF
-docker_review_20260914/      primary Docker execution guide, exact model hashes and runner
-code/            historical training + eval + analysis scripts
-k8s/             historical private-cluster job manifests; NOT needed for reviewer inference
-submission/      older Grand Challenge container; not the September 10 release
-docs/
-  METHODOLOGY.md   the pipeline, metric definitions, model/ensemble design
-  FINDINGS.md      historical experiments and hypotheses; not proof of a noise floor
-  REPRODUCE.md     env setup, data regeneration, exact training commands
-  ARTIFACTS.md     manifest of large files (checkpoints, caches) + how to transfer/regenerate
-  NEXT_STEPS.md    prioritized roadmap for the next GPU
-results/         small result JSONs (per-run val/test MAPEs) + norm_consts.json
-env/             environment.yml / requirements-clearec.txt
-```
-
-## Latest prepared release and historical baseline
-
-Latest model-only archive: `model_full_quality77_ssl_raw_20260914.tar.gz`
-(7,964,665,157 bytes), SHA256
-`e37c83db830cc5fa5215f7fd63267beb11e6c09a8778aefe2b8c6180a37a9730`.
-It preserves the first five models and calibration, and replaces the sixth with
-standard custom masked-EMA SSL (all 9,000 images, 6,000 updates) followed by
-raw-label regression (8,998 eligible images, 5,215 updates). This is not DINO or
-I-JEPA. See [release provenance and limitations](docs/SSL_RELEASE_20260914.md).
-Weights are not hosted in Git; local delivery is not evaluator-accessible hosting.
-
-The September 10 release uses **separate container and model archives**:
-
-- Container: `clear_ec_full_quality77_20260909.tar.gz` (approximately4.06GB).
-- Model: `model_full_quality77_20260909.tar.gz` (approximately7.96GB), mounted at `/opt/ml/model`.
-- Configuration: `candidate6_full_quality.json`, six members, FP16 inference.
-
-Use the [review-package instructions](review_submission_20260910/README.md) and
-[technical report PDF](review_submission_20260910/output/pdf/Technical_Report.pdf).
-The old v4 single-archive instructions do not reproduce this submission.
+Challenge images and large model binaries are not stored in Git. See
+[reproduction scope](docs/REPRODUCE.md) for validation limits and the
+[review checklist](docs/NEXT_STEPS.md) for outstanding access checks.

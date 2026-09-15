@@ -1,40 +1,35 @@
-# Lamda&KIM — Docker inference, September 14 model
+# Docker inference — September 14 release
 
-This is the primary reviewer execution path. **No Kubernetes, kubectl, kubeconfig,
-private namespace, PVC, training container or host Python/venv is required.**
-All model loading and inference run inside the archived Docker image. The host
-only downloads/verifies/extracts artifacts and mounts input, output and models.
+Run the original container with the separately mounted SSL + raw-label model.
+No Kubernetes or host Python/venv setup is required.
 
-This uses the delivered sixth-only standard SSL + raw-label release, NOT the
-later all-five SSL retraining. The team reported Phase I score8.7010; exact platform
-model-ID/archive identity is still a separate review check. See
-[version map](../docs/STATUS_20260915.md). Model hosting URLs are still pending;
-this guide is not yet an access-complete technical submission.
+## Requirements
 
-## 1. Host requirements
+- Linux x86_64, Docker Engine and NVIDIA Container Toolkit.
+- NVIDIA GPU with a CUDA 12.6-compatible driver.
+- Bash, GNU `realpath` / `sha256sum`, and `tar`.
+- Disk for approximately 12 GB of archives, 8.55 GB of extracted models,
+  the loaded Docker image and Docker storage overhead.
 
-- Linux x86_64 with Docker Engine and NVIDIA Container Toolkit GPU support.
-- NVIDIA GPU and driver compatible with CUDA12.6. The challenge allocation was
-  one T4/16GiB VRAM and16GB host RAM; actual T4 runtime remains unmeasured here.
-- Bash, GNU coreutils (`sha256sum`, `realpath`) and `tar`.
-- Disk for ~12GB archives, ~8.55GB extracted models and the loaded Docker image.
+The image contains Python 3.12.3 and PyTorch 2.11.0+cu126. The challenge allocation
+is a T4 with 16 GiB VRAM and 16 GB RAM; independent T4 timing is not recorded.
 
-The image contains Python3.12.3, PyTorch2.11.0+cu126 and application dependencies.
-Do not install training packages on the host. macOS CPU/MPS is not a replacement
-for this CUDA path. See [Docker GPU access](https://docs.docker.com/engine/containers/resource_constraints/#gpu).
-Historical H200 checks measured ~8–10seconds/image; this is not a T4 guarantee.
+## 1. Download and verify
 
-## 2. Download and verify exact artifacts
+```bash
+git clone https://github.com/leebyounghan/clear-ec-research.git
+cd clear-ec-research/docker_review_20260914
+mkdir artifacts
+```
 
-Run from this directory (`cd docker_review_20260914` after cloning the research
-repository). Download these two files into a new `artifacts/` folder from the
-reviewer-accessible hosting links once published:
+Private-repository access must already be granted. From the
+[Google Drive folder](https://drive.google.com/drive/folders/1QyNtGhaEpePwBEyjj-UorqRkSFDRmKUn?usp=sharing),
+save these exact files into `artifacts/`:
 
-- `clear_ec_full_quality77_20260909.tar.gz`: unchanged container archive.
-- `model_full_quality77_ssl_raw_20260914.tar.gz`: latest delivered model archive.
+- `clear_ec_full_quality77_20260909.tar.gz`
+- `model_full_quality77_ssl_raw_20260914.tar.gz`
 
-Do not substitute `model_full_quality77_20260909.tar.gz`, the raw-only September13
-archive, or newly retrained first-five weights. Check before extraction/loading:
+The older date in the Docker filename is expected: only the model archive changed.
 
 ```bash
 set -euo pipefail
@@ -50,12 +45,13 @@ docker image inspect \
   --format '{{.Id}}'
 ```
 
-`mkdir checkpoints/model` intentionally refuses an existing directory. Do not
-unpack over another release. Docker image ID and archive SHA256 are different.
-Only use the checksum-verified trusted archives. The original image and all
-inference sources remain unchanged; models are mounted separately.
+Do not extract over an existing model directory. Archive SHA256 and Docker image
+ID are different identifiers; see [artifact identities](../docs/ARTIFACTS.md).
 
-## 3. Prepare one input and a new output directory
+## 2. Prepare one input
+
+Use one authorized, self-contained grayscale uint8 MHA, at least 512 × 512 pixels.
+Preserve its native resolution; do not resize cells or supply manual ROI.
 
 ```bash
 mkdir -p test_input/images/corneal-specular-microscopy-image
@@ -66,60 +62,45 @@ mkdir test_output
 sudo chown 10001:10001 test_output
 ```
 
-Use exactly one self-contained grayscale uint8 MHA, with at least512x512 pixels.
-Do not resize/rescale cell sizes or supply manual ROI. Input files and model
-files must be readable and their directories traversable by container UID10001;
-grant access only to this dedicated review workspace. Output must be empty and
-writable by UID10001. Do not run broad recursive permission changes.
+Replace the example image path. Input/model files must be readable and parent
+directories traversable by container UID 10001. Output must be empty and writable
+by that UID; restrict permission changes to this dedicated directory.
 
-## 4. Execute inside Docker
+## 3. Execute
 
 ```bash
 bash run.sh test_input checkpoints/model test_output 0
 ```
 
-The fourth argument is the host GPU index (default0). The runner verifies all eight
-model-resource hashes and the loaded image ID, then runs the original entrypoint
-with FP16. It mounts only input/model read-only and output writable, uses a
-read-only root filesystem, temporary `/tmp`, and `--network none`. It does not
-mount the repository, Docker socket, home directory or any cluster configuration.
+The final argument selects the GPU (default 0). The runner checks all eight model
+resource hashes and the image ID, then runs FP16 inference with networking disabled.
+It mounts only input/model read-only and output writable.
 
-Outputs:
+| Output in `test_output/` | Value |
+|---|---|
+| `cell-density.json` | Positive finite number, cells/mm² |
+| `coefficient-of-variation.json` | Positive finite fraction |
+| `hexagonality.json` | Positive finite fraction |
 
-- `test_output/cell-density.json`: one finite positive number, cells/mm².
-- `test_output/coefficient-of-variation.json`: one finite positive fraction.
-- `test_output/hexagonality.json`: one finite positive fraction.
+Do not multiply CV or HEX by 100. Use a new empty output directory for every case.
 
-Do not multiply CV or HEX by100. Use a new empty output directory for each case.
-The three output filenames and calculation are the unchanged challenge contract.
+## Source and verification
 
-## 5. Source rebuild (optional, different image identity)
-
-From the repository root:
+The unchanged source and pinned dependencies are in
+[`review_submission_20260910/`](../review_submission_20260910/README.md).
+An optional source rebuild from the repository root is:
 
 ```bash
 docker build --platform linux/amd64 -t lamda:review-rebuild review_submission_20260910
 ```
 
-That Dockerfile uses the public pinned PyTorch base and copies only inference
-`app/` and dependency constraints. Its `.dockerignore` excludes research/K8s files,
-models and documentation from build context. Build-time internet access may be
-needed; inference with the complete model archive needs no network. A rebuild is
-not guaranteed to have the archived image ID. The exact-image runner above
-intentionally does not accept an unverified rebuild as the submitted container.
+A rebuild has a different identity and is not accepted by the exact-image runner
+above. Use the verified archive for release reproduction.
 
-## 6. Verification scope and repository separation
-
-This update changes the reviewer workflow, not model predictions. Script syntax,
-resource-manifest consistency and command construction can be checked without
-training. **No new end-to-end Docker GPU execution is claimed by this update.**
-A container smoke test on a Linux NVIDIA host remains desirable; reproducing our
-private Kubernetes infrastructure or performing a new K8s venv test is not required.
-External model access, updated technical PDF and any full-training reproduction
-gaps remain separate checklist items.
-
-The parent research repository intentionally preserves `k8s/` job manifests with
-our historical namespace/PVC/node-selector settings. They are not kubeconfig
-credentials and are not a dependency of this runner or final inference image.
-Historical `review_submission_20260910` venv instructions/provenance are optional
-records, not steps to execute for this Docker workflow.
+Hashes, strict reload and eight-image frozen CUDA 12.6 application checks passed.
+On September 15, a fresh GitHub checkout and complete anonymous Drive downloads
+passed archive/resource hashes and one-image archived-container inference on an
+RTX 4090; see the [verification record](../docs/DOCKER_SMOKE_20260915.md).
+This does not certify T4 execution, accuracy, or evaluator GitHub access.
+See [reproduction scope](../docs/REPRODUCE.md)
+and the [technical report](../output/pdf/Lamda_KIM_CLEAR_EC_Technical_Report.pdf).

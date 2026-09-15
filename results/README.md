@@ -1,9 +1,14 @@
-# Result JSONs
+# Aggregate research evidence
 
-Per-run held-out val/test MAPEs (CD, CV, HEX) and ensemble selections. Key files:
-- `ens_specialist_results.json` — the adopted per-metric ensemble: test [6.41, 10.39, 9.97], OV 8.92.
-- `ens_dino_results.json` — DINOv2 ensemble test (rejected; proves model-invariant errors).
-- `regress_ft_results_*.json` — individual members (clahe_s2, attn_clahe, clahe_long, spec_hex, dino,
-  fullframe[rejected], dldl, etc.).
-- `roi_region_diag.json` — intra-image metric spread across windows (CV spread ~32% → the noise floor).
-- `norm_consts.json` — LM / LS / YMEAN target-normalization constants.
+These JSONs preserve development measurements and provenance, not a current
+leaderboard. Cohorts, folds, label policies and calibration differ between runs;
+compare only matched populations.
+
+For the September 14 release, start with
+[`raw_ssl_next_20260913/ssl_audit.json`](raw_ssl_next_20260913/ssl_audit.json)
+and the [technical report](../output/pdf/Lamda_KIM_CLEAR_EC_Technical_Report.pdf).
+
+Historical filenames such as `test` or `best` do not establish an untouched
+test set or the submitted model identity. Correlated errors and ROI variation
+do not prove an irreducible noise floor. No raw challenge images or per-case
+label exports are intended for this directory's review evidence.
