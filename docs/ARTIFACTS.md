@@ -1,5 +1,22 @@
 # Artifacts — large files (not in git) and how to get them
 
+## September 15 version map
+
+See [STATUS_20260915.md](STATUS_20260915.md) for the delivered sixth-only SSL
+archive hash and separate completed all-five SSL checkpoint paths. The latest
+archive is `model_full_quality77_ssl_raw_20260914.tar.gz`; it is not the older
+September 10 model, and the all-five retraining is not packaged into it.
+Local archive delivery does not provide evaluator-accessible external hosting.
+
+## Sep3/4 2026: original archive now available
+
+The user provided `clear-ec-train9000-raw.tar.gz` (6,633,443,603 bytes). The verified
+pod copy is `/workspace/artifacts/clear-ec-train9000-raw.tar.gz`; raw images and
+separate full-frame caches are in `datasets/clear_ec_fullframe_20260904`.
+See [SUBMISSION_20260904.md](SUBMISSION_20260904.md) for checksum, validation,
+ID reconciliation, current experiments and submission restrictions. The original
+central512 cache was not replaced. Treat the v4 instructions below as historical.
+
 Git holds **code + docs + small result JSONs only**. Weights and image caches are large and are excluded via
 `.gitignore`. To continue on a new machine you either **regenerate** (from the public challenge data) or
 **transfer** the files below.

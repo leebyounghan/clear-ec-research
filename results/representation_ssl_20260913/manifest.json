@@ -1,0 +1,64 @@
+{
+  "created_at": "2026-09-13T14:45:58+0000",
+  "source_sha256": {
+    "experiments/representation_ssl_20260913/source/run_representation_ssl_20260913.py": "10021bb0a2f43789611005cbbe337d8952864276f17a466fd96014fd8cb22062",
+    "experiments/representation_ssl_20260913/source/representation_ssl_core.py": "afb43366da43414ce4971ad06ff7266478849c73d0df7dc3f047e4afa09b6f78",
+    "experiments/representation_ssl_20260913/source/test_representation_ssl.py": "b62a5e90daa820c8cc7c38e209fb468543885c295a2a98b46a749e34fb9800d5"
+  },
+  "input_sha256": {
+    "experiments/raw_ssl_next_20260913/ssl_runs/fold2/standard/oof.npz": "b7d81472014a46641c2dd78c6462ec036397f1aeebe95d69d7bfa6985c21fe27",
+    "experiments/raw_ssl_next_20260913/ssl_runs/fold2/standard/config.json": "5a45d0ac9c7b1a2a88a7d4e5feb390a09189cdbb68ba9b48811d2b12c233bab4",
+    "experiments/raw_ssl_next_20260913/ssl_runs/fold2/standard/result.json": "34226dd506a8d17859532b64ce5afa88b7cf97997a8e2524782460074b89ca93",
+    "experiments/raw_ssl_next_20260913/ssl_runs/fold3/standard/oof.npz": "bd3062360d0da0f929aad281954385b98d4e77da9ed250a1441e540b4d24abda",
+    "experiments/raw_ssl_next_20260913/ssl_runs/fold3/standard/config.json": "659bdf596e4e96ae096014ff5db2bd8104213403636db213d3379e690cae849a",
+    "experiments/raw_ssl_next_20260913/ssl_runs/fold3/standard/result.json": "2e5fe393b9255344379c66479fda5a53cf429a77058cc3def08b788d9eb9d649",
+    "experiments/raw_ssl_next_20260913/manifest.json": "d41193e6feaa61bb25f3690070d3499505e85ddaacf9f0370a1bfdd1f9de9df4",
+    "experiments/raw_ssl_next_20260913/ssl_audit.json": "2157cbb932dfdf37b19c8adbdf6e94fb220e4851a7590081fa98d02f2da5a5de",
+    "experiments/raw_ssl_next_20260913/ssl_complete.json": "5065da1707fa92e17d75e2f450bff9cac6314fc8b9b6d81c03fc559060e58052"
+  },
+  "folds": {
+    "2": {
+      "train_rows": 7153,
+      "validation_rows": 1791,
+      "primary_rows": 1781,
+      "removed_train_rows": 10,
+      "split_path": "experiments/overnight_target_20260912/preflight/fold2.npz",
+      "split_sha256": "3088f880c18609bb7c9f517c05e81d54fb82ef9ac28e2ebc784db4d3188afd41",
+      "updates": 5215,
+      "slide_and_exact_duplicate_overlap": 0,
+      "reference_root": "experiments/overnight_target_20260912",
+      "control_root": "experiments/overnight_target_20260912/runs/raw_fold2"
+    },
+    "3": {
+      "train_rows": 7161,
+      "validation_rows": 1791,
+      "primary_rows": 1791,
+      "removed_train_rows": 0,
+      "split_path": "experiments/overnight_target_20260912/preflight/fold3.npz",
+      "split_sha256": "1d5a3f88723602f30809c08e415df831596d7250be101d10b2b6341c24347233",
+      "updates": 5215,
+      "slide_and_exact_duplicate_overlap": 0,
+      "reference_root": "experiments/overnight_target_20260912",
+      "control_root": "experiments/overnight_target_20260912/runs/raw_fold3"
+    }
+  },
+  "variants": {
+    "low_cov": {
+      "covariance_weight": 0.001,
+      "anchor_weight": 0.0
+    },
+    "spatial_anchor": {
+      "covariance_weight": 0.01,
+      "anchor_weight": 0.1
+    }
+  },
+  "ssl_updates": 6000,
+  "primary_endpoint": "single_model_mean_MAPE",
+  "downstream": "raw labels, full_quality native256, seed77, K2/batch48, encoder1e-5/head1e-3; frozen terminal updates",
+  "selection": ">=0.03 single-model improvement vs existing standard SSL, both folds better; no auto promotion",
+  "max_seconds": 36000,
+  "no_ensemble": true,
+  "no_submission": true,
+  "no_all_data_fit": true,
+  "caveat": "Reused development folds; no untouched validation or leaderboard prediction"
+}

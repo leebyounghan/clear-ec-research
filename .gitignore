@@ -13,8 +13,18 @@
 *.h5
 cpsam_models/
 datasets/
+experiments/
+logs/
 __pycache__/
 *.pyc
 .DS_Store
+# Local delivery, runtime credentials and environments are not research sources.
+/submission_candidate_*/
+.env
+.env.*
+!.env.example
+.venv/
+*.pem
+*.key
 # keep the small reference result JSONs and norm consts under results/
 !results/*.json

@@ -1,0 +1,82 @@
+{
+  "n": 3572,
+  "folds": [
+    2,
+    3
+  ],
+  "reports": {
+    "raw": {
+      "overall": 9.354773000983545,
+      "per_metric": [
+        7.026769243271663,
+        10.671787886413597,
+        10.365761873265377
+      ],
+      "per_fold": {
+        "2": 9.333033906553359,
+        "3": 9.37643713365876
+      }
+    },
+    "standard_ssl": {
+      "overall": 9.2926350938615,
+      "per_metric": [
+        6.874325310632064,
+        10.69219131562258,
+        10.311388655329859
+      ],
+      "per_fold": {
+        "2": 9.323447396655666,
+        "3": 9.262036340880613
+      }
+    },
+    "low_cov": {
+      "overall": 9.311844130805147,
+      "per_metric": [
+        6.980190133506609,
+        10.668219203395262,
+        10.287123055513566
+      ],
+      "per_fold": {
+        "2": 9.30459735617404,
+        "3": 9.319094274597129
+      }
+    },
+    "spatial_anchor": {
+      "overall": 9.335321910550798,
+      "per_metric": [
+        6.973318092764493,
+        10.7152208887973,
+        10.3174267500906
+      ],
+      "per_fold": {
+        "2": 9.349675118730858,
+        "3": 9.321099255936943
+      }
+    }
+  },
+  "research_gates": {
+    "low_cov": false,
+    "spatial_anchor": false
+  },
+  "input_sha256": {
+    "experiments/representation_ssl_20260913/runs/low_cov_fold2/downstream/selected.pt": "d5bcd5fd040c6ef3519cc3044932cfca7fe8c0792b2d7f26ff1e6df6d81e7b71",
+    "experiments/representation_ssl_20260913/runs/low_cov_fold2/downstream/oof.npz": "a51c07b661d03ac311ecfecbd9ee52e7847e910005df67783d6ffcb6e15723ac",
+    "experiments/representation_ssl_20260913/runs/low_cov_fold2/downstream/result.json": "cd47ac90edf9c6fb879cdd74fefeb023ec0797f1c369f558b244a764f9bb086f",
+    "experiments/representation_ssl_20260913/runs/low_cov_fold2/downstream/config.json": "013e17cc417e0cec52b75de4cca7e24220e046ed44bb4cf726ef764279d8675c",
+    "experiments/representation_ssl_20260913/runs/spatial_anchor_fold2/downstream/selected.pt": "07007b21769791a1e98a0aa52250cc81b6ce14dd8a51a8b67b7e08ca5bce02e9",
+    "experiments/representation_ssl_20260913/runs/spatial_anchor_fold2/downstream/oof.npz": "2cbfadfd83b10391242decf2bc98de1526b45ca5c485346d53667798e6159e76",
+    "experiments/representation_ssl_20260913/runs/spatial_anchor_fold2/downstream/result.json": "e68d1005eb63746033e559127d1a0c9ec520b9f16f0a83556b4f4b04f2b7c5c3",
+    "experiments/representation_ssl_20260913/runs/spatial_anchor_fold2/downstream/config.json": "4ab46bfea2dc012baede10831a25bb13eabc037935993901a3a07517a256e5bb",
+    "experiments/representation_ssl_20260913/runs/low_cov_fold3/downstream/selected.pt": "50c47d0423e9c6b8c97a64d5dd834f4feba08ca1e369e4616bf15eff693c6339",
+    "experiments/representation_ssl_20260913/runs/low_cov_fold3/downstream/oof.npz": "2a320d15c742a7af297585ae7b0dcd38cb96a4ca47b3061c00ad06914194a38f",
+    "experiments/representation_ssl_20260913/runs/low_cov_fold3/downstream/result.json": "40cba708590f896b693053459e8c15f6bbf8767c49128f80fbca29f96b572e3b",
+    "experiments/representation_ssl_20260913/runs/low_cov_fold3/downstream/config.json": "3af8e36b06b0ef3432a102137f1494dba17f23c59886fb8114d4ad9d5851efbd",
+    "experiments/representation_ssl_20260913/runs/spatial_anchor_fold3/downstream/selected.pt": "8360cfee59f2b5642b2511bd808a2a040d39fc7f7b573c55a30d99075537b0c7",
+    "experiments/representation_ssl_20260913/runs/spatial_anchor_fold3/downstream/oof.npz": "53ce94bd7709d295984cca58e6e64e4cf6e1a48f8f6df30e4ae8a6438c1e1846",
+    "experiments/representation_ssl_20260913/runs/spatial_anchor_fold3/downstream/result.json": "fa5776fc2d4f1736e211a8c3c58b2d269c6d2a511a527957bce470f30fff903b",
+    "experiments/representation_ssl_20260913/runs/spatial_anchor_fold3/downstream/config.json": "f36c04ca70315fb44bbca67073ebc5b2deec8f0bc4fc214e3158a26eb91315db"
+  },
+  "primary_endpoint": "single_model",
+  "automatic_promotion": false,
+  "finished_at": "2026-09-13T21:48:49+0000"
+}

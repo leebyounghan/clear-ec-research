@@ -1,7 +1,31 @@
 # Next steps — roadmap for the new GPU
 
-Prioritized by expected value **given the central finding** (CV/HEX are at a proven noise floor; CD is the
-only metric with headroom). Read [`FINDINGS.md`](FINDINGS.md) before starting so you don't re-run a dead end.
+## September 15 entry point
+
+Read [STATUS_20260915.md](STATUS_20260915.md) first. The latest team-reported
+official result is 8.7010. Preserve its sixth-only SSL release separately from
+the all-five SSL retraining wave. Next priority is technical-review reproducibility:
+exact submission-to-artifact mapping, accessible checkpoint hosting, an updated
+technical report and clean K8s execution. None is certified merely by pushing code.
+Do not execute the historical roadmap below as current training authorization.
+
+> **Historical plan — superseded Sep3/4 2026.** Read
+> [REGION_SEARCH_20260905.md](REGION_SEARCH_20260905.md) for the active native-crop/external-pretrain search before September10,
+> [DEPLOY_REVIEW_20260905.md](DEPLOY_REVIEW_20260905.md) for the current correction/validation queue,
+> [DEPLOY_METHODS_20260905.md](DEPLOY_METHODS_20260905.md) for the active all-data deployment fits,
+> [METHODS_20260904.md](METHODS_20260904.md) for the active finite method screen,
+> [FINAL_CANDIDATE_20260904.md](FINAL_CANDIDATE_20260904.md) for the protected completed candidate,
+> [SUBMISSION_20260904.md](SUBMISSION_20260904.md) and
+> [FOLLOWUP_20260902.md](FOLLOWUP_20260902.md) for current evidence and running jobs.
+> Do not execute the old submission instruction below. CV/HEX irreducible noise
+> floors and a universal rejection of full-frame inputs have not been established.
+> Current OOF uses five held-out slide-group folds (~80% train / ~20% validation
+> per fold), over 8,954 aligned images; the older 1/10 wording below is incorrect.
+> All 9,000 original images have now been imported separately.
+
+The priorities below are historical and depended on an unproven noise-floor
+hypothesis. They are not current execution instructions. Read `FINDINGS.md` and
+the current correction/validation plan before allocating additional compute.
 
 ## 0. First, non-negotiable: get the real leaderboard anchor
 
@@ -57,11 +81,12 @@ and the ROI is hidden — it needs **both** a much better segmenter **and** ROI 
 Only worth it if 1–4 stall and there's compute to burn (a week). Assets exist: `pool_edge_u8.dat` (fNLA
 edges), `green_eval/` (25 boxed references), `train_unet.py`/`micro_sam_finetune.py`.
 
-## Do NOT retry (see FINDINGS.md for the numbers)
+## Historical negative results (not universal exclusions)
 
-Self-training/pseudo-mask scaling · full-*frame* regression · more diverse *backbones* (DINOv2/ConvNeXt —
-proven not decorrelated) · heuristic ROI recovery from metrics · fNLA scalar fusion · naive FFT blend ·
-point-detector CD as-is · watershed CV.
+The tested versions of self-training, full-frame regression, diverse backbones,
+heuristic ROI recovery, fNLA scalar fusion, FFT blending, point detection and
+watershed did not improve the historical candidate. Revisit only with a specific
+changed hypothesis and a matched control; they are not proven impossible.
 
 ## Open questions worth a quick experiment
 

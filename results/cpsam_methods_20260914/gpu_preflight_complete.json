@@ -1,0 +1,49 @@
+{
+  "results": {
+    "dino": {
+      "steps": 4,
+      "unique_images_seen": 128,
+      "sample_order_sha256": "149fbd6a301050f6a583da6cd44cbf6421fd9a82b3a82bd576cde045788482a3",
+      "strict_reload": true,
+      "checkpoint": "experiments/cpsam_methods_20260914_v2/gpu_preflight/dino/encoder_0004.pt",
+      "checkpoint_sha256": "7a307867f83dc2beba0017a0fdac02e0d84d9ec294ebad9f52f7fd67e8167876",
+      "elapsed_seconds": 17.249495942145586,
+      "initial": {
+        "std": 1.7366597652435303,
+        "rank": 4.396247863769531
+      },
+      "final": {
+        "step": 4,
+        "std": 1.7359390258789062,
+        "rank": 4.397989749908447
+      },
+      "inference_backbones": 1,
+      "labels_used": false,
+      "all9000": true,
+      "equivalence_max_abs": 0.0
+    },
+    "ijepa": {
+      "steps": 4,
+      "unique_images_seen": 128,
+      "sample_order_sha256": "149fbd6a301050f6a583da6cd44cbf6421fd9a82b3a82bd576cde045788482a3",
+      "strict_reload": true,
+      "checkpoint": "experiments/cpsam_methods_20260914_v2/gpu_preflight/ijepa/encoder_0004.pt",
+      "checkpoint_sha256": "6876f30fe8c4535abfa1b4648a723bdba7461ce12e49fc81b961dc905260100b",
+      "elapsed_seconds": 5.8484265729784966,
+      "initial": {
+        "std": 1.7366597652435303,
+        "rank": 4.396247863769531
+      },
+      "final": {
+        "step": 4,
+        "std": 1.7370328903198242,
+        "rank": 4.392795085906982
+      },
+      "inference_backbones": 1,
+      "labels_used": false,
+      "all9000": true,
+      "equivalence_max_abs": 0.0
+    }
+  },
+  "at": "2026-09-14T02:34:45+0000"
+}

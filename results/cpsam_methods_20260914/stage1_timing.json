@@ -1,0 +1,35 @@
+{
+  "rows": {
+    "dino_low": {
+      "ssl_seconds": 21501.748117633164,
+      "job_start": "2026-09-14T02:36:56+00:00",
+      "aggregate_completion": "2026-09-14T08:45:19+00:00",
+      "job_start_to_aggregate_seconds": 22103.0,
+      "gpu_count": 1
+    },
+    "dino_high": {
+      "ssl_seconds": 21501.705724906176,
+      "job_start": "2026-09-14T02:36:57+00:00",
+      "aggregate_completion": "2026-09-14T08:45:19+00:00",
+      "job_start_to_aggregate_seconds": 22102.0,
+      "gpu_count": 1
+    },
+    "ijepa_low": {
+      "ssl_seconds": 4390.215611126274,
+      "job_start": "2026-09-14T02:36:57+00:00",
+      "aggregate_completion": "2026-09-14T03:59:44+00:00",
+      "job_start_to_aggregate_seconds": 4967.0,
+      "gpu_count": 1
+    },
+    "ijepa_high": {
+      "ssl_seconds": 4390.598917659372,
+      "job_start": "2026-09-14T02:36:57+00:00",
+      "aggregate_completion": "2026-09-14T03:59:43+00:00",
+      "job_start_to_aggregate_seconds": 4966.0,
+      "gpu_count": 1
+    }
+  },
+  "ssl_gpu_hours": 14.38451899203472,
+  "allocation_estimate_gpu_hours": 15.038333333333334,
+  "allocation_note": "Job start to aggregate completion; excludes unobserved termination overhead and initial/preflight jobs. Not monetary cost."
+}

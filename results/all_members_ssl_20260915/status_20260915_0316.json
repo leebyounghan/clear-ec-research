@@ -1,0 +1,23 @@
+{
+  "checked_at_utc": "2026-09-15T03:16:09Z",
+  "release_delivery": "complete_previously_reported",
+  "all_members_ssl": {
+    "queue0": {"member": "predbag2_35", "step": 680, "target": 3874, "elapsed_seconds": 2030.868970632553, "completed_members": []},
+    "queue1": {"member": "metric35", "step": 1480, "target": 4470, "elapsed_seconds": 2023.8407971858978, "completed_members": []},
+    "manifest_and_wrapper_sha_match": true,
+    "full_input_hashes_last_verified_utc_approx": "2026-09-15T02:42:15Z"
+  },
+  "duration": {
+    "initializer_step": 4000,
+    "fold2": {"step": 4775, "target": 5215, "seconds_per_step": 2.974926971927363},
+    "fold3": {"step": 4775, "target": 5215, "seconds_per_step": 2.979689544439316},
+    "completed_initializers_each_fold": [2000],
+    "manifest_and_wrapper_sha_match": true,
+    "full_input_hashes_last_verified_utc_approx": "2026-09-14T20:35:00Z"
+  },
+  "completion_or_failure_markers_found": false,
+  "pods_running": 4,
+  "pod_restarts": 0,
+  "distillation": "queued_waiting_for_all_ssl_work",
+  "actions": "Read-only remote progress/hash checks. No new jobs, retries, audit before completion, packaging, downloads, submission or automation changes."
+}

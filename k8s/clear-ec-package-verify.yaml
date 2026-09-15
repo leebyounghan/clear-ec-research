@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: clear-ec-package-verify
+  namespace: p-ajou-mlxp-project
+  labels: {app: clear-ec, workload: submission-runtime-verification}
+spec:
+  priorityClassName: private-zone
+  restartPolicy: Never
+  activeDeadlineSeconds: 1800
+  nodeSelector:
+    mlx.navercorp.com/gpu-type: H200
+    mlx.navercorp.com/hardware-type: gpu
+    mlx.navercorp.com/zone: private-h200-ajou-mlxp-0
+  tolerations:
+    - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+  containers:
+    - name: verifier
+      image: pytorch/pytorch:2.11.0-cuda12.6-cudnn9-runtime@sha256:3bb77138e105723dd4ed760b82fb63d8310ae3a1afc58f76e0ecf0f776568d33
+      imagePullPolicy: IfNotPresent
+      command: [bash, -lc, "sleep infinity"]
+      env:
+        - {name: PYTHONDONTWRITEBYTECODE, value: "1"}
+        - {name: PYTHONNOUSERSITE, value: "1"}
+        - {name: HOME, value: /tmp}
+        - {name: OMP_NUM_THREADS, value: "4"}
+        - {name: OPENBLAS_NUM_THREADS, value: "4"}
+        - {name: MKL_NUM_THREADS, value: "4"}
+      resources:
+        requests: {cpu: "8", memory: 32Gi, nvidia.com/gpu: "2"}
+        limits: {cpu: "8", memory: 32Gi, nvidia.com/gpu: "2"}
+      volumeMounts:
+        - {name: workspace, mountPath: /workspace, readOnly: true}
+        - {name: dshm, mountPath: /dev/shm}
+  volumes:
+    - name: workspace
+      persistentVolumeClaim: {claimName: clear-ec-workspace, readOnly: true}
+    - name: dshm
+      emptyDir: {medium: Memory, sizeLimit: 2Gi}

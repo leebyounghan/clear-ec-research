@@ -1,30 +1,38 @@
 # Findings — what worked, what failed, and why
 
-This is the most important doc for anyone continuing the work: **it records the dead ends so you don't
-repeat them**, and the one proven structural fact about the task.
+> **2026-09-02 qualification:** The historical "proven noise floor" claims below
+> are not established. Shared crop preprocessing, a small ROI reference set, and
+> a newly discovered optimizer/gradient-clearing defect are alternative causes
+> of the observed plateau. See [current validation plan](FOLLOWUP_20260902.md)
+> before treating historical rejections as definitive.
 
-## ⭐ The central finding: CV/HEX are at a proven noise floor
+This document records historical experiments, not universal limits on the task.
+Read [the September 5 correction and validation run](DEPLOY_REVIEW_20260905.md)
+before selecting a new experiment or submission candidate.
 
-CV (~10.4%) and HEX (~10.0%) MAPE have not moved across dozens of variations. Two independent experiments
-prove this is **the data/label, not the model**:
+## Historical observation: a CV/HEX plateau, not a proven noise floor
+
+CV (~10.4%) and HEX (~10.0%) MAPE changed little in the early experiments.
+The following observations motivated a label-noise hypothesis, but do not isolate
+label noise from shared preprocessing, region mismatch, or optimization:
 
 1. **Model-invariant errors** (`code/eval_dino_ensemble.py`). A DINOv2-large regression member — a
    *completely different pretraining prior* (natural-image SSL vs cpsam's cell segmentation) — makes
    **near-identical per-image errors**. Error correlation vs the s2 member: **CD 0.939, CV 0.992, HEX 0.982**.
-   Adding it to the ensemble did not help (test 8.92 → 8.98). Two unrelated backbones hitting the same wall
-   from the same side ⇒ the residual is not model-specific.
+   Adding it to the ensemble did not help (historical test 8.92 → 8.98).
+   Shared cropping can also produce correlated errors; this does not reject all backbone changes.
 
 2. **ROI-invariant errors** (`code/roi_ceiling_test.py`). Feeding the model the annotator's **true ROI
    location** (vs central-512) on the 25 green images improved CV by only **0.35** and HEX by **0.22**.
-   Knowing the exact scored region barely helps.
+   This small, historically reused sample does not establish the effect across the full dataset.
 
-**Why.** CV = std/mean over ~125 hand-picked cell areas; the GT is a single noisy draw from a distribution
-whose intra-image window spread is ~32% (`code/roi_region_diag.py`, `results/roi_region_diag.json`). A
-regressor predicts the *expected* CV; MAPE against a single noisy draw has an irreducible floor ≈ the
-sampling relative-std. This matches the literature (human inter-reader ICC ≤ 0.27; 125-cell sampling gives
-CV ±10–20%). **Consequence: stop trying to beat CV/HEX with better/more-diverse models or ROI localization.
-CD is the only metric with real headroom** (its error correlation 0.939 < 0.99 ⇒ it has model-specific
-variance to reduce).
+**Interpretation.** Region sampling and label variability may limit performance;
+the diagnostic window spread in `results/roi_region_diag.json` is not itself a
+lower bound on achievable MAPE. The September 5 fixed five-model ensemble improved
+all three metrics in ordinary OOF, including CV 10.434774 → 10.382686 and HEX
+10.226306 → 10.185301. These are small internal gains, not leaderboard predictions.
+Do not restrict future work to CD or reject full-resolution region-aware methods
+solely because of this historical plateau.
 
 ## Adopted (improvements that survived held-out A/B)
 

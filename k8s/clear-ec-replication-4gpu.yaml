@@ -1,0 +1,48 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: clear-ec-replication-0912
+  namespace: p-ajou-mlxp-project
+  labels: {app: clear-ec, workload: target-replication}
+spec:
+  backoffLimit: 0
+  activeDeadlineSeconds: 25200
+  ttlSecondsAfterFinished: 600
+  template:
+    metadata:
+      labels: {app: clear-ec, workload: target-replication}
+    spec:
+      automountServiceAccountToken: false
+      priorityClassName: private-zone
+      restartPolicy: Never
+      nodeSelector:
+        mlx.navercorp.com/gpu-type: H200
+        mlx.navercorp.com/hardware-type: gpu
+        mlx.navercorp.com/zone: private-h200-ajou-mlxp-0
+      tolerations:
+        - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+      containers:
+        - name: researcher
+          image: leebyounghan/mlx-rl:20260810-sgl0512-verl-1ddf071
+          imagePullPolicy: IfNotPresent
+          workingDir: /workspace/clear-ec-research
+          command: [bash, -lc]
+          args:
+            - exec timeout --signal=TERM --kill-after=30s 21600 /workspace/venv/bin/python -u experiments/overnight_target_20260912/source/overnight_target.py run
+          env:
+            - {name: PYTHONNOUSERSITE, value: "1"}
+            - {name: PYTHONDONTWRITEBYTECODE, value: "1"}
+            - {name: PYTORCH_CUDA_ALLOC_CONF, value: "expandable_segments:True"}
+            - {name: HF_HOME, value: /workspace/.cache/huggingface}
+            - {name: TORCH_HOME, value: /workspace/.cache/torch}
+          resources:
+            requests: {cpu: "24", memory: 96Gi, nvidia.com/gpu: "4"}
+            limits: {cpu: "24", memory: 192Gi, nvidia.com/gpu: "4"}
+          volumeMounts:
+            - {name: workspace, mountPath: /workspace}
+            - {name: dshm, mountPath: /dev/shm}
+      volumes:
+        - name: workspace
+          persistentVolumeClaim: {claimName: clear-ec-workspace}
+        - name: dshm
+          emptyDir: {medium: Memory, sizeLimit: 32Gi}

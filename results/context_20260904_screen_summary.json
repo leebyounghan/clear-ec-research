@@ -1,0 +1,53 @@
+{
+  "methods": {
+    "central_native": {
+      "metrics": [
+        6.574957790862106,
+        10.476528538270234,
+        10.407217815090444
+      ],
+      "overall": 9.152901381407593,
+      "per_fold": [
+        9.321953278837602,
+        8.98384948397757
+      ]
+    },
+    "central_context": {
+      "metrics": [
+        6.923375970896346,
+        10.632552197254565,
+        10.424920980831347
+      ],
+      "overall": 9.32694971632742,
+      "per_fold": [
+        9.371589680806323,
+        9.282309751848517
+      ]
+    },
+    "full_context_uniform": {
+      "metrics": [
+        7.079724642169136,
+        10.525599098412252,
+        10.64459188528838
+      ],
+      "overall": 9.416638541956589,
+      "per_fold": [
+        9.470011073450367,
+        9.363266010462821
+      ]
+    },
+    "full_context_focus": {
+      "metrics": [
+        6.921048083957678,
+        10.613226409919834,
+        10.666064008216754
+      ],
+      "overall": 9.400112834031422,
+      "per_fold": [
+        9.508463939639297,
+        9.291761728423566
+      ]
+    }
+  },
+  "scope": "Two-fold screening, not final validation or leaderboard. Same seed, folds, BS24 and 25 full epochs. Context uses two encoder views versus one in native control. Focus is unlabeled image quality, never ROI GT."
+}

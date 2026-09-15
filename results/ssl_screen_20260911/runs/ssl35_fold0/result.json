@@ -1,0 +1,42 @@
+{
+  "completed_at": "2026-09-11T22:06:19+0000",
+  "pretraining": {
+    "updates": 6000,
+    "elapsed_seconds": 7188.469803016633,
+    "peak_gib": 16.390551567077637,
+    "final_checkpoint": "experiments/ssl_screen_20260911/runs/ssl35_fold0/pretrain/encoder_step6000.pt",
+    "checkpoint_sha256": "33532368b018cad474e3fb35570511350ab4603e14244077f9b45489f755b43c",
+    "initial_probe": {
+      "token_std": 0.5426498055458069,
+      "image_std": 0.2120443880558014,
+      "token_effective_rank": 8.287755012512207,
+      "image_effective_rank": 1.8108335733413696
+    },
+    "final_probe": {
+      "step": 6000,
+      "token_std": 0.5164542198181152,
+      "image_std": 0.232542484998703,
+      "token_effective_rank": 82.78669738769531,
+      "image_effective_rank": 5.730694770812988
+    },
+    "validation_images_used": 0
+  },
+  "training": {
+    "updates": 5180,
+    "elapsed_seconds": 15422.730077654123,
+    "peak_gib": 38.30814456939697,
+    "first_three_batches_sha256": "04c80b0aa0c8218276ed6552379089eeff887ef77a0cdd9de5d244f9faa10af5"
+  },
+  "evaluation": {
+    "metrics": [
+      6.896749138832092,
+      10.537434369325638,
+      10.718817263841629
+    ],
+    "elapsed_seconds": 729.6270173937082
+  },
+  "checkpoint_sha256": "3144d070c05906895c54254c197b13f839fa840bc3ca997f7c57c920f871b02d",
+  "strict_reload_passed": true,
+  "deployment_approved": false,
+  "smoke": false
+}

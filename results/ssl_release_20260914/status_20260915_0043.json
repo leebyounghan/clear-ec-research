@@ -1,0 +1,29 @@
+{
+  "checked_at_utc": "2026-09-15T00:43:00Z",
+  "release": {
+    "stage": "raw_regression_training",
+    "step": 5050,
+    "total_steps": 5215,
+    "seconds_per_step": 2.953727549240731,
+    "progress_updated_at": "2026-09-15T00:42:58+0000",
+    "gpu_complete_present": false,
+    "package_ready_present": false
+  },
+  "duration": {
+    "fold2": {"initializer_step": 4000, "completed_initializers": [2000], "step": 1700, "total_steps": 5215, "seconds_per_step": 2.96133606264039},
+    "fold3": {"initializer_step": 4000, "completed_initializers": [2000], "step": 1700, "total_steps": 5215, "seconds_per_step": 2.9692215472218746},
+    "comparison_present": false
+  },
+  "pods": {"running": 4, "restarts": 0},
+  "failure_or_interrupted_markers_found": false,
+  "integrity": {
+    "release_source_sha256": "37ef328d47aea47728f060f225fbc8bc2d789ba20a83cb87ddfc5267ac0f5870",
+    "duration_source_sha256": "e1451d30e2a01c43afe2a73f2e147729a3c78c8a0f2eeafb70dcac4b91c9a910",
+    "duration_manifest_sha256": "22441378f320505ee4b6bcc97fcce1a12900315767bede06239966c4e6d8f353",
+    "frozen_hashes_match": true,
+    "full_input_hashes_last_verified_utc": "2026-09-14T20:35:00Z",
+    "full_input_hashes_recomputed_this_check": false
+  },
+  "distillation": "queued_prerequisites_not_complete",
+  "actions": "Read-only remote check; no new jobs, retries, archive delivery, submission or automation changes. Existing training continues."
+}

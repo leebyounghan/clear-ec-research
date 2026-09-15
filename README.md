@@ -1,6 +1,16 @@
 # CLEAR-EC — Research & Training Repo
 
-> **September 10 Lamda submission:** use the
+개발 기록·제출본·재현 코드·데이터/PVC 위치는 [개발 기록 및 재현 자료 인덱스](docs/DEVLOG_INDEX.md)를 참고하세요.
+
+> **Latest reported Phase I result: 8.7010 (September 14, Lamda&KIM).**
+> [Evaluation](https://clear-ec.grand-challenge.org/evaluation/7606a2b6-818f-46d0-a1fc-d060648fc2c6/).
+> See [September 15 status and version map](docs/STATUS_20260915.md) and
+> [SSL + raw-label release](docs/SSL_RELEASE_20260914.md). The prepared release
+> replaces only the sixth member; the separately retrained first five are NOT
+> part of that reported submission. Score/rank were supplied by the team, not
+> freshly verified against platform model IDs in this repository update.
+>
+> **Frozen September 10 baseline:** use the
 > [review-package README](review_submission_20260910/README.md) for the frozen
 > six-member model, **Linux NVIDIA GPU + Python venv quick start**, Docker execution
 > and checkpoint instructions. The model archive is separate from the image.
@@ -10,7 +20,7 @@
 > The review directory is still a release draft; hosting/access and GPU parity
 > validation must be completed before technical-review dispatch.
 
-## Lamda inference quick start (Linux NVIDIA GPU)
+## September 10 baseline inference quick start (Linux NVIDIA GPU)
 
 Python 3.12 and a CUDA 12.6-compatible NVIDIA driver are required. From this clone:
 
@@ -41,9 +51,12 @@ Training, evaluation, and analysis code for the [CLEAR-EC Grand Challenge](https
 specular-microscopy image — **Cell Density (CD)**, **Coefficient of Variation (CV)**, **Hexagonality (HEX)**.
 
 This repo contains research/training history and the frozen September 10 review
-package under `review_submission_20260910/`. The older `submission/` directory and
-[`clear-ec-algo`](https://github.com/leebyounghan/clear-ec-algo) repository are historical;
-use the review package for the current six-member submission.
+package under `review_submission_20260910/`. The older `submission/` directory is
+historical. Grand Challenge currently links to
+[`clear-ec-algo`](https://github.com/leebyounghan/clear-ec-algo) according to the team;
+that repository has NOT been synchronized by this research-repository update.
+The September 10 PDF and review package remain historical snapshots, not updated
+documentation of the September 14 SSL weights.
 
 > **Continuing on a new GPU?** Read [`docs/REPRODUCE.md`](docs/REPRODUCE.md) first (env + data + how to
 > retrain), then [`docs/ARTIFACTS.md`](docs/ARTIFACTS.md) (which large files to copy over), then
@@ -55,6 +68,7 @@ use the review package for the current six-member submission.
 
 | Submission | Official Phase I score | Status |
 |---|---:|---|
+| **Lamda&KIM — September 14 submission** | **[8.7010](https://clear-ec.grand-challenge.org/evaluation/7606a2b6-818f-46d0-a1fc-d060648fc2c6/)** | Latest team-reported result; rank 2 in supplied row; improvement 0.0032 over September 10 |
 | **Lamda — September 10 submission** | **[8.7042](https://clear-ec.grand-challenge.org/evaluation/0a82fe58-7f9a-4a88-b744-bcfa84b1e43a/)** | Succeeded; **rank 1** when checked September 12, 2026 |
 | Earlier Lamda submission | [9.0009](https://clear-ec.grand-challenge.org/evaluation/84234081-8f49-4142-8440-9790f5de11bb/) | Historical result; not the current model |
 
@@ -65,7 +79,7 @@ image version `730ff3f7-ea96-4180-936d-bc02a4eca762` and model version
 on that page. Internal validation scores, calibration estimates and later research
 experiments are not official challenge results. No proven performance ceiling is asserted.
 
-## The one-paragraph summary
+## September 10 baseline methodology
 
 A **Cellpose-SAM encoder with shared features and three regression heads** predicts
 CD, CV and HEX in standardized log space. The final fits use **8,998 eligible images**
@@ -95,7 +109,16 @@ results/         small result JSONs (per-run val/test MAPEs) + norm_consts.json
 env/             environment.yml / requirements-clearec.txt
 ```
 
-## Current best submission
+## Latest prepared release and historical baseline
+
+Latest model-only archive: `model_full_quality77_ssl_raw_20260914.tar.gz`
+(7,964,665,157 bytes), SHA256
+`e37c83db830cc5fa5215f7fd63267beb11e6c09a8778aefe2b8c6180a37a9730`.
+It preserves the first five models and calibration, and replaces the sixth with
+standard custom masked-EMA SSL (all 9,000 images, 6,000 updates) followed by
+raw-label regression (8,998 eligible images, 5,215 updates). This is not DINO or
+I-JEPA. See [release provenance and limitations](docs/SSL_RELEASE_20260914.md).
+Weights are not hosted in Git; local delivery is not evaluator-accessible hosting.
 
 The September 10 release uses **separate container and model archives**:
 

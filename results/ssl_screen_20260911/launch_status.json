@@ -1,0 +1,35 @@
+{
+  "updated_at": "2026-09-11T15:37:52+0000",
+  "started_unix": 1789140982.0605347,
+  "deadline_unix": 1789180582.0605347,
+  "done": [],
+  "failed": {},
+  "smoke_done": [
+    "ssl35_fold0",
+    "ssl35_fold1",
+    "supervised55_fold0",
+    "supervised55_fold1"
+  ],
+  "active": {
+    "0": {
+      "pid": 282,
+      "name": "ssl35_fold0",
+      "smoke": false
+    },
+    "1": {
+      "pid": 288,
+      "name": "ssl35_fold1",
+      "smoke": false
+    },
+    "2": {
+      "pid": 294,
+      "name": "supervised55_fold0",
+      "smoke": false
+    },
+    "3": {
+      "pid": 300,
+      "name": "supervised55_fold1",
+      "smoke": false
+    }
+  }
+}

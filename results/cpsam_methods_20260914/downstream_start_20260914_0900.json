@@ -1,0 +1,174 @@
+{
+  "checked_at": "2026-09-14T08:59:51+0000",
+  "rows": {
+    "dino_fold2": {
+      "smoke_complete": true,
+      "full_run_started": true,
+      "smoke_strict_reload": true,
+      "smoke_checkpoint_sha256": "e42b082bddb754a38eab1b1a17c64b89e25be25f54a29f06510c709bf5f8c8c4",
+      "config.json": {
+        "seed": 77,
+        "updates": 5215,
+        "smoke": false,
+        "batch_size": 48,
+        "k_crops": 2,
+        "pool": "mean",
+        "feature_agg": 0,
+        "bag_pool": "mean",
+        "objective": "mixed_mape",
+        "region_policy": "full_quality",
+        "target_policy": "raw",
+        "lm": [
+          7.919919967651367,
+          -0.9824771285057068,
+          -0.6211431622505188
+        ],
+        "ls": [
+          0.18971863389015198,
+          0.18813571333885193,
+          0.2748945653438568
+        ],
+        "select_mode": "fixed_terminal_no_validation_selection",
+        "method": "dino",
+        "fold": 2,
+        "ssl_tag": "dino_high",
+        "ssl_checkpoint_sha256": "67cae8c1e27b5573fe882aaba5ce5d7094401c6af8072141d27054409b46cda1",
+        "ssl_all9000": true,
+        "transductive": true,
+        "encoder_lr": 1e-05,
+        "head_lr": 0.001,
+        "initialization": "CPSAM updated by dino",
+        "train_rows": 7153,
+        "validation_rows": 1791,
+        "single_model": true
+      }
+    },
+    "dino_fold3": {
+      "smoke_complete": true,
+      "full_run_started": true,
+      "smoke_strict_reload": true,
+      "smoke_checkpoint_sha256": "9eec56179d45adf7f5025b727259fee8ee3da3e080bf0f0af5ef708668c382e5",
+      "config.json": {
+        "seed": 77,
+        "updates": 5215,
+        "smoke": false,
+        "batch_size": 48,
+        "k_crops": 2,
+        "pool": "mean",
+        "feature_agg": 0,
+        "bag_pool": "mean",
+        "objective": "mixed_mape",
+        "region_policy": "full_quality",
+        "target_policy": "raw",
+        "lm": [
+          7.919919967651367,
+          -0.9824771285057068,
+          -0.6211431622505188
+        ],
+        "ls": [
+          0.18971863389015198,
+          0.18813571333885193,
+          0.2748945653438568
+        ],
+        "select_mode": "fixed_terminal_no_validation_selection",
+        "method": "dino",
+        "fold": 3,
+        "ssl_tag": "dino_high",
+        "ssl_checkpoint_sha256": "67cae8c1e27b5573fe882aaba5ce5d7094401c6af8072141d27054409b46cda1",
+        "ssl_all9000": true,
+        "transductive": true,
+        "encoder_lr": 1e-05,
+        "head_lr": 0.001,
+        "initialization": "CPSAM updated by dino",
+        "train_rows": 7161,
+        "validation_rows": 1791,
+        "single_model": true
+      }
+    },
+    "ijepa_fold2": {
+      "smoke_complete": true,
+      "full_run_started": true,
+      "smoke_strict_reload": true,
+      "smoke_checkpoint_sha256": "7c916f5805bc305dac200653ddbc10357957eea986af85fa8ede0b679325772e",
+      "config.json": {
+        "seed": 77,
+        "updates": 5215,
+        "smoke": false,
+        "batch_size": 48,
+        "k_crops": 2,
+        "pool": "mean",
+        "feature_agg": 0,
+        "bag_pool": "mean",
+        "objective": "mixed_mape",
+        "region_policy": "full_quality",
+        "target_policy": "raw",
+        "lm": [
+          7.919919967651367,
+          -0.9824771285057068,
+          -0.6211431622505188
+        ],
+        "ls": [
+          0.18971863389015198,
+          0.18813571333885193,
+          0.2748945653438568
+        ],
+        "select_mode": "fixed_terminal_no_validation_selection",
+        "method": "ijepa",
+        "fold": 2,
+        "ssl_tag": "ijepa_low",
+        "ssl_checkpoint_sha256": "55d6394bd05bf89909176e5499a2f09c7a89b588ea6e5de07ddbfd0704f76002",
+        "ssl_all9000": true,
+        "transductive": true,
+        "encoder_lr": 1e-05,
+        "head_lr": 0.001,
+        "initialization": "CPSAM updated by ijepa",
+        "train_rows": 7153,
+        "validation_rows": 1791,
+        "single_model": true
+      }
+    },
+    "ijepa_fold3": {
+      "smoke_complete": true,
+      "full_run_started": true,
+      "smoke_strict_reload": true,
+      "smoke_checkpoint_sha256": "7d86f41dd09c9a446889139af06bc96c165f6e79026581f822664899c8677354",
+      "config.json": {
+        "seed": 77,
+        "updates": 5215,
+        "smoke": false,
+        "batch_size": 48,
+        "k_crops": 2,
+        "pool": "mean",
+        "feature_agg": 0,
+        "bag_pool": "mean",
+        "objective": "mixed_mape",
+        "region_policy": "full_quality",
+        "target_policy": "raw",
+        "lm": [
+          7.919919967651367,
+          -0.9824771285057068,
+          -0.6211431622505188
+        ],
+        "ls": [
+          0.18971863389015198,
+          0.18813571333885193,
+          0.2748945653438568
+        ],
+        "select_mode": "fixed_terminal_no_validation_selection",
+        "method": "ijepa",
+        "fold": 3,
+        "ssl_tag": "ijepa_low",
+        "ssl_checkpoint_sha256": "55d6394bd05bf89909176e5499a2f09c7a89b588ea6e5de07ddbfd0704f76002",
+        "ssl_all9000": true,
+        "transductive": true,
+        "encoder_lr": 1e-05,
+        "head_lr": 0.001,
+        "initialization": "CPSAM updated by ijepa",
+        "train_rows": 7161,
+        "validation_rows": 1791,
+        "single_model": true
+      }
+    }
+  },
+  "failures": {}
+}

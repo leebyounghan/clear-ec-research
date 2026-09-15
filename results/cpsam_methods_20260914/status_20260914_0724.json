@@ -1,0 +1,206 @@
+{
+  "checked_at": "2026-09-14T07:24:13+0000",
+  "source_hashes_verified": true,
+  "rows": {
+    "dino_low": {
+      "progress": {
+        "stage": "ssl",
+        "step": 4800,
+        "steps": 6000,
+        "loss": 2.6602742671966553,
+        "lr": 7.037308609950141e-07,
+        "grad_norm": 7.564362049102783,
+        "elapsed_seconds": 17173.178016997874,
+        "seconds_per_step": 3.5777454202078904,
+        "unique_images_seen": 9000,
+        "at": "2026-09-14T07:24:02+0000"
+      },
+      "diagnostics_initial": {
+        "step": 0,
+        "std": 1.7366597652435303,
+        "rank": 4.396247863769531
+      },
+      "diagnostics_latest": {
+        "step": 4500,
+        "std": 1.858086347579956,
+        "rank": 6.8283209800720215
+      }
+    },
+    "dino_high": {
+      "progress": {
+        "stage": "ssl",
+        "step": 4800,
+        "steps": 6000,
+        "loss": 2.756544828414917,
+        "lr": 1.4074617219900282e-06,
+        "grad_norm": 5.650234699249268,
+        "elapsed_seconds": 17173.125421345234,
+        "seconds_per_step": 3.577734462780257,
+        "unique_images_seen": 9000,
+        "at": "2026-09-14T07:24:02+0000"
+      },
+      "diagnostics_initial": {
+        "step": 0,
+        "std": 1.7366597652435303,
+        "rank": 4.396247863769531
+      },
+      "diagnostics_latest": {
+        "step": 4500,
+        "std": 2.152981996536255,
+        "rank": 6.5978169441223145
+      }
+    },
+    "ijepa_low": {
+      "progress": {
+        "stage": "ssl",
+        "step": 6000,
+        "steps": 6000,
+        "loss": 0.15764597058296204,
+        "lr": 2.5000000000000004e-07,
+        "grad_norm": 0.2532109022140503,
+        "elapsed_seconds": 4387.1458026356995,
+        "seconds_per_step": 0.7311909671059499,
+        "unique_images_seen": 9000,
+        "at": "2026-09-14T03:50:46+0000"
+      },
+      "completion": {
+        "ssl": {
+          "steps": 6000,
+          "unique_images_seen": 9000,
+          "sample_order_sha256": "816d69af3737e83690e7f5f9febe959438db07bdc5a67113d10b5304988f2342",
+          "strict_reload": true,
+          "checkpoint": "experiments/cpsam_methods_20260914_v2/ssl/ijepa_low/pretrain/encoder_6000.pt",
+          "checkpoint_sha256": "55d6394bd05bf89909176e5499a2f09c7a89b588ea6e5de07ddbfd0704f76002",
+          "elapsed_seconds": 4390.215611126274,
+          "initial": {
+            "std": 1.7366597652435303,
+            "rank": 4.396247863769531
+          },
+          "final": {
+            "step": 6000,
+            "std": 1.9963722229003906,
+            "rank": 2.8394689559936523
+          },
+          "inference_backbones": 1,
+          "labels_used": false,
+          "all9000": true
+        },
+        "probe": {
+          "CD_CV_HEX": [
+            7.447485030782933,
+            11.490374147964886,
+            10.837338432665847
+          ],
+          "mean": 9.925065870471222,
+          "valid_counts": [
+            1781,
+            1781,
+            1779
+          ],
+          "n": 1781,
+          "fold": 2,
+          "alpha": 10,
+          "transductive": true,
+          "full_finetune": false,
+          "used_for_hpo": true
+        },
+        "feature_sha256": "9c5fca8a6788d31823db33d10feea77bfc5755ec2444740056e5663cbccd65b8",
+        "finished_at": "2026-09-14T03:59:44+0000"
+      },
+      "feature_progress": {
+        "stage": "features",
+        "images": 9000,
+        "total": 9000,
+        "elapsed_seconds": 531.0504674725235,
+        "at": "2026-09-14T03:59:44+0000"
+      },
+      "diagnostics_initial": {
+        "step": 0,
+        "std": 1.7366597652435303,
+        "rank": 4.396247863769531
+      },
+      "diagnostics_latest": {
+        "step": 6000,
+        "std": 1.9963722229003906,
+        "rank": 2.8394689559936523
+      }
+    },
+    "ijepa_high": {
+      "progress": {
+        "stage": "ssl",
+        "step": 6000,
+        "steps": 6000,
+        "loss": 0.2077789306640625,
+        "lr": 5.000000000000001e-07,
+        "grad_norm": 0.11116361618041992,
+        "elapsed_seconds": 4387.4473793543875,
+        "seconds_per_step": 0.7312412298923979,
+        "unique_images_seen": 9000,
+        "at": "2026-09-14T03:50:46+0000"
+      },
+      "completion": {
+        "ssl": {
+          "steps": 6000,
+          "unique_images_seen": 9000,
+          "sample_order_sha256": "816d69af3737e83690e7f5f9febe959438db07bdc5a67113d10b5304988f2342",
+          "strict_reload": true,
+          "checkpoint": "experiments/cpsam_methods_20260914_v2/ssl/ijepa_high/pretrain/encoder_6000.pt",
+          "checkpoint_sha256": "401aca7692c104119b57d59f882b9ac4ae70073120a27a2b0551d8403f6fc6a8",
+          "elapsed_seconds": 4390.598917659372,
+          "initial": {
+            "std": 1.7366597652435303,
+            "rank": 4.396247863769531
+          },
+          "final": {
+            "step": 6000,
+            "std": 1.3556551933288574,
+            "rank": 4.411968231201172
+          },
+          "inference_backbones": 1,
+          "labels_used": false,
+          "all9000": true
+        },
+        "probe": {
+          "CD_CV_HEX": [
+            7.4530713701506395,
+            11.663930685381295,
+            10.98101647137219
+          ],
+          "mean": 10.032672842301375,
+          "valid_counts": [
+            1781,
+            1781,
+            1779
+          ],
+          "n": 1781,
+          "fold": 2,
+          "alpha": 10,
+          "transductive": true,
+          "full_finetune": false,
+          "used_for_hpo": true
+        },
+        "feature_sha256": "717360a00c9f6fca1a3135df7e876433af4562600fcd05c3779f8f2780cdf9c2",
+        "finished_at": "2026-09-14T03:59:43+0000"
+      },
+      "feature_progress": {
+        "stage": "features",
+        "images": 9000,
+        "total": 9000,
+        "elapsed_seconds": 529.8395395614207,
+        "at": "2026-09-14T03:59:43+0000"
+      },
+      "diagnostics_initial": {
+        "step": 0,
+        "std": 1.7366597652435303,
+        "rank": 4.396247863769531
+      },
+      "diagnostics_latest": {
+        "step": 6000,
+        "std": 1.3556551933288574,
+        "rank": 4.411968231201172
+      }
+    }
+  },
+  "failures": {},
+  "selection_exists": false
+}

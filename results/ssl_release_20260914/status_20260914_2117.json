@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-09-14T21:17:32Z",
+  "release": {
+    "stage": "regression_training",
+    "step": 850,
+    "total_steps": 5215,
+    "seconds_per_step": 2.98375393435359,
+    "progress_at": "2026-09-14T21:16:38+0000",
+    "source_sha256_verified": true,
+    "archive_ready": false
+  },
+  "duration": {
+    "ssl_initializer_steps": 2000,
+    "fold2_regression_step": 3025,
+    "fold3_regression_step": 3025,
+    "regression_total_steps": 5215,
+    "manifest_and_source_sha256_verified": true,
+    "queues_complete": false
+  },
+  "last_full_source_input_integrity_check": "2026-09-14T20:35:12Z",
+  "new_failure_markers": false,
+  "existing_pods_running_zero_restarts": true,
+  "distillation_prerequisites_complete": false,
+  "new_gpu_jobs_created": 0,
+  "user_provided_phase1_deadline_utc": "2026-09-15T10:00:00Z",
+  "all_five_retraining_authorized": false,
+  "actionable_change": false
+}

@@ -1,0 +1,103 @@
+{
+  "checked_at": "2026-09-14T03:43:06+0000",
+  "source_hashes_verified": true,
+  "rows": {
+    "dino_low": {
+      "progress": {
+        "stage": "ssl",
+        "step": 1100,
+        "steps": 6000,
+        "loss": 3.62369441986084,
+        "lr": 4.617395624395296e-06,
+        "grad_norm": 4.797074794769287,
+        "elapsed_seconds": 3892.6076062843204,
+        "seconds_per_step": 3.5387341875312,
+        "unique_images_seen": 9000,
+        "at": "2026-09-14T03:42:42+0000"
+      },
+      "diagnostics_initial": {
+        "step": 0,
+        "std": 1.7366597652435303,
+        "rank": 4.396247863769531
+      },
+      "diagnostics_latest": {
+        "step": 1000,
+        "std": 1.9682101011276245,
+        "rank": 5.939876079559326
+      }
+    },
+    "dino_high": {
+      "progress": {
+        "stage": "ssl",
+        "step": 1100,
+        "steps": 6000,
+        "loss": 3.806699752807617,
+        "lr": 9.234791248790592e-06,
+        "grad_norm": 3.031528949737549,
+        "elapsed_seconds": 3889.015532013029,
+        "seconds_per_step": 3.53546866546639,
+        "unique_images_seen": 9000,
+        "at": "2026-09-14T03:42:38+0000"
+      },
+      "diagnostics_initial": {
+        "step": 0,
+        "std": 1.7366597652435303,
+        "rank": 4.396247863769531
+      },
+      "diagnostics_latest": {
+        "step": 1000,
+        "std": 2.1637558937072754,
+        "rank": 6.076802730560303
+      }
+    },
+    "ijepa_low": {
+      "progress": {
+        "stage": "ssl",
+        "step": 5350,
+        "steps": 6000,
+        "loss": 0.14825738966464996,
+        "lr": 3.86271439414583e-07,
+        "grad_norm": 0.20049218833446503,
+        "elapsed_seconds": 3914.437331162393,
+        "seconds_per_step": 0.7316705291892324,
+        "unique_images_seen": 9000,
+        "at": "2026-09-14T03:42:54+0000"
+      },
+      "diagnostics_initial": {
+        "step": 0,
+        "std": 1.7366597652435303,
+        "rank": 4.396247863769531
+      },
+      "diagnostics_latest": {
+        "step": 5000,
+        "std": 2.015702724456787,
+        "rank": 2.828188180923462
+      }
+    },
+    "ijepa_high": {
+      "progress": {
+        "stage": "ssl",
+        "step": 5350,
+        "steps": 6000,
+        "loss": 0.20611520111560822,
+        "lr": 7.72542878829166e-07,
+        "grad_norm": 0.13763950765132904,
+        "elapsed_seconds": 3914.7514936439693,
+        "seconds_per_step": 0.7317292511484055,
+        "unique_images_seen": 9000,
+        "at": "2026-09-14T03:42:54+0000"
+      },
+      "diagnostics_initial": {
+        "step": 0,
+        "std": 1.7366597652435303,
+        "rank": 4.396247863769531
+      },
+      "diagnostics_latest": {
+        "step": 5000,
+        "std": 1.378342628479004,
+        "rank": 4.358940601348877
+      }
+    }
+  },
+  "failures": {}
+}

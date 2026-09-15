@@ -1,0 +1,57 @@
+{
+  "checked_at": "2026-09-14T08:59:13.041807+00:00",
+  "jobs": [
+    {
+      "name": "ce-cpsam-dino-f2-0914-v2",
+      "created_at": "2026-09-14T08:58:43Z",
+      "status": {
+        "active": 1,
+        "ready": 1,
+        "startTime": "2026-09-14T08:58:43Z",
+        "terminating": 0,
+        "uncountedTerminatedPods": {}
+      },
+      "gpu_count": 1,
+      "activeDeadlineSeconds": 25800
+    },
+    {
+      "name": "ce-cpsam-dino-f3-0914-v2",
+      "created_at": "2026-09-14T08:58:43Z",
+      "status": {
+        "active": 1,
+        "ready": 1,
+        "startTime": "2026-09-14T08:58:43Z",
+        "terminating": 0,
+        "uncountedTerminatedPods": {}
+      },
+      "gpu_count": 1,
+      "activeDeadlineSeconds": 25800
+    },
+    {
+      "name": "ce-cpsam-ijepa-f2-0914-v2",
+      "created_at": "2026-09-14T08:58:44Z",
+      "status": {
+        "active": 1,
+        "ready": 1,
+        "startTime": "2026-09-14T08:58:44Z",
+        "terminating": 0,
+        "uncountedTerminatedPods": {}
+      },
+      "gpu_count": 1,
+      "activeDeadlineSeconds": 25800
+    },
+    {
+      "name": "ce-cpsam-ijepa-f3-0914-v2",
+      "created_at": "2026-09-14T08:58:44Z",
+      "status": {
+        "active": 1,
+        "ready": 1,
+        "startTime": "2026-09-14T08:58:44Z",
+        "terminating": 0,
+        "uncountedTerminatedPods": {}
+      },
+      "gpu_count": 1,
+      "activeDeadlineSeconds": 25800
+    }
+  ]
+}

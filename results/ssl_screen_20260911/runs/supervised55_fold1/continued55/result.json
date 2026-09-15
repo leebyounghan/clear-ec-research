@@ -1,0 +1,36 @@
+{
+  "completed_at": "2026-09-11T22:49:03+0000",
+  "pretraining": null,
+  "training": {
+    "updates": 2980,
+    "elapsed_seconds": 8900.27581198886,
+    "peak_gib": 38.30814456939697,
+    "first_three_batches_sha256": "de8a4e4220b3212f1aa3cb2e7f56e646a92bd7a38a1790e0bb4f6eb704303bcb"
+  },
+  "evaluation": {
+    "metrics": [
+      6.742575019598007,
+      10.506568104028702,
+      10.070587694644928
+    ],
+    "elapsed_seconds": 732.618688877672
+  },
+  "initial_training": {
+    "updates": 5215,
+    "elapsed_seconds": 15534.718585904688,
+    "peak_gib": 38.30814456939697,
+    "first_three_batches_sha256": "5ff18bdd9c5a698cc4a6f91c2e4ca461d4f4204f856716bae020bb6306390dac"
+  },
+  "initial_evaluation": {
+    "metrics": [
+      6.691717356443405,
+      10.50548404455185,
+      10.064570605754852
+    ],
+    "elapsed_seconds": 739.2788456007838
+  },
+  "checkpoint_sha256": "038e8a6c386978d5aec0fbaf62828683ed89546e52e1b48481bb1cbd7cdaafe2",
+  "strict_reload_passed": true,
+  "deployment_approved": false,
+  "smoke": false
+}

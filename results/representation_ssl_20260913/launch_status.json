@@ -1,0 +1,28 @@
+{
+  "at": "2026-09-13T14:52:00+0000",
+  "done": [],
+  "failed": {},
+  "active": {
+    "0": {
+      "name": "low_cov_fold2",
+      "smoke": false,
+      "pid": 213
+    },
+    "1": {
+      "name": "spatial_anchor_fold2",
+      "smoke": false,
+      "pid": 219
+    },
+    "2": {
+      "name": "low_cov_fold3",
+      "smoke": false,
+      "pid": 225
+    },
+    "3": {
+      "name": "spatial_anchor_fold3",
+      "smoke": false,
+      "pid": 231
+    }
+  },
+  "elapsed_seconds": 160.5140442661941
+}

@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: clear-ec-crop-preflight
+  namespace: p-ajou-mlxp-project
+  labels: {app: clear-ec, workload: crop-dino-preflight}
+spec:
+  priorityClassName: private-zone
+  restartPolicy: Never
+  activeDeadlineSeconds: 3600
+  nodeSelector:
+    mlx.navercorp.com/zone: private-h200-ajou-mlxp-0
+  tolerations:
+    - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+  containers:
+    - name: researcher
+      image: leebyounghan/mlx-rl:20260810-sgl0512-verl-1ddf071
+      imagePullPolicy: IfNotPresent
+      workingDir: /workspace/clear-ec-research
+      command: [bash, -lc, "sleep infinity"]
+      env:
+        - {name: NVIDIA_VISIBLE_DEVICES, value: void}
+        - {name: CUDA_VISIBLE_DEVICES, value: ""}
+        - {name: PYTHONDONTWRITEBYTECODE, value: "1"}
+        - {name: PYTHONNOUSERSITE, value: "1"}
+      resources:
+        requests: {cpu: "4", memory: 8Gi}
+        limits: {cpu: "8", memory: 16Gi}
+      volumeMounts:
+        - {name: workspace, mountPath: /workspace}
+  volumes:
+    - name: workspace
+      persistentVolumeClaim: {claimName: clear-ec-workspace}

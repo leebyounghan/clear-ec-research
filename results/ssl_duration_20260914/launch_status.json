@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-09-14T18:47:34Z",
+  "manifest_sha256": "22441378f320505ee4b6bcc97fcce1a12900315767bede06239966c4e6d8f353",
+  "cpu_preflight_passed": true,
+  "research_gpus": 2,
+  "release_gpus_separate": 1,
+  "created_at": "2026-09-14T18:45:01Z",
+  "jobs": {
+    "clear-ec-ssl-duration-f2-0914": {
+      "pod": "clear-ec-ssl-duration-f2-0914-7d49c",
+      "smoke_strict_reload_passed": true,
+      "ssl_checkpoint_step": 2000,
+      "regression_step": 25,
+      "regression_total_steps": 5215,
+      "seconds_per_step": 3.0122535187005997
+    },
+    "clear-ec-ssl-duration-f3-0914": {
+      "pod": "clear-ec-ssl-duration-f3-0914-nsg84",
+      "smoke_strict_reload_passed": true,
+      "ssl_checkpoint_step": 2000,
+      "regression_step": 25,
+      "regression_total_steps": 5215,
+      "seconds_per_step": 3.0145375262200833
+    }
+  },
+  "monitor": "clear-ec-ssl",
+  "submission_changed": false
+}

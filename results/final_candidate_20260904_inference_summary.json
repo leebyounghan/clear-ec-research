@@ -1,0 +1,223 @@
+{
+  "bf16": {
+    "raw": [
+      6.55849474680485,
+      10.434748632768875,
+      10.226287705435936
+    ],
+    "raw_overall": 9.073177028336554,
+    "crossfit": [
+      6.556760700184568,
+      10.364384132069148,
+      10.19364805714961
+    ],
+    "crossfit_overall": 9.038264296467775
+  },
+  "fp16": {
+    "raw": [
+      6.559215935048232,
+      10.43445484058277,
+      10.226700197276099
+    ],
+    "raw_overall": 9.073456990969033,
+    "crossfit": [
+      6.557377666756846,
+      10.363989589265094,
+      10.193797987712722
+    ],
+    "crossfit_overall": 9.03838841457822
+  },
+  "timing": [
+    {
+      "seed42_bf16": {
+        "mean_seconds": 0.3794911320730503,
+        "p95_seconds": 0.38330088183283806,
+        "peak_allocated_gib": 3.124922275543213,
+        "checkpoint_load_seconds": 1.3812718391418457
+      },
+      "seed42_fp16": {
+        "mean_seconds": 0.30942558534838577,
+        "p95_seconds": 0.3120882511138916,
+        "peak_allocated_gib": 2.641035556793213,
+        "checkpoint_load_seconds": 1.3812718391418457
+      },
+      "seed77_bf16": {
+        "mean_seconds": 0.356387435634881,
+        "p95_seconds": 0.3589280489832163,
+        "peak_allocated_gib": 3.124922275543213,
+        "checkpoint_load_seconds": 1.1763653755187988
+      },
+      "seed77_fp16": {
+        "mean_seconds": 0.309264961634266,
+        "p95_seconds": 0.311811538413167,
+        "peak_allocated_gib": 2.641035556793213,
+        "checkpoint_load_seconds": 1.1763653755187988
+      },
+      "seed2026_bf16": {
+        "mean_seconds": 0.35651513962007514,
+        "p95_seconds": 0.3589137438684702,
+        "peak_allocated_gib": 3.124922275543213,
+        "checkpoint_load_seconds": 1.1549127101898193
+      },
+      "seed2026_fp16": {
+        "mean_seconds": 0.30930777319661734,
+        "p95_seconds": 0.3122486900538206,
+        "peak_allocated_gib": 2.641035556793213,
+        "checkpoint_load_seconds": 1.1549127101898193
+      }
+    },
+    {
+      "seed42_bf16": {
+        "mean_seconds": 0.3790920152178628,
+        "p95_seconds": 0.3827453926205635,
+        "peak_allocated_gib": 3.124922275543213,
+        "checkpoint_load_seconds": 1.4070534706115723
+      },
+      "seed42_fp16": {
+        "mean_seconds": 0.3092728906369855,
+        "p95_seconds": 0.3115544654428959,
+        "peak_allocated_gib": 2.641035556793213,
+        "checkpoint_load_seconds": 1.4070534706115723
+      },
+      "seed77_bf16": {
+        "mean_seconds": 0.36077444578792917,
+        "p95_seconds": 0.36453392170369625,
+        "peak_allocated_gib": 3.124922275543213,
+        "checkpoint_load_seconds": 1.210038185119629
+      },
+      "seed77_fp16": {
+        "mean_seconds": 0.31039014760049144,
+        "p95_seconds": 0.31493741646409035,
+        "peak_allocated_gib": 2.641035556793213,
+        "checkpoint_load_seconds": 1.210038185119629
+      },
+      "seed2026_bf16": {
+        "mean_seconds": 0.3564018846340249,
+        "p95_seconds": 0.35863363556563854,
+        "peak_allocated_gib": 3.124922275543213,
+        "checkpoint_load_seconds": 1.175370454788208
+      },
+      "seed2026_fp16": {
+        "mean_seconds": 0.30960818386981437,
+        "p95_seconds": 0.31208955869078636,
+        "peak_allocated_gib": 2.641035556793213,
+        "checkpoint_load_seconds": 1.175370454788208
+      }
+    },
+    {
+      "seed42_bf16": {
+        "mean_seconds": 0.37869337030974,
+        "p95_seconds": 0.38123252242803574,
+        "peak_allocated_gib": 3.124922275543213,
+        "checkpoint_load_seconds": 1.4324393272399902
+      },
+      "seed42_fp16": {
+        "mean_seconds": 0.3075346500596675,
+        "p95_seconds": 0.3090679757297039,
+        "peak_allocated_gib": 2.641035556793213,
+        "checkpoint_load_seconds": 1.4324393272399902
+      },
+      "seed77_bf16": {
+        "mean_seconds": 0.35481634945309676,
+        "p95_seconds": 0.35653332993388176,
+        "peak_allocated_gib": 3.124922275543213,
+        "checkpoint_load_seconds": 1.1675934791564941
+      },
+      "seed77_fp16": {
+        "mean_seconds": 0.3075916474276352,
+        "p95_seconds": 0.30924793891608715,
+        "peak_allocated_gib": 2.641035556793213,
+        "checkpoint_load_seconds": 1.1675934791564941
+      },
+      "seed2026_bf16": {
+        "mean_seconds": 0.3545353154749061,
+        "p95_seconds": 0.35620760172605515,
+        "peak_allocated_gib": 3.124922275543213,
+        "checkpoint_load_seconds": 1.1385958194732666
+      },
+      "seed2026_fp16": {
+        "mean_seconds": 0.3075305639486916,
+        "p95_seconds": 0.3091793768107891,
+        "peak_allocated_gib": 2.641035556793213,
+        "checkpoint_load_seconds": 1.1385958194732666
+      }
+    },
+    {
+      "seed42_bf16": {
+        "mean_seconds": 0.355773405964933,
+        "p95_seconds": 0.35745861753821373,
+        "peak_allocated_gib": 3.124922275543213,
+        "checkpoint_load_seconds": 1.4600210189819336
+      },
+      "seed42_fp16": {
+        "mean_seconds": 0.30835324843450007,
+        "p95_seconds": 0.3100847899913788,
+        "peak_allocated_gib": 2.641035556793213,
+        "checkpoint_load_seconds": 1.4600210189819336
+      },
+      "seed77_bf16": {
+        "mean_seconds": 0.35540587488106345,
+        "p95_seconds": 0.3570668622851372,
+        "peak_allocated_gib": 3.124922275543213,
+        "checkpoint_load_seconds": 1.171877145767212
+      },
+      "seed77_fp16": {
+        "mean_seconds": 0.30893218755880125,
+        "p95_seconds": 0.31077741645276546,
+        "peak_allocated_gib": 2.641035556793213,
+        "checkpoint_load_seconds": 1.171877145767212
+      },
+      "seed2026_bf16": {
+        "mean_seconds": 0.3557484033119738,
+        "p95_seconds": 0.35747357457876205,
+        "peak_allocated_gib": 3.124922275543213,
+        "checkpoint_load_seconds": 1.1446738243103027
+      },
+      "seed2026_fp16": {
+        "mean_seconds": 0.3085317155985876,
+        "p95_seconds": 0.31027896143496037,
+        "peak_allocated_gib": 2.641035556793213,
+        "checkpoint_load_seconds": 1.1446738243103027
+      }
+    },
+    {
+      "seed42_bf16": {
+        "mean_seconds": 0.37843897348925387,
+        "p95_seconds": 0.38124284949153664,
+        "peak_allocated_gib": 3.124922275543213,
+        "checkpoint_load_seconds": 1.4739961624145508
+      },
+      "seed42_fp16": {
+        "mean_seconds": 0.3075017183477985,
+        "p95_seconds": 0.3091983268037438,
+        "peak_allocated_gib": 2.641035556793213,
+        "checkpoint_load_seconds": 1.4739961624145508
+      },
+      "seed77_bf16": {
+        "mean_seconds": 0.35471063553246374,
+        "p95_seconds": 0.3563481830060482,
+        "peak_allocated_gib": 3.124922275543213,
+        "checkpoint_load_seconds": 1.1938602924346924
+      },
+      "seed77_fp16": {
+        "mean_seconds": 0.30713224116733623,
+        "p95_seconds": 0.30884019415825603,
+        "peak_allocated_gib": 2.641035556793213,
+        "checkpoint_load_seconds": 1.1938602924346924
+      },
+      "seed2026_bf16": {
+        "mean_seconds": 0.3545845845953546,
+        "p95_seconds": 0.3564735043793917,
+        "peak_allocated_gib": 3.124922275543213,
+        "checkpoint_load_seconds": 1.1439979076385498
+      },
+      "seed2026_fp16": {
+        "mean_seconds": 0.30730215965161445,
+        "p95_seconds": 0.3088972050696611,
+        "peak_allocated_gib": 2.641035556793213,
+        "checkpoint_load_seconds": 1.1439979076385498
+      }
+    }
+  ],
+  "scope": "Held-out inference parity only. H200 timing is not target-device certification. Final all-data model has no held-out score."
+}

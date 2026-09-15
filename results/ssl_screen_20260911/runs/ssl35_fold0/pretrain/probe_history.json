@@ -1,0 +1,93 @@
+[
+  {
+    "step": 0,
+    "token_std": 0.5426498055458069,
+    "image_std": 0.2120443880558014,
+    "token_effective_rank": 8.287755012512207,
+    "image_effective_rank": 1.8108335733413696
+  },
+  {
+    "step": 500,
+    "token_std": 0.6203566193580627,
+    "image_std": 0.2272883504629135,
+    "token_effective_rank": 16.98723793029785,
+    "image_effective_rank": 2.078303337097168
+  },
+  {
+    "step": 1000,
+    "token_std": 0.5805624723434448,
+    "image_std": 0.23315642774105072,
+    "token_effective_rank": 56.087589263916016,
+    "image_effective_rank": 3.200815200805664
+  },
+  {
+    "step": 1500,
+    "token_std": 0.5597506761550903,
+    "image_std": 0.24758349359035492,
+    "token_effective_rank": 67.56704711914062,
+    "image_effective_rank": 3.8931570053100586
+  },
+  {
+    "step": 2000,
+    "token_std": 0.5449208617210388,
+    "image_std": 0.24820727109909058,
+    "token_effective_rank": 72.87995147705078,
+    "image_effective_rank": 4.3516526222229
+  },
+  {
+    "step": 2500,
+    "token_std": 0.5370750427246094,
+    "image_std": 0.24541853368282318,
+    "token_effective_rank": 75.89418029785156,
+    "image_effective_rank": 4.671947956085205
+  },
+  {
+    "step": 3000,
+    "token_std": 0.5318604111671448,
+    "image_std": 0.240364670753479,
+    "token_effective_rank": 77.24137115478516,
+    "image_effective_rank": 4.900346279144287
+  },
+  {
+    "step": 3500,
+    "token_std": 0.5268570780754089,
+    "image_std": 0.2356080412864685,
+    "token_effective_rank": 78.91204071044922,
+    "image_effective_rank": 5.132946968078613
+  },
+  {
+    "step": 4000,
+    "token_std": 0.522356390953064,
+    "image_std": 0.23280343413352966,
+    "token_effective_rank": 80.30223846435547,
+    "image_effective_rank": 5.317336559295654
+  },
+  {
+    "step": 4500,
+    "token_std": 0.5202946662902832,
+    "image_std": 0.23231537640094757,
+    "token_effective_rank": 81.3301773071289,
+    "image_effective_rank": 5.499981880187988
+  },
+  {
+    "step": 5000,
+    "token_std": 0.5181987285614014,
+    "image_std": 0.2322646975517273,
+    "token_effective_rank": 82.08183288574219,
+    "image_effective_rank": 5.622889995574951
+  },
+  {
+    "step": 5500,
+    "token_std": 0.5169436931610107,
+    "image_std": 0.23240207135677338,
+    "token_effective_rank": 82.57746887207031,
+    "image_effective_rank": 5.694250583648682
+  },
+  {
+    "step": 6000,
+    "token_std": 0.5164542198181152,
+    "image_std": 0.232542484998703,
+    "token_effective_rank": 82.78669738769531,
+    "image_effective_rank": 5.730694770812988
+  }
+]

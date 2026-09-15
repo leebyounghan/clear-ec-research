@@ -1,0 +1,41 @@
+{
+  "files": {
+    "cpsam_v2": {
+      "sha256": "0f1cc3f7ecdd8a037a57c6c48d9d8921391be4cbce3fa9f13c3e3a2e1253c667",
+      "bytes": 1233586851
+    },
+    "seed42.pt": {
+      "sha256": "f9ba4e281d3044d4a9e17da84cb2846fcafff1891d37b301c4e9c5910a03df3c",
+      "bytes": 1218701062
+    },
+    "seed77.pt": {
+      "sha256": "a89edd82c4ce59ca942b3214f151ac63c14641bfcc67ac9f09b1748d4e0caa76",
+      "bytes": 1218701062
+    },
+    "seed2026.pt": {
+      "sha256": "174fdac5400442634aa571ad60ef86e8e693aee4f5b7ec3c7d862ee890d1bef5",
+      "bytes": 1218701062
+    }
+  },
+  "interface_smoke": {
+    "bf16": {
+      "values": [
+        2925.287345897892,
+        0.4444017948770087,
+        0.4402059009619577
+      ],
+      "cold_process_seconds": 12.687069654464722
+    },
+    "fp16": {
+      "values": [
+        2925.1524252742747,
+        0.44438203785654845,
+        0.440233542555355
+      ],
+      "cold_process_seconds": 9.08129334449768
+    }
+  },
+  "staged": "experiments/final_candidate_20260904/staged",
+  "completed_at": "2026-09-04T15:04:35+0000",
+  "status": "Staged and native entrypoint tested. NOT Docker built, target-device tested, uploaded or submitted."
+}

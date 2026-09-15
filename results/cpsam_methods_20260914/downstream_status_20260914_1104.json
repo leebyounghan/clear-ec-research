@@ -1,0 +1,59 @@
+{
+  "checked_at": "2026-09-14T11:04:16+0000",
+  "source_hashes_verified": true,
+  "rows": {
+    "dino_fold2": {
+      "progress.json": {
+        "stage": "training",
+        "step": 2525,
+        "total_steps": 5215,
+        "metric": null,
+        "elapsed_seconds": 7476.985817749053,
+        "seconds_per_step": 2.961182502078833,
+        "mean_loss": 0.4679922950267792,
+        "peak_gib": 38.30814456939697,
+        "updated_at": "2026-09-14T11:04:09+0000"
+      }
+    },
+    "dino_fold3": {
+      "progress.json": {
+        "stage": "training",
+        "step": 2525,
+        "total_steps": 5215,
+        "metric": null,
+        "elapsed_seconds": 7473.526300087571,
+        "seconds_per_step": 2.9598123960742857,
+        "mean_loss": 0.4532921898365021,
+        "peak_gib": 38.30814456939697,
+        "updated_at": "2026-09-14T11:04:06+0000"
+      }
+    },
+    "ijepa_fold2": {
+      "progress.json": {
+        "stage": "training",
+        "step": 2525,
+        "total_steps": 5215,
+        "metric": null,
+        "elapsed_seconds": 7478.900816876441,
+        "seconds_per_step": 2.9619409175748284,
+        "mean_loss": 0.47250049471855166,
+        "peak_gib": 38.30814456939697,
+        "updated_at": "2026-09-14T11:04:12+0000"
+      }
+    },
+    "ijepa_fold3": {
+      "progress.json": {
+        "stage": "training",
+        "step": 2525,
+        "total_steps": 5215,
+        "metric": null,
+        "elapsed_seconds": 7473.1306676492095,
+        "seconds_per_step": 2.959655709960083,
+        "mean_loss": 0.45958510518074036,
+        "peak_gib": 38.30814456939697,
+        "updated_at": "2026-09-14T11:04:06+0000"
+      }
+    }
+  },
+  "failures": {}
+}

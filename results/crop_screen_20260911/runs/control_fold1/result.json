@@ -1,0 +1,21 @@
+{
+  "completed_at": "2026-09-11T01:12:01+0000",
+  "training": {
+    "updates": 5215,
+    "elapsed_seconds": 15548.576927494258,
+    "peak_gib": 38.30814456939697,
+    "first_three_batches_sha256": "8151b86f653d53fd096c03521654e829937799e5d132f63799dbd9b48777d2dc"
+  },
+  "evaluation": {
+    "metrics": [
+      6.746882945299149,
+      10.491139441728592,
+      10.075922310352325
+    ],
+    "elapsed_seconds": 689.4003023579717
+  },
+  "checkpoint_sha256": "9dc277e4b27050d753a295753218c2a6807493d1b558127fa53e7d25f2bb72e0",
+  "strict_reload_passed": true,
+  "deployment_approved": false,
+  "smoke": false
+}
