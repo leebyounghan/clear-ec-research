@@ -93,15 +93,15 @@ p("The latest delivered model changes <b>only the sixth member</b>: custom maske
 table([
     ["Version", "Phase I score", "What changed"],
     ["September 10 baseline", "8.7042", "Six-member native-resolution ensemble; slide-averaged training targets."],
-    ["September 14 team-reported result", "8.7010", "Latest reported evaluation following delivery of the sixth-only SSL + raw-label package."],
+    ["September 14 verified result", "8.7010", "Official evaluation linked to the checksum-matched sixth-only SSL + raw-label package."],
 ], [126, 83, WIDTH-209])
 p("Lower is better. The reported change is <b>-0.0032 score points (~0.037% relative)</b>, "
   "not evidence of a large SSL effect. Official results are listed separately from internal "
   "development scores throughout this report. [R1, R2]", True)
 h("Scope and evidence boundary")
 p("This revision describes the checksum-identified September 14 model package. The "
-  "team supplied its latest official result; the exact platform model-version-to-archive "
-  "binding remains to be verified. The scope is limited to this release and the "
+  "official 8.7010 evaluation, attached model/image versions and shared archive "
+  "checksums have been verified. The scope is limited to this release and the "
   "completed development comparisons that informed its selection.")
 p("<b>Reading guide:</b> method and training, pp. 2-3; results and limitations, p. 4; "
   "Docker reproduction, p. 5; experiment timeline and measured compute, pp. 6-7; "
@@ -180,8 +180,8 @@ p("L_SSL = masked normalized-feature Smooth-L1 + 0.1 variance penalty + "
 
 page("3. Results and interpretation", "Evidence")
 h("Official Phase I results")
-p("The September 10 evaluation reports 8.7042; the team supplied the September 14 "
-  "evaluation at 8.7010. Their difference is -0.0032. These are challenge scores, "
+p("The September 10 evaluation reports 8.7042; the September 14 "
+  "evaluation confirms 8.7010. Their difference is -0.0032. These are challenge scores, "
   "not the internal values below. The comparison changes both the sixth member's "
   "initialization and label policy, so it does not isolate the causal effect of SSL. [R1, R2]")
 h("Matched SSL + raw-label comparison")
@@ -223,7 +223,7 @@ p("The reviewer path runs inside the archived Docker image on a Linux x86_64 "
 table([
     ["Resource", "Location / role"],
     ["Private repository", link(REPO, "leebyounghan/clear-ec-research") + "<br/>Code, dependency pins, runner and evidence."],
-    ["Artifact hosting", link(DRIVE, "Google Drive - model, Docker archive and SHA256SUMS.txt") + "<br/>Viewer download controls checked; evaluator-account access still needs confirmation."],
+    ["Artifact hosting", link(DRIVE, "Google Drive - model, Docker archive and SHA256SUMS.txt") + "<br/>Complete anonymous downloads and archive/resource hashes verified."],
     ["Execution guide", source("docker_review_20260914/README.md", "docker_review_20260914/README.md") + "<br/>Exact extraction, input layout, image loading and run commands."],
 ], [114, WIDTH-114])
 h("Execution sequence")
@@ -242,13 +242,17 @@ table([
     ["Completed evidence", "Boundary"],
     ["Archive / eight resource hashes; strict checkpoint reload", "Identity and compatibility, not predictive accuracy."],
     ["Frozen CUDA 12.6 app, eight-image numerical check", "First-five outputs identical; maximum FP16/BF16 relative drift ~0.0651%. Not the actual archived Docker on T4."],
-    ["Docker runner syntax and resource consistency", "No new end-to-end archived-container GPU execution in this documentation revision."],
+    ["Fresh checkout + archived Docker, RTX 4090", "One-image six-member inference passed; application 13.5 s, runner 45.4 s."],
+    ["Fresh isolated venv + direct source, RTX 4090", "Install and inference passed; all three outputs exactly equal to Docker. Application 12.7 s, wrapper 17.8 s."],
 ], [239, WIDTH-239])
 p("Host driver must support CUDA 12.6. The image contains Python 3.12.3 and "
   "PyTorch 2.11.0+cu126. Challenge allocation: T4 with 16 GiB VRAM and 16 GB RAM; "
-  "historical H200 timings (~8-10 s/image) are not T4 measurements. Clean full-training "
-  "reproduction still requires validated data bootstrap, training environment and "
-  "selection/calibration provenance. Do not infer it from inference hash checks.", True)
+  "4090 timings are not T4 measurements. Source venv used Python 3.12.7 and the same "
+  "PyTorch/CUDA versions. The optional standalone training adapter removes old-run "
+  "dependencies; import, workspace initialization and synthetic-loop checks passed. "
+  "Full cache preparation and complete CPSAM refits have not been rerun. "
+  "Guides: " + source("docs/VENV_SMOKE_20260915.md", "source venv") + " / " +
+  source("training_reproduction/README.md", "training") + ".", True)
 
 page("Appendix A. Experiment timeline", "Development before the September 10 release")
 p("This timeline summarizes completed decisions and corrections, not every queued "
@@ -308,12 +312,14 @@ for label, value in [
 ]:
     p("<b>" + label + "</b><br/><font face='Courier' size='7.7'>" + value + "</font>", True)
 p("Individual hashes: " + source("docker_review_20260914/MODEL_SHA256SUMS.txt", "MODEL_SHA256SUMS.txt") +
-  ". Archive SHA and Docker image ID are different identities. September 10 platform "
-  "image ID: 730ff3f7-ea96-4180-936d-bc02a4eca762. Do not infer the latest platform "
-  "model ID from a filename or date.", True)
+  ". Archive SHA and Docker image ID are different identities. Verified platform "
+  "image ID: 730ff3f7-ea96-4180-936d-bc02a4eca762.<br/>"
+  "Model ID: b4137c8d-a71a-4f83-ab1f-d0635f11590b, attached to the 8.7010 evaluation. "
+  "Platform and recomputed Drive model CRC64-NVME both equal 65bbad82ffbb157e. " +
+  source("docs/PLATFORM_BINDING_20260915.json", "Verification record") + ".", True)
 h("Primary evidence and method references")
 refs = [
-    ("R1", link("https://clear-ec.grand-challenge.org/evaluation/0a82fe58-7f9a-4a88-b744-bcfa84b1e43a/", "September 10 official evaluation") + "; R2: " + link("https://clear-ec.grand-challenge.org/evaluation/7606a2b6-818f-46d0-a1fc-d060648fc2c6/", "September 14 team-supplied evaluation")),
+    ("R1", link("https://clear-ec.grand-challenge.org/evaluation/0a82fe58-7f9a-4a88-b744-bcfa84b1e43a/", "September 10 official evaluation") + "; R2: " + link("https://clear-ec.grand-challenge.org/evaluation/7606a2b6-818f-46d0-a1fc-d060648fc2c6/", "September 14 verified evaluation")),
     ("R3", source("review_submission_20260910/TRAINING.md", "Historical recipes") + "; " + source("review_submission_20260910/app/final_candidate_core.py", "frozen model / normalization") + "; " + source("review_submission_20260910/app/region_inference_core.py", "regional inference")),
     ("R4-R5", source("docs/SSL_RELEASE_20260914.md", "SSL release log") + "; " + source("code/ssl_native_core.py", "custom masked EMA implementation")),
     ("R6", source("results/raw_ssl_next_20260913/ssl_audit.json", "Matched 5,350-row SSL aggregate audit")),

@@ -9,6 +9,8 @@ single corneal specular microscopy image.
 | Technical report, including experiment timeline | [PDF](output/pdf/Lamda_KIM_CLEAR_EC_Technical_Report.pdf) |
 | Model weights and Docker image | [Google Drive](https://drive.google.com/drive/folders/1QyNtGhaEpePwBEyjj-UorqRkSFDRmKUn?usp=sharing) |
 | Installation and inference | [Docker guide](docker_review_20260914/README.md) |
+| Optional verified source execution | [Fresh venv guide and result](docs/VENV_SMOKE_20260915.md) |
+| Optional standalone training | [Training workspace and commands](training_reproduction/README.md) |
 | Model recipe and training evidence | [Method](docs/METHODOLOGY.md) · [Release record](docs/SSL_RELEASE_20260914.md) |
 | File identities | [Artifact manifest](docs/ARTIFACTS.md) |
 
@@ -19,9 +21,9 @@ single corneal specular microscopy image.
 | September 14 | [8.7010](https://clear-ec.grand-challenge.org/evaluation/7606a2b6-818f-46d0-a1fc-d060648fc2c6/) |
 | September 10 baseline | [8.7042](https://clear-ec.grand-challenge.org/evaluation/0a82fe58-7f9a-4a88-b744-bcfa84b1e43a/) |
 
-Lower is better. The latest score was supplied by the team; internal development
-scores are reported separately in the technical report. Exact platform
-model-version-to-archive binding remains an open verification item.
+Lower is better. Official evaluation 8.7010, its model/image versions, and the shared
+archive checksums have been verified against the platform records. Internal scores
+are reported separately. See the [verified release binding](docs/ARTIFACTS.md#official-evaluation-and-shared-files).
 
 ## Method
 

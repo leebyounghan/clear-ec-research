@@ -5,6 +5,11 @@ retained in the September 14 release, but its sixth member instead follows the
 [SSL/raw release recipe](../docs/SSL_RELEASE_20260914.md). For reviewer inference,
 use the [Docker guide](../docker_review_20260914/README.md); retraining is separate.
 
+For new workspaces, use the [standalone preparation and training guide](../training_reproduction/README.md).
+It assembles these unchanged sources and supplies the latest sixth-member entry
+point without requiring historical experiment outputs. The notes below preserve
+the original recipes and remaining full-refit verification limits.
+
 This is a faithful source/recipe inventory, not a claim that clean retraining has
 already passed. The submitted weights are the reproduction target; inference from
 those weights is the primary scored-result reproduction path.

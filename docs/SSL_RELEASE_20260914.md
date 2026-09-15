@@ -20,9 +20,11 @@ See [method](METHODOLOGY.md), [artifact hashes](ARTIFACTS.md) and
 | Regression LR | Encoder 1e-5; head/norm 1e-3 |
 
 Implementation: [ssl_native_core.py](../code/ssl_native_core.py).
+For a new fit without past research-run folders, use the
+[standalone training adapter](../training_reproduction/README.md).
 No independent holdout score exists for this all-data fit. The
 [matched development comparison](RAW_SSL_NEXT_20260913.md) is separate from
-the team-reported official score of 8.7010.
+the verified official score of 8.7010.
 
 ## Completion evidence
 
@@ -45,8 +47,9 @@ The other seven archive resources (first five, foundation and configuration)
 matched their preserved hashes.
 
 Model archive: `model_full_quality77_ssl_raw_20260914.tar.gz`,
-7,964,665,157 bytes. The exact platform model-version-to-archive binding remains
-a separate check. Detailed execution/transfer logs are archived, not current
-instructions.
+7,964,665,157 bytes. The official 8.7010 evaluation is attached to model `b4137c8d`;
+its platform CRC64-NVME exactly matches the Drive archive. See the
+[verified platform binding](ARTIFACTS.md#official-evaluation-and-shared-files).
+Detailed execution/transfer logs are archived, not current instructions.
 
 [Detailed historical record](archive/snapshot_20260915/docs/SSL_RELEASE_20260914.md) — retained for provenance, not reviewer setup.
