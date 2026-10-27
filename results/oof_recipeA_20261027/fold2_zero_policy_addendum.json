@@ -1,0 +1,35 @@
+{
+  "created_utc": "2026-10-27T10:40:00+00:00",
+  "fold": 2,
+  "split_path": "experiments/overnight_target_20260912/preflight/fold2.npz",
+  "split_sha256": "3088f880c18609bb7c9f517c05e81d54fb82ef9ac28e2ebc784db4d3188afd41",
+  "data_preflight_path": "experiments/phase2_crossfold_20261015/data_preflight.json",
+  "data_preflight_sha256": "eee0fe72fc1c5e95b948f31a5eca7b84232dcd56fec8673e1aa7299dfe02d3a0",
+  "zero_validation_ids": [
+    "2019-0064-ODCN",
+    "2019-0064-OSCN"
+  ],
+  "zero_validation_ids_recomputed": [
+    "2019-0064-ODCN",
+    "2019-0064-OSCN"
+  ],
+  "zero_targets": {
+    "2019-0064-ODCN": [
+      1053.0,
+      0.029999999329447746,
+      0.0
+    ],
+    "2019-0064-OSCN": [
+      520.0,
+      0.10999999940395355,
+      0.0
+    ]
+  },
+  "training_zero_count": 0,
+  "dataset_zero_rows": 2,
+  "policy": "Zero ground truth is unscored for that metric (per-metric NaN, averaged with skipna); the other metrics of the same image are scored. Training targets stay strictly positive.",
+  "source": "https://github.com/CLEAR-EC/CLEAR-EC/blob/main/code/src/utils/evaluate.py lines 205-209: treat missing/zero ground-truth as NaN",
+  "hidden_platform_evaluator_verified": false,
+  "user_question": "2026-10-27: treat zero images as 0? -> scoring follows the public evaluator (zero = unscored); training is unaffected because both zero rows are outside every training split",
+  "observations": "Both rows are the two eyes of one case; CV 0.03 is the dataset minimum (p1 0.25) and CD 520 is below p1 1382 \u2014 likely degenerate annotations"
+}

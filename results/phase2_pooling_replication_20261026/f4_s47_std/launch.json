@@ -1,0 +1,10 @@
+{
+  "started_utc": "2026-10-26T11:02:53.959335+00:00",
+  "pid": 475,
+  "manifest_sha": "4bef683b6167d38822485a74b5a80299ccc3ef899d8b5ac91d1f8c4efc9070ef",
+  "gpus": [
+    2,
+    3
+  ],
+  "deadline": null
+}

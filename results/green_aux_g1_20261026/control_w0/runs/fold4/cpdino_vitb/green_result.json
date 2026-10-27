@@ -1,0 +1,626 @@
+{
+  "status": "completed",
+  "aux_weight": 0.0,
+  "epoch": 20,
+  "validation_rows": [
+    {
+      "id": "0365-23",
+      "point": {
+        "tp": 90,
+        "fp": 386,
+        "fn": 20,
+        "precision": 0.18907563025210083,
+        "recall": 0.8181818181818182,
+        "f1": 0.30716723549488056,
+        "matched_mean_distance": 7.431090643613998
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 110,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 110,
+      "predicted": 476,
+      "count_absolute_error": 366
+    },
+    {
+      "id": "0466-23",
+      "point": {
+        "tp": 101,
+        "fp": 358,
+        "fn": 42,
+        "precision": 0.22004357298474944,
+        "recall": 0.7062937062937062,
+        "f1": 0.33554817275747506,
+        "matched_mean_distance": 8.471569773699052
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 143,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 143,
+      "predicted": 459,
+      "count_absolute_error": 316
+    },
+    {
+      "id": "0471-23",
+      "point": {
+        "tp": 105,
+        "fp": 326,
+        "fn": 47,
+        "precision": 0.24361948955916474,
+        "recall": 0.6907894736842105,
+        "f1": 0.3602058319039451,
+        "matched_mean_distance": 8.734318982554711
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 152,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 152,
+      "predicted": 431,
+      "count_absolute_error": 279
+    },
+    {
+      "id": "0584-23",
+      "point": {
+        "tp": 112,
+        "fp": 305,
+        "fn": 57,
+        "precision": 0.2685851318944844,
+        "recall": 0.6627218934911243,
+        "f1": 0.3822525597269625,
+        "matched_mean_distance": 8.744073834826176
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 169,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 169,
+      "predicted": 417,
+      "count_absolute_error": 248
+    },
+    {
+      "id": "0587-23",
+      "point": {
+        "tp": 98,
+        "fp": 361,
+        "fn": 37,
+        "precision": 0.21350762527233116,
+        "recall": 0.725925925925926,
+        "f1": 0.32996632996632996,
+        "matched_mean_distance": 8.109697354545084
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 135,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 135,
+      "predicted": 459,
+      "count_absolute_error": 324
+    }
+  ],
+  "train_rows": [
+    {
+      "id": "0323-23",
+      "point": {
+        "tp": 98,
+        "fp": 342,
+        "fn": 50,
+        "precision": 0.22272727272727272,
+        "recall": 0.6621621621621622,
+        "f1": 0.3333333333333333,
+        "matched_mean_distance": 8.496084502294204
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 148,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 148,
+      "predicted": 440,
+      "count_absolute_error": 292
+    },
+    {
+      "id": "0324-23",
+      "point": {
+        "tp": 104,
+        "fp": 339,
+        "fn": 47,
+        "precision": 0.23476297968397292,
+        "recall": 0.6887417218543046,
+        "f1": 0.3501683501683502,
+        "matched_mean_distance": 8.00231997500824
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 151,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 151,
+      "predicted": 443,
+      "count_absolute_error": 292
+    },
+    {
+      "id": "0326-23",
+      "point": {
+        "tp": 110,
+        "fp": 387,
+        "fn": 15,
+        "precision": 0.22132796780684105,
+        "recall": 0.88,
+        "f1": 0.3536977491961415,
+        "matched_mean_distance": 7.125000110174001
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 125,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 125,
+      "predicted": 497,
+      "count_absolute_error": 372
+    },
+    {
+      "id": "0329-23",
+      "point": {
+        "tp": 99,
+        "fp": 341,
+        "fn": 41,
+        "precision": 0.225,
+        "recall": 0.7071428571428572,
+        "f1": 0.3413793103448276,
+        "matched_mean_distance": 8.71994303268483
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 140,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 140,
+      "predicted": 440,
+      "count_absolute_error": 300
+    },
+    {
+      "id": "0330-23",
+      "point": {
+        "tp": 94,
+        "fp": 328,
+        "fn": 65,
+        "precision": 0.22274881516587677,
+        "recall": 0.5911949685534591,
+        "f1": 0.32358003442340794,
+        "matched_mean_distance": 9.083329190987417
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 159,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 159,
+      "predicted": 422,
+      "count_absolute_error": 263
+    },
+    {
+      "id": "0334-23",
+      "point": {
+        "tp": 94,
+        "fp": 378,
+        "fn": 22,
+        "precision": 0.19915254237288135,
+        "recall": 0.8103448275862069,
+        "f1": 0.3197278911564626,
+        "matched_mean_distance": 8.441718576786709
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 116,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 116,
+      "predicted": 472,
+      "count_absolute_error": 356
+    },
+    {
+      "id": "0335-23",
+      "point": {
+        "tp": 91,
+        "fp": 365,
+        "fn": 43,
+        "precision": 0.19956140350877194,
+        "recall": 0.6791044776119403,
+        "f1": 0.30847457627118646,
+        "matched_mean_distance": 8.182164382644658
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 134,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 134,
+      "predicted": 456,
+      "count_absolute_error": 322
+    },
+    {
+      "id": "0341-23",
+      "point": {
+        "tp": 112,
+        "fp": 329,
+        "fn": 53,
+        "precision": 0.25396825396825395,
+        "recall": 0.6787878787878788,
+        "f1": 0.3696369636963696,
+        "matched_mean_distance": 8.645290932605068
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 165,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 165,
+      "predicted": 441,
+      "count_absolute_error": 276
+    },
+    {
+      "id": "0342-23",
+      "point": {
+        "tp": 116,
+        "fp": 352,
+        "fn": 33,
+        "precision": 0.24786324786324787,
+        "recall": 0.7785234899328859,
+        "f1": 0.3760129659643436,
+        "matched_mean_distance": 8.424548018164986
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 149,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 149,
+      "predicted": 468,
+      "count_absolute_error": 319
+    },
+    {
+      "id": "0344-23",
+      "point": {
+        "tp": 97,
+        "fp": 359,
+        "fn": 25,
+        "precision": 0.21271929824561403,
+        "recall": 0.7950819672131147,
+        "f1": 0.3356401384083045,
+        "matched_mean_distance": 7.830717446954121
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 122,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 122,
+      "predicted": 456,
+      "count_absolute_error": 334
+    },
+    {
+      "id": "0348-23",
+      "point": {
+        "tp": 107,
+        "fp": 367,
+        "fn": 31,
+        "precision": 0.22573839662447256,
+        "recall": 0.7753623188405797,
+        "f1": 0.34967320261437906,
+        "matched_mean_distance": 8.094836999316826
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 138,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 138,
+      "predicted": 474,
+      "count_absolute_error": 336
+    },
+    {
+      "id": "0367-23",
+      "point": {
+        "tp": 101,
+        "fp": 368,
+        "fn": 23,
+        "precision": 0.21535181236673773,
+        "recall": 0.8145161290322581,
+        "f1": 0.3406408094435076,
+        "matched_mean_distance": 7.9608375351129474
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 124,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 124,
+      "predicted": 469,
+      "count_absolute_error": 345
+    },
+    {
+      "id": "0379-23",
+      "point": {
+        "tp": 114,
+        "fp": 316,
+        "fn": 37,
+        "precision": 0.2651162790697674,
+        "recall": 0.7549668874172185,
+        "f1": 0.3924268502581756,
+        "matched_mean_distance": 8.616790110863448
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 151,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 151,
+      "predicted": 430,
+      "count_absolute_error": 279
+    },
+    {
+      "id": "0380-23",
+      "point": {
+        "tp": 85,
+        "fp": 335,
+        "fn": 66,
+        "precision": 0.20238095238095238,
+        "recall": 0.5629139072847682,
+        "f1": 0.29772329246935203,
+        "matched_mean_distance": 9.25828211692394
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 151,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 151,
+      "predicted": 420,
+      "count_absolute_error": 269
+    },
+    {
+      "id": "0385-23",
+      "point": {
+        "tp": 85,
+        "fp": 399,
+        "fn": 32,
+        "precision": 0.1756198347107438,
+        "recall": 0.7264957264957265,
+        "f1": 0.28286189683860236,
+        "matched_mean_distance": 8.310978506210983
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 117,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 117,
+      "predicted": 484,
+      "count_absolute_error": 367
+    },
+    {
+      "id": "0388-23",
+      "point": {
+        "tp": 130,
+        "fp": 313,
+        "fn": 26,
+        "precision": 0.29345372460496616,
+        "recall": 0.8333333333333334,
+        "f1": 0.4340567612687813,
+        "matched_mean_distance": 8.135422947392524
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 156,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 156,
+      "predicted": 443,
+      "count_absolute_error": 287
+    },
+    {
+      "id": "0580-23",
+      "point": {
+        "tp": 122,
+        "fp": 371,
+        "fn": 27,
+        "precision": 0.24746450304259635,
+        "recall": 0.8187919463087249,
+        "f1": 0.38006230529595014,
+        "matched_mean_distance": 8.511674393328807
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 149,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 149,
+      "predicted": 493,
+      "count_absolute_error": 344
+    },
+    {
+      "id": "0582-23",
+      "point": {
+        "tp": 104,
+        "fp": 363,
+        "fn": 45,
+        "precision": 0.22269807280513917,
+        "recall": 0.697986577181208,
+        "f1": 0.33766233766233766,
+        "matched_mean_distance": 8.369393223473303
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 149,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 149,
+      "predicted": 467,
+      "count_absolute_error": 318
+    },
+    {
+      "id": "0585-23",
+      "point": {
+        "tp": 129,
+        "fp": 355,
+        "fn": 21,
+        "precision": 0.2665289256198347,
+        "recall": 0.86,
+        "f1": 0.4069400630914827,
+        "matched_mean_distance": 8.351315279543574
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 150,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 150,
+      "predicted": 484,
+      "count_absolute_error": 334
+    },
+    {
+      "id": "0586-23",
+      "point": {
+        "tp": 108,
+        "fp": 359,
+        "fn": 35,
+        "precision": 0.23126338329764454,
+        "recall": 0.7552447552447552,
+        "f1": 0.3540983606557377,
+        "matched_mean_distance": 8.661407796104786
+      },
+      "baseline": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 143,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      "annotated": 143,
+      "predicted": 467,
+      "count_absolute_error": 324
+    }
+  ],
+  "validation_mean_f1": 0.34302802596991866,
+  "validation_mean_recall": 0.7207825635153571,
+  "validation_baseline_mean_f1": 0.0,
+  "train_mean_f1": 0.3493898596280517,
+  "frozen_probe_validation_mean_f1": 0.46883606256817867,
+  "constant_prior": 0.2069922387599945,
+  "terminal_gradient_shares": {
+    "regression_loss": 0.32652950286865234,
+    "point_loss": 0.7282043099403381,
+    "regression_encoder_grad_norm": 6.98410603252272,
+    "point_encoder_grad_norm": 1.685994229901751,
+    "point_to_regression_norm_ratio": 0.24140444346787146,
+    "cosine": 0.04654925381953749,
+    "mode": "eval-mode encoder, one fixed batch, unweighted point loss"
+  },
+  "probabilities_sha": "66a819b1db260c0640af5ad9993d6eeb1d56705f9e3d12ede31d0a335e29ce0e",
+  "note": "aux_weight0 point head is untrained (weight decay only); its point metrics are not a probe result"
+}

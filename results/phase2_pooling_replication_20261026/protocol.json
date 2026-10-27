@@ -1,0 +1,34 @@
+{
+  "experiment": "phase2_pooling_replication_20261026",
+  "created_utc": "2026-10-26T11:20:00+00:00",
+  "plan_step": "submission_plan_20261020 calendar 10/26-10/29 'Replication and interaction': pooling challenger vs mean on second seed/fold",
+  "question": "Does std pooling (fold4 seed46 full1790: mean 9.13328 -> std 9.04789, -0.08538pp) replicate on another seed and another development fold?",
+  "challenger": "std (single challenger, chosen in final_report 20261024); mean_std / mean_std_min_max / max not retested",
+  "base_recipe": {"ssl_epochs": 5, "regression_epochs": 20, "schedule_epochs": 10, "head_lr": 0.001, "encoder_lr": 1e-05, "clip": 1, "effective_batch": 16, "world_size": 2, "terminal_epoch_primary": true},
+  "runner": "phase2_backbone_ssl_regression_20261020.py frozen in phase2_backbone_fold0_regression_ssl5_20261022/source (byte-identical sources reused)",
+  "ssl_encoders": {"fold0": "experiments/phase2_crossfold_20261015/fold0/ssl5", "fold4": "experiments/phase2_crossfold_20261015/fold4/ssl5"},
+  "new_arms": {
+    "f4_s47_mean": {"fold": 4, "seed": 47, "pooling": "mean", "lane": "A gpus0,1"},
+    "f4_s47_std": {"fold": 4, "seed": 47, "pooling": "std", "lane": "B gpus2,3"},
+    "f0_s46_std": {"fold": 0, "seed": 46, "pooling": "std", "lane": "A gpus0,1"},
+    "f0_s47_mean": {"fold": 0, "seed": 47, "pooling": "mean", "lane": "B gpus2,3"},
+    "f0_s47_std": {"fold": 0, "seed": 47, "pooling": "std", "lane": "A gpus0,1"}
+  },
+  "pairs": {
+    "fold4_seed46_historical": "existing phase2_pooling_20261020 mean vs std (runner phase2_pooling_regression_20261019.py; shared libs hash-identical)",
+    "fold0_seed46": "existing phase2_backbone_fold0_regression_ssl5_20261022 (mean, 9.18110) vs new f0_s46_std",
+    "fold4_seed47": "new f4_s47_mean vs new f4_s47_std",
+    "fold0_seed47": "new f0_s47_mean vs new f0_s47_std"
+  },
+  "primary_metric": "terminal epoch20 full-validation mean of CD/CV/HEX MAPE; no best-epoch switching, no TTA, no calibration, no ensembles",
+  "gate_from_plan": "Target >=0.03pp mean improvement vs matched mean across at least two development folds and two seeds overall; flag any CD/CV/HEX regression >0.05pp for explicit review. Heuristic, not significance.",
+  "promotion": "never automatic; comparison.json reports all pairs",
+  "limitations": [
+    "fold0 and fold4 are historically reused development folds; not independent generalization or official score",
+    "Patient identity and near-duplicate independence unresolved",
+    "fold4_seed46 pair used a different (hash-distinct) runner script than the new arms",
+    "Pod recreated 2026-10-26 with image 20261025 (CVE patch); training uses the PVC venv (torch 2.11.0+cu130) as before"
+  ],
+  "resources": "pod clear-ec-research-4gpu-1026, 4x H200, two concurrent 2-GPU lanes; idle lane filled by gpu_keepalive.py --ignore-jobs until the other lane finishes",
+  "expected_duration": "~4.4h per arm (13 min/epoch measured on fold0 seed46); 3 waves, ~13h total"
+}

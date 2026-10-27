@@ -1,0 +1,37 @@
+{
+  "experiment": "green_aux_g1_20261026",
+  "created_utc": "2026-10-26T12:30:00+00:00",
+  "plan_step": "oof_green_review_20261020 review_and_plan.v2 GREEN-G1 second stage (matched baseline vs auxiliary A/B), scheduled 10/26-10/29 alongside replication",
+  "prior_stage": "green_point_probe_20261023: frozen fold4 SSL5 tokens, linear 768->1 head, val5 mean F1 0.469 vs constant baseline 0",
+  "question": "Does a train-only green point auxiliary loss during full regression fine-tuning change fold4 full-validation CD/CV/HEX MAPE, and does fine-tuning improve held-out green point localization over the frozen probe?",
+  "base_recipe": "fold4 seed46 SSL5 mean pooling, regression20 schedule10, head lr 1e-3, encoder lr 1e-5, clip 1, effective batch 16, world size 2 — identical to phase2_pooling_20261020/arms/mean",
+  "runner": "green_aux_regression_20261026.py wrapping the byte-identical frozen phase2_backbone_ssl_regression_20261020 runner",
+  "arms": {
+    "control_w0": {"aux_weight": 0.0, "lane": "B gpus2,3, first"},
+    "aux_w0p1": {"aux_weight": 0.1, "lane": "A gpus0,1"},
+    "aux_w0p3": {"aux_weight": 0.3, "lane": "B gpus2,3, second"}
+  },
+  "aux_design": {
+    "head": "Linear 768->1 on final normed patch tokens, float32, init identical to the frozen probe",
+    "loss": "BCE-with-logits against max-Gaussian sigma8 target on ROI support only (frozen probe formula)",
+    "green_data": "20 fold4-train green images only; 5 fold4-validation green images never enter any loss",
+    "sampling": "one green image per rank per update appended to the second micro-batch; deterministic seed/epoch/step/rank schedule independent of global RNG",
+    "geometry": "4 H/V flips with exactly transformed points and ROI; no photometric change",
+    "objective": "frozen regression loss + aux_weight * rank-mean point loss; clipping over all parameters"
+  },
+  "primary": "terminal epoch20 full-validation (1790) mean MAPE, aux arm minus control_w0; no best-epoch switching, TTA, calibration or ensembles",
+  "secondary": [
+    "val5 green point F1/recall/count error with the frozen probe peaks/NMS/matching, versus frozen probe 0.469 and constant baseline",
+    "encoder gradient norm ratio point/regression and cosine at init (smoke) and terminal",
+    "control_w0 minus historical fold4 seed46 mean arm (code-path sanity, not bitwise)"
+  ],
+  "gate": "Aux arm mean <= control -0.03pp is 'promising' only; promotion requires another seed and fold as in submission_plan promotion_gates. Flag CD/CV/HEX regression >0.05pp. GREEN-G2 teacher consistency stays blocked unless held-out point localization materially improves AND the user decides.",
+  "promotion": "never automatic",
+  "limitations": [
+    "Single fold4 seed46 screen on a reused development fold",
+    "20 training / 5 validation green images; point metrics have high variance",
+    "Green ROI/points are not cell masks; original TIFF completeness unverified",
+    "Two pre-registered weights only; no tuning on validation"
+  ],
+  "expected_duration": "~5h per arm (one extra full-frame image per 8); lane B ~19:55 UTC 10/26 -> ~05:45 UTC 10/27, lane A ~00:25 -> ~05:20 UTC 10/27"
+}

@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "manifest_sha": "a701491cf52025ba90ff7aa66e6d65fd1f79b24c3000178a4c236ac1bf924005",
+  "values": {
+    "loss": 0.20031045377254486,
+    "invariance": 0.004920976236462593,
+    "sigreg": 9.774394989013672,
+    "feature_std": 0.07063746452331543,
+    "projector_std": 0.3326739966869354,
+    "effective_rank": 2.5410447120666504,
+    "replay_max_abs_error": 0.0,
+    "actual_images": 32,
+    "gradient_norm": 0.7901851534843445
+  },
+  "encoder_blocks_updated": [
+    "blocks.0",
+    "blocks.1",
+    "blocks.10",
+    "blocks.11",
+    "blocks.2",
+    "blocks.3",
+    "blocks.4",
+    "blocks.5",
+    "blocks.6",
+    "blocks.7",
+    "blocks.8",
+    "blocks.9"
+  ],
+  "optimizer_step_after_update": 1,
+  "production_batch_images": 32,
+  "seed": 1003,
+  "training_requires_fresh_setup": true,
+  "smoke_checkpoint_saved": false,
+  "validation_images_used": 0,
+  "target_arrays_loaded": false,
+  "seconds": 16.01521186158061,
+  "peak_gib": 34.38498640060425,
+  "details": {
+    "weight_path": "experiments/phase2_foundation_20261002/weights/cellpose/cpdino-vitb",
+    "weight_sha256": "3ed4c06a3963ab13ff377d4e2957174aaaf637434eb031ae9931fcbfaf9a217f",
+    "patch_kernel": [
+      16,
+      16
+    ],
+    "patch_stride": [
+      8,
+      8
+    ],
+    "patch_padding": [
+      4,
+      4
+    ],
+    "pretrained_source": "CellposeDINO ViT-B, revision 7c61431b5fbb078f3296754bd15d9f51b320f837",
+    "parameter_count": 85769987,
+    "trainable_parameter_count": 85769987,
+    "gpu": "NVIDIA H200",
+    "torch_version": "2.11.0+cu130",
+    "seed": 1003,
+    "fresh_external_initialization": true,
+    "encoder_parameters": 85669632,
+    "train_only_projector_parameters": 6041728
+  }
+}

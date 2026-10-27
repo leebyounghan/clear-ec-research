@@ -1,0 +1,43 @@
+{
+  "status": "green_aux_regression_verified",
+  "aux_weight": 0.01,
+  "score": {
+    "CD": 6.821781158447266,
+    "CV": 10.354998588562012,
+    "HEX": 10.239151000976562,
+    "mean": 9.138644218444824,
+    "n": 1790
+  },
+  "retrospective_best": {
+    "epoch": 15,
+    "score": {
+      "CD": 6.5421037673950195,
+      "CV": 10.349824905395508,
+      "HEX": 10.186408996582031,
+      "mean": 9.02611255645752,
+      "n": 1790
+    },
+    "not_primary": true
+  },
+  "validation_mean_f1": 0.44496458253511373,
+  "validation_baseline_mean_f1": 0.0,
+  "frozen_probe_validation_mean_f1": 0.46883606256817867,
+  "terminal_gradient_shares": {
+    "regression_loss": 0.2944711744785309,
+    "point_loss": 0.46425488591194153,
+    "regression_encoder_grad_norm": 6.248648456302085,
+    "point_encoder_grad_norm": 1.0336577139451535,
+    "point_to_regression_norm_ratio": 0.16542100602613613,
+    "cosine": 0.007605283080826994,
+    "mode": "eval-mode encoder, one fixed batch, unweighted point loss"
+  },
+  "point_metrics_recomputed": true,
+  "manifest_sha": "c482dafeb6790299c32f8f7a5fabd69630645bd2536106ee4ccf0cf6af129dfa",
+  "aux_manifest_sha": "fd9cb346a3dd297e774018d8bed0b7f5304bfbe785f6e5dbf95edcec9784e2a0",
+  "limits": [
+    "Single fold4 seed46 screen; reused development fold",
+    "20 training and 5 validation green images; high variance point metrics",
+    "Green ROI/points are not cell masks; original TIFF completeness unverified",
+    "Patient independence and near-duplicate leakage unresolved"
+  ]
+}

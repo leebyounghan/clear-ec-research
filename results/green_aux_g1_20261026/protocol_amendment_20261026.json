@@ -1,0 +1,10 @@
+{
+  "amends": "protocol.json",
+  "created_utc": "2026-10-26T22:30:00+00:00",
+  "change": "aux_weight 0.3 arm withdrawn before any GPU step; replaced by aux_w0p01 (aux_weight 0.01) on lane B after control_w0",
+  "reason": "control_w0 smoke on training images only: regression loss 0.747 with encoder gradient norm 0.0128; unweighted point loss 0.742 with encoder gradient norm 2.289 (ratio 179.4, cosine -0.009). Under global clip 1.0, weights 0.1 and 0.3 both let the auxiliary dominate encoder updates, so neither tests a small auxiliary. 0.01 (about 1.8x the initial regression encoder gradient, smaller once the regression head grows) and 0.1 now span weak to strong.",
+  "outcome_data_seen": false,
+  "source_difference": "staging_source_v2/green_aux_regression_20261026.py differs from staging_source only in WEIGHTS = (0.0, 0.01, 0.1, 0.3)",
+  "arms_after_amendment": {"control_w0": 0.0, "aux_w0p01": 0.01, "aux_w0p1": 0.1},
+  "schedule": "lane B: control_w0 then aux_w0p01 (supervisor_v2); lane A: aux_w0p1 after the pooling sweep"
+}

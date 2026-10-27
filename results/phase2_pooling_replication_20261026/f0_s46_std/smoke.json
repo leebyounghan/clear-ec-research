@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "manifest_sha": "0758a60317328480e273a57576da3e9370b0ee46a340537a9419fe06f6ce8a30",
+  "details": {
+    "weight_path": "experiments/phase2_foundation_20261002/weights/cellpose/cpdino-vitb",
+    "weight_sha256": "3ed4c06a3963ab13ff377d4e2957174aaaf637434eb031ae9931fcbfaf9a217f",
+    "patch_kernel": [
+      16,
+      16
+    ],
+    "patch_stride": [
+      8,
+      8
+    ],
+    "patch_padding": [
+      4,
+      4
+    ],
+    "pretrained_source": "CellposeDINO ViT-B, revision 7c61431b5fbb078f3296754bd15d9f51b320f837",
+    "parameter_count": 85769987,
+    "trainable_parameter_count": 85769987,
+    "pooling": "std",
+    "pooled_dimension": 768,
+    "common_padded_input": [
+      992,
+      1312
+    ],
+    "patch_or_feature_grid": [
+      124,
+      164
+    ],
+    "ssl_checkpoint_sha": "0de625857b71f2c7ad659aaed9fb069047598a6fd8f68c74224c0b0c3b8de0ea",
+    "ssl_epochs": 5,
+    "encoder_tensor_sha": "fcbffa850afc6cfd1fef805474d45e393abb4c77d434de2c1680f5f90b745d56",
+    "head_initial_tensor_sha": "bfefffde5e5be6dc94490deb3ac1f7a0dbd05c34519dead746e096065afbe4f7",
+    "projection_or_ssl_optimizer_loaded": false,
+    "distributed_execution": {
+      "world_size": 2,
+      "micro_batch_per_gpu": 4,
+      "global_batch": 16,
+      "accumulation_rounds": 2,
+      "partial_groups": "sample weighted; zero-weight dummy as needed"
+    },
+    "mode": "full",
+    "seed": 46,
+    "gpu": "NVIDIA H200",
+    "torch_version": "2.11.0+cu130",
+    "cuda_version": "13.0",
+    "bitwise_determinism_guaranteed": false,
+    "encoder_trainable": 85669632,
+    "head_trainable": 100355
+  },
+  "single_gpu_reference_gradient_check": {
+    "relative_gradient_l2": 1.5636324170514577e-05,
+    "max_abs_gradient_error": 2.7567148208618164e-06,
+    "passed": true,
+    "includes_final9_samples_and_zero_weight_dummy": true
+  },
+  "ranks_synchronized": true,
+  "all_12_encoder_blocks_updated": true,
+  "patch_gradient_verified": true,
+  "head_updated": true
+}

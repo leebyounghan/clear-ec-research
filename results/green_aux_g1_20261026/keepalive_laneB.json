@@ -1,0 +1,6 @@
+{
+  "pid": 14412,
+  "gpus": "2,3",
+  "started_utc": "2026-10-27T02:58:28.462045+00:00",
+  "stop": "kill this pid before launching new GPU work"
+}

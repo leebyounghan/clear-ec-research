@@ -1,0 +1,36 @@
+{
+  "decision": "Recipe A confirmed as the Phase 2 single-model candidate",
+  "decided_by": "user, chat 2026-10-27",
+  "recorded_utc": "2026-10-27T10:30:00+00:00",
+  "recipe": {
+    "backbone": "CellposeDINO ViT-B (kernel16/stride8), whole native 972x1296 frame, replicate-pad to 992x1312",
+    "ssl": "fold-train-only LeJEPA SSL 5 epochs, seed 1003, runner phase2_crossfold_ssl_20261015",
+    "pooling": "std (population std of final normed patch tokens)",
+    "head": "LayerNorm -> Linear128 -> GELU -> Linear3",
+    "regression": "20 epochs, schedule10 (1 warmup epoch, cosine to 0.1 by epoch10, then flat), head lr 1e-3, encoder lr 1e-5, AdamW wd 1e-4, global clip 1.0, effective batch 16 (2 GPUs x 4 x 2), bf16",
+    "loss": "0.5 standardized log L1 + 0.5 physical MAPE / 0.2 (frozen runner)",
+    "checkpoint": "fixed terminal epoch 20; no best-epoch switching",
+    "inference": "one whole-frame view; no TTA, calibration or ensemble",
+    "runner": "phase2_backbone_ssl_regression_20261020.py (sha256 d5dea6f6cc5095924230fc4767b3840a775142546b0d0f49ca4a0a37d14e184b)"
+  },
+  "evidence": {
+    "source": "experiments/phase2_pooling_replication_20261026/comparison.json",
+    "pairs_std_minus_mean": {
+      "fold4_seed46": -0.0854, "fold0_seed46": -0.0666, "fold4_seed47": -0.0379, "fold0_seed47": -0.1319
+    },
+    "average": -0.0804,
+    "gate": "submission_plan_20261020 promotion_gates: >=0.03pp across >=2 folds and >=2 seeds — met by all four pairs",
+    "reviewed_flag": "fold4_seed47 HEX +0.059pp; HEX improves in the other three pairs (-0.036, -0.106, -0.153)"
+  },
+  "not_included": {
+    "green_point_auxiliary": "worsened regression at weights 0.01 (+0.027) and 0.1 (+0.047), mainly CD",
+    "nested_calibration": "scalar -0.014pp on one outer fold, below the 0.03 threshold",
+    "ssl10": "fold4 gain did not replicate on fold0"
+  },
+  "next": "5-fold OOF of recipe A (experiments/oof_recipeA_20261027), then candidate package A",
+  "limitations": [
+    "Development folds are historically reused; not an official or independent score",
+    "Patient independence and near-duplicate leakage unresolved",
+    "H200 training is not T4 deployment certification"
+  ]
+}
