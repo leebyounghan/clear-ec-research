@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "manifest_sha": "713148b5c420d651a508391227a4a1f9045f0426e3371c7b59f6fc02443a7dfc",
+  "actual_head_seed_verified": true,
+  "all_rng_seeded": true,
+  "augmentation_seed_verified": true,
+  "order_seed_verified": true,
+  "partial_ddp_gradient_equivalence": true,
+  "clipping_verified": true,
+  "schedule_terminal_and_clamping_verified": true,
+  "metric_identity": true
+}

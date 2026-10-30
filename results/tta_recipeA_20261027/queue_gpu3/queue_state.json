@@ -1,0 +1,158 @@
+{
+  "started_utc": "2026-10-27T22:52:54.507139+00:00",
+  "pid": 23064,
+  "gpu": "3",
+  "spec": "experiments/queue_runner_20261027/gpu3_tta_jobs.json",
+  "jobs": {
+    "tta_fold1_s46": {
+      "status": "skipped",
+      "utc": "2026-10-27T22:58:40.812673+00:00"
+    },
+    "tta_f0_s47": {
+      "status": "complete",
+      "started_utc": "2026-10-27T22:58:40.866950+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-27T23:14:38.451172+00:00"
+    },
+    "tta_f4_s47": {
+      "status": "complete",
+      "started_utc": "2026-10-27T23:14:38.507631+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-27T23:30:36.775599+00:00"
+    },
+    "alldata_ssl_prepare": {
+      "status": "complete",
+      "started_utc": "2026-10-27T23:30:36.830198+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-27T23:30:48.107895+00:00"
+    },
+    "alldata_ssl_tests": {
+      "status": "complete",
+      "started_utc": "2026-10-27T23:30:48.173039+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-27T23:30:51.576685+00:00"
+    },
+    "alldata_ssl_smoke": {
+      "status": "complete",
+      "started_utc": "2026-10-27T23:30:51.631222+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-27T23:31:14.317445+00:00"
+    },
+    "alldata_ssl_train": {
+      "status": "complete",
+      "started_utc": "2026-10-27T23:31:14.373592+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-28T05:25:26.700699+00:00"
+    },
+    "tta_fold3_s46": {
+      "status": "complete",
+      "started_utc": "2026-10-28T05:25:26.778311+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-28T05:41:24.725549+00:00"
+    },
+    "fulldata_s46_prepare": {
+      "status": "complete",
+      "started_utc": "2026-10-28T05:41:24.778798+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-28T05:41:41.163405+00:00"
+    },
+    "fulldata_s46_cpu_tests": {
+      "status": "complete",
+      "started_utc": "2026-10-28T05:41:41.374152+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-28T05:41:47.294231+00:00"
+    },
+    "fulldata_s47_prepare": {
+      "status": "complete",
+      "started_utc": "2026-10-28T05:41:47.351795+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-28T05:42:03.608242+00:00"
+    },
+    "fulldata_s47_cpu_tests": {
+      "status": "complete",
+      "started_utc": "2026-10-28T05:42:03.667970+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-28T05:42:09.430629+00:00"
+    },
+    "fulldata_s48_prepare": {
+      "status": "complete",
+      "started_utc": "2026-10-28T05:42:09.487838+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-28T05:42:25.669299+00:00"
+    },
+    "fulldata_s48_cpu_tests": {
+      "status": "complete",
+      "started_utc": "2026-10-28T05:42:25.727075+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-28T05:42:31.494328+00:00"
+    },
+    "ssl1004_reg_prepare": {
+      "status": "complete",
+      "started_utc": "2026-10-28T05:42:31.612111+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-28T05:42:47.750272+00:00"
+    },
+    "ssl1004_reg_cpu_tests": {
+      "status": "complete",
+      "started_utc": "2026-10-28T05:42:47.836228+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-28T05:42:53.670221+00:00"
+    },
+    "fold2_s46_v2_smoke": {
+      "status": "complete",
+      "started_utc": "2026-10-28T05:42:53.725076+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-28T05:43:15.973685+00:00"
+    },
+    "fold2_s46_v2_train": {
+      "status": "complete",
+      "started_utc": "2026-10-28T05:43:16.027810+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-28T10:05:28.079199+00:00"
+    },
+    "fold2_s46_v2_audit": {
+      "status": "complete",
+      "started_utc": "2026-10-28T10:05:28.136277+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-28T10:05:44.402551+00:00"
+    },
+    "oof_aggregate_v2": {
+      "status": "complete",
+      "started_utc": "2026-10-28T10:05:44.462662+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-28T10:05:44.648813+00:00"
+    },
+    "tta_fold2_s46": {
+      "status": "complete",
+      "started_utc": "2026-10-28T10:05:44.706401+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-28T10:21:42.941138+00:00"
+    },
+    "tta_fold1_s47": {
+      "status": "running",
+      "started_utc": "2026-10-28T10:21:43.002705+00:00",
+      "waited": false
+    }
+  },
+  "runner_version": 2
+}

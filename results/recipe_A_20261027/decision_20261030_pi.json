@@ -1,0 +1,32 @@
+{
+  "title": "PI decisions 2026-10-30 and resulting plan",
+  "recorded_utc": "2026-10-30T02:05:00+00:00",
+  "decided_by": "user (PI), chat 2026-10-30 ~01:55 UTC",
+  "decisions": {
+    "hex6": "goes into submission 2, not submission 1",
+    "green_track": "continue on GPU 3 until the deadline; GPUs must not sit idle \u2014 keep experimenting",
+    "detector_data": "PI shares the concern that all detectors were trained on the same 20 annotated images; asked to find ways to obtain more detector training data, noting that every image has CD/CV/HEX ground truth and so can score a detector without point labels",
+    "test_setup": "set up the submission test now (container + integrated inference)",
+    "logging": "record every experiment"
+  },
+  "derived_plan": {
+    "green_session_tasks": [
+      "G1 GT-scored detector selection/training: use GT HEX/CD of all fold-train images to (a) select/early-stop detectors, (b) add a differentiable soft-hex6/soft-count weak loss on all fold-train images, (c) pseudo-label curriculum from images whose detector hex6 agrees with GT; evaluated by val-5 F1 and LOFO hex6 blend on base B",
+      "G2 external corneal endothelium point/mask datasets: availability, licence, size \u2014 report before downloading",
+      "G3 submission-2 deployment prep: detectors retrained from the full-data recipe A encoder, full-fit a/b/w on base B OOF, standalone hex6_correction() with unit test"
+    ],
+    "parent_tasks": [
+      "Submission-1 integration test on GPU 2: Phase-1 six-member package (review_submission_20260910, PyTorch 2.11+cu126 image) + three full-data recipe A members (four-flip TTA, scalars CD 0.9908 / CV 0.9869 / HEX 0.9930) averaged 0.5/0.5; verify against fold4 OOF reconstruction on sample images; T4 memory bound (15 GiB cap, memory-efficient SDPA asserted); timing",
+      "Finish lane01: fold0 CV/HEX specialists, SSL-1004 regression; evaluate CD specialist as a CD-column member on the hybrid (LOFO)",
+      "Keep GPU 2 busy with validation work between tests"
+    ]
+  },
+  "pending_PI_confirmations": [],
+  "decisions_update_0530utc": {
+    "submission_1": "CONFIRMED: hybrid B = 0.5 x recipe A (3 full-data members, TTA + OOF scalars) + 0.5 x Phase-1 SIX-member package (unchanged)",
+    "external_detector_data": "APPROVED: srep_topcon_sp3000 (385 images, cell-centre points; research use, cite Daniel et al. Sci Rep 2019); rodrep secondary",
+    "pod_to_buildbox_ssh_key": "APPROVED: pod key registered on the build box for the one-off weight transfer",
+    "hex6": "submission 2"
+  },
+  "updated_utc": "2026-10-30T04:45:38.280136+00:00"
+}

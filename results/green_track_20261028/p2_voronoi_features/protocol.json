@@ -1,0 +1,12 @@
+{
+ "experiment": "green_track_20261028/p2_voronoi_features",
+ "created_utc": "2026-10-28T15:55:00Z",
+ "status": "pre-registered before running",
+ "compute": "CPU only; existing fold-clean specialist maps",
+ "question": "Do Voronoi-cell statistics (area CV, six-neighbour fraction) from the existing specialist point maps carry fold-clean signal that a LOFO log-blend adds to recipe A's CV and HEX?",
+ "motivation": "Oracle on the 25 expert-annotated images: Voronoi area CV from perfect points reaches 8.8% LOO-scaled MAPE (r 0.88) and the six-neighbour fraction 7.8% for HEX (r 0.84), both below the regressor's 10.3%. The hidden-ROI noise floor argument therefore does not apply to a geometric estimator in the measured region. Unknown: degradation with real detections (val-5 F1 0.65).",
+ "features": "complete bounded Voronoi cells (all Delaunay neighbours within 2.2x median NN distance; all vertices inside the hull): cv_vor, hex6, cd_vor; and the same inside the 0.052 mm^2 window with the most complete cells (cv_vor_top, hex6_top)",
+ "evaluation": "cd_estimators_20261028.lofo_blend per target (CV, HEX, CD): log-linear calibration and blend weight fitted on the four other folds; 20 leaked rows excluded; zero-target rows unscored",
+ "pre_specified_decision": "per target: candidate if the best feature improves that target by >= 0.09 pp overall and on >= 2 folds (0.03 pp on the mean); features chosen among 5 per target, so a pass must be confirmed on the stride-2 peaks (independent detector) before any gate claim",
+ "falsification": "If cv_vor / hex6 blend deltas are >= 0 on most folds, real-detection Voronoi statistics are too corrupted by misses and false positives at F1 0.65; then detection quality (self-training, stride-2) is the lever, and the oracle bounds the prize."
+}

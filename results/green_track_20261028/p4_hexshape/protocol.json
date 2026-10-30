@@ -1,0 +1,7 @@
+{"experiment": "green_track_20261028/p4_hexshape", "created_utc": "2026-10-28T17:40:00Z", "status": "pre-registered before running", "compute": "CPU (shapely), overlapped with GPU jobs",
+ "question": "Does a continuous hexagon-shape statistic of the Voronoi cells (fitted regular-hexagon IoU, the point-only analogue of the challenge's HEX definition) carry more HEX information than the six-neighbour fraction?",
+ "features": ["hexiou_mean (primary)", "hexiou_median", "frac_sides6 (= p2b F)", "frac_sides5", "frac_sides7", "mean_abs_sides_minus6", "edgecv_mean"],
+ "sources": ["stride-2 seed-46 peaks at 0.35", "stride-8 specialist centroid peaks at 0.35"],
+ "evaluation": "LOFO blend vs HEX as before; 20 leaked rows excluded",
+ "pre_specified_decision": "primary HEX<-sg2:hexiou_mean; gate -0.09 pp HEX and >= 2 folds; any other feature that beats the primary is exploratory and must be re-confirmed on the seed-47/48 detectors before use",
+ "falsification": "hexiou no better than frac_sides6 means the shape detail beyond neighbour count is noise at this detection quality"}

@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "manifest_sha": "713148b5c420d651a508391227a4a1f9045f0426e3371c7b59f6fc02443a7dfc",
+  "addendum_sha": "176079ab0c16a9bc24dcd0e8820f9e616ffa3cf2713b081ebedd520e993b15f2",
+  "zero_validation_ids": [
+    "2019-0064-ODCN",
+    "2019-0064-OSCN"
+  ],
+  "checks": [
+    "equals_frozen_metric_without_zeros",
+    "per_metric_nan_for_zero_truth",
+    "negative_targets_rejected",
+    "frozen_metric_still_rejects_zeros",
+    "training_targets_strictly_positive",
+    "zero_rows_match_addendum"
+  ]
+}

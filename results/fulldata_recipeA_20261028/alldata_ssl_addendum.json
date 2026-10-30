@@ -1,0 +1,15 @@
+{
+  "created_utc": "2026-10-27T22:49:37.638297+00:00",
+  "purpose": "all-data SSL5 for the final recipe A fit (preregistration_20261027: SSL on all 8954)",
+  "fold": 99,
+  "split_path": "experiments/fulldata_recipeA_20261028/alldata_split.npz",
+  "split_sha256": "e367b5588c29c82b7fa147b8b120dcbd6910bb875123bb4564e3686ac164d22c",
+  "data_preflight_path": "experiments/phase2_crossfold_20261015/data_preflight.json",
+  "data_preflight_sha256": "eee0fe72fc1c5e95b948f31a5eca7b84232dcd56fec8673e1aa7299dfe02d3a0",
+  "train_n": 8954,
+  "validation_n": 0,
+  "total_images": 8954,
+  "train_mod_32": 26,
+  "labels_used": false,
+  "note": "fold=99 is a sentinel; no held-out images exist for this encoder, so nothing trained from it can be evaluated on these images without leakage"
+}

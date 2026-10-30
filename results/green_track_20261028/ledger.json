@@ -1,0 +1,217 @@
+{
+ "track": "green (25 expert-annotated images: cell-centre points + ROI boxes)",
+ "owner_gpu": "clear-ec-research-4gpu-1026 GPU 3",
+ "baseline": {
+  "pipeline": "recipe A seed46, four-flip TTA + LOFO scalar calibration",
+  "oof_mean": 8.985,
+  "oof_8934_rows": 8.9757,
+  "CD": 6.403,
+  "CV": 10.295,
+  "HEX": 10.257
+ },
+ "gate": ">= 0.03 pp mean improvement overall and on >= 2 folds; no CD/CV/HEX worse by > 0.05 pp; five-fold OOF, LOFO for fitted components, 20 leaked rows excluded",
+ "prior_negatives": [
+  {
+   "idea": "auxiliary point loss during regression fine-tuning",
+   "result": "+0.027/+0.047 pp worse (green_aux_g1_20261026)"
+  },
+  {
+   "idea": "ridge stacking of 5 point-map features on the OOF",
+   "result": "+0.04..+0.16 pp worse on every fold (green_stacking_final_*)"
+  },
+  {
+   "idea": "Phase 1: segmentation CV/HEX, marker-seeded watershed, ROI recovery, point-detector CD 16.6%",
+   "result": "all worse than regression (docs/FINDINGS.md)"
+  }
+ ],
+ "ideas": [
+  {
+   "id": "p0_cd_estimators",
+   "idea": "CD estimators from existing point maps, LOFO log-blend",
+   "status": "done: negative",
+   "cost": "CPU 10 min",
+   "result": "grid features no signal; sub-grid spacing CD MAPE 8.91%, r_err 0.72, blend delta +0.007 pp; L2 intercept confound explains earlier stacking (+0.059 pp)"
+  },
+  {
+   "id": "p1_voronoi_oracle",
+   "idea": "oracle: Voronoi CV/HEX from expert points (25 images)",
+   "status": "done: prize exists only with near-perfect points",
+   "cost": "CPU 2 min",
+   "result": "LOO-scaled MAPE CV 8.8 (r .88), HEX 7.8 (r .84); 15% miss + 15% FP collapses CV r to .08, HEX to .38"
+  },
+  {
+   "id": "p2_voronoi_features",
+   "idea": "Voronoi hex6 / area CV from real specialist maps, LOFO blend",
+   "status": "done: HEX lead below gate",
+   "cost": "CPU 5 min",
+   "result": "HEX<-hex6: -0.044 pp HEX (-0.015 mean), 5/5 folds, w .14-.16; CV nothing; CD cd_vor 8.67% no gain"
+  },
+  {
+   "id": "p3_quality_calibration",
+   "idea": "quality-tercile MAPE-optimal scalars",
+   "status": "done: negative",
+   "cost": "CPU 2 min",
+   "result": "+0.002..+0.003 pp"
+  },
+  {
+   "id": "st1_fold4",
+   "idea": "self-training round 1 pilot, fold 4 (confident-peak pseudo labels)",
+   "status": "done: not extended",
+   "cost": "~50 min GPU",
+   "result": "val-5 F1 0.642 -> 0.666 (+0.024 < +0.03 bar); fold-4 downstream features unchanged (hex6 r .41->.42, sg_cd r .73->.73)"
+  },
+  {
+   "id": "sg2_specialist",
+   "idea": "stride-2 pixel-shuffle point head, 5 folds; confirms HEX<-hex6 on an independent detector and tests spacing CD",
+   "status": "seed 46 done: HEX lead confirmed, below gate; TTA + seeds 47/48 queued",
+   "cost": "~1 h GPU",
+   "result": "HEX<-hex6_all -0.063 pp HEX (-0.021 mean) 5/5 folds; CD/CV nothing; F1 0.62-0.67"
+  },
+  {
+   "id": "p2b_hex6_variants",
+   "idea": "hex6 variants (Gabriel degree, two-ring completeness, confidence weighting) on existing maps to pick one a-priori confirmation variant",
+   "status": "done: variant F chosen",
+   "cost": "CPU 5 min",
+   "result": "all variants 5/5 folds; F all-bounded hex6 -0.054 pp HEX (-0.018 mean), w .16-.20"
+  },
+  {
+   "id": "density_head",
+   "idea": "density/count head with weak CD integral",
+   "status": "done: negative (backlog item 1 closed)",
+   "cost": "~1 h GPU",
+   "result": "fold-4: r 0.27, r_err 0.13, MAPE 52% after scale, val-5 F1 0.0; not extended"
+  },
+  {
+   "id": "vlm_audit",
+   "idea": "Claude audit of error extremes / point maps on exported crops -> coded heuristics -> LOFO test",
+   "status": "round 1 done (Claude on contact sheets)",
+   "cost": "none",
+   "result": "detector = ROI proposal (compact cluster in best-focus region); worst HEX residuals are pathological/near-blank corneas where regressor over-predicts and hex6 corrects; -> H2 roi_crop queued"
+  },
+  {
+   "id": "roi_reweight",
+   "idea": "ROI-box-supervised token re-weighting before std pooling",
+   "status": "dropped: Phase 1 ROI recovery IoU 0.2, central box IoU 0.5, true ROI helps CV 0.35 only",
+   "cost": "-",
+   "result": null
+  },
+  {
+   "id": "roi_crop",
+   "idea": "recipe A re-prediction on a crop centred on the detector cluster (512x512 and 736x992), four flips, LOFO blend per target",
+   "status": "done: negative",
+   "cost": "~50 min GPU",
+   "result": "512: +0.002 pp; 736x992: +0.003 pp; crop errors 0.81-0.97 correlated with full frame"
+  },
+  {
+   "id": "local_pool",
+   "idea": "probe-region token pooling (soft / 512 box) + ridge head on the frozen fold encoder vs global control, LOFO blend",
+   "status": "done: negative",
+   "cost": "~2 h GPU",
+   "result": "global ridge control -0.019 pp (r_err .97-.99); soft -0.016; box -0.010; region never beats global"
+  },
+  {
+   "id": "p4_hexshape",
+   "idea": "fitted-hexagon IoU and sides-histogram features (shapely) vs HEX",
+   "status": "done: primary negative",
+   "cost": "CPU ~15 min",
+   "result": "hexiou_mean -0.008; exploratory mean|sides-6| -0.068 (stride-2) carried as secondary into p6"
+  },
+  {
+   "id": "p5_hex6_combo",
+   "idea": "geometric mean of hex6 over two detectors; count-gated blend",
+   "status": "done: gate pass on single model; ABSORBED by hybrid B (-0.015 pp), reported 19:05 UTC",
+   "cost": "CPU 3 min",
+   "result": "mean of log hex6 over stride-8 + stride-2: -0.091 pp HEX = -0.0305 pp mean, 5/5 folds improve, 2 folds <= -0.03; CD/CV untouched | on hybrid B: -0.045 HEX = -0.015 mean, 5/5 folds, 0 folds <= -0.03"
+  },
+  {
+   "id": "sg2_tta_seeds",
+   "idea": "four-flip TTA heatmaps and head seeds 47/48 to denoise hex6",
+   "status": "done",
+   "cost": "~2.5 h GPU",
+   "result": "TTA4 HEX<-hex6_all -0.057 pp; s47 F1 0.65 (folds 4, 0); s47 alone HEX -0.051 (5/5), F1 0.63-0.66; s48 alone -0.069"
+  },
+  {
+   "id": "p6_hex6_ensemble",
+   "idea": "hex6 averaged over 4-5 detectors (s8, stride-2 s46/s47/s48, TTA); recommendation threshold -0.04 mean on >= 4 folds",
+   "status": "done; parent decision 2026-10-29: stays OUT of submission 1",
+   "cost": "CPU 10 min",
+   "result": "hex6 (six-neighbour fraction of Voronoi cells of detected centres, mean log over 13 fold-clean detectors, LOFO blend on HEX): base A single recipe A -0.142 pp HEX = -0.047 pp mean (4/5 folds <= -0.03); base B hybrid -0.086 pp HEX = -0.0286 pp mean (5/5 improving, 2/5 <= -0.03), saturated from 9 detectors (B curve 2/5/9/13 = -0.015/-0.023/-0.028/-0.029); deployment cost = N extra fine-tuned ViT-B passes per image (~0.14 s each) + Voronoi on CPU + full-data retraining of each detector; not justified for 0.029 pp on B"
+  },
+  {
+   "id": "detector_seeds_overnight",
+   "idea": "stride-8 specialist seeds 47/48 and stride-2 seeds 49/50 (cancel if p6 shows seed averaging does not help), then p6b ensemble over 8 detectors on both bases",
+   "status": "done",
+   "cost": "~4 h GPU",
+   "result": "stride-8 s47/s48 alone -0.048/-0.050 HEX; stride-2 s49/s50 F1 0.61-0.67"
+  },
+  {
+   "id": "p7_token_hex6_ridge",
+   "idea": "three-way blend base + frozen-token ridge HEX + two-detector hex6, on A and B; tokens-only control",
+   "status": "done: redundant",
+   "cost": "CPU 5 min",
+   "result": "A -0.034 (hex6 alone -0.0305); B -0.015 (= hex6 alone); tokens-only ~0"
+  },
+  {
+   "id": "detector_diversity_overnight",
+   "idea": "multi-layer (blocks 5/8/11) stride-8 heads s46/s47 for architectural diversity + stride-2 seeds 51/52, then ensemble over everything (p6c)",
+   "status": "done",
+   "cost": "~3.5 h GPU",
+   "result": "multi-layer heads weaker alone (-0.039/-0.045 HEX); no ensemble gain beyond nine detectors"
+  },
+  {
+   "id": "st2_consensus",
+   "idea": "consensus-teacher self-training (4 fold-clean detectors agree) -> stride-2 student, fold-4 pilot",
+   "status": "done: not extended",
+   "cost": "~1.6 h GPU",
+   "result": "val-5 F1 0.679 vs 0.666 (+0.012 < 0.70 rule); hex6 r 0.489 vs 0.454; closed"
+  },
+  {
+   "id": "p8_uncertainty_cv",
+   "idea": "uncertainty-conditioned CV calibration / hybrid weight (view spread, seed, family, detector disagreement; terciles, LOFO)",
+   "status": "done: negative",
+   "cost": "CPU 15 min",
+   "result": "all variants -0.0001..+0.0039 pp on A and B; uniform CV hybrid weight re-fit +0.002"
+  },
+  {
+   "id": "p9_consensus_cv",
+   "idea": "Voronoi area CV from 13-detector consensus points (k 5/7/9)",
+   "status": "done: negative",
+   "cost": "CPU 25 min",
+   "result": "CV MAPE 14.3-14.5%, r_err 0.77, w = 0 all folds, A and B; consensus hex6 -0.077 HEX on A (no new information)"
+  },
+  {
+   "id": "g1a_gt_select",
+   "idea": "PI task G1a: GT-HEX-correlation checkpoint selection of the stride-2 head on fold-train rows (4000 updates, score every 500)",
+   "status": "queued GPU (~3 h for five folds + blend)",
+   "cost": "~3 h GPU",
+   "result": null
+  },
+  {
+   "id": "g1_subset",
+   "idea": "parent variant of G1: LOFO-consistent GT-scored selection of detector families (top-k by r on the fitting folds' rows), no new training",
+   "status": "running CPU",
+   "cost": "CPU 15 min",
+   "result": null
+  },
+  {
+   "id": "g1b_soft_hex6",
+   "idea": "PI task G1b: differentiable soft-hex6 surrogate (soft peaks, annulus neighbour count, Gaussian around 6); 20-image faithfulness test first, then weak loss on fold-train rows",
+   "status": "surrogate test queued after G1a fold 4",
+   "cost": "GPU ~5 min test; ~30 min per fold training",
+   "result": null
+  },
+  {
+   "id": "deploy_G3",
+   "idea": "PI task G3: nine submission-2 detectors from the full-data encoder (GPU 2), full-fit a/b/w on base B, standalone hex6_correction() + unit test on the 25 images",
+   "status": "running on GPU 2 (runner pid 67205)",
+   "cost": "~1.5 h GPU 2",
+   "result": null
+  }
+ ],
+ "updated_utc": "2026-10-30T04:42:59Z",
+ "pi_decisions_2026-10-30": [
+  "hex6 IN for submission 2",
+  "GPU 3 stays with the green track until the deadline",
+  "G1 GT-scored detector selection/training, G2 external data survey (report before use), G3 deployment prep"
+ ]
+}

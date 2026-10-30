@@ -1,0 +1,7 @@
+{"amendment_utc": "2026-10-28T17:30:00Z", "experiment": "green_track_20261028/sg2_specialist (+ sg2_specialist_s47, _s48)",
+ "status": "pre-registered before running",
+ "result_so_far": "stride-2 seed 46: HEX<-hex6_all -0.063 pp HEX (-0.021 mean), 5/5 folds; confirms stride-8 (-0.054). Below the -0.09 gate.",
+ "question": "Is the remaining gap detection noise? Two denoising routes: (a) four-flip TTA of the stride-2 heatmap before peak finding; (b) head seeds 47 and 48 (same recipe), to average hex6_all across seeds.",
+ "evaluation": "same LOFO blend; primary feature HEX<-sg2_vor_hex6_all; for the seed ensemble the feature is the mean of log hex6_all over the available seeds (46,47,48), computed in a separate CPU step (sg2_ensemble)",
+ "pre_specified_decision": "gate unchanged (-0.09 pp HEX / -0.03 mean, >= 2 folds). If TTA and seed averaging each move HEX by < 0.01 pp, detection noise is not the limiting factor and the next lever is the estimator (hexagon-shape features) rather than the detector.",
+ "cost": "TTA ~10 min per fold; each seed ~9 min per fold; ~2.5 h GPU total"}

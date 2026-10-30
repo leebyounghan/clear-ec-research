@@ -1,0 +1,12 @@
+{
+ "experiment": "green_track_20261028/p3_quality_calibration",
+ "created_utc": "2026-10-28T15:55:00Z",
+ "status": "pre-registered before running",
+ "compute": "CPU only; phase 0 features",
+ "question": "Does letting the per-target calibration scalar depend on a detector-derived image-quality tercile improve the adopted pipeline?",
+ "motivation": "The earlier ridge stacking fitted log residuals by L2 (phase 0 shows that alone costs +0.059 pp); a bin-wise MAPE-optimal scalar is the low-variance version of the same hypothesis that point-map statistics flag images where the regression is systematically biased.",
+ "design": "3 quality bins by terciles fixed on the four fitting folds; per bin and target the scalar in [0.90,1.10] step 0.0025 minimising MAPE on the fitting folds; applied to the held fold; 'global' variant reproduces the adopted one-scalar pipeline as a code check",
+ "quality_features": ["specialist sg_ncomplete_th0.35", "specialist mass", "detector mass_bestprob_win"],
+ "pre_specified_decision": "candidate if a variant improves the mean by >= 0.03 pp overall and on >= 2 folds with no target worse by > 0.05 pp (3 variants: multiplicity noted)",
+ "falsification": "deltas >= 0 on most folds mean the regression's bias does not depend on these quality proxies."
+}

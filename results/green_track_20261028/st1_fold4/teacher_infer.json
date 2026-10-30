@@ -1,0 +1,11 @@
+{
+  "created_utc": "2026-10-28T15:47:14.462773+00:00",
+  "fold": 4,
+  "teacher": "experiments/green_point_features_20261027/specialist/specialist_fold4.pt",
+  "teacher_sha": "a2041fa6ba383ac964279b0cfb2e64f65dded4ef6af704273da1ba86d4a46e1c",
+  "init_encoder": "experiments/phase2_pooling_20261020/arms/std/runs/fold4/cpdino_vitb/epoch_20.pt",
+  "n": 7150,
+  "maps_sha": "93d3f98078c1b1361f2d195e20ce760ce301c2a627bc8741ad2c7ef5a57143ae",
+  "views": 1,
+  "note": "validation rows of the fold are not inferred here; the teacher never saw their labels"
+}

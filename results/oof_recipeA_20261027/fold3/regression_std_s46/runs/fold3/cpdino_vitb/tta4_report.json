@@ -1,0 +1,32 @@
+{
+  "created_utc": "2026-10-28T05:41:23.720801+00:00",
+  "root": "experiments/oof_recipeA_20261027/fold3/regression_std_s46",
+  "fold": 3,
+  "seed": 46,
+  "pooling": "std",
+  "checkpoint_sha": "8053c3df335bfd9804cf48c1a3ebb94363ba07a0b2794d2fa33762ccb5554714",
+  "predictions_tta4_sha": "a516ab268451dbc9dd83d0e7f131bea5d98bc879c14b94e7e523be944e8a6f35",
+  "single_view_recompute_max_rel_dev": 0.008789726475896015,
+  "stored_score": {
+    "CD": 7.038815130923247,
+    "CV": 10.142259823440893,
+    "HEX": 10.275516799559181,
+    "mean": 9.152197251307774,
+    "n": 1791
+  },
+  "single_score": {
+    "CD": 7.040690695993805,
+    "CV": 10.14136161672223,
+    "HEX": 10.274682548019468,
+    "mean": 9.152244953578501,
+    "n": 1791
+  },
+  "tta4_score": {
+    "CD": 6.968956560858547,
+    "CV": 10.156450968206546,
+    "HEX": 10.255353830632114,
+    "mean": 9.126920453232403,
+    "n": 1791
+  },
+  "tta_delta_pp": -0.025324500346098233
+}

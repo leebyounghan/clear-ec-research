@@ -1,0 +1,48 @@
+{
+  "audit_seen_utc": "2026-10-28T22:08:32.846415+00:00",
+  "killed": [
+    {
+      "pid": 18101,
+      "cmd": "seeds_supervisor.py"
+    },
+    {
+      "pid": 49675,
+      "cmd": "/workspace/venv/bin/python\u0000-m\u0000torch.distributed.run\u0000--standalone\u0000--nproc_per_node=2\u0000experiments/oof_recipeA_20261027/fold1/regression_std_s48/source/phase2_back"
+    },
+    {
+      "pid": 49675,
+      "cmd": "/workspace/venv/bin/python\u0000-m\u0000torch.distributed.run\u0000--standalone\u0000--nproc_per_node=2\u0000experiments/oof_recipeA_20261027/fold1/regression_std_s48/source/phase2_back"
+    },
+    {
+      "pid": 49681,
+      "cmd": "/workspace/venv/bin/python\u0000-u\u0000experiments/oof_recipeA_20261027/fold1/regression_std_s48/source/phase2_backbone_ssl_regression_20261020.py\u0000train\u0000--root\u0000experimen"
+    },
+    {
+      "pid": 49682,
+      "cmd": "/workspace/venv/bin/python\u0000-u\u0000experiments/oof_recipeA_20261027/fold1/regression_std_s48/source/phase2_backbone_ssl_regression_20261020.py\u0000train\u0000--root\u0000experimen"
+    },
+    {
+      "pid": 49730,
+      "cmd": "/workspace/venv/bin/python\u0000-u\u0000experiments/oof_recipeA_20261027/fold1/regression_std_s48/source/phase2_backbone_ssl_regression_20261020.py\u0000train\u0000--root\u0000experimen"
+    },
+    {
+      "pid": 49734,
+      "cmd": "/workspace/venv/bin/python\u0000-u\u0000experiments/oof_recipeA_20261027/fold1/regression_std_s48/source/phase2_backbone_ssl_regression_20261020.py\u0000train\u0000--root\u0000experimen"
+    },
+    {
+      "pid": 49738,
+      "cmd": "/workspace/venv/bin/python\u0000-u\u0000experiments/oof_recipeA_20261027/fold1/regression_std_s48/source/phase2_backbone_ssl_regression_20261020.py\u0000train\u0000--root\u0000experimen"
+    },
+    {
+      "pid": 49745,
+      "cmd": "/workspace/venv/bin/python\u0000-u\u0000experiments/oof_recipeA_20261027/fold1/regression_std_s48/source/phase2_backbone_ssl_regression_20261020.py\u0000train\u0000--root\u0000experimen"
+    }
+  ],
+  "dropped": [
+    "fold1 seed48",
+    "fold3 seed48",
+    "fold2 seed48 (seed sensitivity report only; not needed for the ensemble decision)"
+  ],
+  "lane01_runner_pid": 49772,
+  "finished_utc": "2026-10-28T22:08:57.856434+00:00"
+}

@@ -1,0 +1,22 @@
+{
+ "experiment": "green_track_20261028/sg2_specialist",
+ "created_utc": "2026-10-28T15:45:00Z",
+ "status": "pre-registered before running",
+ "compute": "GPU 3, per fold ~8 min train + ~5 min inference; five folds ~1 h",
+ "question": "Does a stride-2 point head (sub-pixel localisation) make the spacing-based CD estimator precise enough that a leave-one-fold-out log-space blend with recipe A improves CD?",
+ "motivation": "Phase 0: grid-quantised features carry no CD information (|r| <= 0.30), but centroid-refined peaks with a complete-6-neighbourhood spacing estimator reach r = 0.73 with log GT CD and 9.1% MAPE after one scale, with error correlation 0.68 to recipe A. Spacing at CD 2000..4000 spans only 29..21 px, so an 8-px grid cannot resolve it; a stride-2 heatmap trained on the same 20 images should localise peaks far better than 3x3 centroid interpolation of a stride-8 map.",
+ "design": {
+  "per_fold": "fold-clean recipe A encoder copy (the five adopted checkpoints), head Linear 768->16 + pixel_shuffle(4) = stride-2 heatmap 496x656; Gaussian sigma 8 px max-targets rasterised at stride 2; ROI-masked BCE; four exact flips; 1000 updates batch 2; AdamW encoder 1e-5 / head 1e-3, wd 1e-4, clip 1; seed 46; train-green 20 only",
+  "localisation_report": "val-5 F1 at threshold 0.35 (NMS 12 px, match 12 px), once per fold, information only (stride-8 specialist: 0.63..0.66)",
+  "inference": "all validation rows of the fold; sub-pixel peaks (3x3 centroid) with p >= 0.2 stored with their probability so the fixed 0.35 threshold is applied later",
+  "estimators": ["sg2_cd: mean 6-NN spacing over complete neighbourhoods -> 2/(sqrt3 d^2)", "sg2_cd_med: median of per-peak 6-NN spacing", "sg2_cd_top: spacing in the 0.052 mm^2 window with the most complete peaks", "sg2_cd at threshold 0.5"],
+  "evaluation": "cd_estimators_20261028.lofo_blend: log-linear calibration and blend weight fitted on the four other folds, 20 leaked rows excluded, base = adopted pipeline (8.9757 on 8934 rows)"
+ },
+ "pre_specified_decision": {
+  "screen_pass": "best estimator blend improves CD by >= 0.09 pp overall (0.03 pp mean) and on >= 2 folds",
+  "if_pass": "candidate; confirm by (a) re-running with seed 47 heads and (b) checking the hybrid with the parent's ensemble before any submission claim",
+  "if_fail": "report the achieved CD MAPE / error correlation; stop investing in point-derived CD unless a further localisation gain (self-training) changes the MAPE by more than 1 pp"
+ },
+ "falsification": "If the stride-2 estimator's MAPE stays >= 9% or its error correlation with recipe A stays >= 0.65, sub-pixel localisation is not the bottleneck and the hidden-ROI / detector-recall limits dominate.",
+ "no_tuning_on": ["5 validation-green images", "held fold rows", "20 leaked rows"]
+}

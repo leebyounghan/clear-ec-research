@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "target": "HEX",
+  "manifest_sha": "8bcfe63fe875e20f9883d18d04da38b375d61f792b89983174ffdd13737ff81a",
+  "checks": [
+    "equals_frozen_loss_on_the_target_column",
+    "other_columns_ignored",
+    "finite"
+  ]
+}

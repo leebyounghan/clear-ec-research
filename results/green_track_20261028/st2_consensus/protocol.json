@@ -1,0 +1,9 @@
+{"experiment": "green_track_20261028/st2_consensus", "created_utc": "2026-10-29T11:10:00Z", "status": "pre-registered before running", "compute": "GPU 3, fold-4 pilot ~1.6 h (3 teacher inferences on 7150 rows, student 3000 updates, eval)",
+ "question": "Does self-training on consensus pseudo-points (>= 3 of 4 fold-clean detectors agree within 8 px on the fold's own training rows) improve held-out localisation and the hex6 HEX signal of a single detector beyond what seed averaging gives?",
+ "prior": "st1 (single confident teacher): F1 +0.024, no downstream change. Detector ensembling raised the HEX gain 2.5x, so detection noise matters; a consensus teacher is a much cleaner label source than one teacher.",
+ "teachers": ["stride-8 specialist s46 (st1 teacher_train_maps, fold 4)", "stride-2 s46, s47, s48 (single-view peaks >= 0.2 on training rows)"],
+ "pseudo_labels": {"positives": "mean position of >= 3 agreeing teachers (8 px), Gaussian sigma 8 targets at stride 2", "negatives": "stride-2 cells > 16 px from every teacher peak at threshold 0.2", "ignored": "the rest"},
+ "student": "stride-2 head on the fold-4 recipe A encoder; batch = 1 strong (train-green 20 x 4 flips, ROI-masked) + 1 pseudo item; 3000 updates; AdamW 1e-5 / 1e-3; seed 46",
+ "evaluation": "val-5 F1 at 0.35 vs the seed-46 stride-2 detector (0.666); calibration-free r(log hex6_all, log HEX) and error correlation on the 1790 fold-4 validation rows, student vs seed-46",
+ "pre_specified_decision": "extend to five folds (then LOFO on A and B, alone and inside the 13-detector ensemble) only if val-5 F1 >= 0.70 and the student's hex6 r exceeds the seed-46 detector's; otherwise close self-training on this track",
+ "falsification": "F1 < 0.70 or no hex6 correlation gain means the consensus teacher only re-teaches what the seeds already agree on."}

@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "manifest_sha": "ae360c92d8b38e9566ec0a49237b12f9da23044312ada81b862e55525cdb124a",
+  "created_utc": "2026-10-27T23:30:51.012186Z",
+  "gradient_cache_max_abs_errors": {
+    "32": 1.1175870895385742e-08,
+    "14": 5.587935447692871e-09,
+    "3": 0.0
+  },
+  "full_optimizer_rng_next_update_exact": true,
+  "weights_only_checkpoint_load": true,
+  "tests": [
+    "original SIGReg/cache suite",
+    "32/14/3-image exact gradients",
+    "seed-dependent augmentation and initialization",
+    "seed1003 original-view parity",
+    "split indices/IDs disjoint, full validation excluded",
+    "partial primary validation accepted",
+    "deadline boundary and interrupt enforcement"
+  ]
+}

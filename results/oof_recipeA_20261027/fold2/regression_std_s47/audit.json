@@ -1,0 +1,434 @@
+{
+  "status": "single_model_crossfold_regression_verified",
+  "fold": 2,
+  "seed": 47,
+  "manifest_sha": "289ce40fab8b8c8737efc4eee2e0473f4b3eda8df328808f09713fac18c1eabc",
+  "score": {
+    "CD": 6.0101494789123535,
+    "CV": 10.738409042358398,
+    "HEX": 10.348767280578613,
+    "mean": 9.032441139221191,
+    "n": 1791,
+    "zero_targets_unscored": {
+      "CD": 0,
+      "CV": 0,
+      "HEX": 2
+    }
+  },
+  "recipe": {
+    "epochs": 20,
+    "schedule_epochs": 10,
+    "seed": 47,
+    "micro_batch": 4,
+    "effective_batch": 16,
+    "encoder_lr": 1e-05,
+    "head_lr": 0.001,
+    "gradient_clip": 1.0,
+    "weight_decay": 0.0001,
+    "warmup_epochs": 1,
+    "minimum_lr_ratio": 0.1,
+    "objective": "0.5 standardized log L1 + 0.5 physical MAPE / 0.2",
+    "precision": "bfloat16",
+    "checkpointing": false,
+    "head": "std pool -> LayerNorm -> Linear128 -> GELU -> Linear3",
+    "pooling": "std",
+    "pooling_statistics": [
+      "std"
+    ],
+    "pooled_dimension": 768,
+    "std_population": true,
+    "std_epsilon": 1e-12,
+    "augmentation": "independent deterministic H/V flips; seed, epoch, image index",
+    "loader_rng": "historical global generator; train2 workers, eval4 workers; probe RNG restored",
+    "view": "whole native972x1296; replicate-pad bottom20/right16 to992x1312",
+    "normalization": "CLAHE+percentile01; Cellpose01",
+    "checkpoint_policy": "fixed terminal epoch20 primary; intermediate minima diagnostic",
+    "validation": "all 1791 validation images, one whole-frame view, no TTA or calibration",
+    "labels": "original positive labels; train-only log mean/std; no zero exclusions",
+    "metric": "mean of three per-target MAPE percentages"
+  },
+  "primary": "fixed terminal epoch20",
+  "lower_is_better": true,
+  "retrospective_best": {
+    "epoch": 17,
+    "score": {
+      "CD": 5.9177165031433105,
+      "CV": 10.74113941192627,
+      "HEX": 10.337348937988281,
+      "mean": 8.998734474182129,
+      "n": 1791,
+      "zero_targets_unscored": {
+        "CD": 0,
+        "CV": 0,
+        "HEX": 2
+      }
+    },
+    "not_primary": true
+  },
+  "historical_subset_score": {
+    "CD": 5.994000434875488,
+    "CV": 10.748214721679688,
+    "HEX": 10.37923526763916,
+    "mean": 9.040482521057129,
+    "n": 1781,
+    "zero_targets_unscored": {
+      "CD": 0,
+      "CV": 0,
+      "HEX": 2
+    }
+  },
+  "ssl_split_exact_match": true,
+  "ssl_train_only": true,
+  "all_validation_images_scored": true,
+  "epoch_artifacts": [
+    {
+      "epoch": 1,
+      "weights_sha": "564ad2e247b5e823d3b1140451269b512c91bf620c282f34d76a4177ccc483cc",
+      "predictions_sha": "7860f30cc628c0443c4df3887873b74b44d320bbca4b2c741d193084a903b9f8",
+      "score": {
+        "CD": 9.938408851623535,
+        "CV": 12.830876350402832,
+        "HEX": 11.292031288146973,
+        "mean": 11.353772163391113,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 2,
+      "weights_sha": "b785cbf1dbf285048a9f6e13b9c58b427c7b1c2e22076bc55dcfaeb63712a333",
+      "predictions_sha": "5dfa9937262d8cdc7d6af4e2b169b86931a0bbd5dae6d15d94efa75b65b7e30a",
+      "score": {
+        "CD": 6.395550727844238,
+        "CV": 11.612614631652832,
+        "HEX": 10.843894004821777,
+        "mean": 9.617352485656738,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 3,
+      "weights_sha": "d6512dc2d99496f7a9ddca7ca2cc8d591c18fe178b4e8fc898bf934347217e7e",
+      "predictions_sha": "678cd02682700fb6f47d96ae81d3dce29cab632b9b5df2117d81929bee9d7f38",
+      "score": {
+        "CD": 7.7113494873046875,
+        "CV": 11.321826934814453,
+        "HEX": 10.555967330932617,
+        "mean": 9.86304759979248,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 4,
+      "weights_sha": "4c7b01c7bce76195557dc7e1ff11d4d2a924e0d20fbdf66504071af47d041bfd",
+      "predictions_sha": "5876d63af35fe3dc8c1d7ce16dfbc1180b73c9a717b92d945ab990ff6fcadb1d",
+      "score": {
+        "CD": 6.231420040130615,
+        "CV": 11.072924613952637,
+        "HEX": 10.682245254516602,
+        "mean": 9.328863143920898,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 5,
+      "weights_sha": "a230460d8bee040e25f88ef145d062c22ad1b7c211735f00c380043d06168ed8",
+      "predictions_sha": "455f7128ae96ca326306eb74a5cbc41b4f6079dc73cb1e9091d0929f1fab72e5",
+      "score": {
+        "CD": 6.14717960357666,
+        "CV": 11.063984870910645,
+        "HEX": 10.64896297454834,
+        "mean": 9.28670883178711,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 6,
+      "weights_sha": "76ec4f965bcb7d1d2850f4abbf703ff76727f059da7abfc70f5d28eed28f61b0",
+      "predictions_sha": "daa25ba8c5ae8579dd022cd6ba86599f147f669d0753199396c519052d28037e",
+      "score": {
+        "CD": 6.717077732086182,
+        "CV": 10.827280044555664,
+        "HEX": 10.317706108093262,
+        "mean": 9.287354469299316,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 7,
+      "weights_sha": "f1fbd25565c9400328dbeee0c34bb76b5fb5477d074cf1e44169144a5048087c",
+      "predictions_sha": "e42ed5ef38c623c0c4f6b13767a7d0f4901d4def836ee3eefda4271df3687e7e",
+      "score": {
+        "CD": 6.1635236740112305,
+        "CV": 10.975078582763672,
+        "HEX": 10.434746742248535,
+        "mean": 9.191116333007812,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 8,
+      "weights_sha": "8255845e1c4426241c1494860e4d2b18c7a9befd3282f257817097244286d620",
+      "predictions_sha": "7587daf5663064a0c68467d750785a5a5b2a9b013131a1af8a67877eed61581a",
+      "score": {
+        "CD": 6.0017290115356445,
+        "CV": 10.917797088623047,
+        "HEX": 10.317272186279297,
+        "mean": 9.078932762145996,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 9,
+      "weights_sha": "061b22422d89950ddc8c57f11da34da4dd30e714301c3b4d70f539496b898259",
+      "predictions_sha": "25fc8cfae7123671c440558d24d3cc29cd87649f3d313f90a8b9e670238df6a6",
+      "score": {
+        "CD": 6.2608513832092285,
+        "CV": 10.82401180267334,
+        "HEX": 10.447366714477539,
+        "mean": 9.177410125732422,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 10,
+      "weights_sha": "4eb1ed2e24fb3a4ae8b6657d63d6e853af35cdc897cb5fc566debf4c664602f1",
+      "predictions_sha": "10cc4b20f83b133515c3057f68544e6d9593c0482d799e2f0f1934525db8c89c",
+      "score": {
+        "CD": 6.0142669677734375,
+        "CV": 10.784656524658203,
+        "HEX": 10.349079132080078,
+        "mean": 9.049334526062012,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 11,
+      "weights_sha": "ae71a678f1b0ae06dca2fe7285bcbabdec492ebb06896ae25ed0ae091272aaa3",
+      "predictions_sha": "381cae3efd0a0515d4192a86125aebb73eb1a24ba110dacdcccbf24881edabd9",
+      "score": {
+        "CD": 6.052506923675537,
+        "CV": 10.84458065032959,
+        "HEX": 10.364572525024414,
+        "mean": 9.087220191955566,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 12,
+      "weights_sha": "8b4022757ec6924572d52c754a9de1f4136863adde986664103cee3c0ad85d07",
+      "predictions_sha": "e37e26460680bd95e49c485efbe3d3e75c70e9db84b2b33c23962d3a9b4f445b",
+      "score": {
+        "CD": 6.303680419921875,
+        "CV": 10.783177375793457,
+        "HEX": 10.307472229003906,
+        "mean": 9.13144302368164,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 13,
+      "weights_sha": "973d0a86c68b055a63f682dbc3a0749d100a7062a2f8ccd8c003309d51d1f6ec",
+      "predictions_sha": "3aa7d68846ceee339db048ca04184d86512b0996071b587a35f664d08aa000cb",
+      "score": {
+        "CD": 6.322822570800781,
+        "CV": 10.7962007522583,
+        "HEX": 10.351924896240234,
+        "mean": 9.156982421875,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 14,
+      "weights_sha": "26d206e5bdd612d008203adfd4c8f94104fa4f79b984c60c2747786970b7684c",
+      "predictions_sha": "294a60dc87c53d4d4f093c0b6dd4d0e4d513989d394dc1b67fcbd99245efc0a1",
+      "score": {
+        "CD": 5.941593170166016,
+        "CV": 10.816520690917969,
+        "HEX": 10.437616348266602,
+        "mean": 9.0652437210083,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 15,
+      "weights_sha": "08327df58c1cf90f4804d8f98d876f211c8d2ead66733d27866e3fb4fc8bb786",
+      "predictions_sha": "f27c6c21c7b640b095111544d185afde734d659a7e374bb59a0b70014989a8fb",
+      "score": {
+        "CD": 6.034904479980469,
+        "CV": 10.774090766906738,
+        "HEX": 10.2953519821167,
+        "mean": 9.034782409667969,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 16,
+      "weights_sha": "adc5c9536afc02bbcff08c2d2530f92bb213e0ac4c859a23cb3ec130569035dd",
+      "predictions_sha": "73e4cfcb52cdb0641f20cadb912f41494c38711c43ec0714d67581bf69b6456f",
+      "score": {
+        "CD": 6.114081859588623,
+        "CV": 10.750801086425781,
+        "HEX": 10.30384349822998,
+        "mean": 9.056242942810059,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 17,
+      "weights_sha": "7e8b0142bd64e12143f498e2fe1097356e731b5e2a34ae79d54740de7a3025f0",
+      "predictions_sha": "d0970bfb623280e15bf917beb3d4cfc09af9c557ec90c57a249dad9a207fed1f",
+      "score": {
+        "CD": 5.9177165031433105,
+        "CV": 10.74113941192627,
+        "HEX": 10.337348937988281,
+        "mean": 8.998734474182129,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 18,
+      "weights_sha": "4f1970200eccc389c3f6ac4845e3500e5ec2876dcc1095938259a7765336c435",
+      "predictions_sha": "8c2c60c23b80128ca4e8fe4170a5053a99deb8c79ac54246b250af10e6ce8710",
+      "score": {
+        "CD": 6.124911785125732,
+        "CV": 10.805488586425781,
+        "HEX": 10.356926918029785,
+        "mean": 9.095775604248047,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 19,
+      "weights_sha": "93daeab6b94bd16539312124b7289beb61e0ad940b448c9420b7564e6dc39017",
+      "predictions_sha": "c297fa69b0248c86078575a19719182fa73e0c3af9f89168f7c1fd753a3dee28",
+      "score": {
+        "CD": 5.946774959564209,
+        "CV": 10.75634479522705,
+        "HEX": 10.356636047363281,
+        "mean": 9.019918441772461,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    },
+    {
+      "epoch": 20,
+      "weights_sha": "7b9ee6dd0fd4ed491d034ce80aa52b8b9db3f3c9a3be4536b5048c2c52fe1be1",
+      "predictions_sha": "4bd5abf67c8955d30416b34293cc1502a1274c6b8bb6ddd830fbb044355b1e3d",
+      "score": {
+        "CD": 6.0101494789123535,
+        "CV": 10.738409042358398,
+        "HEX": 10.348767280578613,
+        "mean": 9.032441139221191,
+        "n": 1791,
+        "zero_targets_unscored": {
+          "CD": 0,
+          "CV": 0,
+          "HEX": 2
+        }
+      }
+    }
+  ],
+  "single_model": true,
+  "limits": [
+    "Single model; no ensemble, TTA or calibration",
+    "Fold-specific SSL uses only this fold training partition",
+    "Patient independence and near-duplicate leakage not independently verified",
+    "Terminal epoch primary; intermediate minima retrospective diagnostics",
+    "No exact resume is supported; deadline interruption produces an incomplete arm",
+    "H200 training is not T4 deployment certification"
+  ]
+}

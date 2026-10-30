@@ -1,0 +1,14 @@
+{
+ "experiment": "green_track_20261028/local_pool",
+ "created_utc": "2026-10-28T16:30:00Z",
+ "status": "pre-registered before running",
+ "compute": "GPU 3: one frozen forward pass per image (train + validation rows of each fold, ~21 min per fold); CPU ridge fits",
+ "question": "Does pooling the adopted recipe A encoder's tokens over the point probe's region (soft probability weights, or the 512x512 box around the largest peak cluster) give a second predictor whose LOFO blend improves on global std pooling?",
+ "motivation": "Audit round 1: the detector's cluster reproduces the annotators' ROI selection. roi_crop tests the proposal by re-running the ViT on a crop (distribution shift); local_pool keeps the full frame as input and only changes the pooling region, so the encoder stays in-distribution. The 'global' set (mean+std over all tokens, ridge head) is the control that isolates the region effect from the head change.",
+ "design": {"probe": "frozen linear point head retrained on this fold's encoder tokens (train-green 20, chosen config of green_point_features), fold-clean",
+            "features": "concat(mean, std) over tokens: global; soft (weights = probe probability); box (tokens inside the 512x512 box around the largest cluster)",
+            "head": "ridge in standardised-log space, alpha from {1e-2..1e3} by inner 5-fold CV on the fold's training rows (zero-target rows dropped)",
+            "evaluation": "validation-row predictions LOFO-blended per target with the adopted pipeline; combined score; 20 leaked rows excluded"},
+ "pre_specified_decision": "gate: combined delta <= -0.03 pp overall and on >= 2 folds, no target worse by > 0.05 pp, for soft or box AND exceeding the global control by >= 0.02 pp (otherwise the gain is just a second head, not the region)",
+ "falsification": "soft/box no better than global means the proposal region carries no information beyond what global std pooling already extracts."
+}

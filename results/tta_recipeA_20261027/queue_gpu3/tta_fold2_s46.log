@@ -1,0 +1,2 @@
+### 2026-10-28T10:05:44.708583+00:00 /workspace/venv/bin/python -u experiments/tta_recipeA_20261027/source/tta_inference_20261027.py experiments/oof_recipeA_20261027/fold2/regression_std_s46_v2
+{"root": "experiments/oof_recipeA_20261027/fold2/regression_std_s46_v2", "single": 9.008750008083677, "tta4": 8.998178568315804, "delta": -0.010571439767872448}

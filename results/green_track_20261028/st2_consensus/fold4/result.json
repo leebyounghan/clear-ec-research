@@ -1,0 +1,81 @@
+{
+  "created_utc": "2026-10-29T12:52:19.749278+00:00",
+  "fold": 4,
+  "student_val5_f1": 0.6787408725169121,
+  "reference_s46_val5_f1": 0.6664877987163236,
+  "f1_delta": 0.012253073800588488,
+  "rows": [
+    {
+      "id": "0365-23",
+      "predicted": 161,
+      "annotated": 110,
+      "tp": 82,
+      "fp": 79,
+      "fn": 28,
+      "precision": 0.5093167701863354,
+      "recall": 0.7454545454545455,
+      "f1": 0.6051660516605166,
+      "matched_mean_distance": 5.138845441425525
+    },
+    {
+      "id": "0466-23",
+      "predicted": 188,
+      "annotated": 143,
+      "tp": 111,
+      "fp": 77,
+      "fn": 32,
+      "precision": 0.5904255319148937,
+      "recall": 0.7762237762237763,
+      "f1": 0.6706948640483383,
+      "matched_mean_distance": 6.834436525717253
+    },
+    {
+      "id": "0471-23",
+      "predicted": 233,
+      "annotated": 152,
+      "tp": 140,
+      "fp": 93,
+      "fn": 12,
+      "precision": 0.6008583690987125,
+      "recall": 0.9210526315789473,
+      "f1": 0.7272727272727273,
+      "matched_mean_distance": 3.3853283992384577
+    },
+    {
+      "id": "0584-23",
+      "predicted": 241,
+      "annotated": 169,
+      "tp": 164,
+      "fp": 77,
+      "fn": 5,
+      "precision": 0.6804979253112033,
+      "recall": 0.9704142011834319,
+      "f1": 0.8,
+      "matched_mean_distance": 3.448750499409127
+    },
+    {
+      "id": "0587-23",
+      "predicted": 268,
+      "annotated": 135,
+      "tp": 119,
+      "fp": 149,
+      "fn": 16,
+      "precision": 0.44402985074626866,
+      "recall": 0.8814814814814815,
+      "f1": 0.5905707196029777,
+      "matched_mean_distance": 4.163575293536223
+    }
+  ],
+  "hex6_corr": {
+    "student": {
+      "r": 0.4889059732501994,
+      "r_err": 0.6562963262839877
+    },
+    "reference_s46": {
+      "r": 0.4541435404910317,
+      "r_err": 0.576168433764629
+    }
+  },
+  "decision_rule": "extend to five folds only if student val-5 F1 >= 0.70 and student hex6 r > reference r",
+  "extend": false
+}

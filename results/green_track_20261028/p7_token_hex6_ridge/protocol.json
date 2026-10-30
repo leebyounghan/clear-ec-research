@@ -1,0 +1,5 @@
+{"experiment": "green_track_20261028/p7_token_hex6_ridge", "created_utc": "2026-10-28T20:50:00Z", "status": "pre-registered before running", "compute": "CPU, overlapped",
+ "question": "Do the frozen-token ridge head (local_pool global control, -0.018 pp HEX on base A) and the two-detector hex6 feature add up when blended together, on base A and on hybrid B?",
+ "design": "three-way log-space blend [base, calibrated ridge(tokens) HEX, calibrated hex6]; weights (w_tokens, w_hex6) on a 0..0.6 grid (step .02, sum <= .8) chosen on the four fitting folds; control = tokens only; rows without hex6 use the tokens-only blend",
+ "pre_specified_decision": "report on B: candidate only if delta_mean <= -0.03 with >= 2 folds <= -0.03 and exceeding the tokens-only control by >= 0.015; otherwise closed",
+ "falsification": "if tokens+hex6 on B is within 0.005 of max(tokens-only, hex6-only), the two signals are redundant with the hybrid."}

@@ -1,0 +1,31 @@
+{
+  "amends": "experiments/recipe_A_20261027/preregistration_20261027.json",
+  "recorded_utc": "2026-10-28T10:45:00+00:00",
+  "decided_by": "user, chat 2026-10-28 ~10:40 UTC, after the five-fold seed-46 results, the two-member ensemble preview (8.8898 vs 8.8881) and the negative green stacking result were reported",
+  "changes": {
+    "ensemble_scope": {
+      "was": "recipe A members differing only by regression seed (46, 47, 48); no CPSAM members, no hybrid",
+      "now": "a diverse ensemble is in scope: (1) hybrid of recipe A whole-frame members with the Phase 1 crop-based six (historical OOF reused, no retraining), (2) per-target specialist members (loss on one target), (3) head-only vs full fine-tune members, (4) distillation of the whole-frame ensemble into a single model. Seed-only averaging remains the baseline.",
+      "selection_protocol": "candidate compositions are pre-listed below and all evaluated on the five-fold OOF with leave-one-fold-out weights/calibration; the submission-1 pick is the best five-fold OOF among them, all candidates reported. The fold4-matched comparison against the historical six (rule 가) remains the submission-1 vs Phase 1 tie-break for the chosen candidate."
+    },
+    "candidate_compositions": [
+      "A: recipe A 3-seed TTA + scalar (baseline)",
+      "B: hybrid, equal weight between A and the historical calibrated six (w=0.5 fixed)",
+      "C: hybrid with w chosen by leave-one-fold-out over {0.25, 0.33, 0.5, 0.67}",
+      "D: A with target columns taken from per-target specialists where the specialist improves that target on >=2 folds",
+      "E: D combined with the hybrid rule of B/C",
+      "F: distilled single model (only if trained in time; otherwise reported as not run)"
+    ],
+    "green": {
+      "was": "continue until the deadline through the >=0.03pp two-fold gate; linear stacking and auxiliary loss both failed",
+      "now": "do not abandon; a dedicated GPU (GPU 3) and a dedicated autonomous session keep ideating and running weakly supervised / LLM-in-the-loop variants until the deadline. The same gate applies before anything enters the submission; negative results are reported."
+    },
+    "gpu_allocation": {
+      "gpu3": "green research, exclusive, from 2026-10-28 ~11:00 UTC",
+      "gpu2": "support lane: TTA inference for new members, analysis",
+      "gpus_0_1": "seeds lane until fold4 seed48 completes, then full-data recipe A fits (46/47/48), then per-target specialists (fold4, fold0), then SSL-1004 regression; seeds 48 on folds 1/3/2 dropped"
+    }
+  },
+  "unchanged": ["TTA adopted (five-fold delta -0.025)", "scalar calibration adopted (LOFO -0.036)", "full-data fit on 8954 minus two zero rows", "deadline 2026-11-14, upload by 11/12, freeze 11/09"],
+  "outcome_data_seen_before_amendment": "yes: five-fold seed-46 OOF, two-member fold4 preview, green stacking. The widening is therefore exploratory; the five-fold OOF selection protocol above is the guard against cherry-picking, and every candidate is reported."
+}

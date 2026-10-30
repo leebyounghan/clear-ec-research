@@ -1,0 +1,85 @@
+{
+  "created_utc": "2026-10-28T21:36:16.775152+00:00",
+  "fold": 4,
+  "rows": 1790,
+  "r_log_cd": 0.2703379018528453,
+  "err_corr_with_base": 0.13441805993288686,
+  "median_scale": 1.3694767951965332,
+  "mape_after_one_scale": 52.361977100372314,
+  "reference": {
+    "spacing_cd_r": 0.73,
+    "recipeA_r": 0.86
+  },
+  "green_val5": {
+    "rows": [
+      {
+        "id": "0365-23",
+        "predicted": 0,
+        "annotated": 110,
+        "integral_in_roi": 131.84999084472656,
+        "tp": 0,
+        "fp": 0,
+        "fn": 110,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      {
+        "id": "0466-23",
+        "predicted": 0,
+        "annotated": 143,
+        "integral_in_roi": 181.18536376953125,
+        "tp": 0,
+        "fp": 0,
+        "fn": 143,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      {
+        "id": "0471-23",
+        "predicted": 0,
+        "annotated": 152,
+        "integral_in_roi": 256.0341796875,
+        "tp": 0,
+        "fp": 0,
+        "fn": 152,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      {
+        "id": "0584-23",
+        "predicted": 0,
+        "annotated": 169,
+        "integral_in_roi": 343.53216552734375,
+        "tp": 0,
+        "fp": 0,
+        "fn": 169,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      },
+      {
+        "id": "0587-23",
+        "predicted": 0,
+        "annotated": 135,
+        "integral_in_roi": 192.8247528076172,
+        "tp": 0,
+        "fp": 0,
+        "fn": 135,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_mean_distance": null
+      }
+    ],
+    "mean_f1": 0.0
+  },
+  "decision_rule": "extend to five folds (LOFO blend) only if err_corr_with_base <= 0.6 and mape_after_one_scale <= 9",
+  "extend": false
+}

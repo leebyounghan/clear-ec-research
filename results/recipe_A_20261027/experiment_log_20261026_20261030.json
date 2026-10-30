@@ -1,0 +1,112 @@
+{
+ "title": "CLEAR-EC Phase 2 experiment log (parent session), 2026-10-26 to 2026-10-30",
+ "note": "one entry per experiment; numbers are five-fold OOF or fold4-matched MAPE unless stated; files are repo-relative under results/ (pod copies under experiments/)",
+ "entries": [
+  {
+   "date": "2026-10-26",
+   "id": "phase2_pooling_replication_20261026",
+   "question": "does std pooling beat mean on another seed and fold?",
+   "result": "4/4 paired wins, pooled -0.080 pp (CI -0.116..-0.048)",
+   "verdict": "recipe A = std pooling (user-confirmed 10-27)"
+  },
+  {
+   "date": "2026-10-26",
+   "id": "green_aux_g1_20261026",
+   "question": "auxiliary point loss during regression",
+   "result": "lambda .01 +0.027, lambda .1 +0.047 (worse); lambda .3 withdrawn pre-GPU (gradient ratio 179x)",
+   "verdict": "negative"
+  },
+  {
+   "date": "2026-10-27",
+   "id": "green_probe_bench_20261027",
+   "question": "which encoder carries most cell-position information?",
+   "result": "val-5 point F1: lattice .378, SSL5 .469, recipe A .556, aux encoder .639",
+   "verdict": "regression fine-tuning increases point information"
+  },
+  {
+   "date": "2026-10-27",
+   "id": "t4_dry_run_20261027",
+   "question": "T4 feasibility",
+   "result": "fp16 0.99 GiB peak with memory-efficient SDPA; math-only SDPA OOM (18.5 GiB); fp16 vs fp32 drift 0.07%",
+   "verdict": "deployable if SDPA kernel asserted"
+  },
+  {
+   "date": "2026-10-27/28",
+   "id": "oof_recipeA_20261027",
+   "question": "five-fold OOF of recipe A seed 46 (fresh SSL for folds 1-3; fold2 via official zero rule)",
+   "result": "9.046 single; fold2 first root failed its own CPU gate (float equality), rerun as _v2",
+   "verdict": "baseline fixed"
+  },
+  {
+   "date": "2026-10-28",
+   "id": "recipeA_analysis_20261028/seed46_analysis_final",
+   "question": "TTA and scalar-calibration gates",
+   "result": "TTA -0.025 (5/5 folds) adopt; LOFO scalars -0.036 adopt; pipeline 8.985",
+   "verdict": "both adopted"
+  },
+  {
+   "date": "2026-10-28",
+   "id": "green_point_features_20261027 + green_stacking_final_*",
+   "question": "detector/specialist point-map features stacked on the OOF",
+   "result": "worse on every fold (+0.04..+0.16); later shown to be mostly the ridge intercept",
+   "verdict": "negative"
+  },
+  {
+   "date": "2026-10-28",
+   "id": "recipeA_analysis_20261028/hybrid_oof",
+   "question": "hybrid of recipe A with the Phase-1 crop members",
+   "result": "B (w=.5) 8.877 vs recipe A 8.951 (5/5 folds, CI -0.121..-0.044)",
+   "verdict": "submission-1 frontrunner"
+  },
+  {
+   "date": "2026-10-28/29",
+   "id": "oof_recipeA_20261027 seeds 47/48",
+   "question": "regression-seed sensitivity",
+   "result": "per-fold spread 0.01-0.05; TTA -0.007..-0.037 on every model",
+   "verdict": "seed-only ensemble ties Phase-1 six (+0.004 on fold4)"
+  },
+  {
+   "date": "2026-10-28/29",
+   "id": "green_track_20261028 (dedicated session, 21 ideas)",
+   "question": "weak supervision / LLM-in-the-loop on 25 annotated images",
+   "result": "only hex6 HEX feature survives: A -0.047, B -0.029 (13 detectors); CD/CV nothing",
+   "verdict": "hex6 -> submission 2 (PI 10-30)"
+  },
+  {
+   "date": "2026-10-29",
+   "id": "recipeA_analysis_20261028/hybrid_vs_historical_fold4",
+   "question": "pre-registered rule: candidate vs Phase-1 six on matched 1778 rows",
+   "result": "hybrid 3-seed+six 8.798 vs 8.888 (-0.090, CI excludes 0); recipe A alone 8.892",
+   "verdict": "submission 1 = hybrid (proposed, PI confirmation pending)"
+  },
+  {
+   "date": "2026-10-29",
+   "id": "fulldata_recipeA_20261028",
+   "question": "submission members: all-data SSL5 + 3 regression seeds on 8952 rows",
+   "result": "3 members trained and audited; placeholder scores on the 2 held zero rows are not an evaluation",
+   "verdict": "ready for packaging"
+  },
+  {
+   "date": "2026-10-29/30",
+   "id": "ensemble_diversity_20261028 specialists",
+   "question": "per-target specialists as diverse members",
+   "result": "CD specialist -0.09..-0.11 CD (fold0/4); CV +0.08, HEX +0.22 (worse)",
+   "verdict": "only CD specialist is a candidate column member; evaluate on hybrid LOFO"
+  },
+  {
+   "date": "2026-10-30",
+   "id": "submission1_test_20261030",
+   "question": "integrated hybrid inference on real MHA under T4 constraints",
+   "result": "n=60 fold4 images: recipe A path reproduces stored TTA to 0.15%; full-data members agree within 0.5-0.8% log spread; memory-efficient SDPA asserted; peak 2.64 GiB under a 15 GiB cap; 12.9 s/image on H200 (Phase-1 40 views x 6 members ~11 s of it). Phase-1 app vs stored fold-clean OOF: median 1.1%, p90 ~3%, one image 17% (1770-18, CD 1057: fold-clean OOF 1332 vs release 1104 vs target 1057) \u2014 all explained by the release members being all-data refits (fold4 in their training set).",
+   "verdict": "integration PASS; container image clear-ec-hybrid:20261030 built on the build box (PyTorch 2.11 + CUDA 12.6, click<8.4 pin for pip check); T4-image run with mounted models pending"
+  },
+  {
+   "date": "2026-10-30",
+   "id": "ensemble_diversity_20261028/cd_specialist_on_hybrid",
+   "question": "CD specialist as the CD column of the recipe-A half of hybrid B",
+   "result": "fold0: replace +0.007 CD / avg -0.003; fold4: replace +0.010 / avg -0.001; mean within 0.001",
+   "verdict": "negative; specialist track closed (CV/HEX specialists already worse alone)"
+  }
+ ],
+ "updated_utc": "2026-10-30T04:42:48.604416+00:00"
+}

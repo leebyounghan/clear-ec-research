@@ -1,0 +1,7 @@
+{"experiment": "green_track_20261028/p6_hex6_ensemble", "created_utc": "2026-10-28T18:35:00Z", "status": "pre-registered before running",
+ "compute": "CPU, queued after the seed-47/48 peak files exist",
+ "question": "Does averaging log hex6_all over more independent detectors (stride-8 s46; stride-2 s46, s47, s48; stride-2 s46 four-flip TTA) strengthen the p5 result beyond the marginal gate pass?",
+ "primary": "feature = mean of log hex6_all over all available detectors, each at threshold 0.35, LOFO blend vs HEX (same code path as p5)",
+ "secondary": ["mean of log(mean|sides-6|) over the same detectors (p4 exploratory best)", "subsets: stride-2 seeds only (s46,s47,s48); stride-8 + stride-2 s46 + TTA"],
+ "pre_specified_decision": "recommendation threshold for building full-data detectors: primary <= -0.04 pp mean overall and <= -0.03 on >= 4 folds; otherwise the p5 marginal pass stands as reported and the PI decides",
+ "falsification": "if adding seeds does not improve over the two-detector mean, the remaining error is not detection noise but the ROI/label mismatch, and further detector work is not warranted"}

@@ -1,0 +1,5 @@
+{"experiment": "green_track_20261028/p5_hex6_combo", "created_utc": "2026-10-28T17:40:00Z", "status": "pre-registered before running", "compute": "CPU",
+ "question": "Does averaging hex6_all over two independent detectors (stride-8 specialist, stride-2 seed 46) or gating the blend weight by the number of bounded cells push the HEX gain towards the gate?",
+ "variants": ["A: feature = geometric mean of the two hex6_all (no fitting), LOFO blend", "B: stride-2 hex6_all with row weight w*min(1, n_bounded/100), w on fitting folds"],
+ "pre_specified_decision": "gate -0.09 pp HEX (-0.03 mean), >= 2 folds; A is the primary (parameter-free combination); B is secondary",
+ "falsification": "A no better than the better single detector means the two detectors' errors are the same errors (correlation of log hex6 reported)"}

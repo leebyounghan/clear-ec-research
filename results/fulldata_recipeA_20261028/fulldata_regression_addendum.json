@@ -1,0 +1,35 @@
+{
+  "created_utc": "2026-10-28T04:02:55.533601+00:00",
+  "purpose": "recipe A full-data regression for submission; decision (\uac00) from preregistration_20261027: train on 8954 minus the two zero-HEX rows",
+  "fold": 99,
+  "split_path": "experiments/fulldata_recipeA_20261028/fulldata_regression_split.npz",
+  "split_sha256": "f53f24dbd091c9f061e3f9aad6e32c8b70da5f4b3e10c1487b847ba26f16e260",
+  "train_n": 8952,
+  "held_n": 2,
+  "zero_validation_ids": [
+    "2019-0064-ODCN",
+    "2019-0064-OSCN"
+  ],
+  "zero_targets": {
+    "2019-0064-ODCN": [
+      1053.0,
+      0.029999999329447746,
+      0.0
+    ],
+    "2019-0064-OSCN": [
+      520.0,
+      0.10999999940395355,
+      0.0
+    ]
+  },
+  "ssl_root": "experiments/fulldata_recipeA_20261028/ssl5_s1003",
+  "ssl_split_path": "experiments/fulldata_recipeA_20261028/alldata_split.npz",
+  "ssl_split_sha256": "e367b5588c29c82b7fa147b8b120dcbd6910bb875123bb4564e3686ac164d22c",
+  "held_rows_role": "placeholder validation partition so the frozen runner can run; per-epoch scores on these two rows are not an evaluation",
+  "seeds": [
+    46,
+    47,
+    48
+  ],
+  "recipe": "std pooling, SSL5 all-data, regression20 schedule10, head lr 1e-3, clip 1, terminal epoch"
+}

@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "target": "CV",
+  "manifest_sha": "a907607a56b3b716c48e3858adc3591fe0c38102aa2ef799f4bdc5dcf6f5f28d",
+  "checks": [
+    "equals_frozen_loss_on_the_target_column",
+    "other_columns_ignored",
+    "finite"
+  ]
+}

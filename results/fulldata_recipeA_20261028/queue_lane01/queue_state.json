@@ -1,0 +1,78 @@
+{
+  "jobs": {
+    "fulldata_s46_smoke": {
+      "status": "skipped",
+      "utc": "2026-10-28T22:08:57.950943+00:00"
+    },
+    "fulldata_s46_train": {
+      "status": "skipped",
+      "utc": "2026-10-28T22:08:58.006341+00:00"
+    },
+    "fulldata_s46_audit": {
+      "status": "complete",
+      "started_utc": "2026-10-28T22:08:58.098428+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-28T22:09:14.384116+00:00"
+    },
+    "fulldata_s47_smoke": {
+      "status": "complete",
+      "started_utc": "2026-10-28T22:09:14.594451+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-28T22:09:31.879755+00:00"
+    },
+    "fulldata_s47_train": {
+      "status": "complete",
+      "started_utc": "2026-10-28T22:09:31.932201+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-29T02:51:16.199605+00:00"
+    },
+    "fulldata_s47_audit": {
+      "status": "complete",
+      "started_utc": "2026-10-29T02:51:16.257890+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-29T02:51:32.638092+00:00"
+    },
+    "fulldata_s48_smoke": {
+      "status": "complete",
+      "started_utc": "2026-10-29T02:51:32.694683+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-29T02:51:50.171390+00:00"
+    },
+    "fulldata_s48_train": {
+      "status": "complete",
+      "started_utc": "2026-10-29T02:51:50.224106+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-29T07:33:28.701535+00:00"
+    },
+    "fulldata_s48_audit": {
+      "status": "complete",
+      "started_utc": "2026-10-29T07:33:28.895145+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-29T07:33:45.352391+00:00"
+    },
+    "spec_f4_CD_smoke": {
+      "status": "complete",
+      "started_utc": "2026-10-29T07:33:45.450928+00:00",
+      "waited": false,
+      "exit_code": 0,
+      "finished_utc": "2026-10-29T07:34:03.893415+00:00"
+    },
+    "spec_f4_CD_train": {
+      "status": "running",
+      "started_utc": "2026-10-29T07:34:03.946152+00:00",
+      "waited": false
+    }
+  },
+  "started_utc": "2026-10-28T22:08:57.894360+00:00",
+  "pid": 49772,
+  "gpu": "0,1",
+  "spec": "experiments/queue_runner_20261027/lane01_jobs.json",
+  "runner_version": 2
+}

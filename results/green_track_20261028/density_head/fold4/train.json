@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-10-28T21:31:15.558324+00:00",
+  "fold": 4,
+  "epochs": 3,
+  "steps": 5364,
+  "batch": 4,
+  "lr": 0.001,
+  "lambda_strong": 1.0,
+  "loss_last200": {
+    "weak": 0.60486308157444,
+    "strong_l1": 3.6632368040084837,
+    "strong_int": 0.1397069919097703
+  },
+  "seconds": 1576.9,
+  "encoder": "experiments/phase2_pooling_20261020/arms/std/runs/fold4/cpdino_vitb/epoch_20.pt"
+}

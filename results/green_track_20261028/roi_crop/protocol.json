@@ -1,0 +1,15 @@
+{
+ "experiment": "green_track_20261028/roi_crop",
+ "created_utc": "2026-10-28T16:20:00Z",
+ "status": "pre-registered before running",
+ "compute": "GPU 3; inference only (adopted recipe A checkpoints, weights untouched); ~5 min per fold and size",
+ "question": "Does re-predicting with the fold's recipe A model on a crop centred on the point specialist's detection cluster (an ROI proposal learned from the 20 annotated boxes) add fold-clean signal to the full-frame prediction?",
+ "motivation": "Claude audit round 1: the specialist fires on one compact cluster of 100-300 cells in the best-focus region on essentially every image, i.e. it reproduces the annotators' ROI selection. Phase 1 found true ROIs help little in the old crop pipeline, but this is a cheap test with a different mechanism (the regressor itself re-applied to the proposal), and the LOFO blend assigns w = 0 if useless.",
+ "design": {"roi": "centroid of the largest single-linkage cluster (link 2.5x median NN) of specialist peaks at 0.35; fallback frame centre",
+            "crops": ["512x512 (0.15 mm^2, ~3x the annotator ROI)", "736x992 (three quarters of the frame)"],
+            "inference": "training-time CLAHE + percentile normalisation on the full frame, then crop; four exact flips; standardised-log mean decoded with the checkpoint log mean/std; SDPA efficient/math, bf16",
+            "evaluation": "per target LOFO log-linear calibration + blend weight on the four other folds; combined score with all three targets blended; 20 leaked rows excluded"},
+ "pre_specified_decision": "gate: combined delta <= -0.03 pp overall and on >= 2 folds with no target worse by > 0.05 pp; two sizes = two looks (multiplicity noted)",
+ "falsification": "crop predictions with error correlation >= 0.9 to the full-frame prediction or blend weights ~0 on most folds mean the proposal region adds nothing; then the ROI-proposal reading of the detector is not exploitable through the regressor.",
+ "known_limits": ["crop inputs have fewer tokens than training (std pooling statistics shift); calibration absorbs scale only", "the detector cluster is itself fold-clean but trained on the 20 train-green images which sit in other folds' validation sets (those 20 rows are excluded)"]
+}
