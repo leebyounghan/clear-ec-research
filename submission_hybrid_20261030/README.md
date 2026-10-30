@@ -23,3 +23,7 @@ and the CPDINO backbone weights expected by recipea_src (experiments/phase2_foun
 Status: integration test on the research pod (experiments/submission1_test_20261030) — recipe A path reproduces
 stored predictions to 0.07%, peak 2.64 GiB under a 15 GiB cap, ~12 s/image on an H200 (Phase-1 40 views x 6
 members dominate). Container build and T4-image test: pending.
+
+Note: the frozen recipe A source resolves the CPDINO backbone at the research-tree relative path
+`experiments/phase2_foundation_20261002/weights/cellpose/cpdino-vitb`; the image symlinks that path to
+`/opt/ml/model/cpdino/cpdino-vitb` and the entrypoint runs from /opt/app, so the frozen sources stay byte-identical.

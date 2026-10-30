@@ -106,7 +106,28 @@
    "question": "CD specialist as the CD column of the recipe-A half of hybrid B",
    "result": "fold0: replace +0.007 CD / avg -0.003; fold4: replace +0.010 / avg -0.001; mean within 0.001",
    "verdict": "negative; specialist track closed (CV/HEX specialists already worse alone)"
+  },
+  {
+   "date": "2026-10-30",
+   "id": "submission1_test_20261030/container_test_0234-20",
+   "question": "does the built image produce the same prediction as the pod integration test under Grand-Challenge-like conditions?",
+   "result": "clear-ec-hybrid:20261030 on the build box (RTX 4090, --network none, --memory 16g, models mounted read-only): 0234-20 -> CD 2977.94 / CV 0.4163 / HEX 0.4808, identical to the pod test to 4 decimals; 22 s wall, 28 MB host RSS; CPDINO backbone path mapped by symlink onto the model mount so frozen sources are untouched",
+   "verdict": "PASS; packaging (docker save + model tar + SHA256) started"
+  },
+  {
+   "date": "2026-10-30",
+   "id": "ssl_seed_sensitivity_20261028/fold4/regression_std_s46_ssl1004",
+   "question": "does changing the SSL seed (1003->1004) change recipe A on fold4?",
+   "result": "9.0255 vs 9.0479 (-0.022 pp, single view, seed 46)",
+   "verdict": "SSL-seed members may add diversity; TTA + fold0 replication queued on GPUs 0,1"
+  },
+  {
+   "date": "2026-10-30",
+   "id": "green_track_20261028 G1a/G1b/G2-round1/G3 (dedicated session)",
+   "question": "can detector quality be lifted beyond the 20 annotated images (GT-scored selection, soft-hex6 weak loss, external Topcon pre-training)?",
+   "result": "G1a GT-correlation selection: r 0.38-0.56 uncorrelated with held-out F1 (400-row SE ~0.045; 2000-row re-test queued); as 14th member B -0.0282. Subset selection B -0.0272. G1b soft-hex6 surrogate failed its 20-image test (r -0.15/0.28) -> parked. External pre-training round 1 (2000 updates, 1.30x): val-5 F1 .642 unchanged, coverage unchanged (ROI-sized cluster), B -0.0286; round 2 (transfer check, 6000 updates, 1.11x) queued. G3 delivered: 9 fold-99 detectors, full-fit a=-0.223 b=0.584 w=0.26, Hex6Corrector 0.68 s/image, tests pass, LOFO estimate -0.0274 on B.",
+   "verdict": "hex6 on the hybrid is pinned at -0.027..-0.029 regardless of detector work; submission-2 fallback package exists"
   }
  ],
- "updated_utc": "2026-10-30T04:42:48.604416+00:00"
+ "updated_utc": "2026-10-30T17:29:12.887012+00:00"
 }

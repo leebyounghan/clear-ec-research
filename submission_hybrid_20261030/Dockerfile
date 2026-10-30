@@ -22,6 +22,10 @@ COPY phase1_app/*.py /opt/app/phase1_app/
 COPY recipea_src/*.py /opt/app/recipea_src/
 COPY runtime/dinov3 /opt/app/runtime/dinov3
 COPY hybrid_inference_20261030.py hybrid_entrypoint.py /opt/app/
+# The frozen recipe A sources resolve the CPDINO backbone by the research-tree relative path; map it onto the
+# read-only model mount instead of editing the frozen sources. hybrid_entrypoint chdir()s to /opt/app.
+RUN mkdir -p /opt/app/experiments/phase2_foundation_20261002/weights/cellpose \
+    && ln -s /opt/ml/model/cpdino/cpdino-vitb /opt/app/experiments/phase2_foundation_20261002/weights/cellpose/cpdino-vitb
 ENV PYTHONPATH=/opt/app/runtime
 USER 10001:10001
 # Start-up asserts the memory-efficient SDPA kernel for 20336 tokens before touching the input.

@@ -23,6 +23,8 @@ def main():
     parser.add_argument('--fp16', action='store_true')
     args = parser.parse_args()
     start = time.time()
+    import os
+    os.chdir('/opt/app')  # frozen recipe A sources use research-tree relative paths (see Dockerfile symlink)
     H.assert_memory_efficient_sdpa()
     sockets = json.loads((args.input / 'inputs.json').read_text())
     if [x['socket']['slug'] for x in sockets] != ['corneal-specular-microscopy-image']:
