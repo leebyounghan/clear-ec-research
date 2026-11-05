@@ -1,0 +1,22 @@
+{
+  "id": "exp-8c9c88376c53",
+  "name": "6-model SSL/raw + fixed calibration",
+  "group": "official",
+  "score": {
+    "mean": 8.701
+  },
+  "source": "docs/PLATFORM_BINDING_20260915.json",
+  "config": "Phase1 · 6모델 · multi-view · 고정 보정",
+  "status": "실제 제출 확인",
+  "problem": "서로 다른 모델의 오차를 평균하고 고정적인 예측 편향을 줄이는 접근.",
+  "idea": "6번째 full-quality 모델을 SSL/raw로 교체; 기존 5모델과 보정은 유지.",
+  "decision": "공식 8.7042→8.7010. 개별 CD/CV/HEX 공식 점수는 확보되지 않음.",
+  "parent": null,
+  "protocol": "docs/SSL_RELEASE_20260914.md",
+  "log": null,
+  "note_version": "v1",
+  "interpretation": "2026-10-20 사후 정리. 당시 사전 가설과 구분.",
+  "date": "2026-09-14",
+  "sha256": "6de4bf634bb43ca5cbe21d0e48b1f571070555758d6babf08d5c7066c2181efc",
+  "note_path": "results/leaderboard/notes/exp-8c9c88376c53.v1.json"
+}

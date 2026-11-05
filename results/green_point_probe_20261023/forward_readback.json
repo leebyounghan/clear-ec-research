@@ -1,0 +1,83 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-10-23T10:55:09.406955+00:00",
+  "manifest_sha256": "f8933d54a41c0829dca8cfb214c226127eeaf8cd9ba6279c4c12c502de8ce5a1",
+  "checkpoint_sha256": "6800aeb3c71a9856f8112cc14bfe7996c2a00e30d30834e69a6e77e446a59b17",
+  "rows": [
+    {
+      "id": "0365-23",
+      "metrics": {
+        "tp": 10,
+        "fp": 3,
+        "fn": 100,
+        "precision": 0.7692307692307693,
+        "recall": 0.09090909090909091,
+        "f1": 0.16260162601626016,
+        "matched_mean_distance": 5.80096431119246
+      },
+      "detected_points": 13
+    },
+    {
+      "id": "0466-23",
+      "metrics": {
+        "tp": 27,
+        "fp": 9,
+        "fn": 116,
+        "precision": 0.75,
+        "recall": 0.1888111888111888,
+        "f1": 0.3016759776536313,
+        "matched_mean_distance": 6.9004632863422275
+      },
+      "detected_points": 36
+    },
+    {
+      "id": "0471-23",
+      "metrics": {
+        "tp": 120,
+        "fp": 58,
+        "fn": 32,
+        "precision": 0.6741573033707865,
+        "recall": 0.7894736842105263,
+        "f1": 0.7272727272727273,
+        "matched_mean_distance": 4.144586677093941
+      },
+      "detected_points": 178
+    },
+    {
+      "id": "0584-23",
+      "metrics": {
+        "tp": 140,
+        "fp": 60,
+        "fn": 29,
+        "precision": 0.7,
+        "recall": 0.8284023668639053,
+        "f1": 0.7588075880758808,
+        "matched_mean_distance": 4.267452827349756
+      },
+      "detected_points": 200
+    },
+    {
+      "id": "0587-23",
+      "metrics": {
+        "tp": 51,
+        "fp": 73,
+        "fn": 84,
+        "precision": 0.4112903225806452,
+        "recall": 0.37777777777777777,
+        "f1": 0.3938223938223938,
+        "matched_mean_distance": 4.550491049508726
+      },
+      "detected_points": 124
+    }
+  ],
+  "scope": "All five heldout point-localization cases reloaded; fixed thresholds and matching; no training",
+  "forward": "independent linear functional head on strict-reloaded encoder tokens",
+  "tolerance": 1e-06,
+  "limits": [
+    "ROI support is supplied for diagnostic localization, not learned ROI performance",
+    "No cell boundary mask ground truth",
+    "25 historically reused development images; original TIFF provenance incomplete",
+    "No scalar calibration or submission changes"
+  ],
+  "source_sha256": "338c1d126de61c2f1e68a2a9b6cc4a0553c57f415aed65f9ed7dea62e60e5bb0"
+}

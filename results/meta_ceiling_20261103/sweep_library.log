@@ -1,0 +1,166 @@
+/usr/local/lib/python3.12/dist-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/usr/local/lib/python3.12/dist-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+families 160
+after copies removed 159
+C whole 8.99 0.113 8954 [0, 1, 2, 3, 4] recipeA_s47_tta
+C whole 9.009 0.132 8954 [0, 1, 2, 3, 4] green_day2_20261101/g3_hex6aux/aux/predictions_tta4.npz
+C whole 9.021 0.144 8954 [0, 1, 2, 3, 4] recipeA_s46_tta
+C whole 9.032 0.155 8954 [0, 1, 2, 3, 4] green_day2_20261101/g3_hex6aux/control/predictions_tta4.npz
+C crop 9.049 0.172 8954 [0, 1, 2, 3, 4] methods_20260904/metric35_f
+C crop 9.051 0.174 8954 [0, 1, 2, 3, 4] hybrid_20260905/metric_predbag2_35_f_seed42_c256k2_mean
+C crop 9.093 0.216 8954 [0, 1, 2, 3, 4] anchor_quality_s77
+C crop 9.094 0.217 8954 [0, 1, 2, 3, 4] anchor_quality_s2026
+C crop 9.098 0.221 8954 [0, 1, 2, 3, 4] region_search_20260905/anchor_quality_f_seed42_c256k2_mean
+C crop 9.101 0.224 8954 [0, 1, 2, 3, 4] methods_20260904/predbag2_35_f_seed42_c256k2_mean
+C whole 9.101 0.224 8954 [0, 1, 2, 3, 4] green_day2_20261101/g3_hex6aux/aux3/predictions_tta4.npz
+C whole 9.126 0.249 8954 [0, 1, 2, 3, 4] green_track_20261028/local_pool/pred.npz:global
+C crop 9.159 0.281 8954 [0, 1, 2, 3, 4] submission_20260904/base_seed77_f_seed77_c256k1_mean
+C crop 9.182 0.305 8954 [0, 1, 2, 3, 4] submission_20260904/base_seed2026_f_seed2026_c256k1_mean
+C crop 9.192 0.315 8954 [0, 1, 2, 3, 4] oof_h200/jepa_small_mean_f
+C whole 9.201 0.324 8954 [0, 1, 2, 3, 4] green_track_20261028/local_pool/pred.npz:soft
+C crop 9.203 0.326 8954 [0, 1, 2, 3, 4] submission_20260904/raw_targets_f_seed42_c256k1_mean_multitask_raw
+C crop 9.206 0.329 8954 [0, 1, 2, 3, 4] oof_h200/curhpo_mask65_e10h20_f
+C crop 9.209 0.332 8954 [0, 1, 2, 3, 4] followup_20260902/fixed_base_f
+C crop 9.212 0.335 8954 [0, 1, 2, 3, 4] oof_h200/baseline_f
+C crop 9.226 0.348 8954 [0, 1, 2, 3, 4] followup_20260902/fixed_jepa_f
+C crop 9.234 0.357 8954 [0, 1, 2, 3, 4] oof_h200/cur_mask65_std_f
+C crop 9.251 0.374 8954 [0, 1, 2, 3, 4] submission_20260904/attention_f_seed42_c256k1_attn
+C crop 9.258 0.381 8954 [0, 1, 2, 3, 4] oof_h200/jepa_all_mean_f
+C crop 9.258 0.381 8954 [0, 1, 2, 3, 4] region_search_20260905/full_quality_f_seed42_c256k2_mean
+C whole 9.261 0.384 8954 [0, 1, 2, 3, 4] green_track_20261028/local_pool/pred.npz:box
+C crop 9.261 0.384 8954 [0, 1, 2, 3, 4] oof_h200/jepa_small_headlr2e3_f
+C crop 9.269 0.392 8954 [0, 1, 2, 3, 4] oof_h200/curhpo_low_lr_e5h20_f
+C crop 9.271 0.394 8954 [0, 1, 2, 3, 4] oof_h200/attn_f_seed42_c256k1_attn
+p crop 9.234 0.327 5372 [2, 3, 4] raw_ssl_next_20260913/ssl_runs/standard/oof.npz
+p crop 9.241 0.335 5372 [2, 3, 4] raw_ssl_next_20260913/ssl_runs/half_lr/oof.npz
+p crop 9.291 0.385 5372 [2, 3, 4] region_seedconfirm_20260906/full_quality_f_seed2026_c256k2_mean
+p crop 9.296 0.39 5372 [2, 3, 4] region_seedconfirm_20260906/full_quality_f_seed77_c256k2_mean
+p crop 9.055 0.221 3582 [0, 1] region_search_20260905/native_ssl_f
+p crop 9.06 0.226 3582 [0, 1] methods_20260904/cosine35_f
+p crop 9.109 0.276 3582 [0, 1] methods_20260904/sam35_f
+p crop 9.11 0.276 3582 [0, 1] crop_dino_screen_20260910/guarded_oof.npz
+p crop 9.128 0.197 3582 [2, 3] phase2_metric35_ssl_20260928/control/oof.npz
+p crop 9.148 0.217 3582 [2, 3] phase2_metric35_ssl_20260928/ssl/oof.npz
+p crop 9.153 0.319 3582 [0, 1] context_20260904/central_native_f
+p crop 9.16 0.327 3582 [0, 1] target_screen_20260912/ssl_raw_oof.npz
+p crop 9.203 0.369 3582 [0, 1] target_screen_20260912/base_raw_oof.npz
+p whole 9.207 0.275 3582 [2, 3] phase2_backbone_screen_20261001/dino_vitb14/oof.npz
+p crop 9.208 0.374 3582 [0, 1] ssl_screen_20260911/ssl35_oof.npz
+p crop 9.213 0.379 3582 [0, 1] region_seedcheck_20260906/full_quality_f_seed2026_c256k2_mean
+p crop 9.217 0.383 3582 [0, 1] followup_20260902/matched_k1_f
+p crop 9.232 0.398 3582 [0, 1] region_seedcheck_20260906/full_quality_f_seed77_c256k2_mean
+p crop 9.256 0.423 3582 [0, 1] crop_dino_screen_20260910/control_oof.npz
+p crop 9.261 0.427 3582 [0, 1] ssl_screen_20260911/supervised55_oof.npz
+p crop 9.265 0.431 3582 [0, 1] ssl_screen_20260911/supervised55_continued55/oof.npz
+p crop 9.278 0.445 3582 [0, 1] specialize_screen_20260908/multitask/oof.npz
+p crop 9.278 0.445 3582 [0, 1] statres_screen_20260908/mean/oof.npz
+p crop 9.306 0.375 3582 [2, 3] representation_ssl_20260913/low_cov_downstream/oof.npz
+p crop 9.309 0.377 3582 [2, 3] ssl_duration_20260914/step4000_oof.npz
+p crop 9.313 0.382 3582 [2, 3] cpsam_methods_20260914_v2/downstream/ijepa_oof.npz
+p crop 9.317 0.483 3582 [0, 1] specialize_screen_20260908/cd/oof.npz
+p crop 9.327 0.493 3582 [0, 1] context_20260904/central_context_f_seed42_c256k2_mean_random_attn
+p crop 9.329 0.397 3582 [2, 3] representation_ssl_20260913/spatial_anchor_downstream/oof.npz
+p crop 9.33 0.398 3582 [2, 3] cpsam_methods_20260914_v2/downstream/dino_oof.npz
+p crop 9.333 0.401 3582 [2, 3] ssl_duration_20260914/step2000_oof.npz
+p crop 9.335 0.502 3582 [0, 1] specialize_screen_20260908/cv/oof.npz
+p crop 9.348 0.417 3582 [2, 3] overnight_target_20260912/raw_oof.npz
+p crop 9.378 0.446 3582 [2, 3] overnight_target_20260912/slidesmooth_oof.npz
+p crop 9.379 0.545 3582 [0, 1] followup_20260902/fixed_mil_f_seed42_c256k4_mean_cover4_meanstd
+p crop 9.385 0.551 3582 [0, 1] specialize_screen_20260908/hex/oof.npz
+p crop 9.4 0.566 3582 [0, 1] context_20260904/full_context_focus_f_seed42_c256k2_mean_random_attn
+p crop 9.417 0.583 3582 [0, 1] context_20260904/full_context_uniform_f_seed42_c256k2_mean_random_attn
+p whole 9.425 0.493 3582 [2, 3] phase2_backbone_screen_20261001/convnext_base/oof.npz
+p crop 9.472 0.638 3582 [0, 1] region_search_20260905/full_uniform_f_seed42_c256k2_mean
+p whole 10.064 1.231 3582 [0, 1] style_specialist_20261102/f_s46_framed
+p whole 11.939 3.007 3582 [2, 3] phase2_fullnative_20260929/heads/mean/oof.npz
+p whole 11.995 3.064 3582 [2, 3] phase2_fullnative_20260929/heads/spatial_attention/oof.npz
+p whole 9.046 0.15 3581 [0, 4] oof_recipeA_20261027/regression_std_s48
+p whole 9.095 0.199 3581 [0, 4] phase2_pooling_replication_20261026/f_s47_mean
+p crop 11.447 2.551 3581 [0, 4] ensemble_diversity_20261028/specialist_CD_s46
+p crop 12.667 3.771 3581 [0, 4] ensemble_diversity_20261028/specialist_CV_s46
+p whole 9.102 0.166 1791 [0] meta_ceiling_20261103/bridge2/f_token_mlp
+p whole 9.115 0.178 1791 [0] meta_ceiling_20261103/label_clean/f_s46
+p whole 9.181 0.245 1791 [0] phase2_backbone_fold_regression_ssl5_20261022
+p whole 9.21 0.274 1791 [0] phase2_backbone_fold_regression_ssl10_20261022
+p whole 9.233 0.334 1791 [3] phase2_lejepa5_sweep_20261013/arms/head1e4_clip3
+p crop 9.233 0.296 1791 [0] oof_h200/baseline_seed202_f_seed202_c256k1_mean
+p whole 9.24 0.341 1791 [3] phase2_lejepa5_regression_20261008
+p crop 9.241 0.304 1791 [0] oof_h200/jepa_small_seed404_f_seed404_c256k1_mean
+p whole 9.245 0.345 1791 [3] phase2_lejepa10_regression_20261009
+p crop 9.248 0.312 1791 [0] oof_h200/jepa_all_raw_f_seed42_c256k1_mean_multitask_raw
+p whole 9.248 0.349 1791 [3] phase2_lejepa_regression_20261003
+p crop 9.253 0.317 1791 [0] oof_h200/cur_low_lr_std_f
+p whole 9.256 0.32 1791 [0] meta_ceiling_20261103/formula_head/f_s46
+p crop 9.275 0.544 1791 [1] followup_20260902/nested_o0_f
+p crop 9.277 0.341 1791 [0] oof_h200/jepa_small_seed505_f_seed505_c256k1_mean
+p whole 9.279 0.379 1791 [3] phase2_lejepa5_tuning_20261012/arms/full_encoder_low
+p crop 9.282 0.345 1791 [0] oof_h200/cur_clear_only_std_f
+p crop 9.289 0.352 1791 [0] oof_h200/curhpo_mask65_e20h10_f
+p whole 9.292 0.393 1791 [3] phase2_lejepa5_tuning_20261012/arms/full_head_low
+p whole 9.302 0.403 1791 [3] phase2_foundation_train_20261002
+p whole 9.313 0.413 1791 [3] phase2_lejepa5_sweep_20261013/arms/head1e4_clip1
+p whole 9.317 0.418 1791 [3] phase2_lejepa5_sweep_20261013/arms/head3e4_clip3
+p crop 9.326 0.39 1791 [0] oof_h200/curhpo_low_lr_e20h10_f
+p crop 9.328 0.392 1791 [0] oof_h200/jepa_small_enclr5e6_f
+p crop 9.328 0.392 1791 [0] oof_h200/jepa_small_seed202_f_seed202_c256k1_mean
+p crop 9.333 0.397 1791 [0] oof_h200/jepa_small_enclr2e5_f
+p crop 9.343 0.406 1791 [0] oof_h200/jepa_all_attn_f_seed42_c256k1_attn
+p crop 9.345 0.408 1791 [0] oof_h200/baseline_seed101_f_seed101_c256k1_mean
+p whole 9.355 0.455 1791 [3] phase2_lejepa5_sweep_20261013/arms/head1e3_clip3
+p crop 9.356 0.457 1791 [3] followup_20260902/nested_o2_f
+p crop 9.362 0.426 1791 [0] oof_h200/jepa_small_attn_f_seed42_c256k1_attn
+p crop 9.363 0.426 1791 [0] oof_h200/jepa_small_headlr5e4_f
+p crop 9.366 0.43 1791 [0] oof_h200/jepa_all_seed101_f_seed101_c256k1_mean
+p crop 9.372 0.436 1791 [0] oof_h200/cur_srep_only_std_f
+p crop 9.38 0.444 1791 [0] oof_h200/jepa_small_raw_f_seed42_c256k1_mean_multitask_raw
+p crop 9.383 0.447 1791 [0] oof_h200/cur_srep_rodrep_std_f
+p crop 9.383 0.447 1791 [0] oof_h200/curhpo_low_lr_e10h20_f
+p crop 9.383 0.447 1791 [0] oof_h200/jepa_small_seed101_f_seed101_c256k1_mean
+p crop 9.383 0.447 1791 [0] oof_h200/cur_all_small_std_f
+p crop 9.397 0.461 1791 [0] oof_h200/curhpo_mask65_e5h20_f
+p crop 9.423 0.486 1791 [0] followup_20260902/nested_o4_f
+p crop 9.423 0.487 1791 [0] oof_h200/jepa_small_seed303_f_seed303_c256k1_mean
+p crop 9.424 0.487 1791 [0] oof_h200/curhpo_mask65_e5h5_f
+p crop 9.433 0.47 1791 [2] phase2_cpsam_scale_20261001/central512/oof.npz
+p whole 9.443 0.507 1791 [0] meta_ceiling_20261103/bridge2/f_enc_lr5x
+p crop 9.443 0.507 1791 [0] oof_h200/cur_high_lr_std_f
+p crop 9.448 0.512 1791 [0] oof_h200/curhpo_low_lr_e5h5_f
+p crop 9.45 0.513 1791 [0] crop_h200/cover4_meanstd_f_seed42_c256k4_mean_cover4_meanstd
+p whole 9.485 0.586 1791 [3] phase2_foundation_train_20261002/convnext_base/predictions.npz
+p whole 9.539 0.64 1791 [3] phase2_foundation_train_20261002/dinov3_vitb/predictions.npz
+p crop 9.564 0.628 1791 [0] oof_h200/cur_mask45_std_f
+p crop 9.569 0.633 1791 [0] crop_h200/cover4_mean_f_seed42_c256k4_mean_cover4_mean
+p crop 9.572 0.636 1791 [0] crop_h200/random4_mean_f_seed42_c256k4_mean
+p crop 9.582 0.645 1791 [0] crop_h200/cover4_attn_f_seed42_c256k4_mean_cover4_attn
+p crop 9.598 0.634 1791 [2] followup_20260902/nested_o1_f
+p crop 9.601 0.665 1791 [0] crop_h200/cover5_meanstd_f_seed42_c256k5_mean_cover5_meanstd
+p crop 9.628 0.692 1791 [0] crop_h200/random4_attn_f_seed42_c256k4_mean_random_attn
+p crop 9.64 0.704 1791 [0] crop_h200/cover5_attn_f_seed42_c256k5_mean_cover5_attn
+p crop 9.666 0.73 1791 [0] crop_h200/cover5_mean_f_seed42_c256k5_mean_cover5_mean
+p crop 9.678 0.714 1791 [2] phase2_cpsam_scale_20261001/native256/oof.npz
+p whole 10.106 1.207 1791 [3] phase2_lejepa5_tuning_20261012/arms/head_only
+p crop 10.338 1.375 1791 [2] phase2_cpsam_scale_20261001/full972x1296/oof.npz
+p crop 11.627 2.69 1791 [0] oof_h200/cd_k4_f_seed42_c256k4_mean_cd_slidesmooth
+p crop 11.649 2.713 1791 [0] oof_h200/cd_seed101_f_seed101_c256k1_mean_cd_slidesmooth
+p crop 11.738 2.802 1791 [0] oof_h200/cd_k8_f_seed42_c256k8_mean_cd_slidesmooth
+p whole 9.056 0.2 1790 [4] phase2_pooling_20261020/arms/mean_std_min_max
+p whole 9.061 0.205 1790 [4] phase2_pooling_20261020/arms/mean_std
+p whole 9.094 0.238 1790 [4] phase2_pooling_20261020/arms/max
+p whole 9.111 0.255 1790 [4] phase2_backbone_regression_ssl10_20261021
+p crop 9.112 0.256 1790 [4] green_aux_g1_20261026/control_w0
+p whole 9.113 0.257 1790 [4] phase2_crossfold_20261015/arms/head1e3_clip1
+p whole 9.115 0.259 1790 [4] phase2_crossfold_20261015/arms/head1e4_clip3
+p whole 9.12 0.264 1790 [4] phase2_backbone_regression_ssl20_20261022
+p whole 9.133 0.277 1790 [4] phase2_pooling_20261020/arms/mean
+p whole 9.134 0.278 1790 [4] phase2_pooling_20261020/arms/min
+p crop 9.139 0.283 1790 [4] green_aux_g1_20261026/aux_w0p01
+p whole 9.14 0.284 1790 [4] phase2_crossfold_20261015/ssl0_control/head1e3_clip1
+p whole 9.147 0.291 1790 [4] phase2_backbone_regression_ssl0_20261022
+p crop 9.152 0.296 1790 [4] target_fold_20260912/raw_oof.npz
+p crop 9.159 0.303 1790 [4] green_aux_g1_20261026/aux_w0p1
+p crop 9.2 0.344 1790 [4] target_fold_20260912/slidesmooth_oof.npz
+p crop 9.498 0.642 1790 [4] followup_20260902/nested_o3_f
+p crop 13.443 4.587 1790 [4] ensemble_diversity_20261028/specialist_HEX_s46
+complete 29 partial 130

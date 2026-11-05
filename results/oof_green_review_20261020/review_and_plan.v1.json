@@ -1,0 +1,113 @@
+{
+  "version": "v1",
+  "created_utc": "2026-10-20T16:58:40.994763+00:00",
+  "status": "review and prospective design; no new GPU training launched",
+  "findings": [
+    {
+      "title": "v1 dense consistency의 공간 불일치 — 코드에서 확인",
+      "detail": "train_semisup.py는 xw와 xs를 별도 pool_crop 호출로 생성한다. crop, flip, rotation이 각각 무작위인데 heatmap MSE는 좌표 정렬 없이 계산한다. 다른 위치를 같은 위치처럼 맞추는 목적함수이다. v2의 pool_pair는 이를 수정했다.",
+      "certainty": "구현 확인; 성능 실패의 기여량은 matched 재실험 전 미확정",
+      "source": "code/train_semisup.py"
+    },
+    {
+      "title": "green 보조학습의 held-out 이미지 사용 — 코드 및 PVC split에서 확인",
+      "detail": "v1/v2 모두 annotations의 25장을 전부 GR에 넣는다. 재현한 기존 random split은 train18 / val4 / test3. 동일 이미지의 공간 정답이 보조학습에 들어가므로 해당 val/test를 순수 held-out으로 볼 수 없다. 현 fold4도 green train20 / validation5로 필터해야 한다.",
+      "certainty": "코드+현재 보존 데이터로 재현; 당시 실행 source/manifest 바인딩은 미확보",
+      "source": "results/oof_green_review_20261020/pvc_evidence.json"
+    },
+    {
+      "title": "원자료는 중심점+ROI이며 세포 경계 정답이 아님",
+      "detail": "extract_green.py는 _green_peek/train_green TIFF의 녹색 연결요소에서 ROI 사각형과 점을 추출하고 1.8배 좌표변환한다. 현재 확인한 추출본은 25장이다. 원본 green 자료 전체 개수와 추출 누락, 실제 가로세로·회전 정합은 추가 감사가 필요하다. 학습 입력은 표시 없는 MHA이어야 한다.",
+      "certainty": "추출 소스 및 annotations 확인; 전체 원자료 완전성 미검증",
+      "source": "results/oof_green_review_20261020/historical_sources.json"
+    },
+    {
+      "title": "스칼라 일치는 mask 정답의 증거가 아님",
+      "detail": "fNLA self-training은 계산 CD/CV/HEX가 GT에 가까운 pool을 골라 watershed 경계를 pseudo-label로 재학습한다. 영역·경계의 서로 다른 오류가 같은 scalar를 만들 수 있다. 기록된 두 round의 평균은 15.5792→17.0133으로 악화했지만 loss·mask quality 원인을 분리한 대조군은 미확인이다.",
+      "certainty": "선별 방식·결과 확인; 오류 증폭은 검증할 가설",
+      "source": "results/oof_green_review_20261020/historical_sources.json"
+    },
+    {
+      "title": "GT로 ROI를 맞추는 방식의 식별력 부족",
+      "detail": "25장 ROI 복원 median IoU=0.1950, 중심거리 median=287.9px. CD/CV에 맞춰 고른 영역의 CD/CV 오차를 독립 성능으로 보고하면 선택 편향이 있다.",
+      "certainty": "저장 결과 재집계",
+      "source": "results/oof_green_review_20261020/pvc_evidence.json"
+    },
+    {
+      "title": "중앙 crop이 정답 영역을 충분히 포함하지 않을 수 있음",
+      "detail": "green25 기존 geometry 진단: 중앙512 ROI 면적 평균 포함률68.4%, marker 포함률78.8%, ROI 중심 바깥5장. 실제 ROI를 이용한 oracle crop 가중치조차 개선은 제한적이었다. 학습 가능한 ROI/quality 선택이 유효한지는 별도 검증해야 한다.",
+      "certainty": "25장 선택 표본의 진단; 전체 데이터 일반화 미확정",
+      "source": "results/oof_green_review_20261020/pvc_evidence.json"
+    },
+    {
+      "title": "semi-supervised 전체를 실패로 묶을 수 없음",
+      "detail": "semisup2 저장값 val9.7294/test9.6036. robustloss 기록 test9.3427과 비교하면 나쁘지만 loss/schedule/seed/epoch 및 frozen 실행 동등성이 보장되지 않아 clean causal ablation은 아니다. v2도 dense MSE의 background 우세, confidence mask 부재, auxiliary gradient 충돌을 진단하지 않았다.",
+      "certainty": "값·코드 확인, 각 실패 원인의 기여는 가설",
+      "source": "results/regress_ft_results_semisup2.json"
+    },
+    {
+      "title": "비선형 OOF 활용 가능성은 있지만 nested 검증 필요",
+      "detail": "기존 5모델8954장 exploratory meta-crossfit: scalar9.00459, power8.98374, isotonic9.04060. outer calibration fold의 정답이 다른 fold base 모델 학습에는 사용됐기 때문에 이 meta-crossfit을 독립 평가라고 할 수 없다. 단순히 보정 fit에서 outer 행만 빼는 것으로 부족하다.",
+      "certainty": "기존 분석기에도 한계 명시",
+      "source": "results/ensemble_ablation_20260923/tail_calibration.json"
+    }
+  ],
+  "experiments": [
+    {
+      "id": "OOF-G0",
+      "priority": 0,
+      "idea": "OOF를 error atlas로 사용",
+      "design": "ID/target/fold/encoder/preprocess/epoch를 묶은 원본 예측 테이블. signed relative error, 절대오차, 밝기·blur·대비·crop disagreement 별 오차를 분석한다. GT target bin은 진단에만 사용; 배포 feature는 이미지 또는 예측으로만 계산.",
+      "gate": "학습 누수·동일 ID·slide/exact-group 검사; outer 검증 정답을 모델/가중치 선택에 사용하지 않음"
+    },
+    {
+      "id": "OOF-G1",
+      "priority": 1,
+      "idea": "identity / scalar / regularized power / 작은 quality-conditioned residual model",
+      "design": "log(p)를 보정하되 identity 방향 shrinkage. 예측3개와 사전에 고정한 소수 이미지 quality feature만 사용. 잔차 모델은 작은 ridge 또는 낮은 자유도 spline 하나로 제한; isotonic은 기존 부정적 대조. 같은 outer-train 안의 inner OOF로 fit하고 outer base도 outer-train만 학습해야 한다. 비용절감 탐색은 기존 OOF로 가능하지만 promotion 근거는 nested 재학습에서 얻는다.",
+      "gate": "동일 outer split의 uncorrected baseline 대비 CD/CV/HEX/mean 확인. 현재 단일 연구와 별도 후처리 트랙으로 기록; 기존 제출 보정 교체 금지"
+    },
+    {
+      "id": "GREEN-G0",
+      "priority": 0,
+      "idea": "green supervision 계약과 정합 감사",
+      "design": "전체 train_green 파일 inventory와 25장 추출본 coverage 확인. 원본 overlay↔MHA image registration/scale, ROI/marker 위치, 빠진 점과 ROI 밖 unlabeled 영역 확인. image ID뿐 아니라 slide/exact connected group으로 split.",
+      "gate": "현재 fold4 train20만 학습 가능; heldout5 및 연결 그룹 배제. annotation 없는 영역을 background negative로 학습하지 않음"
+    },
+    {
+      "id": "GREEN-G1",
+      "priority": 1,
+      "idea": "pseudo-mask 없이 point/ROI auxiliary만 검증",
+      "design": "고정된 CPDINO 회귀 baseline + 작은 center/density/ROI head. 우선 frozen backbone probe로 위치학습 가능성 확인 후 matched baseline 대 auxiliary A/B. ROI 내부 valid mask와 점 주변 positive loss를 사용하고 aux gradient 크기를 기록한다. 강도는 좁은 사전지정 범위; 같은 crop·geometry, photometric 변화만 분리.",
+      "gate": "heldout green 점 검출 precision/recall, count error, ROI localization 및 full1790 회귀평가. 5장만의 높은 분산·개발재사용 한계 명시. CV/HEX 개선은 독립 확인"
+    },
+    {
+      "id": "GREEN-G2",
+      "priority": 2,
+      "idea": "신뢰도 검증 후에만 teacher consistency 추가",
+      "design": "G1 통과한 teacher의 heldout localization 품질로 threshold를 inner train에서 고정. train-only pool의 aligned view에서 confidence-masked consistency. supervised auxiliary와 consistency를 별도 arm으로 비교한다.",
+      "gate": "초기부터 noisy teacher를 강하게 따라가지 않음. green/validation 이미지 및 관련 그룹은 teacher 학습과 pseudo-pool에서 배제"
+    },
+    {
+      "id": "GREEN-G3",
+      "priority": 3,
+      "idea": "boundary pseudo-label은 마지막 순위",
+      "design": "중심점/Voronoi/SAM mask를 정답이라 간주하지 않는다. 경계 오차·merge/split·세포 면적분포와 HEX 구현 정의를 별도 확인하고 충분한 근거가 있을 때만 mask self-training.",
+      "gate": "scalar gate만으로 전체9000장 pseudo-mask 생성 금지. 공식 baseline HEX IoU와 임상 6-neighbor 비율을 혼동하지 않음"
+    }
+  ],
+  "source_sha256": {
+    "code/train_semisup.py": "6d8d92a09afff364c77412fa12391a8e4253f7213e09d8b3b9fdb7fae238adc0",
+    "code/train_semisup2.py": "bac1c0d25ec442352d1398637ed9fe0361bdb90936fd4ca0a9ba46149d0a7b81",
+    "code/audit_tail_calibration_20260923.py": "e34392eec81317e170a1fa53610561ff2f699eef34ad6600ab26e68febeb2d4a"
+  },
+  "timeline": {
+    "10/20–22": "OOF-G0/GREEN-G0 CPU 점검, 현재 pooling 유지",
+    "10/22–26": "OOF-G1 exploratory fit 및 nested 데이터 준비; GPU는 승인 SSL 순서 유지",
+    "10/26–29": "GREEN-G1 작은 matched A/B를 재현성 실험과 자원 배분; 통과 시 G2",
+    "10/30–11/02": "통과 후보만 nested/다른 fold 확인; green 및 보정의 두 변경 동시 도입 금지",
+    "11/03 이후": "기존 제출1/최종 제출 일정 유지; 미검증 아이디어는 제출후보에서 제외"
+  },
+  "reference": "https://github.com/CLEAR-EC/CLEAR-EC/blob/main/README.md",
+  "caveat": "공식 baseline 구현은 HEX를 fitted-hexagon IoU로 설명한다. 이것만으로 수작업 GT 생성 과정까지 동일하다고 확정하지 않는다."
+}

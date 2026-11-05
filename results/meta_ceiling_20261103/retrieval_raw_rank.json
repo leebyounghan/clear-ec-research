@@ -1,0 +1,95 @@
+{
+ "workers": 6,
+ "thumb": {
+  "new_fellow": {
+   "n": 400,
+   "median_rank": 1750,
+   "top1": 0.005,
+   "top10": 0.018,
+   "top100": 0.065
+  },
+  "old_adjacent": {
+   "n": 400,
+   "median_rank": 1708,
+   "top1": 0.003,
+   "top10": 0.018,
+   "top100": 0.075
+  },
+  "old_adjacent_cd_close": {
+   "n": 400,
+   "median_rank": 1746,
+   "top1": 0.003,
+   "top10": 0.01,
+   "top100": 0.09
+  }
+ },
+ "hist": {
+  "new_fellow": {
+   "n": 400,
+   "median_rank": 1031,
+   "top1": 0.005,
+   "top10": 0.02,
+   "top100": 0.125
+  },
+  "old_adjacent": {
+   "n": 400,
+   "median_rank": 1286,
+   "top1": 0.003,
+   "top10": 0.013,
+   "top100": 0.08
+  },
+  "old_adjacent_cd_close": {
+   "n": 400,
+   "median_rank": 1211,
+   "top1": 0.003,
+   "top10": 0.013,
+   "top100": 0.09
+  }
+ },
+ "fixed": {
+  "new_fellow": {
+   "n": 400,
+   "median_rank": 3052,
+   "top1": 0.003,
+   "top10": 0.003,
+   "top100": 0.022
+  },
+  "old_adjacent": {
+   "n": 400,
+   "median_rank": 2800,
+   "top1": 0.005,
+   "top10": 0.015,
+   "top100": 0.05
+  },
+  "old_adjacent_cd_close": {
+   "n": 400,
+   "median_rank": 2905,
+   "top1": 0.003,
+   "top10": 0.005,
+   "top100": 0.03
+  }
+ },
+ "thumb+hist": {
+  "new_fellow": {
+   "n": 400,
+   "median_rank": 1190,
+   "top1": 0.005,
+   "top10": 0.028,
+   "top100": 0.087
+  },
+  "old_adjacent": {
+   "n": 400,
+   "median_rank": 1709,
+   "top1": 0.007,
+   "top10": 0.028,
+   "top100": 0.083
+  },
+  "old_adjacent_cd_close": {
+   "n": 400,
+   "median_rank": 1351,
+   "top1": 0.003,
+   "top10": 0.022,
+   "top100": 0.095
+  }
+ }
+}

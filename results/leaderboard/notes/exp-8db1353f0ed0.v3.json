@@ -1,0 +1,26 @@
+{
+  "id": "exp-8db1353f0ed0",
+  "name": "pooling · mean",
+  "group": "fold4",
+  "score": {
+    "CD": 6.811371352113452,
+    "CV": 10.331394494706526,
+    "HEX": 10.257065587294175,
+    "mean": 9.133277144704717
+  },
+  "source": "results/phase2_pooling_20261020/mean_independent_audit.json",
+  "config": "seed46 / fold4 n1790 / SSL5 / epochs20 schedule10 / head1e-3 clip1",
+  "status": "Independent audit PASS",
+  "problem": "Test whether spatial dispersion and extrema improve CV/HEX.",
+  "idea": "Compare spatial mean aggregation.",
+  "decision": "Terminal20 audited; compare against matched mean baseline. Final selection awaits all six arms.",
+  "parent": null,
+  "protocol": "results/phase2_pooling_20261020/observations/20261020T232341Z/arms/mean/manifest.json",
+  "log": "results/phase2_pooling_20261020/observations/20261020T232341Z/full.log",
+  "note_version": "v3",
+  "interpretation": "2026-10-20 사후 정리. 당시 사전 가설과 구분.",
+  "date": "2026-10-20",
+  "sha256": "bfce29faaa7d294ce7894e1d68e9f8352799465ebe710be1b096b9ae77de79dc",
+  "precision": "독립 float64 prediction 재계산",
+  "note_path": "results/leaderboard/notes/exp-8db1353f0ed0.v3.json"
+}

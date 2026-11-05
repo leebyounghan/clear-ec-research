@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "result_sha256": "23f1e3a23f3e76f8841bec653f69abf43684906c5e277459761abd1ed3f3cd19",
+  "manifest_sha256": "f8e9f67eb52d3ea44f2f5a23fa1b47baf784a4551f496a4bdc642a3358047a11",
+  "per_image_ape_and_group_reaggregation": true,
+  "rows": 125,
+  "input_order_independently_verified": false,
+  "boundary_ground_truth_available": false
+}

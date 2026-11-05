@@ -1,0 +1,51 @@
+{
+  "objective": "Highest single-model accuracy subject to T4 16 GiB deployment; foundation before ensembles or distillation",
+  "user_target_completion_date": "2026-11-05",
+  "training_gpu_policy": {"default_h200": 2, "maximum_h200_if_available": 4, "preempt_other_work": false},
+  "candidate_scope": ["cpsam_v2", "cpdino-vitb", "dinov3-vitb16", "convnext_base"],
+  "input_scope": ["central native512 control", "whole frame resized576x768 control", "whole native972x1296 primary direction"],
+  "no_finetuned_clearec_initialization": true,
+  "phase": "resource_preflight_completed_for_three_candidates",
+  "accuracy_training_started": false,
+  "accuracy_or_t4_claim": false,
+  "preflight_caveats": [
+    "H200, bfloat16, repeated training images, synthetic regression objective and six optimizer steps only",
+    "GPU timings exclude the production data loader; gradient-finiteness checks are included",
+    "Probe head is mean pooling + LayerNorm + Linear128/GELU/Linear3; not the final tuned model",
+    "Batch/checkpoint/layout alternatives are combined interventions, not isolated speed ablations",
+    "ConvNeXt reference uses the historical external ImageNet22k->ImageNet1k weights, not DINOv3 ConvNeXt weights"
+  ],
+  "successful_jobs": ["clear-ec-foundation-cpsam-preflight-v2-1002", "clear-ec-foundation-small-preflight-1002"],
+  "failed_attempt": {
+    "job": "clear-ec-foundation-preflight-1002",
+    "cause": "Original CPSAM artifact lacks diameter metadata expected by current Cellpose full-model strict loading",
+    "collateral": "Indexed Job failure interrupted the concurrent ConvNeXt probe; its partial results were not promoted",
+    "repair": "Strictly load all encoder tensors only; use independent bounded Jobs; preserve failed attempt and frozen sources",
+    "repaired_results": "cpsam is revision2; convnext_base and cpdino_vitb are revision3"
+  },
+  "dinov3_access": {
+    "state": "approved_downloaded_and_cpu_load_verified",
+    "weights_downloaded": true,
+    "download_location": "k8s-mlx PVC only",
+    "credential_saved": false,
+    "revision": "5931719e67bbdb9737e363e781fb0c67687896bc",
+    "model_sha256": "9a21ac3df0c63839d62612dda6f454d816c25611cc7a52966ed5a5a94921dc8b",
+    "upstream_lfs_sha_verified": true,
+    "parameters": 85660416
+  },
+  "next_required_before_accuracy_trials": [
+    "Verify patient/slide/group split provenance, duplicates and raw-label policy",
+    "Resolve and explicitly record zero-target evaluation policy; fold2 has two HEX zeros, fold3 none",
+    "Audit preprocessing consistency across input conditions and train/inference parity",
+    "Benchmark final inference on T4 with its supported precision; H200 bfloat16 results are not deployment proof",
+    "Freeze learning-rate pilot schedule, sample exposure, effective batch and validation/checkpoint policy",
+    "Do not launch long full-native CPSAM training with the current ~59.7 GiB inference implementation"
+  ],
+  "annotation_policy": {
+    "status": "two_training_only_images_visually_inspected; no_annotation_used_for_training",
+    "possible_pilot": "blinded usable-region, blur/reflection and uncertainty annotations on 10-20 training-only images",
+    "prohibited_shortcuts": ["overwrite official CD/CV/HEX with visual guesses", "choose ROI to minimize error against target values", "label validation images then train on those annotations", "call model-generated labels expert ground truth"],
+    "gate": "Human/expert review of draft consistency before expanding; evaluate utility separately after baseline"
+  },
+  "official_models_docker_github_untouched": true
+}

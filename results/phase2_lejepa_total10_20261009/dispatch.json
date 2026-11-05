@@ -1,0 +1,15 @@
+{
+  "job": "clear-ec-lejepa10-pipeline-1009",
+  "namespace": "p-ajou-mlxp-project",
+  "pod": "clear-ec-lejepa10-pipeline-1009-vqfkb",
+  "dispatched_utc": "2026-10-10T03:59:09.512600+00:00",
+  "ssl": "continue completed epoch5 to total10, restored optimizer and RNG",
+  "regression": "automatically prepare, validate, train20 epochs with 2 GPU DDP, audit SSL0/1/5/10",
+  "gpu_smoke": "passed",
+  "expected_hours": "9-10",
+  "source_sha256": {
+    "code/phase2_lejepa_extend10_20261009.py": "7303f7528e777d3662697e3a4e07274f9a1ea95194bf6ad73b17a3af888f780b",
+    "code/phase2_lejepa10_regression_20261009.py": "d4041a7768ee32e3da4cff863d08b3ca6821add48d237e44851245e647177b9f",
+    "k8s/clear-ec-lejepa10-pipeline-1009.yaml": "31a0177fffff43f2f16fce22a1220c5fe119f2d12178e018af3f940f7578ec5d"
+  }
+}

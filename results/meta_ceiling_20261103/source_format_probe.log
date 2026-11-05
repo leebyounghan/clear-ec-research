@@ -1,0 +1,13 @@
+old n 4514 {'CD': 7.113, 'CV': 10.16, 'HEX': 10.076, 'mean': 9.117} {"CD": {"mean_r": 0.0066, "median_r": 0.0072, "sd_r": 0.1007, "mad": 0.0764, "slope": 1.037, "label_sd": 0.171}, "CV": {"mean_r": 0.026, "median_r": 0.0181, "sd_r": 0.1371, "mad": 0.1246, "slope": 1.067, "label_sd": 0.165}, "HEX": {"mean_r": 0.0065, "median_r": 0.0141, "sd_r": 0.1269, "mad": 0.1208, "slope": 1.069, "label_sd": 0.154}}
+new n 4440 {'CD': 5.497, 'CV': 10.249, 'HEX': 10.156, 'mean': 8.634} {"CD": {"mean_r": 0.0008, "median_r": 0.0036, "sd_r": 0.0896, "mad": 0.0552, "slope": 1.068, "label_sd": 0.192}, "CV": {"mean_r": 0.013, "median_r": 0.0132, "sd_r": 0.1402, "mad": 0.1159, "slope": 1.095, "label_sd": 0.162}, "HEX": {"mean_r": 0.011, "median_r": 0.0174, "sd_r": 0.1285, "mad": 0.1223, "slope": 1.104, "label_sd": 0.145}}
+2018 old 292 8.708 new 0 None
+2019 old 786 9.169 new 1182 9.361
+2020 old 506 8.655 new 990 8.115
+2021 old 795 8.87 new 1086 8.304
+2022 old 694 10.062 new 1182 8.645
+2023 old 705 8.989 new 0 None
+2024 old 736 9.037 new 0 None
+global stretch by L2 fit {'CD': -0.0361, 'CV': 0.1319, 'HEX': 0.0109, 'mean': 0.0356}
+per-format, true format (oracle) {'CD': -0.0324, 'CV': 0.1345, 'HEX': 0.013, 'mean': 0.0384}
+format classifier LOFO AUC 0.9982 accuracy 0.9848
+per-format, predicted format {'CD': -0.0326, 'CV': 0.1334, 'HEX': 0.0105, 'mean': 0.0371}

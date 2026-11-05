@@ -1,0 +1,26 @@
+{
+  "id": "exp-bca389776704",
+  "name": "pooling · std",
+  "group": "fold4",
+  "score": {
+    "CD": 6.660732421605767,
+    "CV": 10.26212719080011,
+    "HEX": 10.220822925791305,
+    "mean": 9.04789417939906
+  },
+  "source": "results/phase2_pooling_20261020/std_independent_audit.json",
+  "config": "seed46 / fold4 n1790 / SSL5 / epochs20 schedule10 / head1e-3 clip1",
+  "status": "Independent audit PASS",
+  "problem": "Test whether spatial dispersion and extrema improve CV/HEX.",
+  "idea": "Compare spatial std aggregation.",
+  "decision": "Terminal20 audited; compare against matched mean baseline. Final selection awaits all six arms.",
+  "parent": "exp-8db1353f0ed0",
+  "protocol": "results/phase2_pooling_20261020/observations/20261021T035346Z/arms/std/manifest.json",
+  "log": "results/phase2_pooling_20261020/observations/20261021T035346Z/full.log",
+  "note_version": "v4",
+  "interpretation": "2026-10-20 사후 정리. 당시 사전 가설과 구분.",
+  "date": "2026-10-20",
+  "sha256": "9210996675f428bb9d6e0e325e4fa496fd1e30dc8df0bcf19a1e249b1494793f",
+  "precision": "독립 float64 prediction 재계산",
+  "note_path": "results/leaderboard/notes/exp-bca389776704.v4.json"
+}

@@ -1,0 +1,35 @@
+{
+  "created_utc": "2026-10-24T12:45:20.942972+00:00",
+  "status": "screen_complete_no_promotion_conditional_mask_training_not_triggered",
+  "formula": "Mean fitted-hexagon / cell-mask IoU; unchanged. Not six-neighbor ratio.",
+  "evidence_sha256": {
+    "hex_boundary_screen_20261020/result.json": "23f1e3a23f3e76f8841bec653f69abf43684906c5e277459761abd1ed3f3cd19",
+    "hex_boundary_screen_20261020/independent_audit.json": "0c118a9b67820245d94f36727b66f6f309d97a335b80af453d4d69be337c1f9d",
+    "green_point_probe_20261023/result.json": "c85f93dedbcb3b3b6bbcc8f0a049481d68f96ca6cc233aa257e446112a063340",
+    "green_point_probe_20261023/independent_audit.json": "d163e194c71051ed1c1e5f46fb58f224ba929677afbbbb9dcae2b2144ed45ce7",
+    "green_point_probe_20261023/forward_readback.json": "1bf0eb6c58618a9b6d520336a0d59ba35a33c2b5139d79569bd95f522f77f7fb",
+    "oof_green_review_20261020/derivative_identity_audit.json": "501141a78cf14013f3c70d9c92d5da2e370ce581dc3ceba72f1d7e6d0a1af3fa"
+  },
+  "boundary_screen": {
+    "baseline_mean": 14.552820569513003,
+    "smoothing_mean": 15.692387334998417,
+    "decision": "Reject smoothing promotion: overall mean worsened",
+    "oracle_roi_mean": 13.904008843758888,
+    "oracle_centers_mean": 16.701411194485374,
+    "interpretation": "Oracle annotation use is diagnostic, not deployable inference"
+  },
+  "identity_limits": [
+    "Edge-cache25 ordering remains independently unverified despite inferred IDs",
+    "Green derivative MHA identity verified separately; this does not establish edge-cache order",
+    "Original TIFF/extraction completeness unresolved",
+    "No full cell-boundary mask ground truth"
+  ],
+  "conditional_decision": {
+    "teacher_consistency": "Not triggered: point probe has uneven heldout recall and cannot validate boundary pseudo-label confidence",
+    "mask_self_training": "Not triggered: no independently verified boundary targets; scalar agreement is not a mask-quality gate",
+    "next_valid_experiment": "If source overlays and ID-bound edge generation plus boundary validation become available, freeze a new train-only marker/ROI protocol before evaluation"
+  },
+  "no_formula_fitting": true,
+  "no_submission_change": true,
+  "limits": "Reused green diagnostics cannot establish independent generalization or official score."
+}

@@ -1,0 +1,102 @@
+{
+  "created_utc": "2026-10-27T17:00:21.719160+00:00",
+  "init_encoder": "experiments/phase2_pooling_20261020/arms/std/runs/fold4/cpdino_vitb/epoch_20.pt",
+  "init_sha": "3f11eeab5ca3196079022a73e95bcf7ce63cf208b1fe1ad48e88ff76f9b832d1",
+  "updates": 1000,
+  "batch": 2,
+  "cv_mean_f1": {
+    "0.2": 0.5466512788195121,
+    "0.25": 0.5631487545655811,
+    "0.3": 0.5719554064277264,
+    "0.35": 0.5806420986333147,
+    "0.4": 0.5768188813564489,
+    "0.45": 0.5730797647891379,
+    "0.5": 0.5616123866498974,
+    "0.55": 0.5411715502848213,
+    "0.6": 0.5128008452678465,
+    "0.65": 0.4745661990408476,
+    "0.7": 0.4152373991528998,
+    "0.75": 0.3149474587575877,
+    "0.8": 0.1730952164314191,
+    "0.85": 0.03839297459195304
+  },
+  "threshold": 0.35,
+  "validation": {
+    "rows": [
+      {
+        "id": "0365-23",
+        "predicted": 95,
+        "annotated": 110,
+        "tp": 55,
+        "fp": 40,
+        "fn": 55,
+        "precision": 0.5789473684210527,
+        "recall": 0.5,
+        "f1": 0.5365853658536586,
+        "matched_mean_distance": 5.611255242916847
+      },
+      {
+        "id": "0466-23",
+        "predicted": 111,
+        "annotated": 143,
+        "tp": 82,
+        "fp": 29,
+        "fn": 61,
+        "precision": 0.7387387387387387,
+        "recall": 0.5734265734265734,
+        "f1": 0.6456692913385826,
+        "matched_mean_distance": 7.104166058938394
+      },
+      {
+        "id": "0471-23",
+        "predicted": 188,
+        "annotated": 152,
+        "tp": 121,
+        "fp": 67,
+        "fn": 31,
+        "precision": 0.6436170212765957,
+        "recall": 0.7960526315789473,
+        "f1": 0.711764705882353,
+        "matched_mean_distance": 4.435795316069013
+      },
+      {
+        "id": "0584-23",
+        "predicted": 211,
+        "annotated": 169,
+        "tp": 160,
+        "fp": 51,
+        "fn": 9,
+        "precision": 0.7582938388625592,
+        "recall": 0.9467455621301775,
+        "f1": 0.8421052631578947,
+        "matched_mean_distance": 4.696061147208164
+      },
+      {
+        "id": "0587-23",
+        "predicted": 177,
+        "annotated": 135,
+        "tp": 74,
+        "fp": 103,
+        "fn": 61,
+        "precision": 0.4180790960451977,
+        "recall": 0.5481481481481482,
+        "f1": 0.47435897435897434,
+        "matched_mean_distance": 4.543434547584397
+      }
+    ],
+    "mean_f1": 0.6420967201182927,
+    "mean_recall": 0.6728745830567693,
+    "mean_precision": 0.6275352126688288
+  },
+  "final_train_loss_last100": 0.32112328439950943,
+  "maps": "experiments/green_point_features_20261027/extract/fold4_specialist_s46.npz",
+  "maps_sha": "e28042f56aa3ba30c9228229f3fdbbab30fd2fdba2dcb57c4060458e16ccc2e8",
+  "reference": {
+    "frozen_recipeA_probe": 0.556,
+    "lattice": 0.378
+  },
+  "limits": [
+    "20 training / 5 validation green images",
+    "Fixed 1000 updates; no validation-based stopping"
+  ]
+}

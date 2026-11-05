@@ -1,0 +1,34 @@
+{
+  "weight_path": "experiments/phase2_backbone_screen_20261001/hf_cache/hub/models--timm--convnext_base.fb_in22k_ft_in1k/snapshots/67758fcbcf9f007ec7630bf8636b74a8f24e52a0/model.safetensors",
+  "weight_sha256": "4853efc8d5dd3ed9b0f888a9c601d7556373599f944f9ac79af8b8ec81aa7381",
+  "pretraining": "ImageNet22k supervised -> ImageNet1k; historical reference version",
+  "parameter_count": 87700099,
+  "trainable_parameter_count": 87700099,
+  "input_shape": [
+    4,
+    3,
+    992,
+    1312
+  ],
+  "original_view_shape": [
+    972,
+    1296
+  ],
+  "resized": false,
+  "cropped": false,
+  "batch": 4,
+  "checkpointing": false,
+  "channels_last": true,
+  "dtype": "bfloat16",
+  "gpu": "NVIDIA H200",
+  "preprocess_batch_seconds": 0.0744565911591053,
+  "disclaimer": "Repeated train-only inputs, synthetic objective, no accuracy claim; GPU-only timing excludes data loading; not T4.",
+  "inference_ms_per_image": 13.936127768829465,
+  "inference_peak_allocated_gib": 1.5031766891479492,
+  "train_seconds_per_step": 0.12243803031742573,
+  "train_images_per_second": 32.669587950980855,
+  "train_peak_allocated_gib": 13.812314987182617,
+  "train_peak_reserved_gib": 13.865234375,
+  "note": "Includes finite-gradient checks; accuracy trials must benchmark their actual objective/loader.",
+  "status": "success"
+}

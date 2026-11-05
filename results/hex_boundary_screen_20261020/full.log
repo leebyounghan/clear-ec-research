@@ -1,0 +1,26 @@
+image 1 25
+image 2 25
+image 3 25
+image 4 25
+image 5 25
+image 6 25
+image 7 25
+image 8 25
+image 9 25
+image 10 25
+image 11 25
+image 12 25
+image 13 25
+image 14 25
+image 15 25
+image 16 25
+image 17 25
+image 18 25
+image 19 25
+image 20 25
+image 21 25
+image 22 25
+image 23 25
+image 24 25
+image 25 25
+[{"arm": "baseline", "region": "fixed_central", "group": "train_green20", "n": 20, "CD": 8.896212410186058, "CV": 17.9724112407919, "HEX": 19.9782645180185, "mean": 15.615629389665486, "zero_cells": 0}, {"arm": "baseline", "region": "fixed_central", "group": "validation_green5", "n": 5, "CD": 4.247454473468499, "CV": 10.425444722573715, "HEX": 16.231856670666993, "mean": 10.30158528890307, "zero_cells": 0}, {"arm": "baseline", "region": "fixed_central", "group": "all25_reused_diagnostic", "n": 25, "CD": 7.966460822842546, "CV": 16.463017937148262, "HEX": 19.228982948548197, "mean": 14.552820569513003, "zero_cells": 0}, {"arm": "baseline", "region": "oracle_roi", "group": "train_green20", "n": 20, "CD": 7.65951420494279, "CV": 15.278261515388275, "HEX": 19.97847521673021, "mean": 14.305416979020427, "zero_cells": 0}, {"arm": "baseline", "region": "oracle_roi", "group": "validation_green5", "n": 5, "CD": 6.1038982813921, "CV": 14.492764451920058, "HEX": 16.298466174826068, "mean": 12.298376302712741, "zero_cells": 0}, {"arm": "baseline", "region": "oracle_roi", "group": "all25_reused_diagnostic", "n": 25, "CD": 7.3483910202326514, "CV": 15.12116210269463, "HEX": 19.242473408349383, "mean": 13.904008843758888, "zero_cells": 0}, {"arm": "edge_smooth075", "region": "fixed_central", "group": "train_green20", "n": 20, "CD": 10.361672517773304, "CV": 20.770841631571855, "HEX": 19.845874389112726, "mean": 16.99279617948596, "zero_cells": 0}, {"arm": "edge_smooth075", "region": "fixed_central", "group": "validation_green5", "n": 5, "CD": 5.855771001627511, "CV": 9.443185383565787, "HEX": 16.173299485951436, "mean": 10.490751957048245, "zero_cells": 0}, {"arm": "edge_smooth075", "region": "fixed_central", "group": "all25_reused_diagnostic", "n": 25, "CD": 9.460492214544146, "CV": 18.505310381970638, "HEX": 19.111359408480467, "mean": 15.692387334998417, "zero_cells": 0}, {"arm": "edge_smooth075", "region": "oracle_roi", "group": "train_green20", "n": 20, "CD": 9.532602495410638, "CV": 17.03025676386355, "HEX": 19.882735340402863, "mean": 15.481864866559016, "zero_cells": 0}, {"arm": "edge_smooth075", "region": "oracle_roi", "group": "validation_green5", "n": 5, "CD": 4.565462557096989, "CV": 11.734825409785852, "HEX": 16.284454653012084, "mean": 10.861580873298308, "zero_cells": 0}, {"arm": "edge_smooth075", "region": "oracle_roi", "group": "all25_reused_diagnostic", "n": 25, "CD": 8.539174507747907, "CV": 15.971170493048012, "HEX": 19.163079202924706, "mean": 14.557808067906876, "zero_cells": 0}, {"arm": "oracle_centers", "region": "oracle_roi", "group": "train_green20", "n": 20, "CD": 14.704418614967889, "CV": 16.738816198935893, "HEX": 19.73133582368666, "mean": 17.058190212530146, "zero_cells": 0}, {"arm": "oracle_centers", "region": "oracle_roi", "group": "validation_green5", "n": 5, "CD": 20.646765985036613, "CV": 9.392893628385888, "HEX": 15.783225753496325, "mean": 15.274295122306276, "zero_cells": 0}, {"arm": "oracle_centers", "region": "oracle_roi", "group": "all25_reused_diagnostic", "n": 25, "CD": 15.892888088981636, "CV": 15.26963168482589, "HEX": 18.941713809648594, "mean": 16.701411194485374, "zero_cells": 0}]

@@ -1,0 +1,677 @@
+{
+  "created_utc": "2026-10-20T17:56:25.876907+00:00",
+  "status": "derivative_identity_audit_completed",
+  "inputs": {
+    "annotations_sha256": "7b4cc7211478c18602fcf867afdeb0fe5ed3129254bb3fb0220ef218f3fed420",
+    "metadata_sha256": "fceab01753e03dcfbc871712344fbd403b5b945760f9c2f78abb4968975defb9",
+    "split_sha256": "b7f6543a35ad6322434f1780c2f8fc63f9d7eedf2930b03fdbd96bc950f48de3"
+  },
+  "n": 25,
+  "exact_mha_cache_matches": 25,
+  "fold4_counts": {
+    "train": 20,
+    "validation": 5,
+    "excluded": 0
+  },
+  "identity_highest": 25,
+  "min_identity_correlation": 0.9508532672048454,
+  "limitations": [
+    "Original green TIFF unavailable in searched locations; derivative PNG does not certify source completeness or extraction correctness",
+    "Correlation is a diagnostic, not independently prespecified acceptance threshold",
+    "No cell boundary masks; no calibration or model training performed",
+    "Edge cache ordering remains independently unverified"
+  ],
+  "rows": [
+    {
+      "id": "0323-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "507a5dd7aee49bf60e7f0301e21ed6249cd143d6ac836314e4b44ae6160ef50a",
+      "overlay_sha256": "614db17ba736d8bbed76b0922238e16ad2d8522b6270875d57a27cfd31bf32dc",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 148,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9538117283950617,
+      "correlations": {
+        "identity": 0.9639716059829387,
+        "flip_x": 0.7226125014466103,
+        "flip_y": 0.4746958360672855,
+        "rot180": 0.4097351365730012
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0324-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "7a90928373a6f119635161da1387593011ea028e7d99d9360833d927f1fdb4c5",
+      "overlay_sha256": "12744c8a9d0c6d79ef5cc70acda21dde7ad67e01d83b5bb848e48671bb31fa24",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 151,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9535648148148148,
+      "correlations": {
+        "identity": 0.9736675225951075,
+        "flip_x": 0.8056895595304414,
+        "flip_y": 0.4169041053938114,
+        "rot180": 0.36174228920103113
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0326-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "63945ab0d2a1bed20329897fedf1a7524e846369cda7df5f24a03c9eb1ee13ab",
+      "overlay_sha256": "67e2ad92403ecbec0402d553a75e8ac40f0e518afe299504dbe818c4652d0728",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 125,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9538400205761317,
+      "correlations": {
+        "identity": 0.991924973853884,
+        "flip_x": -0.042517710766898434,
+        "flip_y": 0.4570400906317385,
+        "rot180": -0.33181031934369365
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0329-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "b2ec577eb31bc507b8f42ca7209d718b7497e3b88856cd1d091a8fd22604ae0f",
+      "overlay_sha256": "8afe13516ec7e6e90b334af2c81791d6d4f6ac8a56e07e010041ff18e7a1cc4c",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 140,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.956604938271605,
+      "correlations": {
+        "identity": 0.9508532672048454,
+        "flip_x": 0.7049843307508452,
+        "flip_y": 0.7237376601477268,
+        "rot180": 0.6444866333923674
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0330-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "a666b698a973d9689cbb6a99a249ce3cb013d2e1560d81065371a27ed84fb04a",
+      "overlay_sha256": "4b4ab78d826fb76e6b4ac830baacfce0e13d8d08911effe1dad0af429a8b58ce",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 159,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9512319958847737,
+      "correlations": {
+        "identity": 0.9864516557336047,
+        "flip_x": 0.1842564610864691,
+        "flip_y": 0.671791179658488,
+        "rot180": -0.05603568186297275
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0334-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "db2d70dc1bdaae53efe457338b1849dfcc64f222dde323ca95dde3f561a9021d",
+      "overlay_sha256": "aa309082ea43639f0f40a7d08d8e4c8e92167b9fb9e3ebca63c988d9522d973c",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 116,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9546039094650206,
+      "correlations": {
+        "identity": 0.9880802186501124,
+        "flip_x": 0.36030986634843304,
+        "flip_y": 0.5154916626658834,
+        "rot180": 0.036378651320893726
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0335-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "a761441d70f1c613bd806aab073081119897ed2ec9da653556b8de7df9ac9a15",
+      "overlay_sha256": "f9f7b1266109d6fc29346bc845b12a34e945fdbb00d89666c3c7744a6d0158e8",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 134,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9536085390946502,
+      "correlations": {
+        "identity": 0.962206988955649,
+        "flip_x": 0.6923544080119338,
+        "flip_y": 0.8530068796055164,
+        "rot180": 0.6715606790666699
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0341-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "cc503fb1a76d16e51c88cbfb5a3859bb95fd4d4872e3371c9545683a313c44c2",
+      "overlay_sha256": "ea1eb2a6287a5a5f8e420d5666b75599603282bce508dbf96dcac8713e4a7b5e",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 165,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9497402263374486,
+      "correlations": {
+        "identity": 0.970849152599323,
+        "flip_x": 0.5866878894315546,
+        "flip_y": 0.6487087187689992,
+        "rot180": 0.5650704501218422
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0342-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "1801acdfc7d0a1a8fcad0b6326e9bd5317efd0e5ebe04721437243b831643f64",
+      "overlay_sha256": "9f53b66892ed74b9afb85527484557cf655ed1d5ef4ccae9c14cbfea799623b2",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 149,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9502391975308642,
+      "correlations": {
+        "identity": 0.9827311950167861,
+        "flip_x": 0.7145010365604016,
+        "flip_y": 0.6235143308851884,
+        "rot180": 0.4410029933602281
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0344-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "171aa744423d8f3d852ae0248317831c72c69066ecf192f4060631ac2b5bfd34",
+      "overlay_sha256": "0c8f80bce963eb081f382a137380b7ef9ac17dab9ffae0ce7e470d9be0019230",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 122,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9518415637860083,
+      "correlations": {
+        "identity": 0.9811667639469327,
+        "flip_x": 0.756735438289884,
+        "flip_y": -0.019083838537398045,
+        "rot180": -0.014838477164791782
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0348-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "ff8eb6405144e94f99099349530036e3a504f519e95184cafef81ec997413081",
+      "overlay_sha256": "5a30561d7d1ae59e00fe5effbff6af7774abf77e757429598c03c69fe8d5f58e",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 138,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9540869341563786,
+      "correlations": {
+        "identity": 0.983550381192219,
+        "flip_x": 0.3796362734354843,
+        "flip_y": 0.41955608062250915,
+        "rot180": -0.04465024736477413
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0365-23",
+      "fold4": "validation",
+      "raw_pixel_exact": true,
+      "mha_sha256": "3c6f0c11e9ee03abb598a1e2f868e1dc01e1d63e70422beee194435cbba7b768",
+      "overlay_sha256": "a8cbe831d9780f5b303fd5eb09232db719827578b65da425024ad109422ccc72",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 110,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9543415637860082,
+      "correlations": {
+        "identity": 0.9778210876782326,
+        "flip_x": 0.2655197897541463,
+        "flip_y": 0.49904562629981186,
+        "rot180": 0.08577442926957315
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0367-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "5568bd3b964c7acbd62f32cfeca3fd12c909e0a0404ddd90d5760a59250dcc44",
+      "overlay_sha256": "c8acb9e911455bd2614ba3d573b6cdcbe065b0d57350e56e72ee78c87d9ae10b",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 124,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9547042181069959,
+      "correlations": {
+        "identity": 0.9649669281417815,
+        "flip_x": 0.34901639612742413,
+        "flip_y": 0.5616406167188609,
+        "rot180": 0.20848966810975086
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0379-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "fcc5bf6568c3117dc18c5d759465699ba2b0a2c19e50d22f2c2a2c30e0c2b706",
+      "overlay_sha256": "60da953779aee37f46225e803f9584067fb9ab34c8b65109234866affb4bbeae",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 151,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9539223251028807,
+      "correlations": {
+        "identity": 0.9747271624698274,
+        "flip_x": 0.3806209651969661,
+        "flip_y": 0.4268673499197494,
+        "rot180": 0.20426781205690187
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0380-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "cc52aa410f738b2b05f0c40b14ac8d4acd146f1d7f6467555e41536165095647",
+      "overlay_sha256": "90fcca8030fff694a14be6b78bf1e32a6a12f55dde736a4deadf3aec53c417c3",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 151,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9527366255144033,
+      "correlations": {
+        "identity": 0.9776457175103094,
+        "flip_x": 0.46827743785552384,
+        "flip_y": 0.5583810224724528,
+        "rot180": 0.2827263870805076
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0385-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "7a1fd01a89a7f82731996f3304d75f80ca2370980196d3d48919b2e9e0ad5918",
+      "overlay_sha256": "e9ad0b64c93c9e2691fe12c1f8b03232decb7454570d5fe3c5f3b5d833bd450d",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 117,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9543389917695473,
+      "correlations": {
+        "identity": 0.9855371979160943,
+        "flip_x": 0.3032639489758144,
+        "flip_y": 0.5786504337155729,
+        "rot180": 0.07236609163906656
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0388-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "a52e422c081048afc41559f5e80ef68c4905dbf81424bb27f8400a88a6168d60",
+      "overlay_sha256": "18dc1f81ab37a85b0105539014c0e979320f71c5b9b4e2ba28fd34d88436963d",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 156,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9524305555555556,
+      "correlations": {
+        "identity": 0.986730888057138,
+        "flip_x": 0.7206736196982908,
+        "flip_y": 0.31416172342279647,
+        "rot180": 0.1700779791427055
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0466-23",
+      "fold4": "validation",
+      "raw_pixel_exact": true,
+      "mha_sha256": "bb4ece69442eaa822479149efa045fdd664ade98f17b8ba0851cbdfc51204cda",
+      "overlay_sha256": "83843e8a95bd2cc46fbe0032ed61a93e231c02922ba736d6d6531c304c8ae72d",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 143,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.952772633744856,
+      "correlations": {
+        "identity": 0.9893259064633089,
+        "flip_x": 0.3514432043926395,
+        "flip_y": 0.012261485013272864,
+        "rot180": -0.26905182493322743
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0471-23",
+      "fold4": "validation",
+      "raw_pixel_exact": true,
+      "mha_sha256": "e802b9fb12bd18103b11866137371dab8e98b40e72c91a09b93000deb228be90",
+      "overlay_sha256": "6611d84abe2a9f60c63bda07018499b57d060371a97d97311551571ca12f61cd",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 152,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9514223251028806,
+      "correlations": {
+        "identity": 0.9577668642819491,
+        "flip_x": 0.6183429209093813,
+        "flip_y": 0.7958246092249011,
+        "rot180": 0.6625371211483112
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0580-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "f1d168cac57e55be1a1e1d1fcf80315614f86998e4e39607b64d7cebef2697c8",
+      "overlay_sha256": "50cc294f4952deb075a4db4df8af4e62d953d31931ee192b2840286e9cc237c5",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 149,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9526723251028807,
+      "correlations": {
+        "identity": 0.984480850492524,
+        "flip_x": 0.2742167402603883,
+        "flip_y": 0.5142915868535531,
+        "rot180": -0.03782498238651168
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0582-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "97537b5490854b3090194c107bf05c28375bcb979f8410c6316867a4bd592910",
+      "overlay_sha256": "603dca6871b5d3168cb09f68cf2016f593cbd5bf8fbd4523d8cb0e31506014e4",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 149,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9513117283950617,
+      "correlations": {
+        "identity": 0.9928660310698842,
+        "flip_x": 0.42185078706654006,
+        "flip_y": 0.6393056724722651,
+        "rot180": 0.13828673642961903
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0584-23",
+      "fold4": "validation",
+      "raw_pixel_exact": true,
+      "mha_sha256": "ee7e2d817d57ae6105d68ce5ec7ca920f975483252e55cb021045636daa93fcc",
+      "overlay_sha256": "b3671176319a492589dea29a5ef9050945c744af5e40078014ba899edde2c032",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 169,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.950380658436214,
+      "correlations": {
+        "identity": 0.9818464086463184,
+        "flip_x": 0.6485755211792358,
+        "flip_y": 0.548936806284008,
+        "rot180": 0.4200643443999269
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0585-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "aeeff761990ff68248106d45827af4227ac26de696cbc0cd736698d951f28d93",
+      "overlay_sha256": "c1d59523914ad392f9587b2baad9780ed9e855dc54cb4b7e89406a2c1e4cfc3c",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 150,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9521630658436214,
+      "correlations": {
+        "identity": 0.9880376196490387,
+        "flip_x": 0.699463772996049,
+        "flip_y": 0.5383540278153773,
+        "rot180": 0.4245044147795924
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0586-23",
+      "fold4": "train",
+      "raw_pixel_exact": true,
+      "mha_sha256": "c6e0ec9ca6e84b228af08f365432fc1473321859925916a6b7fba1c960efa373",
+      "overlay_sha256": "96d5dd6abc8ae221d8b7be247254d948b01471447990e36e6b20a88cd040a311",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 143,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9528343621399177,
+      "correlations": {
+        "identity": 0.9813896544843171,
+        "flip_x": 0.347345442031663,
+        "flip_y": 0.2273219759072068,
+        "rot180": -0.028368335636831818
+      },
+      "highest_correlation_transform": "identity"
+    },
+    {
+      "id": "0587-23",
+      "fold4": "validation",
+      "raw_pixel_exact": true,
+      "mha_sha256": "a04488332d6b05429f3a6b9af653c888c41e20796cdd81acb12cac3501dcedfe",
+      "overlay_sha256": "96001b504d64e107566dc93f8c8b5bc2cb7a34512380fdcee438de8eeaa8e947",
+      "overlay_shape": [
+        540,
+        720,
+        3
+      ],
+      "scale_xy": [
+        1.8,
+        1.8
+      ],
+      "points": 135,
+      "coordinate_conversion_exact": true,
+      "unmarked_fraction": 0.9535802469135802,
+      "correlations": {
+        "identity": 0.9907241371435912,
+        "flip_x": 0.47876637629986885,
+        "flip_y": 0.397080316548302,
+        "rot180": 0.12559040323830262
+      },
+      "highest_correlation_transform": "identity"
+    }
+  ],
+  "audit_source_sha256": "761d7b3bd12b7a9fa0bd036fc451c08974ebbb61612cf829b7193476ec7c9a6d"
+}

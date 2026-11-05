@@ -1,0 +1,70 @@
+{
+  "created_at": "2026-10-01T03:56:42+0000",
+  "source_sha256": "2523119144176f7a0f09b5a5a85d311b0c48f982447b1860b0fdc9f44831d47d",
+  "old_manifest_sha256": "1e7bbed00874dd1bb510044b5cc7de3df97c2abedaa1ca6f6e42f67086fc3796",
+  "weights": {
+    "dino_vitb14": {
+      "timm_name": "vit_base_patch14_dinov2.lvd142m",
+      "repo": "timm/vit_base_patch14_dinov2.lvd142m",
+      "revision": "4685c99dabffe5affac90bd99dbffd25801ae58d",
+      "weight_sha256": "55cbb5d887b336d430e649c277b85a1429e724871f9d02ac16203235886d8c7b",
+      "dim": 768,
+      "license": "apache-2.0",
+      "path": "experiments/phase2_backbone_screen_20261001/hf_cache/hub/models--timm--vit_base_patch14_dinov2.lvd142m/snapshots/4685c99dabffe5affac90bd99dbffd25801ae58d/model.safetensors",
+      "sha256": "55cbb5d887b336d430e649c277b85a1429e724871f9d02ac16203235886d8c7b"
+    },
+    "convnext_base": {
+      "timm_name": "convnext_base.fb_in22k_ft_in1k",
+      "repo": "timm/convnext_base.fb_in22k_ft_in1k",
+      "revision": "67758fcbcf9f007ec7630bf8636b74a8f24e52a0",
+      "weight_sha256": "4853efc8d5dd3ed9b0f888a9c601d7556373599f944f9ac79af8b8ec81aa7381",
+      "dim": 1024,
+      "license": "apache-2.0",
+      "path": "experiments/phase2_backbone_screen_20261001/hf_cache/hub/models--timm--convnext_base.fb_in22k_ft_in1k/snapshots/67758fcbcf9f007ec7630bf8636b74a8f24e52a0/model.safetensors",
+      "sha256": "4853efc8d5dd3ed9b0f888a9c601d7556373599f944f9ac79af8b8ec81aa7381"
+    }
+  },
+  "folds": {
+    "2": {
+      "split_path": "experiments/overnight_target_20260912/preflight/fold2.npz",
+      "split_sha256": "3088f880c18609bb7c9f517c05e81d54fb82ef9ac28e2ebc784db4d3188afd41",
+      "train_rows": 7153,
+      "validation_rows": 1791,
+      "primary_rows": 1781,
+      "updates": 5215,
+      "reference": "experiments/overnight_target_20260912/preflight/reference.npz"
+    },
+    "3": {
+      "split_path": "experiments/overnight_target_20260912/preflight/fold3.npz",
+      "split_sha256": "1d5a3f88723602f30809c08e415df831596d7250be101d10b2b6341c24347233",
+      "train_rows": 7161,
+      "validation_rows": 1791,
+      "primary_rows": 1791,
+      "updates": 5215,
+      "reference": "experiments/overnight_target_20260912/preflight/reference.npz"
+    }
+  },
+  "baseline_single_mape": 9.133842587471008,
+  "setup": {
+    "seed": 42,
+    "batch": 48,
+    "k_crops": 1,
+    "updates": 5215,
+    "objective": "mixed_mape",
+    "encoder_lr": 1e-05,
+    "head_lr": 0.001,
+    "weight_decay": 0.0001,
+    "input": "central 512; native 256 crops; C5 x D8 evaluation",
+    "dino_pad": "256 to 266 with replicate border; no cell-size resize",
+    "head": "mean pooled features, LayerNorm, three 128-width heads",
+    "checkpoint": "fixed terminal; no validation selection",
+    "labels": "train slide-smoothed, validate original",
+    "primary": "single-model mean CD/CV/HEX MAPE on 3572 duplicate-clean rows",
+    "maximum_research_gpus": 4,
+    "official_release_untouched": true
+  },
+  "runtime": {
+    "torch": "2.11.0+cu130",
+    "timm": "1.0.16"
+  }
+}

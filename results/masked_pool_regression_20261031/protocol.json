@@ -1,0 +1,15 @@
+{
+ "experiment": "masked_pool_regression_20261031",
+ "written_utc": "2026-10-31T15:50:00Z",
+ "status": "pre-registered before any masked-pooling training result exists",
+ "hypothesis": "recipe A's std pooling mixes black-frame tokens into the cell statistics; masking them restores recipe A's advantage over Phase-1 on framed images (A - P1: -0.21 without frame, +0.04..+0.17 with any frame)",
+ "evidence_so_far": {"normalisation_window_change_on_framed_images": "4 % (rejected as cause)", "inference_only_mask_on_trained_model": "fold 4 framed 9.43 -> 12.56 (train/test pooling mismatch, inconclusive by design)"},
+ "arm": "fold 4, seed 46, fold-clean SSL5 seed 1003 encoder, recipe A hyperparameters, pooling std_masked (8x8 patch dropped if > 50 % of pixels <= 0.02 after CLAHE + 1/99 percentile scaling)",
+ "reference": "experiments/phase2_pooling_20261020/arms/std (same fold, seed, SSL encoder, runner; pooling std)",
+ "comparison": "terminal-epoch single-view validation predictions (predictions.npz), official score with the zero rule, paired donor-cluster bootstrap (eval_harness_20261031)",
+ "primary": "delta on framed images (black_frac > 0.01)",
+ "continue_to_fold0_if": "framed delta <= -0.15 AND unframed delta <= +0.05",
+ "propose_rollout_to_PI_if": "on folds 4 and 0: framed delta <= -0.15, all-rows delta <= -0.05, and hybrid-level LOFO delta <= -0.03",
+ "time_box": "stop if the two-fold verdict is not available by 2026-11-02 12:00 UTC (rollout needs five folds + three full-data members + hex6 refit before the 11-09 freeze)",
+ "noise_note": "single-run seed noise is about 0.02-0.08 on a full fold; the framed subset (n ~860) paired SE is about 0.15"
+}

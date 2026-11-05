@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "telemetry_weighting_verified": true,
+  "ddp_sample_weights_and_partial_groups": true,
+  "manifest_sha": "60bd2093623ba19cc8ec63f04563173f68b6abd235f2e647f1992c6dd9828a8e"
+}

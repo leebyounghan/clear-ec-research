@@ -1,0 +1,38 @@
+== variants
+variants written (972, 1296) uint8
+== equivalence: verified 20261030 vs guarded 20261031
+20261030 0001-19 rc=0 wall=21.7s outputs=2873.600412876538,0.3907756079575963,0.5201245564300239,
+20261031 0001-19 rc=0 wall=21.6s outputs=2873.600412876538,0.3907756079575963,0.5201245564300239,
+20261030 0001-20 rc=0 wall=21.9s outputs=2027.33481889378,0.46615823716896543,0.4375475258072727,
+20261031 0001-20 rc=0 wall=21.8s outputs=2027.33481889378,0.46615823716896543,0.4375475258072727,
+20261030 0001-21 rc=0 wall=22.1s outputs=4150.676269282754,0.319676135615195,0.6183570255107715,
+20261031 0001-21 rc=0 wall=22.0s outputs=4150.676269282754,0.319676135615195,0.6183570255107715,
+20261030 0234-20 rc=0 wall=21.8s outputs=2977.9396807225603,0.4163321244793762,0.4808269044660596,
+20261031 0234-20 rc=0 wall=21.9s outputs=2977.9396807225603,0.4163321244793762,0.4808269044660596,
+byte-identical 0001-19: yes
+byte-identical 0001-20: yes
+byte-identical 0001-21: yes
+byte-identical 0234-20: yes
+== faults on guarded image
+20261031 fault_rgb rc=0 wall=20.4s outputs=2873.600412876538,0.3907756079575963,0.5201245564300239,
+20261031 fault_crop960x1280 rc=0 wall=15.9s outputs=2875.5583254575654,0.3925936269680895,0.5201239018354901,
+20261031 fault_uint16 rc=0 wall=21.6s outputs=2873.600412876538,0.3907756079575963,0.5201245564300239,
+20261031 fault_zeros rc=0 wall=20.7s outputs=2288.86461524663,0.48889201427328277,0.4056512550172109,
+20261031 fault_garbage rc=0 wall=2.1s outputs=2770.0,0.36,0.53,
+20261031 inject_recipea rc=0 wall=15.9s outputs=2880.6096773669656,0.3933950055205885,0.5195410200478453,
+20261031 inject_phase1 rc=0 wall=9.6s outputs=2866.59114838611,0.38815621039460413,0.5207080928122024,
+20261031 inject_both rc=0 wall=2.2s outputs=2770.0,0.36,0.53,
+== modes
+0001-19 hybrid 19.2 {} []
+0001-20 hybrid 19.5 {} []
+0001-21 hybrid 19.7 {} []
+0234-20 hybrid 19.6 {} []
+fault_crop960x1280 phase1_only 13.6 {"recipea": "ValueError: Recipe A was trained on 972x1296 frames only; got (960, 1280)"} []
+fault_garbage constant 0.2 {"read": "RuntimeError: Exception thrown in SimpleITK ImageFileReader_Execute: /work/src/Code/IO/src/sitkImageReaderBase.cxx:99:\nsitk::ERROR: Unable to determi []
+fault_rgb hybrid 18.1 {} ['channels-last (972, 1296, 3) -> gray', 'dtype uint8 -> uint8']
+fault_uint16 hybrid 19.3 {} ['dtype uint16 -> uint8']
+fault_zeros hybrid 18.4 {} []
+inject_both constant 0.3 {"phase1": "RuntimeError: injected phase1 fault (test only)", "recipea": "RuntimeError: injected recipe A fault (test only)"} []
+inject_phase1 recipea_only 7.4 {"phase1": "RuntimeError: injected phase1 fault (test only)"} []
+inject_recipea phase1_only 13.7 {"recipea": "RuntimeError: injected recipe A fault (test only)"} []
+DONE

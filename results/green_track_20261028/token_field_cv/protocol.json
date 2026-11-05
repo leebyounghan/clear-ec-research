@@ -1,0 +1,7 @@
+{"experiment": "green_track_20261028/token_field_cv", "created_utc": "2026-10-30T18:00:00Z", "status": "pre-registered before running (parent request: last CV try, Voronoi-free)",
+ "compute": "GPU: one forward pass per validation row per fold (~4 min per fold); CPU LOFO",
+ "question": "Does a local statistic of the recipe A token field — the spatial dispersion of the model's own head applied per patch, or the heterogeneity of patch tokens — condition a CV correction?",
+ "features": ["cv_field_std (primary)", "cv_field_iqr", "cv_field_frac_abs_gt1", "cd_field_std", "hex_field_std", "tok_dev_mean", "tok_dev_std", "tok_dev_q90", "std_pool_norm"],
+ "uses": ["log-blend into CV (calibration a, b and weight w on the fitting folds)", "tercile-conditioned MAPE-optimal CV scalar"],
+ "pre_specified_decision": "primary = base B, CV <- cv_field_std, log-blend; gate -0.03 pp mean (>= -0.09 pp CV) with >= 2 folds; 9 features x 2 uses x 2 bases = 36 looks, so anything but the primary is exploratory; stop at the first negative primary (parent instruction)",
+ "falsification": "if cv_field_std blends at w ~0 or its error correlation with the base CV is >= 0.8, the per-patch field carries no information beyond the pooled prediction."}

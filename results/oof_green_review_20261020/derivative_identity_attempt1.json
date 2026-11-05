@@ -1,0 +1,6 @@
+{
+  "source_sha256": "25565acfdeba91ba3354e3218945516d9810cec19496d9f4148d37966050405f",
+  "status": "assertion_failed",
+  "line": 24,
+  "cause_to_check": "Audit used numpy.round while historical extraction uses Python round. Correct implementation parity before evaluating data."
+}

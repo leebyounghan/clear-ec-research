@@ -1,0 +1,26 @@
+{
+  "gpu": "",
+  "processes": "    PID COMMAND\n      1 bash -lc trap \"exit 0\" TERM INT; while true; do sleep 300 & wait $!; done\n  46770 sleep 300\n  46771 /workspace/venv/bin/python -c import subprocess,json,pathlib; print(json.dumps({\"gpu\":subprocess.check_output([\"nvidia-smi\",\"--query-compute-apps=pid,process_name,used_memory\",\"--format=csv,noheader\"],text=True),\"processes\":subprocess.check_output([\"ps\",\"-eo\",\"pid,args\"],text=True)}))\n  46779 ps -eo pid,args\n",
+  "pods": [
+    {
+      "name": "clear-ec-foundation-stage-1002",
+      "uid": "a8226f78-1d7b-43b4-bfeb-1c45f42ed545",
+      "phase": "Succeeded",
+      "gpus": 0
+    },
+    {
+      "name": "clear-ec-research-2gpu-1017",
+      "uid": "51b4be4b-d218-473f-8338-87ac0f357c8c",
+      "phase": "Running",
+      "gpus": 2
+    },
+    {
+      "name": "clear-ec-research-reader-1017",
+      "uid": "c7441480-ed97-4d31-a896-f9672781afef",
+      "phase": "Succeeded",
+      "gpus": 0
+    }
+  ],
+  "checked_utc": "2026-10-24T13:40:38.785739+00:00",
+  "approved_gpu_cap": 16
+}

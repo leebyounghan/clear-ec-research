@@ -1,0 +1,21 @@
+{
+  "id": "exp-b258c7999960",
+  "name": "pooling · max",
+  "group": "fold4",
+  "score": null,
+  "source": "results/phase2_pooling_20261020/partial_comparison_20261020T1441Z.json",
+  "config": "seed46 · fold4/1790 · SSL5 · 20epoch/schedule10 · head1e-3/clip1",
+  "status": "완료 결과 미수집",
+  "problem": "mean pooling만으로는 공간적 분산·극값 정보가 head에 전달되지 않는다. 이 정보가 CV/HEX에 유용한지 검증한다.",
+  "idea": "공간 평균 대신 max 통계로 feature를 집계한다.",
+  "decision": "14:41 UTC 저장 스냅샷에서 min 진행, max/결합 대기. 현재 실시간 상태는 이 화면이 조회하지 않음.",
+  "parent": "exp-8db1353f0ed0",
+  "protocol": "results/phase2_pooling_20261020/observations/20261020T144022Z/arms/max/manifest.json",
+  "log": "results/phase2_pooling_20261020/observations/20261020T144206Z/full.log",
+  "note_version": "v1",
+  "interpretation": "2026-10-20 사후 정리. 당시 사전 가설과 구분.",
+  "date": "2026-10-20",
+  "sha256": "1f58b56b2fc893935cbf79fc3acc30ed53cdddf77da3743b5fad8462c3b7a8f8",
+  "precision": null,
+  "note_path": "results/leaderboard/notes/exp-b258c7999960.v1.json"
+}

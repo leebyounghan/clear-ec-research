@@ -1,0 +1,6 @@
+{"experiment": "green_track_20261028/frozen_heads", "created_utc": "2026-10-31T16:20:00Z", "status": "pre-registered before running (parent deployment-size question)",
+ "question": "How much of the hex6 gain survives if all detectors are head-only on one frozen recipe A encoder (the hybrid's own s46 tokens at inference: no extra ViT-B passes, ten head files of a few MB instead of ten 340 MB encoders)?",
+ "members": ["probe: existing frozen stride-8 linear probe (green_point_features extract recipeA_s46)", "sg2f s46/s47/s48: stride-2 heads on frozen tokens, 20 train-green images, 3000 updates", "sg2pref s46: stride-2 head pre-trained on srep tokens only (frozen encoder), 4000 updates"],
+ "evaluation": "same LOFO hex6 blend on bases A and B (ensemble.py), frozen set alone and mixed with the fine-tuned nine; val-5 F1 per head for information",
+ "decision": "report the frozen-set delta on B next to the active -0.0311; the parent/PI trade size (about 3.4 GB and 0.8 s/image vs ~0.02 GB and ~0 s extra) against the difference",
+ "fold_cleanliness": "frozen encoder = the fold's recipe A encoder, as for every other detector; heads see only the 20 train-green images or the external corpus"}

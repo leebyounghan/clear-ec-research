@@ -1,0 +1,51 @@
+{
+  "status": "cpu_point_roi_contract_passed",
+  "created_utc": "2026-10-20T18:25:00.143727+00:00",
+  "train_ids": [
+    "0323-23",
+    "0324-23",
+    "0326-23",
+    "0329-23",
+    "0330-23",
+    "0334-23",
+    "0335-23",
+    "0341-23",
+    "0342-23",
+    "0344-23",
+    "0348-23",
+    "0367-23",
+    "0379-23",
+    "0380-23",
+    "0385-23",
+    "0388-23",
+    "0580-23",
+    "0582-23",
+    "0585-23",
+    "0586-23"
+  ],
+  "validation_ids": [
+    "0365-23",
+    "0466-23",
+    "0471-23",
+    "0584-23",
+    "0587-23"
+  ],
+  "train_n": 20,
+  "validation_n": 5,
+  "paired_transform_checks": 100,
+  "coordinate_convention": "pixel centers x in [0,W-1], y in [0,H-1]; inclusive ROI bounds",
+  "augmentation": "Shared H/V flips only; no independent spatial transforms for paired consistency",
+  "inputs": {
+    "/workspace/clear-ec-research/datasets/clear_ec_official/green_eval/annotations.json": "7b4cc7211478c18602fcf867afdeb0fe5ed3129254bb3fb0220ef218f3fed420",
+    "/workspace/clear-ec-research/experiments/target_fold4_20260912/preflight/fold4.npz": "b7f6543a35ad6322434f1780c2f8fc63f9d7eedf2930b03fdbd96bc950f48de3",
+    "/workspace/clear-ec-research/datasets/clear_ec_fullframe_20260904/fullframe_meta.npz": "fceab01753e03dcfbc871712344fbd403b5b945760f9c2f78abb4968975defb9"
+  },
+  "limitations": [
+    "Only preserved annotations/overlays available; original TIFF completeness unverified",
+    "Points and ROI are not boundary masks",
+    "Fold4 is reused development data, not independent generalization",
+    "Pixel/slide-connected split preflight still required by training launcher"
+  ],
+  "gpu_training_started": false,
+  "source_sha256": "0e51c3c59223a7a5e22e1a2cc092e68c6d51bb9edae4c2ae5be9ce982214b383"
+}

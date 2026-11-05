@@ -1,0 +1,18 @@
+{
+  "checked_utc": "2026-10-12T19:22:31.547051+00:00",
+  "job": "clear-ec-lejepa5-tuning-1012",
+  "pod": "clear-ec-lejepa5-tuning-1012-pdxcm",
+  "namespace": "p-ajou-mlxp-project",
+  "status": "all_three_gpu_smokes_passed_first_arm_first_training_update_observed",
+  "arms_in_order": [
+    "full_head_low",
+    "full_encoder_low",
+    "head_only"
+  ],
+  "epochs_per_arm": 20,
+  "gpu_count": 2,
+  "baseline_mean_mape": 9.240254402160645,
+  "primary": "terminal epoch20; all epoch checkpoints and predictions retained",
+  "automatic_final_audit": true,
+  "source_sha256": "fe1b4c461f8687eab1dea3f6e3a826a74b8105f08af8f886729f3bde7f4afe4a"
+}

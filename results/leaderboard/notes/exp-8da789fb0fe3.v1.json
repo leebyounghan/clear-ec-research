@@ -1,0 +1,25 @@
+{
+  "id": "exp-8da789fb0fe3",
+  "name": "lejepa5_sweep_20261013 · head1e4_clip3",
+  "group": "fold3",
+  "score": {
+    "CD": 7.009033203125,
+    "CV": 10.324193954467773,
+    "HEX": 10.364694595336914,
+    "mean": 9.232640266418457
+  },
+  "source": "results/phase2_lejepa5_sweep_20261013/arms/head1e4_clip3/runs/fold3/cpdino_vitb/result.json",
+  "config": "full validation1791 · 단일 모델 · result.json 최종 score",
+  "status": "결과 기록",
+  "problem": "encoder 적응과 downstream 학습 설정 중 어떤 변경이 회귀에 유효한지 분리할 필요가 있었다.",
+  "idea": "CPDINO 초기화의 추가 SSL 또는 회귀 최적화 설정을 비교한다.",
+  "decision": "CD/CV/HEX의 상충과 다른 fold 재현성을 함께 확인한다. SSL epoch 수 증가가 일관된 개선을 뜻하지 않는다.",
+  "parent": null,
+  "protocol": null,
+  "log": null,
+  "note_version": "v1",
+  "interpretation": "2026-10-20 사후 정리. 당시 사전 가설과 구분.",
+  "date": "20261013",
+  "sha256": "4e625e1fc083bdd7bfe2f76721b34a4687b519a908cd43fbbee9d5f927b9c604",
+  "note_path": "results/leaderboard/notes/exp-8da789fb0fe3.v1.json"
+}

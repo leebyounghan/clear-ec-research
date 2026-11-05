@@ -1,0 +1,75 @@
+{
+ "name": "green_day3_20261103",
+ "created_utc": "2026-11-03T15:50:00Z",
+ "directive": "PI (2026-11-03): continue green experiments on all four GPUs. Parent framing: the bottleneck is per-cell geometry from imperfect points (oracle with perfect points HEX 7.8 / CV 8.8 vs B 10.1 / 10.2; detectors at F1 ~0.64; geometric Voronoi of detected points has saturated). Attack the bottleneck differently, not more of the same.",
+ "base_and_rules": "hybrid B (8.8772 on 8954 rows); active hex6 -0.0311 pp mean; fold-clean, LOFO, 20 leaked rows excluded; submission-2 adoption bar <= -0.02 pp mean on B + active hex6 with fold-4 confirmation, T4-deployable, validated by 2026-11-09; everything else is research. CPU passes use 4-worker pools.",
+ "experiments": {
+  "E1_cpsam_independent_cells": {
+   "what": "Cellpose-SAM foundation model (cpsam_models/cpsam_v2, never trained on CLEAR-EC labels) segments all 8954 full frames (CLAHE as the regression pipeline). Per cell: centroid, mask area, mask-adjacency neighbour count, organiser per-cell hexagonality (IoU with fitted hexagon), border flag.",
+   "features": [
+    "hex6_cpsam: deployed hex6 definition on CPSAM centroids (Voronoi), as an 11th member of the active composition and alone",
+    "cv_seg: CV of CPSAM mask areas over interior cells in the cluster window and over the whole tissue (5-95% trimmed and untrimmed)",
+    "hexadj_seg: fraction of interior cells with exactly 6 mask neighbours",
+    "hexorg_seg: mean organiser hexagonality over interior cells (window / tissue)"
+   ],
+   "gates": {
+    "HEX_member": ">= 0.005 pp mean over the control ten (evidence); >= 0.02 for adoption, fold 4 negative, >= 4/5 folds",
+    "CV": "LOFO blend into B's CV: <= -0.005 pp mean with >= 4/5 folds (evidence); <= -0.02 for adoption",
+    "validation": "centroid F1 vs expert points on the 5 validation-green images and on the 25 (indicative), cell count per image, runtime per image (T4 budget < ~100 s per case)"
+   },
+   "why_new": "independent error source (pre-only lesson) and per-cell areas from masks instead of Voronoi of possibly missing neighbours; Phase 1 used fine-tuned CPSAM on 512 crops as a standalone CV/HEX estimator, never as a blend member"
+  },
+  "E2_learned_per_cell_geometry": {
+   "what": "small CNN on 96x96 patches around detected points predicting (a) P(six-sided) and (b) log Voronoi area, trained on expert-point Voronoi labels: srep Topcon 307 images (hull-bounded cells, ~25k) + the 20 train-green images (~3k); flips/rotations; no CLEAR-EC label beyond the 20 (fold-clean like the pre-only detectors). Inference on fold-clean OOF points of sg2_s46 (compact) and sg2pre_s46 (full frame).",
+   "features": [
+    "hex_learned: mean P(six) and fraction P(six) > 0.5 over detected cells",
+    "cv_learned: CV of predicted areas over cells in the cluster window (5-95% trimmed)"
+   ],
+   "gates": {
+    "HEX": "as E1 HEX_member (alone and as a member)",
+    "CV": "as E1 CV",
+    "sanity": "on the 5 validation-green images, predicted sides agree with expert Voronoi sides >= 70% and predicted vs expert log area r >= 0.5; otherwise the head is not trusted on CLEAR-EC"
+   },
+   "why_new": "per-cell geometry from local appearance instead of from neighbours that may be missing; CV is where the oracle gap is largest"
+  },
+  "E3_box_restricted_std_pooling": {
+   "what": "research: recipe A seed 46 retrained end to end with std pooling restricted to the tokens inside the 538x408 cluster window (D1 window, IoU 0.81 with the expert ROI; rows without a window use the full frame), via the masked-pool wrapper machinery (pooling mode std_box, box passed as a second input channel), folds 0 and 1, 2 GPUs each (lane01)",
+   "gate": "per-fold mean score beats the standard recipe A member (9.1145 on fold 0) by >= 0.05 on both folds with HEX or CV improving; otherwise closed. Research only (not a submission candidate before 11-09)."
+  },
+  "E4_error_decomposition": {
+   "what": "PI-approved theory step (CPU only): degrade the 25 expert marker sets one axis at a time, 8 levels x 30 repeats: (a) random misses 0-40%; (b) false positives 0-40% placed realistically (half on a Voronoi edge midpoint of a random cell, half at 0.35 x median NN spacing from a random cell); (c) Gaussian localisation jitter 0-0.4 x median NN spacing; (d) window shift with IoU 1.0-0.5 (the marker bounding box shifted along a random direction; only annotated cells exist, so this measures partial coverage, caveat recorded); plus a miss x FP grid {0,.1,.2,.3}^2. CD / CV / HEX (hex6) with the p1 oracle definition (bounded Voronoi cells inside the marker hull) and LOO median-ratio scaling; secondary: the degradation_sim complete-cell filter. MAPE and r vs GT on the 25.",
+   "break_even": "per axis and metric: the lowest level at which the oracle-definition LOO MAPE reaches B on the same 25 images (CD 7.66 / CV 17.93 / HEX 11.45), linear interpolation between levels.",
+   "real_sources": "miss rate, FP rate, jitter (median matched distance / spacing) and cluster-window IoU vs the expert points inside the expert ROI box (match radius 0.5 x median NN spacing) for the fine-tuned stride-2 families (val-5 only is clean; all-25 flagged), the pre-only s46 and TTA s46/s49 detectors, and the E1 CPSAM centroids.",
+   "deliverable": "one table + a short verdict: which axis dominates for CV and HEX, and how far each real source is from break-even; decides between robust estimators (merge/split-aware CV, mixture deconvolution) and detection-accuracy work.",
+   "cpu_rule": "pool sized to the free quota (clamp(16 - load1 - 1, 2, 12)), fork after loading, OMP_NUM_THREADS=1, chunked imap; Voronoi computed once per (image, repeat).",
+   "registered": "2026-11-03T16:10Z, before any result"
+  },
+  "E5_split_aware_robust_cv": {
+   "what": "split-aware robust area estimator for CV (CPU only): (i) merge near-duplicate points closer than {0.4, 0.5, 0.6} x median NN spacing (union-find, midpoint) and reject sliver cells with area < {0.3, 0.4, 0.5} x the median area of their Delaunay neighbours, optional complete-cell filter; (ii) dispersion: CV, 5 % / 10 % trimmed CV, MAD-based CV; (iii) 3-component log-area mixture with fixed offsets (true, split x0.5, merged x2), shared sigma, free weights, EM; CV from the true-component responsibilities.",
+   "step1_tuning": "on the E4 degradation grid only (realistic FP 0-40 %, misses 0-40 %, jitter, miss x FP grid; 10 repeats): choose the variant minimising the mean LOO-scaled CV MAPE over the FP axis (0.05-0.4) + the 16 miss x FP cells + zero degradation, subject to zero-degradation MAPE <= 10; report the new break-even per axis; the parameters are frozen there and never touched on GT of the 8954.",
+   "step2_apply": "frozen estimator on real fold-clean points (active ten families, pre-only s46, TTA s46/s49, E1 CPSAM centroids) and on CPSAM mask areas; per image in the cluster window and over all cells; LOFO on B for CV, stratified; also the mean over the ten and over the full-frame sources.",
+   "gates": "evidence <= -0.005 mean pp with >= 4/5 folds; adoption <= -0.02 with >= 4/5 folds and fold-4 negative (then T4 and validation by 11-09).",
+   "registered": "2026-11-03T16:25Z, before any result"
+  },
+  "E6_predicted_area_cv": {
+   "what": "CV from the E2 CNN's predicted per-cell areas (immune in principle to split-type FPs) at precision-oriented point sets inside the cluster window: CPSAM v2 centroids (FP 0.07 on the 25) and the consensus of CPSAM centroids with a detector point (pre-only s46 or compact sg2_s46) within 0.5 x spacing; 10 % trimmed CV (inherited from E5) and plain CV; LOFO on B for CV",
+   "gates": "as E5: evidence <= -0.005 mean pp with >= 4/5 folds; adoption <= -0.02 with >= 4/5 folds and fold-4 negative",
+   "caveat": "E2's area head passed only the srep validation (r 0.87); on the CLEAR-EC validation-green images r = 0.45 (< 0.5 sanity), so E6 is flagged a long shot before running",
+   "registered": "2026-11-03T16:45Z"
+  },
+  "E7_hex6_operating_point": {
+   "what": "detection threshold for the hex6 members (stride-2 fine-tuned s46-s50 and pre-only s46; stride-8 members unchanged) in {0.20, 0.25, 0.30, 0.35, 0.50}; E4 says HEX tolerates FPs (~14 %) far better than misses (~8 %)",
+   "choice_rule": "measure (miss, FP, jitter) per threshold on the validation-5 expert sets (hull region, 0.5-spacing match), read the E4-simulated oracle HEX MAPE at that (miss, FP) on the miss x FP grid (bilinear), pick the lowest; then one LOFO run of the active ten on B at that threshold (all thresholds listed for the record)",
+   "gates": "evidence >= 0.005 pp mean better than the 0.35 composition (-0.0311) with >= 4/5 folds and fold-4 negative; adoption >= 0.02",
+   "registered": "2026-11-03T17:05Z"
+  },
+  "E8_localisation_sigma": {
+   "what": "stride-2 specialist detector retrained with a smaller Gaussian target (sigma 5 and 3.5 px instead of 8; spacing ~24 px), same recipe otherwise (fold-clean init, 1000 updates, batch 2, four flips, 20 train-green images), folds 0-4; lane01 sigma 5 after E3 fold 0, lane23 sigma 3.5 after E3 fold 1",
+   "gates": "(1) localisation on the validation-5 expert sets at threshold 0.35: jitter <= 0.17 x spacing with miss not worse than +0.02 vs the sigma-8 member (0.221); (2) HEX as D2c: single and in the active ten (swap sg2_s46, add) >= 0.005 over the control (evidence) / 0.02 (adoption), fold-4 negative, >= 4/5 folds",
+   "why": "E4: HEX is bound by misses (8 %) and localisation (0.17 x spacing); real detectors are at 0.20-0.25",
+   "registered": "2026-11-03T17:40Z"
+  }
+ },
+ "gpu_plan": "lane23 (GPUs 2-3): E1 segmentation split by rows (~3-4 h), then E2 training + inference; lane01 (GPUs 0-1): E3 fold 0 then fold 1 (smoke -> train -> audit). Status to the parent every ~3 h.",
+ "registered": "2026-11-03T15:50Z, before any result"
+}

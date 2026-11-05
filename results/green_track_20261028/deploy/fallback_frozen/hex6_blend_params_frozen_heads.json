@@ -1,0 +1,71 @@
+{
+ "created_utc": "2026-10-31T17:28:34.653617+00:00",
+ "families": [
+  "frozen_heads/sg2f_s46",
+  "frozen_heads/sg2f_s47",
+  "frozen_heads/sg2f_s48",
+  "frozen_heads/sg2pref_s46"
+ ],
+ "threshold": 0.35,
+ "a": -0.2791153278773607,
+ "b": 0.46178566208303895,
+ "w": 0.14,
+ "rows_fit": 8892,
+ "base": "B_hybrid_w0p5 (0.5 recipe A two-seed + 0.5 Phase-1 five)",
+ "feature": "mean over families of log hex6_all (six-neighbour fraction of bounded Voronoi cells, peaks >= 0.35)",
+ "fallback": "if fewer than 20 peaks or fewer than 12 bounded cells for every family: return base prediction",
+ "insample_hex_mape": {
+  "base": 10.070214515628765,
+  "blended": 10.046422078707499
+ },
+ "lofo": {
+  "delta_hex_pp": -0.022495724843081565,
+  "delta_mean_pp": -0.007498574947693855,
+  "folds_improving": 5,
+  "per_fold_delta_mean_pp": [
+   -0.012603320492882375,
+   -0.010267469359378723,
+   -0.003892251574443506,
+   -0.008222829903597647,
+   -0.0025189948653346526
+  ],
+  "per_fold_w": [
+   0.12,
+   0.12,
+   0.14,
+   0.12,
+   0.14
+  ],
+  "per_fold_ab": [
+   [
+    -0.26792430898645486,
+    0.480174009162769
+   ],
+   [
+    -0.28300625022974324,
+    0.45585502870561784
+   ],
+   [
+    -0.2779234447898986,
+    0.46389265931297174
+   ],
+   [
+    -0.280880514754634,
+    0.4577191187226554
+   ],
+   [
+    -0.28482245815584595,
+    0.45277784434621515
+   ]
+  ]
+ },
+ "feature_stats": {
+  "mean": -0.7312274140478322,
+  "std": 0.16472461375439112,
+  "q": [
+   -1.017788852130364,
+   -0.7102172119049048,
+   -0.5176633961724711
+  ]
+ }
+}

@@ -1,0 +1,2 @@
+31c5f3bea337fb2e1f11cf710039bba5784157dc6bef9470e0b02a4bc216a962  clear-ec-hybrid_20261031.tar.gz
+1134b453653b4a7215532be0be9dddc5f2a29d66af02cdaf4a0f7dbae506bf87  model_hybrid_20261030.tar.gz

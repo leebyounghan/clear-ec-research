@@ -1,0 +1,42 @@
+{
+  "created_utc": "2026-10-19T17:18:09.558662+00:00",
+  "status": "prepared_waiting_for_new_training_time_limit",
+  "arms": [
+    "mean",
+    "std",
+    "min",
+    "max",
+    "mean_std",
+    "mean_std_min_max"
+  ],
+  "proposed_fixed_conditions": {
+    "fold": 4,
+    "seed": 46,
+    "ssl_epochs": 5,
+    "epochs": 20,
+    "schedule_epochs": 10,
+    "head_lr": 0.001,
+    "gradient_clip": 1,
+    "max_h200": 2
+  },
+  "runtime_estimate_hours": {
+    "per_arm": 4.35,
+    "six_arm_training_only": 26.1
+  },
+  "tests": {
+    "syntax": "passed",
+    "remote_cpu_pooling_known_values_permutation_gradients_constant_tokens": "passed",
+    "full_model_cpu": "pending",
+    "actual_gpu_smoke": "pending"
+  },
+  "source_sha256": {
+    "code/phase2_pooling_20261019.py": "a39879f7f8e56d10707201cd395106777eda96fda0df83031257ea3596bd18f3",
+    "code/phase2_pooling_regression_20261019.py": "b35ae36ce973cfd2b00ce75f29f060c6c41eb953842630c4b32d672b77ca90c2"
+  },
+  "training_started": false,
+  "notes": [
+    "Combination arms increase head input dimension; not parameter-count matched.",
+    "New explicit deadline required; old authorization deadline expired.",
+    "No official artifact replacement."
+  ]
+}

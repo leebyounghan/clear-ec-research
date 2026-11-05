@@ -1,0 +1,17 @@
+all n 8954 score 8.807 -> 8.755 delta -0.0521 [-0.0694, -0.0347] CV -0.04 HEX -0.117
+new format (donor-grouped, no leak possible) n 4440 score 8.552 -> 8.487 delta -0.065 [-0.0884, -0.0409] CV -0.055 HEX -0.14
+old format n 4514 score 9.058 -> 9.019 delta -0.0394 [-0.0623, -0.0157] CV -0.025 HEX -0.093
+old, adjacent ID in another fold (partner in training) n 3293 score 8.991 -> 8.939 delta -0.0518 [-0.0795, -0.0253] CV -0.037 HEX -0.118
+old, adjacent ID only in same fold n 484 score 8.928 -> 8.973 delta 0.0444 [-0.0348, 0.1228] CV 0.083 HEX 0.05
+old, no adjacent ID n 737 score 9.446 -> 9.407 delta -0.039 [-0.0955, 0.0157] CV -0.041 HEX -0.076
+year 2018 n 292 score 8.596 -> 8.562 delta -0.0332 [-0.1384, 0.0728] CV 0.003 HEX -0.103
+year 2019 n 1968 score 9.19 -> 9.136 delta -0.0542 [-0.0887, -0.0182] CV -0.027 HEX -0.135
+year 2020 n 1496 score 8.23 -> 8.178 delta -0.0515 [-0.0926, -0.0144] CV -0.036 HEX -0.118
+year 2021 n 1881 score 8.469 -> 8.437 delta -0.0314 [-0.0659, 0.0034] CV -0.038 HEX -0.057
+year 2022 n 1876 score 9.107 -> 9.035 delta -0.0719 [-0.1101, -0.0371] CV -0.054 HEX -0.162
+year 2023 n 705 score 8.941 -> 8.888 delta -0.0531 [-0.1098, 0.0028] CV -0.039 HEX -0.121
+year 2024 n 736 score 9.014 -> 8.957 delta -0.0565 [-0.1134, -0.0014] CV -0.067 HEX -0.103
+CV pred vs own residual 0.086 pred vs partner residual 0.046 partner residual vs own 0.317 partial of pred on partner, given own 0.019 expected from own alone 0.027
+HEX pred vs own residual 0.179 pred vs partner residual 0.075 partner residual vs own 0.218 partial of pred on partner, given own 0.037 expected from own alone 0.039
+new-format r(pred, own residual) {'CV': 0.107, 'HEX': 0.185} old {'CV': 0.062, 'HEX': 0.157}
+done

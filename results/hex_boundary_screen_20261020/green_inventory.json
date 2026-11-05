@@ -1,0 +1,12 @@
+{
+  "green_peek_inventory": [],
+  "files_n": 0,
+  "annotation_n": 25,
+  "caveat": "Only historical _green_peek directory enumerated; original release completeness not established",
+  "screen_progress": {
+    "status": "running",
+    "images_complete": 22,
+    "total": 25,
+    "elapsed_seconds": 38.520527839660645
+  }
+}

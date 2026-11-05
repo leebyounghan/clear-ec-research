@@ -1,0 +1,85 @@
+{
+  "created_utc": "2026-10-27T22:53:12.358024+00:00",
+  "fold": 1,
+  "init_encoder": "experiments/oof_recipeA_20261027/fold1/regression_std_s46/runs/fold1/cpdino_vitb/epoch_20.pt",
+  "init_sha": "e46770b1b7683df1adfa6ea1e4c3398b4b7e10d9fc7b2319258353037ed5a3ae",
+  "split": "experiments/ssl_screen_20260911/preflight/fold1.npz",
+  "split_sha": "27124461604e49f45fed04416b220eb36ee9b28f14b97ea0214a10164bb98bbb",
+  "updates": 1000,
+  "batch": 2,
+  "threshold": 0.35,
+  "threshold_origin": "fold4 CV selection, not re-selected",
+  "validation": {
+    "rows": [
+      {
+        "id": "0365-23",
+        "predicted": 51,
+        "annotated": 110,
+        "tp": 34,
+        "fp": 17,
+        "fn": 76,
+        "precision": 0.6666666666666666,
+        "recall": 0.3090909090909091,
+        "f1": 0.422360248447205,
+        "matched_mean_distance": 5.514254791142698
+      },
+      {
+        "id": "0466-23",
+        "predicted": 115,
+        "annotated": 143,
+        "tp": 84,
+        "fp": 31,
+        "fn": 59,
+        "precision": 0.7304347826086957,
+        "recall": 0.5874125874125874,
+        "f1": 0.6511627906976745,
+        "matched_mean_distance": 6.871877690930898
+      },
+      {
+        "id": "0471-23",
+        "predicted": 219,
+        "annotated": 152,
+        "tp": 135,
+        "fp": 84,
+        "fn": 17,
+        "precision": 0.6164383561643836,
+        "recall": 0.8881578947368421,
+        "f1": 0.7277628032345014,
+        "matched_mean_distance": 4.467067345555408
+      },
+      {
+        "id": "0584-23",
+        "predicted": 215,
+        "annotated": 169,
+        "tp": 159,
+        "fp": 56,
+        "fn": 10,
+        "precision": 0.7395348837209302,
+        "recall": 0.9408284023668639,
+        "f1": 0.828125,
+        "matched_mean_distance": 4.53697186850045
+      },
+      {
+        "id": "0587-23",
+        "predicted": 166,
+        "annotated": 135,
+        "tp": 77,
+        "fp": 89,
+        "fn": 58,
+        "precision": 0.463855421686747,
+        "recall": 0.5703703703703704,
+        "f1": 0.5116279069767442,
+        "matched_mean_distance": 4.8835369129276796
+      }
+    ],
+    "mean_f1": 0.6282077498712251,
+    "mean_recall": 0.6591720327955146,
+    "mean_precision": 0.6433860221694846
+  },
+  "final_train_loss_last100": 0.3179668977856636,
+  "maps": "experiments/green_point_features_20261027/extract/fold1_specialist_s46.npz",
+  "maps_sha": "a615861808f02529ecc9d0d82ca9d9476897cc218221c4af7b3cf98477ae9836",
+  "n": 1791,
+  "point_labels_seen_in_fold_validation": 5,
+  "note": "validation-green5 metrics are diagnostic; for folds 0-3 the green images inside the fold validation set are flagged for exclusion from stacking"
+}

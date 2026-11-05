@@ -1,0 +1,25 @@
+{
+  "id": "exp-ea8a223c0bb6",
+  "name": "seed43_ssl5_pair · head1e4_clip3 · runs",
+  "group": "fold4",
+  "score": {
+    "CD": 6.637937545776367,
+    "CV": 10.519810676574707,
+    "HEX": 10.354496955871582,
+    "mean": 9.170748710632324
+  },
+  "source": "results/phase2_crossfold_20261015/fold4/seed43_ssl5_pair/arms/head1e4_clip3/runs/fold4/cpdino_vitb/result.json",
+  "config": "full validation1790 · 단일 모델 · terminal20 · TTA/보정 없음",
+  "status": "결과 기록",
+  "problem": "fold3 후보의 작은 평균 우위가 다른 개발 fold에서도 유지되는지 불확실했다.",
+  "idea": "head LR와 clipping 변경을 같은 fold에서 비교한다.",
+  "decision": "동일 seed baseline과 비교한다. fold4 전체 순위는 서로 다른 seed를 포함한다.",
+  "parent": "exp-08dcf9697462",
+  "protocol": "results/phase2_crossfold_20261015/research_protocol.json",
+  "log": "results/phase2_crossfold_20261015/persistent_execution_20261017/seed43_attempt/full.log",
+  "note_version": "v1",
+  "interpretation": "2026-10-20 사후 정리. 당시 사전 가설과 구분.",
+  "date": "2026-10-15–19",
+  "sha256": "4d782b43d4e3a23ed397a8627e28f00755f95eb496afc3559f11440993340f93",
+  "note_path": "results/leaderboard/notes/exp-ea8a223c0bb6.v1.json"
+}

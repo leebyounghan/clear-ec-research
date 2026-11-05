@@ -1,0 +1,28 @@
+== normal cases (sub2) vs sub1 outputs from guard_test_20261031
+clear-ec-hybrid-hex6:20261101 0001-19 rc=0 wall=42.2s outputs=2873.600412876538,0.3907756079575963,0.5358796634823239,
+clear-ec-hybrid-hex6:20261101 0001-20 rc=0 wall=35.1s outputs=2027.33481889378,0.46615823716896543,0.4342086549670487,
+clear-ec-hybrid-hex6:20261101 0001-21 rc=0 wall=37.9s outputs=4150.676269282754,0.319676135615195,0.6171642629683705,
+clear-ec-hybrid-hex6:20261101 0234-20 rc=0 wall=37.7s outputs=2977.9396807225603,0.4163321244793762,0.484515236529725,
+== faults
+clear-ec-hybrid-hex6:20261101 fault_rgb rc=0 wall=37.8s outputs=2873.600412876538,0.3907756079575963,0.5358796634823239,
+clear-ec-hybrid-hex6:20261101 fault_crop960x1280 rc=0 wall=29.5s outputs=2875.5583254575654,0.3925936269680895,0.5201239018354901,
+clear-ec-hybrid-hex6:20261101 fault_uint16 rc=0 wall=37.8s outputs=2873.600412876538,0.3907756079575963,0.5358796634823239,
+clear-ec-hybrid-hex6:20261101 fault_zeros rc=0 wall=37.6s outputs=2288.86461524663,0.48889201427328277,0.4056512550172109,
+clear-ec-hybrid-hex6:20261101 fault_garbage rc=0 wall=16.5s outputs=2770.0,0.36,0.53,
+clear-ec-hybrid-hex6:20261101 inject_hex6 rc=0 wall=35.5s outputs=2873.600412876538,0.3907756079575963,0.5201245564300239,
+clear-ec-hybrid-hex6:20261101 inject_recipea rc=0 wall=31.6s outputs=2880.6096773669656,0.3933950055205885,0.5354467226041751,
+== checks
+0001-19 CD/CV byte-identical: True | hex before == sub1 HEX: True | hex6 applied: True | HEX sub1 -> sub2: 0.5201245564300239 -> 0.5358796634823239 (3.03 %) | seconds 39.6
+0001-20 CD/CV byte-identical: True | hex before == sub1 HEX: True | hex6 applied: True | HEX sub1 -> sub2: 0.4375475258072727 -> 0.4342086549670487 (-0.76 %) | seconds 32.6
+0001-21 CD/CV byte-identical: True | hex before == sub1 HEX: True | hex6 applied: True | HEX sub1 -> sub2: 0.6183570255107715 -> 0.6171642629683705 (-0.19 %) | seconds 35.4
+0234-20 CD/CV byte-identical: True | hex before == sub1 HEX: True | hex6 applied: True | HEX sub1 -> sub2: 0.4808269044660596 -> 0.484515236529725 (0.77 %) | seconds 35.2
+inject_hex6 hybrid hex6 {"applied": false} errors {"hex6": "RuntimeError: injected hex6 fault (test only)"}
+inject_recipea phase1_only hex6 {"applied": true, "feature": -0.5655932002807514, "hex_before": 0.5195410200478453, "hex_after": 0.5354467226041751} errors {"recipea": "RuntimeError: injected recipe A fault (test only)"}
+fault_rgb hybrid hex6 {"applied": true, "feature": -0.5655932002807514, "hex_before": 0.5201245564300239, "hex_after": 0.5358796634823239} errors {}
+fault_crop960x1280 phase1_only hex6 {"applied": false} errors {"recipea": "ValueError: Recipe A was trained on 972x1296 frames only; got (960, 1280)", "hex6": "RuntimeError: shape '[124, 164]' is invalid for inpu
+fault_uint16 hybrid hex6 {"applied": true, "feature": -0.5655932002807514, "hex_before": 0.5201245564300239, "hex_after": 0.5358796634823239} errors {}
+fault_zeros hybrid hex6 {"applied": false, "feature": null, "hex_before": 0.4056512550172109, "hex_after": 0.4056512550172109} errors {}
+fault_garbage constant hex6 {"applied": false} errors {"read": "RuntimeError: Exception thrown in SimpleITK ImageFileReader_Execute: /work/src/Code/IO/src/sitkImageReaderBase.cxx:99:\nsitk::ERROR: Unable 
+inject_hex6 equals sub1 output byte for byte: True
+ALL NORMAL + HEX6-FAULT CHECKS PASSED
+DONE

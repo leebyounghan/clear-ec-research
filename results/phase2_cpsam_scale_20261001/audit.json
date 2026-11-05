@@ -1,0 +1,41 @@
+{
+  "fold": 2,
+  "n": 1781,
+  "warm_start_sha256": "3347c5f4efee432674670f34dc3ff9edf78fc4811864c7db9a1450b789f19b98",
+  "arms": {
+    "native256": {
+      "overall": 9.690899568039972,
+      "per_metric": [
+        6.96974993257861,
+        11.531246009640702,
+        10.571702761900603
+      ],
+      "train_seconds": 868.8692692741752,
+      "evaluation_seconds": 35.60340964794159,
+      "peak_gib": 5.739384174346924
+    },
+    "central512": {
+      "overall": 9.445499141101747,
+      "per_metric": [
+        6.676121997541975,
+        11.272451109457982,
+        10.387924316305284
+      ],
+      "train_seconds": 2646.7161243893206,
+      "evaluation_seconds": 209.09773187339306,
+      "peak_gib": 8.693114280700684
+    },
+    "full972x1296": {
+      "overall": 10.34980585141871,
+      "per_metric": [
+        8.268155137754194,
+        11.939841483046106,
+        10.841420933455828
+      ],
+      "train_seconds": 53424.43347342685,
+      "evaluation_seconds": 4294.451948732138,
+      "peak_gib": 98.85691022872925
+    }
+  },
+  "caveat": "One warm-started epoch, batch1, one view, reused fold2. Not comparable directly to the 35-epoch/40-view CPSAM control or Phase II."
+}

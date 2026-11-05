@@ -1,0 +1,20 @@
+{
+ "name": "style_specialist_20261102",
+ "written_utc": "2026-11-02T23:05:00Z (before any training; training started 23:15 UTC)",
+ "question": "Does a recipe A member trained only on framed-style images (black_frac > 0.01) predict framed images better than the generalist with the same seed, SSL encoder and recipe?",
+ "evidence_that_motivates_it": [
+  "A - P1: no frame -0.209, any frame +0.04..+0.17 (step, not dose); within 2019-2022 no frame -0.229 vs frame +0.061 (eval_harness_20261031/black_frame_dose)",
+  "framed images are a different acquisition style: bright centre, vignetted periphery below 5, cells visible only centrally (contact sheet 2026-11-02); 60 % of framed images have no full-dark border band, so the 'frame' is the vignette, not a border",
+  "masked std pooling (black tokens excluded) retrained on fold 4: framed +0.031, hybrid +0.001 -> the pooling arithmetic is not the cause",
+  "framed rows are 48 % of the data, so this is not under-representation; hypothesis = one model compromises between two styles"
+ ],
+ "arms": {"specialist": "frozen recipe A runner (std pooling, seed 46, 20 epochs, schedule 10, head lr 1e-3, clip 1, fold SSL5), train rows restricted to black_frac > 0.01; wrapper code/recipeA_20261027/recipeA_style_specialist_20261102.py",
+          "control": "existing generalist seed-46 members on the same folds (phase2_pooling_replication_20261026/f0_s46_std, oof_recipeA_20261027/fold1/regression_std_s46), same SSL, same single whole-frame view"},
+ "development_folds": [0, 1],
+ "confirmation_fold": 4,
+ "primary": "single view, terminal epoch 20, official MAPE on the framed validation rows (black_frac > 0.01): specialist minus generalist, per fold and pooled",
+ "continue_rule": "pooled framed delta <= -0.15 pp mean AND both dev folds negative -> TTA4 + hybrid-level evaluation (generalist members replaced by the specialist on framed rows only, LOFO scalars), folds 2-3 trained, fold 4 confirmation",
+ "adoption_rule_for_submission_2": "hybrid-level delta <= -0.02 pp mean on dev folds AND fold 4 <= 0 AND framed stratum not worse on any fold; then three full-data specialist seeds (46/47/48), container switch by black_frac (same number of ViT passes, T4 time unchanged), model archive re-upload; all by 2026-11-09",
+ "stop_rule": "pooled framed delta > -0.05 -> hypothesis rejected, report only",
+ "cost": "about 2 h per fold on 2 GPUs (about half the train rows)"
+}

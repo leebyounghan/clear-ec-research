@@ -1,0 +1,25 @@
+{
+  "id": "exp-d0865ba4b322",
+  "name": "ssl0_control · head1e3_clip1 · runs",
+  "group": "fold4",
+  "score": {
+    "CD": 6.651867866516113,
+    "CV": 10.450733184814453,
+    "HEX": 10.316401481628418,
+    "mean": 9.139667510986328
+  },
+  "source": "results/phase2_crossfold_20261015/fold4/ssl0_control/head1e3_clip1/runs/fold4/cpdino_vitb/result.json",
+  "config": "full validation1790 · 단일 모델 · terminal20 · TTA/보정 없음",
+  "status": "결과 기록",
+  "problem": "head 튜닝 효과와 SSL encoder 효과를 구분할 필요가 있었다.",
+  "idea": "추가 SSL 없이 외부 CPDINO 초기화로 matched 회귀 대조군을 만든다.",
+  "decision": "seed42 SSL5 baseline과 비교. 작은 평균 차이만으로 일반화를 단정하지 않는다.",
+  "parent": null,
+  "protocol": "results/phase2_crossfold_20261015/research_protocol.json",
+  "log": null,
+  "note_version": "v1",
+  "interpretation": "2026-10-20 사후 정리. 당시 사전 가설과 구분.",
+  "date": "2026-10-15–19",
+  "sha256": "5f6f8072283df0400885605783e9d3f5dbdf4b9b9e65185affdcf8623835d36f",
+  "note_path": "results/leaderboard/notes/exp-d0865ba4b322.v1.json"
+}

@@ -1,0 +1,23 @@
+{
+ "ref": {
+  "max_rel_hex_vs_expected": 0.0,
+  "max_abs_feat_vs_expected": 0.0,
+  "max_rel_hex_vs_ref": 0.0,
+  "n_detector_values_differing_from_ref": 0
+ },
+ "bf16": {
+  "max_rel_hex_vs_expected": 0.010025038628649898,
+  "max_abs_feat_vs_expected": 0.059481005981001145,
+  "max_rel_hex_vs_ref": 0.010025038628649898,
+  "n_detector_values_differing_from_ref": 242
+ },
+ "fp16": {
+  "max_rel_hex_vs_expected": 0.007896696623453416,
+  "max_abs_feat_vs_expected": 0.04727439604294825,
+  "max_rel_hex_vs_ref": 0.007896696623453416,
+  "n_detector_values_differing_from_ref": 239
+ },
+ "fp16_within_green_tolerance": false,
+ "fp16_seconds_per_image_h200": 3.123,
+ "peak_gib": 10.42
+}

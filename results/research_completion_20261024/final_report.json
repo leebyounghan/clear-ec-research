@@ -1,0 +1,247 @@
+{
+  "status": "approved_finite_studies_complete_conditional_extensions_not_promoted",
+  "created_utc": "2026-10-24T13:57:46.059531+00:00",
+  "pooling_full1790": {
+    "mean": {
+      "CD": 6.811371352113452,
+      "CV": 10.331394494706526,
+      "HEX": 10.257065587294175,
+      "mean": 9.133277144704717
+    },
+    "mean_std": {
+      "CD": 6.589101066042331,
+      "CV": 10.3807940932051,
+      "HEX": 10.213975911995526,
+      "mean": 9.061290357080987
+    },
+    "std": {
+      "CD": 6.660732421605767,
+      "CV": 10.26212719080011,
+      "HEX": 10.220822925791305,
+      "mean": 9.04789417939906
+    },
+    "min": {
+      "CD": 6.910034980418482,
+      "CV": 10.231625884379984,
+      "HEX": 10.261234476818998,
+      "mean": 9.134298447205822
+    },
+    "max": {
+      "CD": 6.773467525631135,
+      "CV": 10.26021747534243,
+      "HEX": 10.248748019703775,
+      "mean": 9.09414434022578
+    },
+    "mean_std_min_max": {
+      "CD": 6.6838705850357325,
+      "CV": 10.296239294084847,
+      "HEX": 10.18685899310062,
+      "mean": 9.0556562907404
+    }
+  },
+  "head_parameters": {
+    "scalar": 100355,
+    "mean_std": 200195,
+    "mean_std_min_max": 399875
+  },
+  "ssl_duration_full1790": {
+    "SSL5_mean": {
+      "CD": 6.811371352113452,
+      "CV": 10.331394494706526,
+      "HEX": 10.257065587294175,
+      "mean": 9.133277144704717
+    },
+    "SSL10_mean": {
+      "CD": 6.730839911476375,
+      "CV": 10.402170787391027,
+      "HEX": 10.201027513535148,
+      "mean": 9.11134607080085
+    },
+    "SSL20_mean": {
+      "CD": 6.7903055051514185,
+      "CV": 10.312786684139784,
+      "HEX": 10.2570363995986,
+      "mean": 9.120042862963269
+    },
+    "SSL0_mean": {
+      "CD": 6.82327921812433,
+      "CV": 10.343740757470663,
+      "HEX": 10.273448565140919,
+      "mean": 9.146822846911972
+    }
+  },
+  "ssl_confirmation_fold0": {
+    "primary_n": 1791,
+    "SSL5": {
+      "CD": 6.346279724309229,
+      "CV": 10.551635862825314,
+      "HEX": 10.645391988902162,
+      "mean": 9.181102525345567
+    },
+    "SSL10": {
+      "CD": 6.490429545696711,
+      "CV": 10.476837971847285,
+      "HEX": 10.662894422592478,
+      "mean": 9.210053980045492
+    },
+    "delta_SSL10_minus_SSL5": {
+      "CD": 0.1441498213874821,
+      "CV": -0.07479789097802936,
+      "HEX": 0.01750243369031601,
+      "mean": 0.028951454699924994
+    },
+    "conclusion": "Fold4 SSL10 improvement did not replicate on fold0; retain SSL5, no SSL10 promotion. Reused development folds, not official or independent generalization."
+  },
+  "matched1778": {
+    "historical_six_ssl_uncalibrated": {
+      "CD": 6.61221662166655,
+      "CV": 10.141727528800812,
+      "HEX": 9.975041870530683,
+      "mean": 8.909662006999348,
+      "n": 1778
+    },
+    "historical_six_ssl_fixed_calibration": {
+      "CD": 6.623419910477421,
+      "CV": 10.092989723880313,
+      "HEX": 9.947762394177259,
+      "mean": 8.888057342844997,
+      "n": 1778
+    },
+    "single_ssl5_mean": {
+      "CD": 6.7391402365242135,
+      "CV": 10.266576395388718,
+      "HEX": 10.230956587534564,
+      "mean": 9.078891073149165,
+      "n": 1778
+    },
+    "single_ssl5_mean_std": {
+      "CD": 6.513306410402814,
+      "CV": 10.315824017418999,
+      "HEX": 10.18853323393931,
+      "mean": 9.005887887253708,
+      "n": 1778
+    },
+    "single_ssl5_std": {
+      "CD": 6.580659563263828,
+      "CV": 10.194247241459587,
+      "HEX": 10.194260423167432,
+      "mean": 8.989722409296949,
+      "n": 1778
+    },
+    "single_ssl5_min": {
+      "CD": 6.8305703141610055,
+      "CV": 10.169207718591451,
+      "HEX": 10.23486060877223,
+      "mean": 9.078212880508229,
+      "n": 1778
+    },
+    "single_ssl5_max": {
+      "CD": 6.695082188964369,
+      "CV": 10.197160581655249,
+      "HEX": 10.222278324619511,
+      "mean": 9.038173698413042,
+      "n": 1778
+    },
+    "single_ssl5_mean_std_min_max": {
+      "CD": 6.607669710674753,
+      "CV": 10.231955539234267,
+      "HEX": 10.157006877725825,
+      "mean": 8.998877375878282,
+      "n": 1778
+    }
+  },
+  "nested_calibration_full1790": {
+    "identity": {
+      "CD": 6.811371352113452,
+      "CV": 10.331394494706526,
+      "HEX": 10.257065587294175,
+      "mean": 9.133277144704717
+    },
+    "scalar": {
+      "CD": 6.763823501799888,
+      "CV": 10.360386395997487,
+      "HEX": 10.233263753959502,
+      "mean": 9.119157883918959
+    },
+    "shrinkage_power": {
+      "CD": 6.855989860741964,
+      "CV": 10.373345714479077,
+      "HEX": 10.235010391382348,
+      "mean": 9.154781988867796
+    },
+    "quality_residual": {
+      "CD": 6.888002193743256,
+      "CV": 10.368463450123976,
+      "HEX": 10.22558960270558,
+      "mean": 9.160685082190938
+    }
+  },
+  "conclusions": [
+    "std is lowest terminal20 pooling mean on reused fold4; scalar head100355 vs mean_std200195 and four-stat399875 parameters",
+    "SSL10 fold4 improvement did not replicate on fold0; retain SSL5",
+    "Existing validation-selected six-model ensemble remains lower error on matched1778; no new model mixing or ensemble recalibration",
+    "Nested scalar correction improves mean by0.01412 in one reused outer fold; power and quality residual worsen; no promotion",
+    "Green train-only point probe completed and all5 readbacks passed; meanF1=0.468836, uneven recall; teacher confidence gate not established",
+    "HEX smoothing rejected for overall worsening; edge-cache order and full boundary truth remain unresolved; oracle ROI/points are diagnostic only"
+  ],
+  "conditional_extensions": {
+    "teacher_consistency": "not triggered; point/ROI validation insufficient for trustworthy teacher masks",
+    "boundary_pseudo_masks": "not triggered; mask-quality and ID-bound edge-cache gates unfulfilled",
+    "additional_nested_outer_confirmation": "required before any calibration promotion; no promotion claimed"
+  },
+  "verification": {
+    "regression_arms_with_all20epochs_audited": 14,
+    "pooling_and_selected_SSL_and_outer_strict_CPU_GPU": "passed; fixed8 implementation checks, not full deployment certification",
+    "nested_three_inner_SSL5": "independently audited; outer and own inner-validation excluded",
+    "nested_input_pixels_IDs_targets_groups_stats": "passed",
+    "calibration_four_methods_independent_recomputation": "passed",
+    "large_checkpoints": "retained on PVC",
+    "research_pod": "retained;2 H200 allocated, no active GPU processes at final check",
+    "approved_cap": 16
+  },
+  "evidence_sha256": {
+    "phase2_pooling_20261020/mean_independent_audit.json": "bfce29faaa7d294ce7894e1d68e9f8352799465ebe710be1b096b9ae77de79dc",
+    "phase2_pooling_20261020/mean_std_independent_audit.json": "6eef692bfb0f0e6c46ab7cd25c1ecbfb920a83e4dbfee93949ee21a02d83bece",
+    "phase2_pooling_20261020/std_independent_audit.json": "9210996675f428bb9d6e0e325e4fa496fd1e30dc8df0bcf19a1e249b1494793f",
+    "phase2_pooling_20261020/min_independent_audit.json": "3007197451c41e64a69e5810b815d996672f265ed7112216aaa7e87f0741c63b",
+    "phase2_pooling_20261020/max_independent_audit.json": "61ebdfa118395fd6b8cbef09265b847f65b90862ffc850803a9d8de878b0eb1e",
+    "phase2_pooling_20261020/mean_std_min_max_independent_audit.json": "a2dac84bfc5e9ff2dcc09343a9769f5ce48f3c4bfec1e7bf8ba1264e6ec4207b",
+    "phase2_backbone_ssl_20261020/regression_ssl0_20261022/independent_audit.json": "409d6ca7064d3d3ad770dbb0df0ea1cbdfe14edc9e1fd4264ac6bdfae27dd4e6",
+    "phase2_backbone_ssl_20261020/regression_ssl10_20261021/independent_audit.json": "36c6640e0adf1ac6ad69f381edd6dc298a209b215cff21ac8b8c853551936e24",
+    "phase2_backbone_ssl_20261020/regression_ssl20_20261022/independent_audit.json": "c6b414dc923d20ed4a1fe21b038f949f1f390394766e03d739f041668ced23da",
+    "phase2_backbone_ssl_20261020/fold0_regression_ssl5_20261022/independent_audit.json": "57bc201b083967663d968216f089cb79344095d0c4f5b3400024df004593b0b1",
+    "phase2_backbone_ssl_20261020/fold0_regression_ssl10_20261022/independent_audit.json": "71f6aacb69246f4f4fcdb18f5e5c5a475a0303080e967268b2e54e943bae428f",
+    "nested_oof_20261023/inner0_regression_v1/independent_audit.json": "1637c2348fae6eac0f668e591f694fb2d35111c3dedd98f56e51867dfe68dc69",
+    "nested_oof_20261023/inner0_ssl5/independent_audit.json": "c8cf5eee0624df7ebdd7f3ec217598e8d5df54828d81d45ff28191b7f59d8176",
+    "nested_oof_20261023/inner1_regression_v1/independent_audit.json": "4868d624dd03938bfb804ea3163349d55bd11ff386b63d41f9a45d8cb29f0544",
+    "nested_oof_20261023/inner1_ssl5/independent_audit.json": "6c4cb64653c198430ea80c2061630232953208d0637c1bcf043e151fb37a05ac",
+    "nested_oof_20261023/inner2_regression_v1/independent_audit.json": "d23c5a665f06c2660331cd1387a9a3b350a171f63ff87a208be04d73a1d28fab",
+    "nested_oof_20261023/inner2_ssl5/independent_audit.json": "6a97024782f85c3a1d854c4d5490e8acc61e886a60aa3607d5d714420df1413f",
+    "phase2_pooling_20261020/final_readback_20261021/cpu.json": "5466ec74c11a216ecf34caf6e789d0e9d90a19d0a7846e84d87ebbc1b9d15ee8",
+    "phase2_pooling_20261020/final_readback_20261021/gpu.json": "4c4c7d66e562022cc4bf6d7b6f7f48147cb61330fae8e9b8a63403e924e3289f",
+    "phase2_backbone_ssl_20261020/fold0_regression_ssl5_20261022/readback_20261023/cpu.json": "e15e229e82d110c2cac14b5920361313ce632a83a5df20ce3a767ec84b048708",
+    "phase2_backbone_ssl_20261020/fold0_regression_ssl5_20261022/readback_20261023/gpu.json": "12cecce9f7f02342ce71eec33d4d97f0b67d6bc173c4c5c497e3328fe6a4ffc5",
+    "nested_oof_20261023/outer_readback_20261024/cpu.json": "bb5c25c103fd1a29004cc55204cf945954a6136a6611e7252b587a0e91d80272",
+    "nested_oof_20261023/outer_readback_20261024/gpu.json": "574abf854b4ea6b6a2ddda3b835cdecb22039eb6e061694746b219845e1b016f",
+    "green_point_probe_20261023/independent_audit.json": "d163e194c71051ed1c1e5f46fb58f224ba929677afbbbb9dcae2b2144ed45ce7",
+    "green_point_probe_20261023/forward_readback.json": "1bf0eb6c58618a9b6d520336a0d59ba35a33c2b5139d79569bd95f522f77f7fb",
+    "hex_boundary_screen_20261020/independent_audit.json": "0c118a9b67820245d94f36727b66f6f309d97a335b80af453d4d69be337c1f9d",
+    "hex_boundary_screen_20261020/research_gate_review_20261024.json": "68611f04f8e2d6ba5f90f09a6ca76a94c4d3fb3eb1d3c27c516c8a9017ef123a",
+    "nested_oof_20261023/calibration_inputs_v1/inputs_audit.json": "31bf8855b9d469206190e142014e35643bae7f2103f6031debda049dc5c90209",
+    "nested_oof_20261023/calibration_evaluation_v1/independent_audit_v2.json": "858c9c75fab7f876b8d717f8f0ba75f89fbc2e6e56a0665fb73ea141cd0bfe40",
+    "nested_oof_20261023/error_atlas_20261024.json": "859635d4f2408e47a46b4bdf2c4ed0b6fa15786ad3b14496373292c9db2c29da",
+    "phase2_pooling_20261020/final_comparison_20261021.json": "5e57bcb2a8ac00bf450bd8eaa41e14cd7886fc81cc2f5da12a09799a3918c7b7",
+    "phase2_pooling_20261020/ensemble_matched_comparison.json": "781ce49055cfda8db441d0badb7bef029d1a4ec9c86c3c732d7ae05be202dcd4",
+    "nested_oof_20261023/calibration_evaluation_v1/result.json": "24da3d7813f5e0550844a92a9a6ee0520efc6732f5267337e27e7a17f42222df",
+    "research_completion_20261024/runtime.json": "cfe25200b74ce6e4d541229a42b0baf106c0357c9bf451439ab4858420c62fa7"
+  },
+  "limitations": [
+    "Historically reused development folds; not independent generalization or official scores",
+    "Patient identity and near-duplicate independence unresolved",
+    "Historical ensemble uses validation-selected checkpoints; matched1778 separate from full1790",
+    "Green original TIFF completeness and edge cache order unresolved; ROI/points are not full masks",
+    "H200 readback is not T4 certification"
+  ],
+  "submission_changed": false,
+  "automation_action": "completion monitor no longer needed"
+}

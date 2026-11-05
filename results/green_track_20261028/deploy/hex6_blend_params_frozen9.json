@@ -1,0 +1,76 @@
+{
+ "created_utc": "2026-10-30T05:50:37.442731+00:00",
+ "families": [
+  "s8_s46",
+  "s8_s47",
+  "s8_s48",
+  "sg2_specialist",
+  "sg2_specialist_s47",
+  "sg2_specialist_s48",
+  "sg2_specialist_s49",
+  "sg2_specialist_s50",
+  "s8multi_s47"
+ ],
+ "threshold": 0.35,
+ "a": -0.22325807574196369,
+ "b": 0.5834945782274609,
+ "w": 0.26,
+ "rows_fit": 8921,
+ "base": "B_hybrid_w0p5 (0.5 recipe A two-seed + 0.5 Phase-1 five)",
+ "feature": "mean over families of log hex6_all (six-neighbour fraction of bounded Voronoi cells, peaks >= 0.35)",
+ "fallback": "if fewer than 20 peaks or fewer than 12 bounded cells for every family: return base prediction",
+ "insample_hex_mape": {
+  "base": 10.103768451551263,
+  "blended": 10.01386739168959
+ },
+ "lofo": {
+  "delta_hex_pp": -0.08225825898345583,
+  "delta_mean_pp": -0.027419419661151943,
+  "folds_improving": 5,
+  "per_fold_delta_mean_pp": [
+   -0.0400074090840293,
+   -0.02618502272003968,
+   -0.03831224852993446,
+   -0.02467475027527814,
+   -0.007974364806059361
+  ],
+  "per_fold_w": [
+   0.22,
+   0.26,
+   0.24,
+   0.26,
+   0.3
+  ],
+  "per_fold_ab": [
+   [
+    -0.22987818823291753,
+    0.5744643172288615
+   ],
+   [
+    -0.22141593380294622,
+    0.589113001145916
+   ],
+   [
+    -0.22445195997517703,
+    0.5808268932173202
+   ],
+   [
+    -0.21911411213431092,
+    0.5876481768747697
+   ],
+   [
+    -0.22123109234226737,
+    0.585738219788177
+   ]
+  ]
+ },
+ "feature_stats": {
+  "mean": -0.6763207762554057,
+  "std": 0.1472203365790766,
+  "q": [
+   -0.9339737513355959,
+   -0.6635371332201765,
+   -0.4553408100938181
+  ]
+ }
+}

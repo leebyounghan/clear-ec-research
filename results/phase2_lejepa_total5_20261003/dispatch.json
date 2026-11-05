@@ -1,0 +1,32 @@
+{
+  "namespace": "p-ajou-mlxp-project",
+  "job": "clear-ec-lejepa-total5-1003",
+  "pod": "clear-ec-lejepa-total5-1003-j62fn",
+  "pvc_root": "/workspace/clear-ec-research/experiments/phase2_lejepa_total5_20261003",
+  "observed_utc": "2026-10-04T05:06:11Z",
+  "observed_status": "Running; GPU resume smoke passed; epoch2 first real update complete",
+  "parent_checkpoint_sha256": "f49ed126e05f5ea819d4cb235018dbbeac9adb38a9504fd77519696f3899db65",
+  "gpu_count": 1,
+  "gpu": "NVIDIA H200",
+  "observed_gpu_utilization_percent": 100,
+  "clear_ec_total_active_gpus": 2,
+  "parallel_job_preserved": "clear-ec-lejepa-regression-1003",
+  "parallel_job_last_observed_epoch": 2,
+  "total_ssl_epochs": 5,
+  "additional_ssl_epochs": 4,
+  "resume_step": 224,
+  "observed_global_step": 225,
+  "total_steps": 1120,
+  "additional_steps": 896,
+  "first_step_seconds": 16.003820165991783,
+  "peak_allocated_gib": 34.749756813049316,
+  "notes": [
+    "Encoder, projection head, optimizer and CPU/CUDA RNG states restored and verified exactly.",
+    "Warmup is not restarted. Loss, batch, native whole-frame input and augmentation family stay unchanged.",
+    "New deterministic shuffling and views per epoch; held-out fold3 images never used.",
+    "One-epoch parent checkpoint and running regression were not modified.",
+    "This job stops at total5 SSL epochs; downstream regression is not automatically launched.",
+    "No automatic retries or new monitor. Model weights remain on the cluster.",
+    "Temporary CPU staging pod removed; PVC artifacts preserved."
+  ]
+}

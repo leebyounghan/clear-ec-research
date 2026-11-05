@@ -1,0 +1,183 @@
+{
+    "apiVersion": "batch/v1",
+    "kind": "Job",
+    "metadata": {
+        "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"Job\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"clear-ec\",\"workload\":\"lejepa5-sweep\"},\"name\":\"clear-ec-lejepa5-sweep-1013\",\"namespace\":\"p-ajou-mlxp-project\"},\"spec\":{\"activeDeadlineSeconds\":172800,\"backoffLimit\":0,\"template\":{\"metadata\":{\"labels\":{\"app\":\"clear-ec\",\"workload\":\"lejepa5-sweep\"}},\"spec\":{\"activeDeadlineSeconds\":165600,\"automountServiceAccountToken\":false,\"containers\":[{\"args\":[\"set -euo pipefail\\nrunner=experiments/phase2_lejepa5_sweep_20261013/source/phase2_lejepa5_sweep_20261013.py\\nfor arm in head1e4_clip1 head1e4_clip3 head3e4_clip3 head1e3_clip3; do\\n  /workspace/venv/bin/python -m torch.distributed.run --standalone --nproc_per_node=2 \\\"$runner\\\" smoke --arm \\\"$arm\\\"\\ndone\\nfor arm in head1e4_clip1 head1e4_clip3 head3e4_clip3 head1e3_clip3; do\\n  /workspace/venv/bin/python -m torch.distributed.run --standalone --nproc_per_node=2 \\\"$runner\\\" train --arm \\\"$arm\\\"\\ndone\\nCUDA_VISIBLE_DEVICES=\\\"\\\" /workspace/venv/bin/python -u \\\"$runner\\\" audit\\n\"],\"command\":[\"bash\",\"-lc\"],\"env\":[{\"name\":\"PYTHONPATH\",\"value\":\"/workspace/clear-ec-research/experiments/phase2_foundation_20261002/runtime\"},{\"name\":\"HF_HUB_OFFLINE\",\"value\":\"1\"},{\"name\":\"HF_HUB_DISABLE_PROGRESS_BARS\",\"value\":\"1\"},{\"name\":\"PYTHONDONTWRITEBYTECODE\",\"value\":\"1\"},{\"name\":\"OMP_NUM_THREADS\",\"value\":\"4\"},{\"name\":\"OPENBLAS_NUM_THREADS\",\"value\":\"2\"},{\"name\":\"PYTORCH_CUDA_ALLOC_CONF\",\"value\":\"expandable_segments:True\"}],\"image\":\"leebyounghan/mlx-rl:20260810-sgl0512-verl-1ddf071\",\"name\":\"train\",\"resources\":{\"limits\":{\"cpu\":\"8\",\"memory\":\"48Gi\",\"nvidia.com/gpu\":\"2\"},\"requests\":{\"cpu\":\"4\",\"memory\":\"20Gi\",\"nvidia.com/gpu\":\"2\"}},\"volumeMounts\":[{\"mountPath\":\"/workspace\",\"name\":\"workspace\"},{\"mountPath\":\"/dev/shm\",\"name\":\"shared-memory\"}],\"workingDir\":\"/workspace/clear-ec-research\"}],\"nodeSelector\":{\"mlx.navercorp.com/gpu-type\":\"H200\",\"mlx.navercorp.com/zone\":\"private-h200-ajou-mlxp-0\"},\"priorityClassName\":\"private-zone\",\"restartPolicy\":\"Never\",\"tolerations\":[{\"effect\":\"NoSchedule\",\"key\":\"nvidia.com/gpu\",\"operator\":\"Exists\"}],\"volumes\":[{\"name\":\"workspace\",\"persistentVolumeClaim\":{\"claimName\":\"clear-ec-workspace\"}},{\"emptyDir\":{\"medium\":\"Memory\",\"sizeLimit\":\"4Gi\"},\"name\":\"shared-memory\"}]}},\"ttlSecondsAfterFinished\":172800}}\n"
+        },
+        "creationTimestamp": "2026-10-13T18:44:26Z",
+        "generation": 1,
+        "labels": {
+            "app": "clear-ec",
+            "workload": "lejepa5-sweep"
+        },
+        "name": "clear-ec-lejepa5-sweep-1013",
+        "namespace": "p-ajou-mlxp-project",
+        "resourceVersion": "2326443617",
+        "uid": "4e7608bc-45d7-436f-bfc1-4850b371301e"
+    },
+    "spec": {
+        "activeDeadlineSeconds": 172800,
+        "backoffLimit": 0,
+        "completionMode": "NonIndexed",
+        "completions": 1,
+        "manualSelector": false,
+        "parallelism": 1,
+        "podReplacementPolicy": "TerminatingOrFailed",
+        "selector": {
+            "matchLabels": {
+                "batch.kubernetes.io/controller-uid": "4e7608bc-45d7-436f-bfc1-4850b371301e"
+            }
+        },
+        "suspend": false,
+        "template": {
+            "metadata": {
+                "creationTimestamp": null,
+                "labels": {
+                    "app": "clear-ec",
+                    "batch.kubernetes.io/controller-uid": "4e7608bc-45d7-436f-bfc1-4850b371301e",
+                    "batch.kubernetes.io/job-name": "clear-ec-lejepa5-sweep-1013",
+                    "controller-uid": "4e7608bc-45d7-436f-bfc1-4850b371301e",
+                    "job-name": "clear-ec-lejepa5-sweep-1013",
+                    "workload": "lejepa5-sweep"
+                }
+            },
+            "spec": {
+                "activeDeadlineSeconds": 165600,
+                "automountServiceAccountToken": false,
+                "containers": [
+                    {
+                        "args": [
+                            "set -euo pipefail\nrunner=experiments/phase2_lejepa5_sweep_20261013/source/phase2_lejepa5_sweep_20261013.py\nfor arm in head1e4_clip1 head1e4_clip3 head3e4_clip3 head1e3_clip3; do\n  /workspace/venv/bin/python -m torch.distributed.run --standalone --nproc_per_node=2 \"$runner\" smoke --arm \"$arm\"\ndone\nfor arm in head1e4_clip1 head1e4_clip3 head3e4_clip3 head1e3_clip3; do\n  /workspace/venv/bin/python -m torch.distributed.run --standalone --nproc_per_node=2 \"$runner\" train --arm \"$arm\"\ndone\nCUDA_VISIBLE_DEVICES=\"\" /workspace/venv/bin/python -u \"$runner\" audit\n"
+                        ],
+                        "command": [
+                            "bash",
+                            "-lc"
+                        ],
+                        "env": [
+                            {
+                                "name": "PYTHONPATH",
+                                "value": "/workspace/clear-ec-research/experiments/phase2_foundation_20261002/runtime"
+                            },
+                            {
+                                "name": "HF_HUB_OFFLINE",
+                                "value": "1"
+                            },
+                            {
+                                "name": "HF_HUB_DISABLE_PROGRESS_BARS",
+                                "value": "1"
+                            },
+                            {
+                                "name": "PYTHONDONTWRITEBYTECODE",
+                                "value": "1"
+                            },
+                            {
+                                "name": "OMP_NUM_THREADS",
+                                "value": "4"
+                            },
+                            {
+                                "name": "OPENBLAS_NUM_THREADS",
+                                "value": "2"
+                            },
+                            {
+                                "name": "PYTORCH_CUDA_ALLOC_CONF",
+                                "value": "expandable_segments:True"
+                            },
+                            {
+                                "name": "NCCL_IB_HCA",
+                                "value": "mlx5_0,mlx5_2,mlx5_3,mlx5_4,mlx5_5,mlx5_7,mlx5_8,mlx5_9"
+                            }
+                        ],
+                        "image": "leebyounghan/mlx-rl:20260810-sgl0512-verl-1ddf071",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "train",
+                        "resources": {
+                            "limits": {
+                                "cpu": "8",
+                                "memory": "48Gi",
+                                "nvidia.com/gpu": "2"
+                            },
+                            "requests": {
+                                "cpu": "4",
+                                "memory": "20Gi",
+                                "nvidia.com/gpu": "2"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/workspace",
+                                "name": "workspace"
+                            },
+                            {
+                                "mountPath": "/dev/shm",
+                                "name": "shared-memory"
+                            }
+                        ],
+                        "workingDir": "/workspace/clear-ec-research"
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "nodeSelector": {
+                    "mlx.navercorp.com/gpu-type": "H200",
+                    "mlx.navercorp.com/zone": "private-h200-ajou-mlxp-0"
+                },
+                "priorityClassName": "private-zone",
+                "restartPolicy": "Never",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoSchedule",
+                        "key": "nvidia.com/gpu",
+                        "operator": "Exists"
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "workspace",
+                        "persistentVolumeClaim": {
+                            "claimName": "clear-ec-workspace"
+                        }
+                    },
+                    {
+                        "emptyDir": {
+                            "medium": "Memory",
+                            "sizeLimit": "4Gi"
+                        },
+                        "name": "shared-memory"
+                    }
+                ]
+            }
+        },
+        "ttlSecondsAfterFinished": 172800
+    },
+    "status": {
+        "completionTime": "2026-10-14T12:11:46Z",
+        "conditions": [
+            {
+                "lastProbeTime": "2026-10-14T12:11:46Z",
+                "lastTransitionTime": "2026-10-14T12:11:46Z",
+                "message": "Reached expected number of succeeded pods",
+                "reason": "CompletionsReached",
+                "status": "True",
+                "type": "SuccessCriteriaMet"
+            },
+            {
+                "lastProbeTime": "2026-10-14T12:11:46Z",
+                "lastTransitionTime": "2026-10-14T12:11:46Z",
+                "message": "Reached expected number of succeeded pods",
+                "reason": "CompletionsReached",
+                "status": "True",
+                "type": "Complete"
+            }
+        ],
+        "ready": 0,
+        "startTime": "2026-10-13T18:44:26Z",
+        "succeeded": 1,
+        "terminating": 0,
+        "uncountedTerminatedPods": {}
+    }
+}

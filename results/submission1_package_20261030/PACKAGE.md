@@ -1,11 +1,13 @@
 # Submission-1 package — hybrid (Phase-1 six + recipe A ×3), built 2026-10-30
 
+> Superseded for upload by `results/submission1_package_20261031/` (per-image fault guard; outputs byte-identical).
+
 Location (build box `qudgks@210.107.192.239`): `~/workspace/clear-ec/package_20261030/`
 
 | File | Size | SHA256 |
 |---|---:|---|
 | `clear-ec-hybrid_20261030.tar.gz` (docker save, gzip) | 4.26 GB | `2301d972ef65bfb5f1b7aeb77ee764e2854c46b95a31663df9d6c6132fbc0b61` |
-| `model_hybrid_20261030.tar.gz` (mount at `/opt/ml/model`) | 4.80 GB | `1134b453653b4a7215532be0be9dddc5f2a29d66af02cdaf4a0f7dbae506bf87` |
+| `model_hybrid_20261030.tar.gz` (mount at `/opt/ml/model`) | 9.21 GB (corrected 2026-10-31; was misreported as 4.80 GB) | `1134b453653b4a7215532be0be9dddc5f2a29d66af02cdaf4a0f7dbae506bf87` |
 
 Image: `clear-ec-hybrid:20261030` (7.87 GB uncompressed), base `pytorch/pytorch:2.11.0-cuda12.6-cudnn9-runtime`
 (same as the Phase-1 submission; runs on sm75/T4), plus `timm==1.0.20` and the vendored `dinov3` runtime.

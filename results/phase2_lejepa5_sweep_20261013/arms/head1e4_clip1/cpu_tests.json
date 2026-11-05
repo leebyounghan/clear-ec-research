@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "gradient_clip_threshold_verified": true,
+  "telemetry_weighting_verified": true,
+  "ddp_sample_weights_and_partial_groups": true,
+  "manifest_sha": "f1865008a74105885c8c25cfc16f39a7bdd0d302f2223e8f70a8155c83976967"
+}

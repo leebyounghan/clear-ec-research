@@ -1,0 +1,47 @@
+/workspace/clear-ec-research/experiments/green_day2_20261101/source/green_day2_cd_features_20261101.py:254: RuntimeWarning: Mean of empty slice
+  return np.exp(np.nanmean(A, 0))
+mean3_t35_dens_tissue plain 0.0000 mean pp (impr 0, est 13.30, r_err 0.57) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+pre_s46_t35_dens_tissue plain 0.0000 mean pp (impr 0, est 13.28, r_err 0.58) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+mean3_t35_vor_cd plain 0.0000 mean pp (impr 0, est 11.37, r_err 0.60) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+pre_s46_t35_vor_cd plain 0.0000 mean pp (impr 0, est 11.22, r_err 0.60) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+mean3_t35_vor_cd_hex plain 0.0000 mean pp (impr 0, est 11.36, r_err 0.60) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+pre_s46_t35_vor_cd_hex plain 0.0000 mean pp (impr 0, est 11.28, r_err 0.60) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+mean3_t35_nn_cd plain 0.0000 mean pp (impr 0, est 9.42, r_err 0.69) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+pre_s46_t35_nn_cd plain 0.0000 mean pp (impr 0, est 9.36, r_err 0.70) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+mean3_t35_win_quality_cd plain 0.0000 mean pp (impr 0, est 13.24, r_err 0.57) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+pre_s46_t35_win_quality_cd plain 0.0000 mean pp (impr 0, est 13.18, r_err 0.56) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+mean3_t35_win_dense_cd plain 0.0000 mean pp (impr 0, est 12.53, r_err 0.58) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+pre_s46_t35_win_dense_cd plain 0.0000 mean pp (impr 0, est 12.45, r_err 0.58) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+mean3_t35_win_typical_cd plain 0.0000 mean pp (impr 0, est 12.97, r_err 0.57) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+pre_s46_t35_win_typical_cd plain 0.0000 mean pp (impr 0, est 12.89, r_err 0.57) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+mean3_t35_win_cluster_cd plain 0.0000 mean pp (impr 0, est 12.70, r_err 0.58) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+pre_s46_t35_win_cluster_cd plain 0.0000 mean pp (impr 0, est 12.62, r_err 0.57) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+mean3_t50_dens_tissue plain 0.0000 mean pp (impr 0, est 13.46, r_err 0.57) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+pre_s46_t50_dens_tissue plain 0.0000 mean pp (impr 0, est 13.42, r_err 0.57) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+mean3_t50_vor_cd plain 0.0000 mean pp (impr 0, est 12.19, r_err 0.58) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+pre_s46_t50_vor_cd plain 0.0000 mean pp (impr 0, est 12.10, r_err 0.58) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+mean3_t50_vor_cd_hex plain 0.0000 mean pp (impr 0, est 12.15, r_err 0.56) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 0.0000
+pre_s46_t50_vor_cd_hex plain 0.0000 mean pp (impr 0, est 12.04, r_err 0.57) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 0.0000
+mean3_t50_nn_cd plain 0.0000 mean pp (impr 0, est 9.72, r_err 0.67) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+pre_s46_t50_nn_cd plain 0.0000 mean pp (impr 0, est 9.63, r_err 0.67) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 -0.0000
+mean3_t50_win_quality_cd plain 0.0000 mean pp (impr 0, est 13.12, r_err 0.55) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 0.0000
+pre_s46_t50_win_quality_cd plain 0.0000 mean pp (impr 0, est 13.10, r_err 0.55) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 0.0000
+mean3_t50_win_dense_cd plain 0.0000 mean pp (impr 0, est 12.82, r_err 0.56) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 0.0000
+pre_s46_t50_win_dense_cd plain 0.0000 mean pp (impr 0, est 12.76, r_err 0.56) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 0.0000
+mean3_t50_win_typical_cd plain 0.0000 mean pp (impr 0, est 12.97, r_err 0.55) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 0.0000
+pre_s46_t50_win_typical_cd plain 0.0000 mean pp (impr 0, est 12.93, r_err 0.55) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 0.0000
+mean3_t50_win_cluster_cd plain 0.0000 mean pp (impr 0, est 12.90, r_err 0.56) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 0.0000
+pre_s46_t50_win_cluster_cd plain 0.0000 mean pp (impr 0, est 12.84, r_err 0.55) | strat -0.0000 mean pp, framed -0.0000 unframed 0.0000 CD pp, dev 0.0000 f4 0.0000
+/workspace/clear-ec-research/experiments/green_track_20261028/source/cd_estimators_20261028.py:168: RuntimeWarning: divide by zero encountered in log
+  ly = np.log(y[:, t])
+/workspace/clear-ec-research/experiments/green_day2_20261101/source/green_day2_cd_features_20261101.py:205: RuntimeWarning: divide by zero encountered in log
+  ly = np.log(y[:, t]); lb = np.log(base[:, t]); have = np.isfinite(lf)
+hex6_all_mean3 HEX plain -0.0138 mean pp (impr 5) | strat -0.0171, framed -0.0133 unframed -0.0866 HEX pp, dev -0.0623 f4 -0.0076
+hex6_interior_mean3 HEX plain -0.0137 mean pp (impr 5) | strat -0.0170, framed -0.0131 unframed -0.0863 HEX pp, dev -0.0620 f4 -0.0073
+hex6_cluster_window_mean3 HEX plain -0.0141 mean pp (impr 5) | strat -0.0147, framed -0.0283 unframed -0.0589 HEX pp, dev -0.0490 f4 -0.0249
+hex6_all_pre_s46 HEX plain -0.0089 mean pp (impr 5) | strat -0.0119, framed -0.0052 unframed -0.0641 HEX pp, dev -0.0383 f4 -0.0258
+hex6_interior_pre_s46 HEX plain -0.0088 mean pp (impr 5) | strat -0.0119, framed -0.0051 unframed -0.0640 HEX pp, dev -0.0382 f4 -0.0256
+bootstrap pre_s46_t35_win_quality_cd {"all": {"delta": -3.552713678800501e-15, "ci95": [-1.8207657603852542e-15, 1.7763568394002505e-15], "p_better": 0.1485}, "unframed": {"delta": 1.7763568394002505e-15, "ci95": [-1.7763568394002505e-15, 1.7763568394002505e-15], "p_better": 0.1135}, "framed": {"delta": -1.7763568394002505e-15, "ci95": [-3.552713678800501e-15, 1.7763568394002505e-15], "p_better": 0.201}}
+bootstrap pre_s46_t35_win_dense_cd {"all": {"delta": -3.552713678800501e-15, "ci95": [-1.8207657603852542e-15, 1.7763568394002505e-15], "p_better": 0.1485}, "unframed": {"delta": 1.7763568394002505e-15, "ci95": [-1.7763568394002505e-15, 1.7763568394002505e-15], "p_better": 0.1135}, "framed": {"delta": -1.7763568394002505e-15, "ci95": [-3.552713678800501e-15, 1.7763568394002505e-15], "p_better": 0.201}}
+bootstrap pre_s46_t35_win_typical_cd {"all": {"delta": -3.552713678800501e-15, "ci95": [-1.8207657603852542e-15, 1.7763568394002505e-15], "p_better": 0.1485}, "unframed": {"delta": 1.7763568394002505e-15, "ci95": [-1.7763568394002505e-15, 1.7763568394002505e-15], "p_better": 0.1135}, "framed": {"delta": -1.7763568394002505e-15, "ci95": [-3.552713678800501e-15, 1.7763568394002505e-15], "p_better": 0.201}}
+{"utc": "2026-11-01T20:30:18Z", "msg": "evaluate done"}

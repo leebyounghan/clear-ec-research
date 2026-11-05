@@ -1,0 +1,21 @@
+{
+  "id": "exp-b258c7999960",
+  "name": "pooling · max",
+  "group": "fold4",
+  "score": null,
+  "source": "results/phase2_pooling_20261020/latest_status.json",
+  "config": "seed46 / fold4 n1790 / SSL5 / epochs20 schedule10 / head1e-3 clip1",
+  "status": "training",
+  "problem": "Test whether spatial dispersion and extrema improve CV/HEX.",
+  "idea": "Compare spatial max aggregation.",
+  "decision": "Saved snapshot 20261020T192342Z: training; epoch 2. Not a live cluster view.",
+  "parent": "exp-8db1353f0ed0",
+  "protocol": "results/phase2_pooling_20261020/observations/20261020T192342Z/arms/max/manifest.json",
+  "log": "results/phase2_pooling_20261020/observations/20261020T192342Z/full.log",
+  "note_version": "v2",
+  "interpretation": "2026-10-20 사후 정리. 당시 사전 가설과 구분.",
+  "date": "2026-10-20",
+  "sha256": "c94e24e54c1bfa6bdcf4fa79c856957a74884e0bc9aa71396010dcb203f8ddb9",
+  "precision": null,
+  "note_path": "results/leaderboard/notes/exp-b258c7999960.v2.json"
+}

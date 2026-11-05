@@ -1,0 +1,32 @@
+{
+  "created_utc": "2026-10-27T15:09:35.534443+00:00",
+  "root": "experiments/phase2_pooling_replication_20261026/f0_s46_std",
+  "fold": 0,
+  "seed": 46,
+  "pooling": "std",
+  "checkpoint_sha": "7283f3112a6ab5a9ec595b1b8f7d9789ffc21bf5ce6dd448838de80dd7fdb641",
+  "predictions_tta4_sha": "a4b0419935a77b791901844f991211c293fcd8b8b6741d1837ea4f28b9d81e6a",
+  "single_view_recompute_max_rel_dev": 0.0058359951270371135,
+  "stored_score": {
+    "CD": 6.347697120591084,
+    "CV": 10.456188696447592,
+    "HEX": 10.539614818876252,
+    "mean": 9.114500211971643,
+    "n": 1791
+  },
+  "single_score": {
+    "CD": 6.3483973150915185,
+    "CV": 10.455330505753665,
+    "HEX": 10.537884733727845,
+    "mean": 9.113870851524341,
+    "n": 1791
+  },
+  "tta4_score": {
+    "CD": 6.320898201832533,
+    "CV": 10.413370638592129,
+    "HEX": 10.54030856874012,
+    "mean": 9.091525803054926,
+    "n": 1791
+  },
+  "tta_delta_pp": -0.022345048469414763
+}

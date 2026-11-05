@@ -1,0 +1,10 @@
+{
+ "name": "E11_push_preonly_without_labels",
+ "registered": "2026-11-04T05:40Z, before any result",
+ "context": "Human annotation is ruled out (PI); the shipped pre-only s46 (SREP points only) scores all-25 miss 0.150 / FP 0.165 / jitter 0.215 / 12-px F1 0.862 (val-5 0.170 / 0.192 / 0.214 / 0.857). Prior self-training (st1, st2) used teachers fine-tuned on the 20 train-green images; a pre-only teacher has not been tried.",
+ "E11a_noisy_student": {"lane": "lane01", "teacher": "deploy/detectors/sg2pre_s46.pt (fold-99 encoder, SREP pre-training only) run on every real frame outside fold 4 (7164 rows; the 25 annotated images sit in fold 4 and are excluded)", "pseudo_labels": "teacher peaks >= 0.6 as Gaussian targets (sigma 8); support = in-frame cells where the target >= 0.05 or farther than 16 px from any teacher peak >= 0.2 (the uncertain band is ignored); per-image gate: keep frames with >= 100 peaks >= 0.6", "student": "initialised from the teacher (encoder + head), 4000 updates, batch 2, encoder lr 1e-5 / head 3e-4, four flips plus photometric augmentation (gamma 0.7-1.4, contrast 0.8-1.25, brightness +-0.08, Gaussian noise sd 0-0.03, blur sigma 0.5-1.2 with p 0.3)"},
+ "E11b_srep_plus_synthetic": {"lane": "lane23", "recipe": "mixed training from the fold-4 recipe A encoder with a fresh stride-2 head: every update = one SREP batch of 2 (hull-masked targets, scale 1.296, four flips, as the pre-only recipe) + one synthetic v5 image (full-frame targets, flips), losses averaged; 6000 updates, encoder lr 1e-5 / head 1e-3; no challenge label"},
+ "scoring": "E10 score25 code on all 25 annotated real images: hull region, 0.5-spacing match, threshold 0.35 fixed (no tuning on the 25), next to the shipped pre-only by the same code",
+ "gate": "all-25: miss <= 0.12 or jitter <= 0.19, with FP <= 0.18; and not worse on val-5 (miss, FP and jitter each within +0.02 of the shipped values); the hex6 member check is run only for a variant that passes",
+ "stop": "nothing beyond these two; if both fail, say so"
+}

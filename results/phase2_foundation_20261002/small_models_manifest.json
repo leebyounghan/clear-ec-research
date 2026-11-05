@@ -1,0 +1,76 @@
+{
+  "created_utc": "2026-10-02T15:29:29Z",
+  "source_sha256": "9a85d2d6e1e4215627e862f6bd482ff6cec12749a48244f1c39d502ebc2324de",
+  "splits": {
+    "2": {
+      "path": "experiments/overnight_target_20260912/preflight/fold2.npz",
+      "sha256": "3088f880c18609bb7c9f517c05e81d54fb82ef9ac28e2ebc784db4d3188afd41",
+      "train_n": 7153,
+      "val_n": 1791,
+      "train_zero_counts": [
+        0,
+        0,
+        0
+      ],
+      "val_zero_counts": [
+        0,
+        0,
+        2
+      ]
+    },
+    "3": {
+      "path": "experiments/overnight_target_20260912/preflight/fold3.npz",
+      "sha256": "1d5a3f88723602f30809c08e415df831596d7250be101d10b2b6341c24347233",
+      "train_n": 7161,
+      "val_n": 1791,
+      "train_zero_counts": [
+        0,
+        0,
+        0
+      ],
+      "val_zero_counts": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "probe_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8
+  ],
+  "probe_ids": [
+    "0001-19",
+    "0001-20",
+    "0001-21",
+    "0001-22",
+    "0001-24",
+    "0002-21",
+    "0002-24",
+    "0003-19"
+  ],
+  "total_images": 8954,
+  "full_shape": [
+    972,
+    1296
+  ],
+  "full_manifest_sha256": "1c7b7e3d9a5e8fc9565ce796e5f554a0049cb05664567b4501a8e7ab8d9937b4",
+  "raw_meta_sha256": "956f448a2de4d65b4e091d78f56bdde09aab9554e3ab027fc7fe58f8b69625e6",
+  "status": "RESOURCE_PREFLIGHT_ONLY",
+  "official_release_untouched": true,
+  "gpu_parallelism": 2,
+  "maximum_gpu_parallelism": 4,
+  "metric_policy": "Not scored. Zero-label rule must be verified before accuracy trials.",
+  "validation_limits": "Reused development folds; patient/slide grouping needs separate audit.",
+  "runtime": {
+    "torch": "2.11.0+cu130",
+    "timm": "1.0.20",
+    "cellpose": "4.2.1.1"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "created_utc": "2026-10-27T22:44:52.083248+00:00",
+  "fold": 1,
+  "encoder": "experiments/oof_recipeA_20261027/fold1/regression_std_s46/runs/fold1/cpdino_vitb/epoch_20.pt",
+  "encoder_sha": "e46770b1b7683df1adfa6ea1e4c3398b4b7e10d9fc7b2319258353037ed5a3ae",
+  "split": "experiments/ssl_screen_20260911/preflight/fold1.npz",
+  "split_sha": "27124461604e49f45fed04416b220eb36ee9b28f14b97ea0214a10164bb98bbb",
+  "config": {
+    "features": "last",
+    "head": "linear",
+    "flips": true
+  },
+  "threshold": 0.25,
+  "n": 1791,
+  "maps_sha": "ef72dfe08a48e1dd87a3c56eb8e1981f8c0ecfa9eb353de0e812a439c71081b3",
+  "green_validation_f1": 0.5794001880522178,
+  "green_validation_rows": [
+    {
+      "id": "0365-23",
+      "predicted": 183,
+      "annotated": 110,
+      "tp": 78,
+      "fp": 105,
+      "fn": 32,
+      "precision": 0.4262295081967213,
+      "recall": 0.7090909090909091,
+      "f1": 0.5324232081911263,
+      "matched_mean_distance": 6.6643747001868
+    },
+    {
+      "id": "0466-23",
+      "predicted": 148,
+      "annotated": 143,
+      "tp": 80,
+      "fp": 68,
+      "fn": 63,
+      "precision": 0.5405405405405406,
+      "recall": 0.5594405594405595,
+      "f1": 0.5498281786941581,
+      "matched_mean_distance": 7.586737247292872
+    },
+    {
+      "id": "0471-23",
+      "predicted": 282,
+      "annotated": 152,
+      "tp": 147,
+      "fp": 135,
+      "fn": 5,
+      "precision": 0.5212765957446809,
+      "recall": 0.9671052631578947,
+      "f1": 0.6774193548387096,
+      "matched_mean_distance": 4.93553504594081
+    },
+    {
+      "id": "0584-23",
+      "predicted": 295,
+      "annotated": 169,
+      "tp": 157,
+      "fp": 138,
+      "fn": 12,
+      "precision": 0.5322033898305085,
+      "recall": 0.9289940828402367,
+      "f1": 0.6767241379310345,
+      "matched_mean_distance": 5.4781624714972725
+    },
+    {
+      "id": "0587-23",
+      "predicted": 195,
+      "annotated": 135,
+      "tp": 76,
+      "fp": 119,
+      "fn": 59,
+      "precision": 0.38974358974358975,
+      "recall": 0.562962962962963,
+      "f1": 0.46060606060606063,
+      "matched_mean_distance": 6.040728716498758
+    }
+  ],
+  "point_labels_seen_in_fold_validation": 5
+}

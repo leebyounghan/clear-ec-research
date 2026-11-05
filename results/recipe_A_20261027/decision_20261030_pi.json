@@ -1,32 +1,74 @@
 {
-  "title": "PI decisions 2026-10-30 and resulting plan",
-  "recorded_utc": "2026-10-30T02:05:00+00:00",
-  "decided_by": "user (PI), chat 2026-10-30 ~01:55 UTC",
-  "decisions": {
-    "hex6": "goes into submission 2, not submission 1",
-    "green_track": "continue on GPU 3 until the deadline; GPUs must not sit idle \u2014 keep experimenting",
-    "detector_data": "PI shares the concern that all detectors were trained on the same 20 annotated images; asked to find ways to obtain more detector training data, noting that every image has CD/CV/HEX ground truth and so can score a detector without point labels",
-    "test_setup": "set up the submission test now (container + integrated inference)",
-    "logging": "record every experiment"
-  },
-  "derived_plan": {
-    "green_session_tasks": [
-      "G1 GT-scored detector selection/training: use GT HEX/CD of all fold-train images to (a) select/early-stop detectors, (b) add a differentiable soft-hex6/soft-count weak loss on all fold-train images, (c) pseudo-label curriculum from images whose detector hex6 agrees with GT; evaluated by val-5 F1 and LOFO hex6 blend on base B",
-      "G2 external corneal endothelium point/mask datasets: availability, licence, size \u2014 report before downloading",
-      "G3 submission-2 deployment prep: detectors retrained from the full-data recipe A encoder, full-fit a/b/w on base B OOF, standalone hex6_correction() with unit test"
-    ],
-    "parent_tasks": [
-      "Submission-1 integration test on GPU 2: Phase-1 six-member package (review_submission_20260910, PyTorch 2.11+cu126 image) + three full-data recipe A members (four-flip TTA, scalars CD 0.9908 / CV 0.9869 / HEX 0.9930) averaged 0.5/0.5; verify against fold4 OOF reconstruction on sample images; T4 memory bound (15 GiB cap, memory-efficient SDPA asserted); timing",
-      "Finish lane01: fold0 CV/HEX specialists, SSL-1004 regression; evaluate CD specialist as a CD-column member on the hybrid (LOFO)",
-      "Keep GPU 2 busy with validation work between tests"
-    ]
-  },
-  "pending_PI_confirmations": [],
-  "decisions_update_0530utc": {
-    "submission_1": "CONFIRMED: hybrid B = 0.5 x recipe A (3 full-data members, TTA + OOF scalars) + 0.5 x Phase-1 SIX-member package (unchanged)",
-    "external_detector_data": "APPROVED: srep_topcon_sp3000 (385 images, cell-centre points; research use, cite Daniel et al. Sci Rep 2019); rodrep secondary",
-    "pod_to_buildbox_ssh_key": "APPROVED: pod key registered on the build box for the one-off weight transfer",
-    "hex6": "submission 2"
-  },
-  "updated_utc": "2026-10-30T04:45:38.280136+00:00"
+ "title": "PI decisions 2026-10-30 and resulting plan",
+ "recorded_utc": "2026-10-30T02:05:00+00:00",
+ "decided_by": "user (PI), chat 2026-10-30 ~01:55 UTC",
+ "decisions": {
+  "hex6": "goes into submission 2, not submission 1",
+  "green_track": "continue on GPU 3 until the deadline; GPUs must not sit idle — keep experimenting",
+  "detector_data": "PI shares the concern that all detectors were trained on the same 20 annotated images; asked to find ways to obtain more detector training data, noting that every image has CD/CV/HEX ground truth and so can score a detector without point labels",
+  "test_setup": "set up the submission test now (container + integrated inference)",
+  "logging": "record every experiment"
+ },
+ "derived_plan": {
+  "green_session_tasks": [
+   "G1 GT-scored detector selection/training: use GT HEX/CD of all fold-train images to (a) select/early-stop detectors, (b) add a differentiable soft-hex6/soft-count weak loss on all fold-train images, (c) pseudo-label curriculum from images whose detector hex6 agrees with GT; evaluated by val-5 F1 and LOFO hex6 blend on base B",
+   "G2 external corneal endothelium point/mask datasets: availability, licence, size — report before downloading",
+   "G3 submission-2 deployment prep: detectors retrained from the full-data recipe A encoder, full-fit a/b/w on base B OOF, standalone hex6_correction() with unit test"
+  ],
+  "parent_tasks": [
+   "Submission-1 integration test on GPU 2: Phase-1 six-member package (review_submission_20260910, PyTorch 2.11+cu126 image) + three full-data recipe A members (four-flip TTA, scalars CD 0.9908 / CV 0.9869 / HEX 0.9930) averaged 0.5/0.5; verify against fold4 OOF reconstruction on sample images; T4 memory bound (15 GiB cap, memory-efficient SDPA asserted); timing",
+   "Finish lane01: fold0 CV/HEX specialists, SSL-1004 regression; evaluate CD specialist as a CD-column member on the hybrid (LOFO)",
+   "Keep GPU 2 busy with validation work between tests"
+  ]
+ },
+ "pending_PI_confirmations": [],
+ "decisions_update_0530utc": {
+  "submission_1": "CONFIRMED: hybrid B = 0.5 x recipe A (3 full-data members, TTA + OOF scalars) + 0.5 x Phase-1 SIX-member package (unchanged)",
+  "external_detector_data": "APPROVED: srep_topcon_sp3000 (385 images, cell-centre points; research use, cite Daniel et al. Sci Rep 2019); rodrep secondary",
+  "pod_to_buildbox_ssh_key": "APPROVED: pod key registered on the build box for the one-off weight transfer",
+  "hex6": "submission 2"
+ },
+ "updated_utc": "2026-11-01T19:54:48.767598+00:00",
+ "phase2_rules_confirmed_by_user_1800utc": {
+  "ranking": "best of the two Phase II submissions counts (PI, 2026-10-30)",
+  "phase1_test": "100 images, 3 submissions",
+  "phase2_test": "1000 images, 2 submissions",
+  "sampling_noise": "per-image error SD ~10 pp -> SE of the mean ~1.0 pp (100 images), ~0.3 pp (1000 images); Phase I rank gaps (0.15 pp over ranks 1-6) are inside the noise"
+ },
+ "derived_submission_strategy": {
+  "submission_1": "hybrid B (recipe A 3 members + Phase-1 six), as packaged 2026-10-30 — the composition with the largest internal evidence (-0.090 pp vs Phase 1 on matched rows, 5/5 folds vs recipe A)",
+  "submission_2": "because the best of two counts, submission 2 is a free second draw: use it for the most-different composition with positive internal evidence (hybrid + hex6 + SSL-seed members), not for a conservative fallback; a worse second result cannot hurt",
+  "what_not_to_do": "do not read the submission-1 score as validation of the hybrid (noise ~0.3 pp); do not change submission 2 in reaction to it except to fix an outright failure (crash, timeout, absurd values)"
+ },
+ "decisions_update_2045utc": {
+  "approved_by": "user (PI), chat 2026-10-30 ~20:45 UTC: '좋아 그렇게 진행해줘'",
+  "plan": "docs/DECISION_PLAN_phase2_20261030.md (revision section + timeline)",
+  "submission_1": "hybrid B, after a fallback guard rebuild and a platform Try-out; submit 2026-11-07",
+  "submission_2": "B + increments that pass their pre-set gates (hex6 rule, SSL-seed gate >= 0.03 on 2 folds, post-hoc combination ideas dev folds 0-3 / one confirmation on fold 4); package frozen 11-09, Try-out 11-10, submit 11-11..12",
+  "change_course_only_if": "submission 1 fails or scores outside 7.5-10.5",
+  "today": [
+   "label-noise floor from train_green ROI points (CPU)",
+   "fallback guard + rebuild + n60 + container re-test",
+   "minimal eval harness + residual slice report + idea table"
+  ],
+  "pi_actions": "11-01..02 upload image + model to the Lamda&KIM algorithm and run Try-out",
+  "dropped": [
+   "waiting for rivals as a condition",
+   "robustness audit and bands",
+   "new architectures needing five-fold retraining"
+  ]
+ },
+ "decisions_update_20261101": {
+  "pod_to_buildbox_key_reuse": "APPROVED by PI in chat 2026-11-01 ('직통으로해 그러면'): reuse the pod key registered on the build box (2026-10-30) to send the submission-2 hex6 bundle (3.45 GB) directly; Mac upload was 35 KB/s on a mobile line",
+  "gpu_allocation": "PI 2026-11-01: '내일 정도까지 제출할건데 gpu자원 현재있는거 다써서 green 활용법 발굴해줘' -> all four pod GPUs handed to the green-track session for green discovery (CD on framed images, ROI-sized windows, per-stratum density); findings join submission 2 only through a pre-set gate on top of B + active hex6 and T4 deployability"
+ },
+ "submission1_result_20261103": {
+  "submitted_est": "2026-11-03 10:42",
+  "submission_id": "c9095a2c-7306-4d91-93bf-2e97fb98bf3a",
+  "evaluation_id": "9b984e08",
+  "score": 8.9675,
+  "leaderboard": "1st of 2 (other entry pxl01 37.9846, 2026-07-14)",
+  "reading": "level equals the OOF of hybrid B (8.877) within noise; Phase II test is not as easy as the Phase I test (Phase-1 package OOF 9.00 -> Phase I 8.70)",
+  "submitted_by": "PI"
+ }
 }

@@ -1,0 +1,131 @@
+{
+ "created_utc": "2026-11-03T16:40:32Z",
+ "cv": {
+  "cpsam_win_cv_pred_trim10": {
+   "delta_mean_pp": 0.0,
+   "delta_cv_pp": 0.0,
+   "folds_improving": 0,
+   "w": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "est_mape": 13.577301241079663,
+   "err_corr": 0.7975619468153315,
+   "per_fold_mean_pp": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "strat_mean_pp": 0.0007725060845358125,
+   "per_stratum_pp": {
+    "unframed": 0.0,
+    "framed": 0.004818410071615986
+   },
+   "n_with_estimate": 8403,
+   "cells_median": 214.0,
+   "evidence": false,
+   "adoption": false
+  },
+  "cpsam_win_cv_pred_plain": {
+   "delta_mean_pp": 0.0,
+   "delta_cv_pp": 0.0,
+   "folds_improving": 0,
+   "w": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "est_mape": 13.502661114765404,
+   "err_corr": 0.8001910071389385,
+   "per_fold_mean_pp": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "strat_mean_pp": 0.0007673117904317748,
+   "per_stratum_pp": {
+    "unframed": 0.0,
+    "framed": 0.004786011311882277
+   },
+   "n_with_estimate": 8403,
+   "cells_median": 214.0,
+   "evidence": false,
+   "adoption": false
+  },
+  "consensus_win_cv_pred_trim10": {
+   "delta_mean_pp": 0.0,
+   "delta_cv_pp": 0.0,
+   "folds_improving": 0,
+   "w": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "est_mape": 13.39412306551034,
+   "err_corr": 0.7868586891300354,
+   "per_fold_mean_pp": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "strat_mean_pp": 0.0013395172697540012,
+   "per_stratum_pp": {
+    "unframed": 0.0,
+    "framed": 0.008355071413532755
+   },
+   "n_with_estimate": 8319,
+   "cells_median": 212.0,
+   "evidence": false,
+   "adoption": false
+  },
+  "consensus_win_cv_pred_plain": {
+   "delta_mean_pp": 0.0,
+   "delta_cv_pp": 0.0,
+   "folds_improving": 0,
+   "w": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "est_mape": 13.270181775737425,
+   "err_corr": 0.7899306422208255,
+   "per_fold_mean_pp": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "strat_mean_pp": 0.0017090029353281314,
+   "per_stratum_pp": {
+    "unframed": 0.0024552967033422135,
+    "framed": 0.008010120051030967
+   },
+   "n_with_estimate": 8319,
+   "cells_median": 212.0,
+   "evidence": false,
+   "adoption": false
+  }
+ },
+ "e2_area_head_sanity": {
+  "srep_val_area_r": 0.9330055446931603,
+  "clear_ec_val5_area_r": 0.44909225900239835,
+  "clear_ec_val5_six_acc": 0.6545047556459436,
+  "passed_clear_ec": false
+ }
+}

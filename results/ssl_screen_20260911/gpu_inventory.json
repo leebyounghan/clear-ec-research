@@ -1,0 +1,4 @@
+{
+  "inventory": "0, NVIDIA H200, GPU-e0ba0302-caa9-fc57-1cb7-e027eb662d0e, 0 MiB\n1, NVIDIA H200, GPU-1c489ee6-3331-fd3b-0d0a-1704794f654a, 0 MiB\n2, NVIDIA H200, GPU-c4e6ed0d-7bc8-309e-11bd-33231142fa25, 0 MiB\n3, NVIDIA H200, GPU-6d774968-c3c8-1090-6c92-710ab15d1370, 0 MiB\n",
+  "torch_version": "2.11.0+cu130"
+}

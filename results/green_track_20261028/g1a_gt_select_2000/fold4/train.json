@@ -1,0 +1,171 @@
+{
+  "created_utc": "2026-10-30T22:04:18.035710+00:00",
+  "fold": 4,
+  "seed": 46,
+  "updates": 4000,
+  "every": 500,
+  "score_rows": 2000,
+  "selection": "max r(log hex6, log GT HEX) on 400 fold-train rows",
+  "selected_step": 2000,
+  "selected": {
+    "r": 0.5089208480475453,
+    "calibrated_mape": 10.987359985758422,
+    "n": 1994,
+    "peaks_median": 261.0,
+    "step": 2000,
+    "loss": 0.3087828755378723,
+    "val5_f1_information_only": 0.6508382528055561,
+    "seconds": 1423.1
+  },
+  "curve": [
+    {
+      "r": 0.4855820170696653,
+      "calibrated_mape": 11.013280654647344,
+      "n": 1994,
+      "peaks_median": 272.5,
+      "step": 500,
+      "loss": 0.3554674983024597,
+      "val5_f1_information_only": 0.627201242789075,
+      "seconds": 363.3
+    },
+    {
+      "r": 0.48356570057066034,
+      "calibrated_mape": 11.177465622852683,
+      "n": 1995,
+      "peaks_median": 257.0,
+      "step": 1000,
+      "loss": 0.333898663520813,
+      "val5_f1_information_only": 0.6612045917645647,
+      "seconds": 717.8
+    },
+    {
+      "r": 0.48713010578455057,
+      "calibrated_mape": 11.139041547956966,
+      "n": 1993,
+      "peaks_median": 235.0,
+      "step": 1500,
+      "loss": 0.33620792627334595,
+      "val5_f1_information_only": 0.640434671189291,
+      "seconds": 1067.6
+    },
+    {
+      "r": 0.5089208480475453,
+      "calibrated_mape": 10.987359985758422,
+      "n": 1994,
+      "peaks_median": 261.0,
+      "step": 2000,
+      "loss": 0.3087828755378723,
+      "val5_f1_information_only": 0.6508382528055561,
+      "seconds": 1423.1
+    },
+    {
+      "r": 0.48959222243947714,
+      "calibrated_mape": 11.142689678177298,
+      "n": 1987,
+      "peaks_median": 237.0,
+      "step": 2500,
+      "loss": 0.297992467880249,
+      "val5_f1_information_only": 0.6604793246083766,
+      "seconds": 1773.9
+    },
+    {
+      "r": 0.4878820980221943,
+      "calibrated_mape": 11.093051899993458,
+      "n": 1985,
+      "peaks_median": 232.0,
+      "step": 3000,
+      "loss": 0.31171318888664246,
+      "val5_f1_information_only": 0.6509692511290434,
+      "seconds": 2123.1
+    },
+    {
+      "r": 0.48886900399276095,
+      "calibrated_mape": 11.029815550496599,
+      "n": 1988,
+      "peaks_median": 237.0,
+      "step": 3500,
+      "loss": 0.3064805865287781,
+      "val5_f1_information_only": 0.6424208717317061,
+      "seconds": 2473.3
+    },
+    {
+      "r": 0.4721751348376565,
+      "calibrated_mape": 11.250040153719771,
+      "n": 1985,
+      "peaks_median": 233.0,
+      "step": 4000,
+      "loss": 0.29059040546417236,
+      "val5_f1_information_only": 0.6339908307242591,
+      "seconds": 2822.6
+    }
+  ],
+  "validation": {
+    "rows": [
+      {
+        "id": "0365-23",
+        "predicted": 185,
+        "annotated": 110,
+        "tp": 75,
+        "fp": 110,
+        "fn": 35,
+        "precision": 0.40540540540540543,
+        "recall": 0.6818181818181818,
+        "f1": 0.5084745762711864,
+        "matched_mean_distance": 5.443214963948439
+      },
+      {
+        "id": "0466-23",
+        "predicted": 190,
+        "annotated": 143,
+        "tp": 112,
+        "fp": 78,
+        "fn": 31,
+        "precision": 0.5894736842105263,
+        "recall": 0.7832167832167832,
+        "f1": 0.6726726726726727,
+        "matched_mean_distance": 5.951091013390646
+      },
+      {
+        "id": "0471-23",
+        "predicted": 235,
+        "annotated": 152,
+        "tp": 141,
+        "fp": 94,
+        "fn": 11,
+        "precision": 0.6,
+        "recall": 0.9276315789473685,
+        "f1": 0.7286821705426356,
+        "matched_mean_distance": 3.3677555899469382
+      },
+      {
+        "id": "0584-23",
+        "predicted": 254,
+        "annotated": 169,
+        "tp": 161,
+        "fp": 93,
+        "fn": 8,
+        "precision": 0.6338582677165354,
+        "recall": 0.9526627218934911,
+        "f1": 0.7612293144208038,
+        "matched_mean_distance": 3.066497913733469
+      },
+      {
+        "id": "0587-23",
+        "predicted": 280,
+        "annotated": 135,
+        "tp": 121,
+        "fp": 159,
+        "fn": 14,
+        "precision": 0.43214285714285716,
+        "recall": 0.8962962962962963,
+        "f1": 0.5831325301204819,
+        "matched_mean_distance": 3.905035747654789
+      }
+    ],
+    "mean_f1": 0.6508382528055561,
+    "mean_recall": 0.8483251124344242,
+    "mean_precision": 0.5321760428950648
+  },
+  "seconds": 2956.8,
+  "init_encoder": "experiments/phase2_pooling_20261020/arms/std/runs/fold4/cpdino_vitb/epoch_20.pt"
+}

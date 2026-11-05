@@ -1,0 +1,25 @@
+{
+  "id": "exp-e3292b5aa41e",
+  "name": "6-model SSL/raw + fixed calibration",
+  "group": "phase1",
+  "score": {
+    "CD": 6.565300236,
+    "CV": 10.322784929,
+    "HEX": 10.089845324,
+    "mean": 8.992643496
+  },
+  "source": "results/ensemble_ablation_20260923/report.json",
+  "config": "folds2–4 · matched5350 · ensemble · multi-view",
+  "status": "결과 기록",
+  "problem": "구성 변경의 효과와 평가 이미지 변경의 효과를 혼동하지 않도록 matched 비교가 필요했다.",
+  "idea": "동일 이미지에서 6번째 모델 및 기존 보정의 기여를 분리한다.",
+  "decision": "5,350장 개발자료의 내부 분석. 공식 점수나 독립 test 성능으로 해석하지 않는다.",
+  "parent": null,
+  "protocol": null,
+  "log": null,
+  "note_version": "v1",
+  "interpretation": "2026-10-20 사후 정리. 당시 사전 가설과 구분.",
+  "date": "2026-10-20",
+  "sha256": "f93906a76774117855474bd99ee8d89c734890ceced75241ae8fdffd15e03ff5",
+  "note_path": "results/leaderboard/notes/exp-e3292b5aa41e.v1.json"
+}

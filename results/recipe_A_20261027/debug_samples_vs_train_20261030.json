@@ -1,0 +1,122 @@
+{
+ "0001-19": {
+  "shape": [
+   972,
+   1296
+  ],
+  "sha256": "3527877cba7123400dd809cda1a32925b17681127c20bd217ce1fe7fc8ba5058",
+  "mean": 117.70191440583244,
+  "n_unique": 120,
+  "train_rows_with_same_id": [
+   0
+  ],
+  "per_row": [
+   {
+    "row": 0,
+    "sha256": "3527877cba7123400dd809cda1a32925b17681127c20bd217ce1fe7fc8ba5058",
+    "identical": true,
+    "mean_abs_diff": 0.0,
+    "max_abs_diff": 0,
+    "train_n_unique": 120,
+    "train_mean": 117.70191440583244
+   }
+  ],
+  "nearest_by_thumb": [
+   {
+    "row": 0,
+    "id": "0001-19",
+    "corr": 1.0000001192092896
+   },
+   {
+    "row": 2959,
+    "id": "1230-21",
+    "corr": 0.9533050656318665
+   },
+   {
+    "row": 2289,
+    "id": "0960-22",
+    "corr": 0.9467750787734985
+   }
+  ]
+ },
+ "0001-20": {
+  "shape": [
+   972,
+   1296
+  ],
+  "sha256": "5a5e1841677cee71e360cb57af93569043539af04d242d35fd3306804d7a0f33",
+  "mean": 61.66112809912107,
+  "n_unique": 120,
+  "train_rows_with_same_id": [
+   1
+  ],
+  "per_row": [
+   {
+    "row": 1,
+    "sha256": "5a5e1841677cee71e360cb57af93569043539af04d242d35fd3306804d7a0f33",
+    "identical": true,
+    "mean_abs_diff": 0.0,
+    "max_abs_diff": 0,
+    "train_n_unique": 120,
+    "train_mean": 61.66112809912107
+   }
+  ],
+  "nearest_by_thumb": [
+   {
+    "row": 1,
+    "id": "0001-20",
+    "corr": 1.0000001192092896
+   },
+   {
+    "row": 3805,
+    "id": "1547-19",
+    "corr": 0.8881304860115051
+   },
+   {
+    "row": 3752,
+    "id": "1525-21",
+    "corr": 0.8872413039207458
+   }
+  ]
+ },
+ "0001-21": {
+  "shape": [
+   972,
+   1296
+  ],
+  "sha256": "105026e3ffb0418ad0bc8f137c02456079d81952345fdd7c3b55af3025aa447d",
+  "mean": 61.40141714931667,
+  "n_unique": 120,
+  "train_rows_with_same_id": [
+   2
+  ],
+  "per_row": [
+   {
+    "row": 2,
+    "sha256": "105026e3ffb0418ad0bc8f137c02456079d81952345fdd7c3b55af3025aa447d",
+    "identical": true,
+    "mean_abs_diff": 0.0,
+    "max_abs_diff": 0,
+    "train_n_unique": 120,
+    "train_mean": 61.40141714931667
+   }
+  ],
+  "nearest_by_thumb": [
+   {
+    "row": 2,
+    "id": "0001-21",
+    "corr": 1.0000001192092896
+   },
+   {
+    "row": 2443,
+    "id": "1010-20",
+    "corr": 0.9642446041107178
+   },
+   {
+    "row": 1665,
+    "id": "0722-19",
+    "corr": 0.9577065110206604
+   }
+  ]
+ }
+}

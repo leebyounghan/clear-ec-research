@@ -1,0 +1,21 @@
+{
+  "id": "exp-bf62f2ea9130",
+  "name": "pooling · mean_std_min_max",
+  "group": "fold4",
+  "score": null,
+  "source": "results/phase2_pooling_20261020/latest_status.json",
+  "config": "seed46 / fold4 n1790 / SSL5 / epochs20 schedule10 / head1e-3 clip1",
+  "status": "training",
+  "problem": "Test whether spatial dispersion and extrema improve CV/HEX.",
+  "idea": "Compare spatial mean_std_min_max aggregation.",
+  "decision": "Saved snapshot 20261020T232341Z: training; epoch 1. Not a live cluster view. 통계 결합으로 head 차원·파라미터 수가 증가한다.",
+  "parent": "exp-8db1353f0ed0",
+  "protocol": "results/phase2_pooling_20261020/observations/20261020T232341Z/arms/mean_std_min_max/manifest.json",
+  "log": "results/phase2_pooling_20261020/observations/20261020T232341Z/full.log",
+  "note_version": "v3",
+  "interpretation": "2026-10-20 사후 정리. 당시 사전 가설과 구분.",
+  "date": "2026-10-20",
+  "sha256": "be4d21d7be7cac865f7fb18004d244a075f9829bfd525df783a97f714140aa68",
+  "precision": null,
+  "note_path": "results/leaderboard/notes/exp-bf62f2ea9130.v3.json"
+}

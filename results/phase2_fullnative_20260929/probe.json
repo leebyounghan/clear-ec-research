@@ -1,0 +1,21 @@
+{
+  "geometry": [
+    972,
+    1296
+  ],
+  "model_input": [
+    976,
+    1296
+  ],
+  "resized": false,
+  "cropped_or_tiled": false,
+  "patch_grid": [
+    61,
+    81
+  ],
+  "attention_blocks": 24,
+  "forward_seconds": 2.8709270879626274,
+  "full_step_seconds": 8.301332764327526,
+  "peak_allocated_gib": 96.58628749847412,
+  "loss": 0.041220128536224365
+}

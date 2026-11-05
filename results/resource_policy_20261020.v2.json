@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "authorized_gpu_ceiling": 16,
+  "user_reported_topology": "2 nodes x 8 GPUs, including the existing 2 GPUs",
+  "absolute_training_deadline": null,
+  "observed_at_utc": "2026-10-20T17:11:44Z",
+  "research_running_gpus": 2,
+  "other_workload_observed": {"name": "nacc-feature-survival-6gpu", "gpus": 6, "action": "leave untouched"},
+  "availability": "Additional capacity not verified; cluster node listing denied by RBAC",
+  "execution_rules": [
+    "Do not interrupt or alter frozen pooling run",
+    "No preemption of other workloads",
+    "Use separate experiment IDs, outputs and exclusive locks",
+    "Freeze source and manifest and pass CPU/GPU smoke and leakage checks before new training",
+    "Independent SSL/fold/seed experiments may run concurrently on allocated free GPUs",
+    "Keep raw single-model comparisons separate from authorized nested OOF calibration research"
+  ],
+  "parallel_priorities": [
+    "Fresh train-only SSL10 and SSL20 with matched downstream controls",
+    "training_green original image/coordinate validation before point or ROI supervision",
+    "HEX marker and boundary estimation with the metric formula held fixed",
+    "Nested OOF residual calibration with outer holdout excluded from base training"
+  ],
+  "automation": {"id": "clear-ec", "updated": true, "status": "ACTIVE"}
+}

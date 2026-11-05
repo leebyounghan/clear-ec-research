@@ -1,0 +1,62 @@
+{
+  "title": "Grand Challenge platform facts read from the logged-in account, 2026-10-30 (KST evening)",
+  "source": "clear-ec.grand-challenge.org submission pages, algorithm job logs, API image metadata; read in the Claude desktop browser pane with the PI logged in",
+  "phase_ii": {
+    "status": "open on 2026-10-30; 2 submissions remaining",
+    "closes": "2026-11-15 06:00 America/Toronto (= 2026-11-15 11:00 UTC = 20:00 KST)",
+    "time_limit_per_case": "5 minutes",
+    "memory_limit": "32 GB DRAM or less",
+    "instance_types_allowed": [
+      "No GPU",
+      "NVIDIA T4 16 GiB",
+      "NVIDIA A10G 24 GiB"
+    ],
+    "selectable_algorithm": "Lamda&KIM, active image 730ff3f7 (clear_ec_full_quality77_20260909.tar.gz, 4.1 GB), active model b4137c8d 'final phase 1'",
+    "results_visibility": "Phase II leaderboard is public and already shows one evaluated entry (pxl01 'first submission', 2026-07-14, score 37.9846): scores appear on the leaderboard as soon as an evaluation finishes"
+  },
+  "debug_phase": {
+    "status": "closed",
+    "our_submissions": [
+      "2026-08-07 14:55",
+      "2026-09-10 21:17",
+      "2026-09-14 15:20",
+      "2026-09-14 23:14"
+    ],
+    "sample_images": [
+      "0001-19",
+      "0001-20",
+      "0001-21"
+    ],
+    "sample_images_are_training_rows": "byte-identical to img_full_raw.dat rows 0,1,2 (sha256 match); debug GT equals final_train_ids.csv GT (per-metric mean errors reproduce metrics.json to 4 decimals)",
+    "final_phase1_model_debug_score": {
+      "score": 7.4825,
+      "CD": 4.3006,
+      "CV": 9.4524,
+      "HEX": 8.6944,
+      "leaderboard_position": "61 of 100"
+    },
+    "top_debug_score_any_team": 3.1452,
+    "implication": "debug scores measure training-image fit, not generalisation; not usable as a test proxy"
+  },
+  "phase_i": {
+    "status": "closed",
+    "our_submissions": [
+      "2026-08-07 14:18 (failed)",
+      "2026-08-07 17:17",
+      "2026-09-10 20:21",
+      "2026-09-14 23:34"
+    ],
+    "rank": 2,
+    "score": 8.701
+  },
+  "phase1_container_runtime_on_platform": {
+    "gpu": "NVIDIA T4 16 GiB (algorithm image setting), requested memory 16 GB",
+    "exec_duration_s": 44,
+    "inference_seconds_logged": 37.8,
+    "total_duration_s": 279,
+    "breakdown": "pending/instance prep ~2 min, image download ~1 min, executing stage ~3 min of which container exec 44 s",
+    "average_successful_job": "3 minutes (algorithm page)",
+    "note": "the 5-minute Phase II limit is a per-case execution limit; the hybrid adds three CPDINO members x 4 flips on top of the 44 s Phase-1 exec; measure on the platform with Try-out before spending a Phase II submission, or set the image to A10G"
+  },
+  "unresolved": []
+}

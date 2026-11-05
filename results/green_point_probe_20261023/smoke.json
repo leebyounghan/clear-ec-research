@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "manifest_sha256": "f8933d54a41c0829dca8cfb214c226127eeaf8cd9ba6279c4c12c502de8ce5a1",
+  "checked_utc": "2026-10-23T10:25:23.249291+00:00",
+  "feature_shape": [
+    124,
+    164,
+    768
+  ],
+  "loss": 0.739168643951416,
+  "encoder_unchanged": true,
+  "head_updated": true,
+  "validation_used": false
+}

@@ -1,0 +1,66 @@
+{
+  "status": "ssl0_1_5_10_comparison_verified",
+  "scores": {
+    "ssl0": {
+      "CD": 7.299675941467285,
+      "CV": 10.231935501098633,
+      "HEX": 10.373564720153809,
+      "mean": 9.301726341247559,
+      "n": 1791
+    },
+    "ssl1": {
+      "CD": 7.139976501464844,
+      "CV": 10.271589279174805,
+      "HEX": 10.332772254943848,
+      "mean": 9.248112678527832,
+      "n": 1791
+    },
+    "ssl5": {
+      "CD": 7.058675765991211,
+      "CV": 10.34062385559082,
+      "HEX": 10.321462631225586,
+      "mean": 9.240254402160645,
+      "n": 1791
+    },
+    "ssl10": {
+      "CD": 7.084858417510986,
+      "CV": 10.386308670043945,
+      "HEX": 10.262378692626953,
+      "mean": 9.244515419006348,
+      "n": 1791
+    }
+  },
+  "lower_is_better": true,
+  "delta_ssl10_minus": {
+    "ssl0": {
+      "CD": -0.21481752395629883,
+      "CV": 0.1543731689453125,
+      "HEX": -0.11118602752685547,
+      "mean": -0.05721092224121094
+    },
+    "ssl1": {
+      "CD": -0.05511808395385742,
+      "CV": 0.11471939086914062,
+      "HEX": -0.07039356231689453,
+      "mean": -0.003597259521484375
+    },
+    "ssl5": {
+      "CD": 0.02618265151977539,
+      "CV": 0.045684814453125,
+      "HEX": -0.05908393859863281,
+      "mean": 0.004261016845703125
+    }
+  },
+  "identical_training_orders": true,
+  "identical_validation_ids_and_targets": true,
+  "epoch": 20,
+  "fold": 3,
+  "manifest_sha": "70f1693e0fe1c3cc559cf201d576819f885e5715b3d42e0cfe60960431731f11",
+  "limits": [
+    "Same reused fold3 and single seed; not an independent Phase II score",
+    "2GPU DDP versus prior1GPU; same global batch/updates, but floating-point and stochastic execution can differ",
+    "Patient independence and near-duplicate leakage unverified",
+    "Epoch20 terminal primary; intermediate best diagnostic only",
+    "T4 inference remains unverified"
+  ]
+}

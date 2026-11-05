@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "manifest_sha": "68007ead7a730e2ec0764da21878a0cedbdb88fd36f41ef583ffc47b92089ae8",
+  "details": {
+    "weight_path": "experiments/phase2_foundation_20261002/weights/cellpose/cpdino-vitb",
+    "weight_sha256": "3ed4c06a3963ab13ff377d4e2957174aaaf637434eb031ae9931fcbfaf9a217f",
+    "patch_kernel": [
+      16,
+      16
+    ],
+    "patch_stride": [
+      8,
+      8
+    ],
+    "patch_padding": [
+      4,
+      4
+    ],
+    "pretrained_source": "CellposeDINO ViT-B, revision 7c61431b5fbb078f3296754bd15d9f51b320f837",
+    "parameter_count": 85769987,
+    "trainable_parameter_count": 85769987,
+    "common_padded_input": [
+      992,
+      1312
+    ],
+    "patch_or_feature_grid": [
+      124,
+      164
+    ],
+    "gpu": "NVIDIA H200",
+    "torch_version": "2.11.0+cu130",
+    "cuda_version": "13.0",
+    "bitwise_determinism_guaranteed": false,
+    "ssl_checkpoint_sha": "6f1beb2d7dd1a34c7132cf65ca3cc80426c1428f6345b6569af1c538a7f39042",
+    "ssl_epochs": 5,
+    "encoder_tensor_sha": "cd9a54ccf04a1cc4b2a13673c61f39bd3bb97a706b967f31ffaae87015f68bb4",
+    "head_initial_tensor_sha": "2a73d5154316b1c25fe83f095360e528bc657ede64eeb3f274767cbcd1233bde",
+    "projection_or_ssl_optimizer_loaded": false,
+    "distributed_execution": {
+      "world_size": 2,
+      "global_batch": 16,
+      "rank_micro_batch": 4,
+      "rank_accumulations": 2,
+      "global_order": "same seed42+epoch ordering as baseline",
+      "empty_microbatch": "zero weighted dummy; no BatchNorm",
+      "validation": "rank0 alone, baseline single-view batch4"
+    }
+  },
+  "single_gpu_reference_gradient_check": {
+    "relative_gradient_l2": 1.904417137978285e-05,
+    "max_abs_gradient_error": 3.814697265625e-06,
+    "passed": true,
+    "includes_final9_samples_and_zero_weight_dummy": true
+  },
+  "ranks_synchronized": true
+}

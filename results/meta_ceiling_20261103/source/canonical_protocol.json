@@ -1,0 +1,7 @@
+{"experiment": "canonical_20261105", "written_utc": "2026-11-05T02:47:00Z", "written_before_running": true,
+ "change": "recipe A std s46 with every frame zoomed about its centre to one cell spacing: s = D0 / median NN of pre-only peaks >= 0.35, clipped to [0.7, 1.45], on the raw frame before CLAHE; CD target / s^2; CV and HEX unchanged; applied to train and validation",
+ "reference": {"fold0": "phase2_pooling_replication_20261026/f0_s46_std", "fold4": "phase2_pooling_20261020/arms/std"},
+ "score": "official mean on all validation rows, terminal epoch 20, one view; MAPE is unchanged by the target rescaling; predictions need CD x s^2 to decode",
+ "develop": "fold 0: continue to fold 4 if member delta <= -0.05, or added to the hybrid delta <= -0.02",
+ "confirm": "fold 4: member delta < 0; pooled folds 0 + 4 hybrid with seed 46 swapped delta <= -0.02",
+ "known_risks": ["spacing estimates fail on poor frames, where the zoom is then arbitrary, though the model still sees the true scale", "the encoder SSL5 was trained at native scale", "zoomed-in frames lose their margins"]}

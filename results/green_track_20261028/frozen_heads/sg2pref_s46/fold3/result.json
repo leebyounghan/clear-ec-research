@@ -1,0 +1,77 @@
+{
+ "created_utc": "2026-10-31T16:26:15.008015+00:00",
+ "fold": 3,
+ "kind": "sg2pref",
+ "seed": 46,
+ "updates": 4000,
+ "frozen_encoder": true,
+ "validation": {
+  "rows": [
+   {
+    "id": "0365-23",
+    "predicted": 278,
+    "annotated": 110,
+    "tp": 89,
+    "fp": 189,
+    "fn": 21,
+    "precision": 0.32014388489208634,
+    "recall": 0.8090909090909091,
+    "f1": 0.4587628865979381,
+    "matched_mean_distance": 6.085101773412037
+   },
+   {
+    "id": "0466-23",
+    "predicted": 139,
+    "annotated": 143,
+    "tp": 89,
+    "fp": 50,
+    "fn": 54,
+    "precision": 0.6402877697841727,
+    "recall": 0.6223776223776224,
+    "f1": 0.6312056737588653,
+    "matched_mean_distance": 8.068412907188641
+   },
+   {
+    "id": "0471-23",
+    "predicted": 312,
+    "annotated": 152,
+    "tp": 150,
+    "fp": 162,
+    "fn": 2,
+    "precision": 0.4807692307692308,
+    "recall": 0.9868421052631579,
+    "f1": 0.646551724137931,
+    "matched_mean_distance": 4.191834253472603
+   },
+   {
+    "id": "0584-23",
+    "predicted": 313,
+    "annotated": 169,
+    "tp": 161,
+    "fp": 152,
+    "fn": 8,
+    "precision": 0.5143769968051118,
+    "recall": 0.9526627218934911,
+    "f1": 0.6680497925311203,
+    "matched_mean_distance": 4.27773432275188
+   },
+   {
+    "id": "0587-23",
+    "predicted": 279,
+    "annotated": 135,
+    "tp": 100,
+    "fp": 179,
+    "fn": 35,
+    "precision": 0.35842293906810035,
+    "recall": 0.7407407407407407,
+    "f1": 0.4830917874396135,
+    "matched_mean_distance": 3.642665094747532
+   }
+  ],
+  "mean_f1": 0.5775323728930937,
+  "mean_recall": 0.8223428198731841,
+  "mean_precision": 0.4628001642637404
+ },
+ "loss_last200": 0.4432552595436573,
+ "seconds": 572.2
+}

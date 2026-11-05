@@ -1,0 +1,7 @@
+{"experiment": "formula_head_20261104", "written_utc": "2026-11-04T17:40:00Z", "written_before_running": true,
+ "change": "std pooling and MLP replaced by a head computing CD, CV, HEX from local maps through one box-convolved weight map",
+ "reference": {"fold0": "phase2_pooling_replication_20261026/f0_s46_std"},
+ "score": "official mean on all validation rows, terminal epoch 20, one view",
+ "gate_fold0": "member delta <= -0.05, or added to the seed-46 member in the hybrid delta <= -0.02 with log-error correlation to recipe A < 0.95 on CV or HEX",
+ "next_if_pass": "fold 4; then a sanity read of the box weights against the expert ROI on the annotated images",
+ "stop_if_fail": "close; no head variants searched on fold 0"}
