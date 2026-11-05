@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: clear-ec-phase2-preflight-0928
+  namespace: p-ajou-mlxp-project
+  labels: {app: clear-ec, workload: phase2-preflight}
+spec:
+  automountServiceAccountToken: false
+  priorityClassName: private-zone
+  restartPolicy: Never
+  activeDeadlineSeconds: 3600
+  nodeSelector:
+    mlx.navercorp.com/gpu-type: H200
+    mlx.navercorp.com/hardware-type: gpu
+    mlx.navercorp.com/zone: private-h200-ajou-mlxp-0
+  tolerations:
+    - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+  containers:
+    - name: preflight
+      image: leebyounghan/mlx-rl:20260810-sgl0512-verl-1ddf071
+      imagePullPolicy: IfNotPresent
+      command: [bash, -lc]
+      args: ["sleep 3300"]
+      resources:
+        requests: {cpu: "2", memory: 4Gi}
+        limits: {cpu: "4", memory: 8Gi}
+      volumeMounts:
+        - {name: workspace, mountPath: /workspace}
+  volumes:
+    - name: workspace
+      persistentVolumeClaim: {claimName: clear-ec-workspace}

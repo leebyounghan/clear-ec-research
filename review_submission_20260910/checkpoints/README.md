@@ -10,4 +10,4 @@ Download `model_full_quality77_ssl_raw_20260914.tar.gz` and the unchanged
 
 This directory's historical provenance refers to the September 10 baseline;
 it must not be used to validate the replacement sixth checkpoint.
-See the [artifact manifest](../../docs/ARTIFACTS.md) for resource identities.
+See the [artifact manifest](../../docs/legacy_phase1/ARTIFACTS.md) for resource identities.

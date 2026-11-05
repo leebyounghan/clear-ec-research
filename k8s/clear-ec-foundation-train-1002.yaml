@@ -1,0 +1,124 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: clear-ec-foundation-train-1002
+  namespace: p-ajou-mlxp-project
+  labels: {app: clear-ec, workload: foundation-train}
+spec:
+  completionMode: Indexed
+  completions: 1
+  parallelism: 1
+  backoffLimitPerIndex: 0
+  maxFailedIndexes: 1
+  activeDeadlineSeconds: 172800
+  ttlSecondsAfterFinished: 86400
+  template:
+    metadata:
+      labels: {app: clear-ec, workload: foundation-train}
+    spec:
+      automountServiceAccountToken: false
+      priorityClassName: private-zone
+      restartPolicy: Never
+      activeDeadlineSeconds: 129600
+      nodeSelector:
+        mlx.navercorp.com/gpu-type: H200
+        mlx.navercorp.com/zone: private-h200-ajou-mlxp-0
+      tolerations:
+        - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+      containers:
+        - name: train
+          image: leebyounghan/mlx-rl:20260810-sgl0512-verl-1ddf071
+          workingDir: /workspace/clear-ec-research
+          command: [bash, -lc]
+          args:
+            - |-
+              set -euo pipefail
+              case "$JOB_COMPLETION_INDEX" in
+                0) backbone=cpdino_vitb;;
+                1) backbone=dinov3_vitb;;
+                2) backbone=convnext_base;;
+                *) exit 2;;
+              esac
+              runner=experiments/phase2_foundation_train_20261002/source/phase2_foundation_train_20261002.py
+              /workspace/venv/bin/python -u "$runner" smoke --architecture "$backbone"
+              /workspace/venv/bin/python -u "$runner" train --architecture "$backbone"
+          env:
+            - {name: PYTHONPATH, value: /workspace/clear-ec-research/experiments/phase2_foundation_20261002/runtime}
+            - {name: HF_HUB_OFFLINE, value: "1"}
+            - {name: HF_HUB_DISABLE_PROGRESS_BARS, value: "1"}
+            - {name: PYTHONDONTWRITEBYTECODE, value: "1"}
+            - {name: OMP_NUM_THREADS, value: "4"}
+            - {name: PYTORCH_CUDA_ALLOC_CONF, value: "expandable_segments:True"}
+          resources:
+            requests: {cpu: "8", memory: 20Gi, nvidia.com/gpu: "1"}
+            limits: {cpu: "8", memory: 48Gi, nvidia.com/gpu: "1"}
+          volumeMounts:
+            - {name: workspace, mountPath: /workspace}
+            - {name: shared-memory, mountPath: /dev/shm}
+      volumes:
+        - name: workspace
+          persistentVolumeClaim: {claimName: clear-ec-workspace}
+        - name: shared-memory
+          emptyDir: {medium: Memory, sizeLimit: 4Gi}
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: clear-ec-foundation-train-light-v2-1002
+  namespace: p-ajou-mlxp-project
+  labels: {app: clear-ec, workload: foundation-train}
+spec:
+  completionMode: Indexed
+  completions: 2
+  parallelism: 1
+  backoffLimitPerIndex: 0
+  maxFailedIndexes: 2
+  activeDeadlineSeconds: 172800
+  ttlSecondsAfterFinished: 86400
+  template:
+    metadata:
+      labels: {app: clear-ec, workload: foundation-train}
+    spec:
+      automountServiceAccountToken: false
+      priorityClassName: private-zone
+      restartPolicy: Never
+      activeDeadlineSeconds: 129600
+      nodeSelector:
+        mlx.navercorp.com/gpu-type: H200
+        mlx.navercorp.com/zone: private-h200-ajou-mlxp-0
+      tolerations:
+        - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+      containers:
+        - name: train
+          image: leebyounghan/mlx-rl:20260810-sgl0512-verl-1ddf071
+          workingDir: /workspace/clear-ec-research
+          command: [bash, -lc]
+          args:
+            - |-
+              set -euo pipefail
+              case "$JOB_COMPLETION_INDEX" in
+                0) backbone=dinov3_vitb;;
+                1) backbone=convnext_base;;
+                *) exit 2;;
+              esac
+              runner=experiments/phase2_foundation_train_20261002/source/phase2_foundation_train_20261002.py
+              /workspace/venv/bin/python -u "$runner" smoke --architecture "$backbone"
+              /workspace/venv/bin/python -u "$runner" train --architecture "$backbone"
+          env:
+            - {name: PYTHONPATH, value: /workspace/clear-ec-research/experiments/phase2_foundation_20261002/runtime}
+            - {name: HF_HUB_OFFLINE, value: "1"}
+            - {name: HF_HUB_DISABLE_PROGRESS_BARS, value: "1"}
+            - {name: PYTHONDONTWRITEBYTECODE, value: "1"}
+            - {name: OMP_NUM_THREADS, value: "4"}
+            - {name: PYTORCH_CUDA_ALLOC_CONF, value: "expandable_segments:True"}
+          resources:
+            requests: {cpu: "4", memory: 20Gi, nvidia.com/gpu: "1"}
+            limits: {cpu: "8", memory: 48Gi, nvidia.com/gpu: "1"}
+          volumeMounts:
+            - {name: workspace, mountPath: /workspace}
+            - {name: shared-memory, mountPath: /dev/shm}
+      volumes:
+        - name: workspace
+          persistentVolumeClaim: {claimName: clear-ec-workspace}
+        - name: shared-memory
+          emptyDir: {medium: Memory, sizeLimit: 4Gi}

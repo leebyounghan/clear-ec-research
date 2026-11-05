@@ -1,4 +1,7 @@
-"""Grand Challenge entrypoint for the submission-1 hybrid. Same I/O contract as the Phase-1 app."""
+"""Grand Challenge entrypoint for the submission-1 hybrid. Same I/O contract as the Phase-1 app.
+
+2026-10-31: per-image failures are isolated by hybrid_guard_20261031 (see its docstring); start-up checks stay loud.
+"""
 import argparse
 import json
 from pathlib import Path
@@ -10,6 +13,7 @@ import torch
 
 sys.path.insert(0, '/opt/app')
 import hybrid_inference_20261030 as H
+import hybrid_guard_20261031 as G
 
 RECIPEA_MEMBERS = ('recipea/member_s46.pt', 'recipea/member_s47.pt', 'recipea/member_s48.pt')
 
@@ -39,15 +43,29 @@ def main():
     for m in members:
         if not Path(m).exists():
             raise FileNotFoundError(m)
-    image = sitk.GetArrayFromImage(sitk.ReadImage(str(paths[0])))
-    value, parts = H.predict_hybrid(image, args.model, args.config, members,
-                                    torch.float16 if args.fp16 else torch.bfloat16, return_parts=True)
+    try:
+        image = sitk.GetArrayFromImage(sitk.ReadImage(str(paths[0])))
+    except Exception as e:  # unreadable case: the guard falls back to constants and logs it
+        image = None
+        read_error = f'{type(e).__name__}: {e}'[:300]
+    else:
+        read_error = None
+    if image is None:
+        value, parts = G.FALLBACK_CONSTANT.copy(), dict(mode='constant', errors=dict(read=read_error), notes=[],
+                                                        phase1=None, recipea=None)
+    else:
+        value, parts = G.predict_guarded(image, args.model, args.config, members,
+                                         torch.float16 if args.fp16 else torch.bfloat16)
     args.output.mkdir(parents=True, exist_ok=True)
     for path, v in zip(outputs, value):
         with path.open('x') as handle:
             json.dump(float(v), handle, allow_nan=False)
+
+    def as_list(v):
+        return None if v is None else [float(x) for x in v]
     print(json.dumps(dict(seconds=time.time() - start, phase1_members=6, recipea_members=len(members),
-                          phase1=[float(v) for v in parts['phase1']], recipea=[float(v) for v in parts['recipea']],
+                          mode=parts['mode'], errors=parts['errors'], notes=parts['notes'],
+                          phase1=as_list(parts['phase1']), recipea=as_list(parts['recipea']),
                           output=[float(v) for v in value])), flush=True)
 
 

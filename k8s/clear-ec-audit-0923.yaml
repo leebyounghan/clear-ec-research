@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: clear-ec-audit-0923
+  namespace: p-ajou-mlxp-project
+  labels: {app: clear-ec, workload: research-audit}
+spec:
+  automountServiceAccountToken: false
+  priorityClassName: private-zone
+  restartPolicy: Never
+  activeDeadlineSeconds: 1800
+  nodeSelector:
+    mlx.navercorp.com/gpu-type: H200
+    mlx.navercorp.com/hardware-type: gpu
+    mlx.navercorp.com/zone: private-h200-ajou-mlxp-0
+  tolerations:
+    - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+  containers:
+    - name: audit
+      image: leebyounghan/mlx-rl:20260810-sgl0512-verl-1ddf071
+      imagePullPolicy: IfNotPresent
+      command: [bash, -lc]
+      args: ["sleep 1500"]
+      resources:
+        requests: {cpu: "1", memory: 2Gi}
+        limits: {cpu: "2", memory: 4Gi}
+      volumeMounts:
+        - {name: workspace, mountPath: /workspace}
+  volumes:
+    - name: workspace
+      persistentVolumeClaim: {claimName: clear-ec-workspace}

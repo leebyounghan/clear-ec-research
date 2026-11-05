@@ -46,7 +46,7 @@ docker image inspect \
 ```
 
 Do not extract over an existing model directory. Archive SHA256 and Docker image
-ID are different identifiers; see [artifact identities](../docs/ARTIFACTS.md).
+ID are different identifiers; see [artifact identities](../docs/legacy_phase1/ARTIFACTS.md).
 
 ## 2. Prepare one input
 
@@ -100,7 +100,7 @@ above. Use the verified archive for release reproduction.
 Hashes, strict reload and eight-image frozen CUDA 12.6 application checks passed.
 On September 15, a fresh GitHub checkout and complete anonymous Drive downloads
 passed archive/resource hashes and one-image archived-container inference on an
-RTX 4090; see the [verification record](../docs/DOCKER_SMOKE_20260915.md).
+RTX 4090; see the [verification record](../docs/legacy_phase1/DOCKER_SMOKE_20260915.md).
 This does not certify T4 execution, accuracy, or evaluator GitHub access.
-See [reproduction scope](../docs/REPRODUCE.md)
+See [reproduction scope](../docs/legacy_phase1/REPRODUCE.md)
 and the [technical report](../output/pdf/Lamda_KIM_CLEAR_EC_Technical_Report.pdf).

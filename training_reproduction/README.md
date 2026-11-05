@@ -2,7 +2,7 @@
 
 This optional path trains new checkpoints. For reproducing submitted predictions,
 use the [verified Docker guide](../docker_review_20260914/README.md) or the
-[verified source-venv procedure](../docs/VENV_SMOKE_20260915.md).
+[verified source-venv procedure](../docs/legacy_phase1/VENV_SMOKE_20260915.md).
 
 The first-five frozen trainers are preserved unchanged. The sixth-member adapter
 calls the original SSL and raw-label regression functions directly, without old

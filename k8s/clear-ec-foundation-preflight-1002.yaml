@@ -1,0 +1,59 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: clear-ec-foundation-preflight-1002
+  namespace: p-ajou-mlxp-project
+  labels: {app: clear-ec, workload: foundation-preflight}
+spec:
+  completionMode: Indexed
+  completions: 2
+  parallelism: 2
+  backoffLimit: 0
+  activeDeadlineSeconds: 14400
+  ttlSecondsAfterFinished: 86400
+  template:
+    metadata:
+      labels: {app: clear-ec, workload: foundation-preflight}
+    spec:
+      automountServiceAccountToken: false
+      priorityClassName: private-zone
+      restartPolicy: Never
+      activeDeadlineSeconds: 10800
+      nodeSelector:
+        mlx.navercorp.com/gpu-type: H200
+        mlx.navercorp.com/hardware-type: gpu
+        mlx.navercorp.com/zone: private-h200-ajou-mlxp-0
+      tolerations:
+        - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+      containers:
+        - name: probe
+          image: leebyounghan/mlx-rl:20260810-sgl0512-verl-1ddf071
+          workingDir: /workspace/clear-ec-research
+          command: [bash, -lc]
+          args:
+            - |-
+              set -euo pipefail
+              case "${JOB_COMPLETION_INDEX}" in
+                0) architecture=cpsam ;;
+                1) architecture=convnext_base ;;
+                *) exit 2 ;;
+              esac
+              exec timeout --signal=TERM --kill-after=30s 10200 /workspace/venv/bin/python -u experiments/phase2_foundation_20261002/source/phase2_foundation_preflight_20261002.py worker --architecture "$architecture"
+          env:
+            - name: JOB_COMPLETION_INDEX
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.annotations['batch.kubernetes.io/job-completion-index']
+            - {name: HF_HUB_OFFLINE, value: "1"}
+            - {name: PYTHONDONTWRITEBYTECODE, value: "1"}
+            - {name: OMP_NUM_THREADS, value: "4"}
+            - {name: OPENBLAS_NUM_THREADS, value: "4"}
+            - {name: PYTORCH_CUDA_ALLOC_CONF, value: "expandable_segments:True"}
+          resources:
+            requests: {cpu: "4", memory: 16Gi, nvidia.com/gpu: "1"}
+            limits: {cpu: "4", memory: 32Gi, nvidia.com/gpu: "1"}
+          volumeMounts:
+            - {name: workspace, mountPath: /workspace}
+      volumes:
+        - name: workspace
+          persistentVolumeClaim: {claimName: clear-ec-workspace}

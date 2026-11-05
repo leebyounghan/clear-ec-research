@@ -1,0 +1,576 @@
+{
+ "apiVersion": "v1",
+ "kind": "Pod",
+ "metadata": {
+  "name": "clear-ec-research-4gpu-1026",
+  "namespace": "p-ajou-mlxp-project",
+  "labels": {
+   "app": "clear-ec",
+   "management.mlx.navercorp.com/project": "ajou-mlxp-project",
+   "management.mlx.navercorp.com/workspace": "ajou-mlxp",
+   "mlx.navercorp.com/esm-code": "",
+   "mlx.navercorp.com/is-gpu-requested": "",
+   "mlx.navercorp.com/scheduled-by": "admission-webhook",
+   "mlx.navercorp.com/top-owner-kind": "v1.Pod",
+   "mlx.navercorp.com/top-owner-name": "clear-ec-research-4gpu-1026",
+   "mlx.navercorp.com/zone": "private-h200-ajou-mlxp-0",
+   "security.istio.io/tlsMode": "istio",
+   "service.istio.io/canonical-name": "clear-ec",
+   "service.istio.io/canonical-revision": "latest",
+   "stage": "persistent-research"
+  },
+  "annotations": {
+   "istio.io/rev": "default",
+   "kubectl.kubernetes.io/default-container": "train",
+   "kubectl.kubernetes.io/default-logs-container": "train",
+   "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Pod\",\"metadata\":{\"annotations\":{\"mlx/recreated-from\":\"clear-ec-research-2gpu-1017 (2026-10-26: 2-\\u003e4 GPUs, image security patch CVE-2026-111497)\"},\"labels\":{\"app\":\"clear-ec\",\"mlx.navercorp.com/zone\":\"private-h200-ajou-mlxp-0\",\"stage\":\"persistent-research\"},\"name\":\"clear-ec-research-4gpu-1026\",\"namespace\":\"p-ajou-mlxp-project\"},\"spec\":{\"containers\":[{\"args\":[\"trap \\\"exit 0\\\" TERM INT; while true; do sleep 300 \\u0026 wait $!; done\"],\"command\":[\"bash\",\"-lc\"],\"env\":[{\"name\":\"PYTHONPATH\",\"value\":\"/workspace/clear-ec-research/experiments/phase2_foundation_20261002/runtime\"},{\"name\":\"HF_HUB_OFFLINE\",\"value\":\"1\"},{\"name\":\"HF_HUB_DISABLE_PROGRESS_BARS\",\"value\":\"1\"},{\"name\":\"PYTHONDONTWRITEBYTECODE\",\"value\":\"1\"},{\"name\":\"OMP_NUM_THREADS\",\"value\":\"4\"},{\"name\":\"OPENBLAS_NUM_THREADS\",\"value\":\"2\"},{\"name\":\"PYTORCH_CUDA_ALLOC_CONF\",\"value\":\"expandable_segments:True\"},{\"name\":\"NCCL_IB_HCA\",\"value\":\"mlx5_0,mlx5_2,mlx5_3,mlx5_4,mlx5_5,mlx5_7,mlx5_8,mlx5_9\"}],\"image\":\"leebyounghan/mlx-rl:20261025-sgl0512-verl-1ddf071\",\"name\":\"train\",\"resources\":{\"limits\":{\"cpu\":\"16\",\"memory\":\"96Gi\",\"nvidia.com/gpu\":\"4\"},\"requests\":{\"cpu\":\"8\",\"memory\":\"40Gi\",\"nvidia.com/gpu\":\"4\"}},\"volumeMounts\":[{\"mountPath\":\"/workspace\",\"name\":\"workspace\"},{\"mountPath\":\"/dev/shm\",\"name\":\"shared-memory\"}],\"workingDir\":\"/workspace/clear-ec-research\"}],\"nodeSelector\":{\"mlx.navercorp.com/gpu-type\":\"H200\",\"mlx.navercorp.com/hardware-type\":\"gpu\",\"mlx.navercorp.com/zone\":\"private-h200-ajou-mlxp-0\"},\"restartPolicy\":\"Never\",\"terminationGracePeriodSeconds\":30,\"volumes\":[{\"name\":\"workspace\",\"persistentVolumeClaim\":{\"claimName\":\"clear-ec-workspace\"}},{\"emptyDir\":{\"medium\":\"Memory\",\"sizeLimit\":\"16Gi\"},\"name\":\"shared-memory\"}]}}\n",
+   "mlx.navercorp.com/created-by": "system:serviceaccount:a-1dcfbf30-18fe-11f1-a04b-246e9659184c:default",
+   "mlx.navercorp.com/requested-by": "system:serviceaccount:a-1dcfbf30-18fe-11f1-a04b-246e9659184c:default",
+   "mlx.navercorp.com/updated-by": "system:serviceaccount:a-1dcfbf30-18fe-11f1-a04b-246e9659184c:default",
+   "mlx/recreated-from": "clear-ec-research-2gpu-1017 (2026-10-26: 2->4 GPUs, image security patch CVE-2026-111497)",
+   "prometheus.io/path": "/stats/prometheus",
+   "prometheus.io/port": "15020",
+   "prometheus.io/scrape": "true",
+   "sidecar.istio.io/status": "{\"initContainers\":[\"istio-init\",\"istio-proxy\"],\"containers\":null,\"volumes\":[\"workload-socket\",\"credential-socket\",\"workload-certs\",\"istio-envoy\",\"istio-data\",\"istio-podinfo\",\"istio-token\",\"istiod-ca-cert\"],\"imagePullSecrets\":null,\"revision\":\"default\"}"
+  }
+ },
+ "spec": {
+  "affinity": {
+   "nodeAffinity": {}
+  },
+  "containers": [
+   {
+    "args": [
+     "trap \"exit 0\" TERM INT; while true; do sleep 300 & wait $!; done"
+    ],
+    "command": [
+     "bash",
+     "-lc"
+    ],
+    "env": [
+     {
+      "name": "PYTHONPATH",
+      "value": "/workspace/clear-ec-research/experiments/phase2_foundation_20261002/runtime"
+     },
+     {
+      "name": "HF_HUB_OFFLINE",
+      "value": "1"
+     },
+     {
+      "name": "HF_HUB_DISABLE_PROGRESS_BARS",
+      "value": "1"
+     },
+     {
+      "name": "PYTHONDONTWRITEBYTECODE",
+      "value": "1"
+     },
+     {
+      "name": "OMP_NUM_THREADS",
+      "value": "4"
+     },
+     {
+      "name": "OPENBLAS_NUM_THREADS",
+      "value": "2"
+     },
+     {
+      "name": "PYTORCH_CUDA_ALLOC_CONF",
+      "value": "expandable_segments:True"
+     },
+     {
+      "name": "NCCL_IB_HCA",
+      "value": "mlx5_0,mlx5_2,mlx5_3,mlx5_4,mlx5_5,mlx5_7,mlx5_8,mlx5_9"
+     }
+    ],
+    "image": "leebyounghan/mlx-rl:20261025-sgl0512-verl-1ddf071",
+    "imagePullPolicy": "IfNotPresent",
+    "name": "train",
+    "resources": {
+     "limits": {
+      "cpu": "16",
+      "memory": "96Gi",
+      "nvidia.com/gpu": "4"
+     },
+     "requests": {
+      "cpu": "8",
+      "memory": "40Gi",
+      "nvidia.com/gpu": "4"
+     }
+    },
+    "terminationMessagePath": "/dev/termination-log",
+    "terminationMessagePolicy": "File",
+    "volumeMounts": [
+     {
+      "mountPath": "/workspace",
+      "name": "workspace"
+     },
+     {
+      "mountPath": "/dev/shm",
+      "name": "shared-memory"
+     },
+     {
+      "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+      "name": "kube-api-access-9dllm",
+      "readOnly": true
+     }
+    ],
+    "workingDir": "/workspace/clear-ec-research"
+   }
+  ],
+  "dnsPolicy": "ClusterFirst",
+  "enableServiceLinks": true,
+  "initContainers": [
+   {
+    "args": [
+     "istio-iptables",
+     "-p",
+     "15001",
+     "-z",
+     "15006",
+     "-u",
+     "1337",
+     "-m",
+     "REDIRECT",
+     "-i",
+     "*",
+     "-x",
+     "",
+     "-b",
+     "*",
+     "-d",
+     "15090,15021,15020",
+     "--log_output_level=default:info"
+    ],
+    "image": "mlx-public.kr.ncr.ntruss.com/mlx/proxyv2:1.28.3-alpine-r20260908.1",
+    "imagePullPolicy": "IfNotPresent",
+    "name": "istio-init",
+    "resources": {
+     "limits": {
+      "cpu": "2",
+      "memory": "1Gi"
+     },
+     "requests": {
+      "cpu": "100m",
+      "memory": "128Mi"
+     }
+    },
+    "securityContext": {
+     "allowPrivilegeEscalation": false,
+     "capabilities": {
+      "add": [
+       "NET_ADMIN",
+       "NET_RAW"
+      ],
+      "drop": [
+       "ALL"
+      ]
+     },
+     "privileged": false,
+     "readOnlyRootFilesystem": false,
+     "runAsGroup": 0,
+     "runAsNonRoot": false,
+     "runAsUser": 0
+    },
+    "terminationMessagePath": "/dev/termination-log",
+    "terminationMessagePolicy": "File",
+    "volumeMounts": [
+     {
+      "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+      "name": "kube-api-access-9dllm",
+      "readOnly": true
+     }
+    ]
+   },
+   {
+    "args": [
+     "proxy",
+     "sidecar",
+     "--domain",
+     "$(POD_NAMESPACE).svc.cluster.local",
+     "--proxyLogLevel=warning",
+     "--proxyComponentLogLevel=misc:error",
+     "--log_output_level=default:info"
+    ],
+    "env": [
+     {
+      "name": "PILOT_CERT_PROVIDER",
+      "value": "istiod"
+     },
+     {
+      "name": "CA_ADDR",
+      "value": "istiod.istio-system.svc:15012"
+     },
+     {
+      "name": "POD_NAME",
+      "valueFrom": {
+       "fieldRef": {
+        "apiVersion": "v1",
+        "fieldPath": "metadata.name"
+       }
+      }
+     },
+     {
+      "name": "POD_NAMESPACE",
+      "valueFrom": {
+       "fieldRef": {
+        "apiVersion": "v1",
+        "fieldPath": "metadata.namespace"
+       }
+      }
+     },
+     {
+      "name": "INSTANCE_IP",
+      "valueFrom": {
+       "fieldRef": {
+        "apiVersion": "v1",
+        "fieldPath": "status.podIP"
+       }
+      }
+     },
+     {
+      "name": "SERVICE_ACCOUNT",
+      "valueFrom": {
+       "fieldRef": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.serviceAccountName"
+       }
+      }
+     },
+     {
+      "name": "HOST_IP",
+      "valueFrom": {
+       "fieldRef": {
+        "apiVersion": "v1",
+        "fieldPath": "status.hostIP"
+       }
+      }
+     },
+     {
+      "name": "ISTIO_CPU_LIMIT",
+      "valueFrom": {
+       "resourceFieldRef": {
+        "divisor": "0",
+        "resource": "limits.cpu"
+       }
+      }
+     },
+     {
+      "name": "PROXY_CONFIG",
+      "value": "{\"tracing\":{},\"gatewayTopology\":{\"numTrustedProxies\":1}}\n"
+     },
+     {
+      "name": "ISTIO_META_POD_PORTS",
+      "value": "[\n]"
+     },
+     {
+      "name": "ISTIO_META_APP_CONTAINERS",
+      "value": "train"
+     },
+     {
+      "name": "GOMEMLIMIT",
+      "valueFrom": {
+       "resourceFieldRef": {
+        "divisor": "0",
+        "resource": "limits.memory"
+       }
+      }
+     },
+     {
+      "name": "GOMAXPROCS",
+      "valueFrom": {
+       "resourceFieldRef": {
+        "divisor": "0",
+        "resource": "limits.cpu"
+       }
+      }
+     },
+     {
+      "name": "ISTIO_META_CLUSTER_ID",
+      "value": "Kubernetes"
+     },
+     {
+      "name": "ISTIO_META_NODE_NAME",
+      "valueFrom": {
+       "fieldRef": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.nodeName"
+       }
+      }
+     },
+     {
+      "name": "ISTIO_META_INTERCEPTION_MODE",
+      "value": "REDIRECT"
+     },
+     {
+      "name": "ISTIO_META_WORKLOAD_NAME",
+      "value": "clear-ec-research-4gpu-1026"
+     },
+     {
+      "name": "ISTIO_META_OWNER",
+      "value": "kubernetes://apis/v1/namespaces/p-ajou-mlxp-project/pods/clear-ec-research-4gpu-1026"
+     },
+     {
+      "name": "ISTIO_META_MESH_ID",
+      "value": "cluster.local"
+     },
+     {
+      "name": "TRUST_DOMAIN",
+      "value": "cluster.local"
+     }
+    ],
+    "image": "mlx-public.kr.ncr.ntruss.com/mlx/proxyv2:1.28.3-alpine-r20260908.1",
+    "imagePullPolicy": "IfNotPresent",
+    "lifecycle": {
+     "preStop": {
+      "exec": {
+       "command": [
+        "pilot-agent",
+        "request",
+        "--debug-port=15020",
+        "POST",
+        "drain"
+       ]
+      }
+     }
+    },
+    "name": "istio-proxy",
+    "ports": [
+     {
+      "containerPort": 15090,
+      "name": "http-envoy-prom",
+      "protocol": "TCP"
+     }
+    ],
+    "readinessProbe": {
+     "failureThreshold": 30,
+     "httpGet": {
+      "path": "/healthz/ready",
+      "port": 15021,
+      "scheme": "HTTP"
+     },
+     "initialDelaySeconds": 1,
+     "periodSeconds": 2,
+     "successThreshold": 1,
+     "timeoutSeconds": 3
+    },
+    "resources": {
+     "limits": {
+      "cpu": "2",
+      "memory": "1Gi"
+     },
+     "requests": {
+      "cpu": "100m",
+      "memory": "128Mi"
+     }
+    },
+    "restartPolicy": "Always",
+    "securityContext": {
+     "allowPrivilegeEscalation": false,
+     "capabilities": {
+      "drop": [
+       "ALL"
+      ]
+     },
+     "privileged": false,
+     "readOnlyRootFilesystem": true,
+     "runAsGroup": 1337,
+     "runAsNonRoot": true,
+     "runAsUser": 1337
+    },
+    "terminationMessagePath": "/dev/termination-log",
+    "terminationMessagePolicy": "File",
+    "volumeMounts": [
+     {
+      "mountPath": "/var/run/secrets/workload-spiffe-uds",
+      "name": "workload-socket"
+     },
+     {
+      "mountPath": "/var/run/secrets/credential-uds",
+      "name": "credential-socket"
+     },
+     {
+      "mountPath": "/var/run/secrets/workload-spiffe-credentials",
+      "name": "workload-certs"
+     },
+     {
+      "mountPath": "/var/run/secrets/istio",
+      "name": "istiod-ca-cert"
+     },
+     {
+      "mountPath": "/var/lib/istio/data",
+      "name": "istio-data"
+     },
+     {
+      "mountPath": "/etc/istio/proxy",
+      "name": "istio-envoy"
+     },
+     {
+      "mountPath": "/var/run/secrets/tokens",
+      "name": "istio-token"
+     },
+     {
+      "mountPath": "/etc/istio/pod",
+      "name": "istio-podinfo"
+     },
+     {
+      "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+      "name": "kube-api-access-9dllm",
+      "readOnly": true
+     }
+    ]
+   }
+  ],
+  "nodeName": "h200-04-w-11f1",
+  "nodeSelector": {
+   "mlx.navercorp.com/gpu-type": "H200",
+   "mlx.navercorp.com/hardware-type": "gpu",
+   "mlx.navercorp.com/zone": "private-h200-ajou-mlxp-0"
+  },
+  "preemptionPolicy": "PreemptLowerPriority",
+  "priority": 25000,
+  "priorityClassName": "private-zone",
+  "restartPolicy": "Never",
+  "schedulerName": "default-scheduler",
+  "securityContext": {},
+  "serviceAccount": "default",
+  "serviceAccountName": "default",
+  "terminationGracePeriodSeconds": 30,
+  "tolerations": [
+   {
+    "effect": "NoExecute",
+    "key": "node.kubernetes.io/not-ready",
+    "operator": "Exists",
+    "tolerationSeconds": 300
+   },
+   {
+    "effect": "NoExecute",
+    "key": "node.kubernetes.io/unreachable",
+    "operator": "Exists",
+    "tolerationSeconds": 300
+   },
+   {
+    "effect": "NoSchedule",
+    "key": "nvidia.com/gpu",
+    "operator": "Exists"
+   }
+  ],
+  "volumes": [
+   {
+    "emptyDir": {},
+    "name": "workload-socket"
+   },
+   {
+    "emptyDir": {},
+    "name": "credential-socket"
+   },
+   {
+    "emptyDir": {},
+    "name": "workload-certs"
+   },
+   {
+    "emptyDir": {
+     "medium": "Memory"
+    },
+    "name": "istio-envoy"
+   },
+   {
+    "emptyDir": {},
+    "name": "istio-data"
+   },
+   {
+    "downwardAPI": {
+     "defaultMode": 420,
+     "items": [
+      {
+       "fieldRef": {
+        "apiVersion": "v1",
+        "fieldPath": "metadata.labels"
+       },
+       "path": "labels"
+      },
+      {
+       "fieldRef": {
+        "apiVersion": "v1",
+        "fieldPath": "metadata.annotations"
+       },
+       "path": "annotations"
+      }
+     ]
+    },
+    "name": "istio-podinfo"
+   },
+   {
+    "name": "istio-token",
+    "projected": {
+     "defaultMode": 420,
+     "sources": [
+      {
+       "serviceAccountToken": {
+        "audience": "istio-ca",
+        "expirationSeconds": 43200,
+        "path": "istio-token"
+       }
+      }
+     ]
+    }
+   },
+   {
+    "configMap": {
+     "defaultMode": 420,
+     "name": "istio-ca-root-cert"
+    },
+    "name": "istiod-ca-cert"
+   },
+   {
+    "name": "workspace",
+    "persistentVolumeClaim": {
+     "claimName": "clear-ec-workspace"
+    }
+   },
+   {
+    "emptyDir": {
+     "medium": "Memory",
+     "sizeLimit": "16Gi"
+    },
+    "name": "shared-memory"
+   },
+   {
+    "name": "kube-api-access-9dllm",
+    "projected": {
+     "defaultMode": 420,
+     "sources": [
+      {
+       "serviceAccountToken": {
+        "expirationSeconds": 3607,
+        "path": "token"
+       }
+      },
+      {
+       "configMap": {
+        "items": [
+         {
+          "key": "ca.crt",
+          "path": "ca.crt"
+         }
+        ],
+        "name": "kube-root-ca.crt"
+       }
+      },
+      {
+       "downwardAPI": {
+        "items": [
+         {
+          "fieldRef": {
+           "apiVersion": "v1",
+           "fieldPath": "metadata.namespace"
+          },
+          "path": "namespace"
+         }
+        ]
+       }
+      }
+     ]
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,54 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: clear-ec-lejepa5-regression-1008
+  namespace: p-ajou-mlxp-project
+  labels: {app: clear-ec, workload: lejepa5-regression}
+spec:
+  backoffLimit: 0
+  activeDeadlineSeconds: 86400
+  ttlSecondsAfterFinished: 172800
+  template:
+    metadata:
+      labels: {app: clear-ec, workload: lejepa5-regression}
+    spec:
+      automountServiceAccountToken: false
+      priorityClassName: private-zone
+      restartPolicy: Never
+      activeDeadlineSeconds: 64800
+      nodeSelector:
+        mlx.navercorp.com/gpu-type: H200
+        mlx.navercorp.com/zone: private-h200-ajou-mlxp-0
+      tolerations:
+        - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+      containers:
+        - name: train
+          image: leebyounghan/mlx-rl:20260810-sgl0512-verl-1ddf071
+          workingDir: /workspace/clear-ec-research
+          command: [bash, -lc]
+          args:
+            - |-
+              set -euo pipefail
+              runner=experiments/phase2_lejepa5_regression_20261008/source/phase2_lejepa5_regression_20261008.py
+              /workspace/venv/bin/python -m torch.distributed.run --standalone --nproc_per_node=2 "$runner" smoke
+              /workspace/venv/bin/python -m torch.distributed.run --standalone --nproc_per_node=2 "$runner" train
+              CUDA_VISIBLE_DEVICES="" /workspace/venv/bin/python -u "$runner" audit
+          env:
+            - {name: PYTHONPATH, value: /workspace/clear-ec-research/experiments/phase2_foundation_20261002/runtime}
+            - {name: HF_HUB_OFFLINE, value: "1"}
+            - {name: HF_HUB_DISABLE_PROGRESS_BARS, value: "1"}
+            - {name: PYTHONDONTWRITEBYTECODE, value: "1"}
+            - {name: OMP_NUM_THREADS, value: "4"}
+            - {name: OPENBLAS_NUM_THREADS, value: "2"}
+            - {name: PYTORCH_CUDA_ALLOC_CONF, value: "expandable_segments:True"}
+          resources:
+            requests: {cpu: "4", memory: 20Gi, nvidia.com/gpu: "2"}
+            limits: {cpu: "8", memory: 48Gi, nvidia.com/gpu: "2"}
+          volumeMounts:
+            - {name: workspace, mountPath: /workspace}
+            - {name: shared-memory, mountPath: /dev/shm}
+      volumes:
+        - name: workspace
+          persistentVolumeClaim: {claimName: clear-ec-workspace}
+        - name: shared-memory
+          emptyDir: {medium: Memory, sizeLimit: 4Gi}

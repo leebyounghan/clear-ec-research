@@ -2,7 +2,7 @@
 
 These recipes describe the September 10 baseline. The first five members are
 retained in the September 14 release, but its sixth member instead follows the
-[SSL/raw release recipe](../docs/SSL_RELEASE_20260914.md). For reviewer inference,
+[SSL/raw release recipe](../docs/legacy_phase1/SSL_RELEASE_20260914.md). For reviewer inference,
 use the [Docker guide](../docker_review_20260914/README.md); retraining is separate.
 
 For new workspaces, use the [standalone preparation and training guide](../training_reproduction/README.md).

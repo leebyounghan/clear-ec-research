@@ -1,0 +1,107 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: clear-ec-p2-metric35-f2-0928
+  namespace: p-ajou-mlxp-project
+  labels: {app: clear-ec, workload: phase2-metric35-ssl, fold: "2"}
+spec:
+  backoffLimit: 0
+  activeDeadlineSeconds: 604800
+  ttlSecondsAfterFinished: 86400
+  template:
+    metadata:
+      labels: {app: clear-ec, workload: phase2-metric35-ssl, fold: "2"}
+    spec:
+      automountServiceAccountToken: false
+      priorityClassName: private-zone
+      restartPolicy: Never
+      activeDeadlineSeconds: 57600
+      nodeSelector:
+        mlx.navercorp.com/gpu-type: H200
+        mlx.navercorp.com/hardware-type: gpu
+        mlx.navercorp.com/zone: private-h200-ajou-mlxp-0
+      tolerations:
+        - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+      containers:
+        - name: researcher
+          image: leebyounghan/mlx-rl:20260810-sgl0512-verl-1ddf071
+          imagePullPolicy: IfNotPresent
+          workingDir: /workspace/clear-ec-research
+          command: [bash, -lc]
+          args:
+            - >-
+              set -e;
+              /workspace/venv/bin/python -u experiments/phase2_metric35_ssl_20260928/source/phase2_metric35_ssl.py verify;
+              /workspace/venv/bin/python -u experiments/phase2_metric35_ssl_20260928/source/phase2_metric35_ssl.py worker --fold 2 --smoke;
+              exec timeout --signal=TERM --kill-after=30s 55800 /workspace/venv/bin/python -u experiments/phase2_metric35_ssl_20260928/source/phase2_metric35_ssl.py worker --fold 2
+          env:
+            - {name: PYTHONNOUSERSITE, value: "1"}
+            - {name: PYTHONDONTWRITEBYTECODE, value: "1"}
+            - {name: OMP_NUM_THREADS, value: "4"}
+            - {name: OPENBLAS_NUM_THREADS, value: "4"}
+            - {name: PYTORCH_CUDA_ALLOC_CONF, value: "expandable_segments:True"}
+          resources:
+            requests: {cpu: "6", memory: 24Gi, nvidia.com/gpu: "1"}
+            limits: {cpu: "6", memory: 64Gi, nvidia.com/gpu: "1"}
+          volumeMounts:
+            - {name: workspace, mountPath: /workspace}
+            - {name: dshm, mountPath: /dev/shm}
+      volumes:
+        - name: workspace
+          persistentVolumeClaim: {claimName: clear-ec-workspace}
+        - name: dshm
+          emptyDir: {medium: Memory, sizeLimit: 8Gi}
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: clear-ec-p2-metric35-f3-0928
+  namespace: p-ajou-mlxp-project
+  labels: {app: clear-ec, workload: phase2-metric35-ssl, fold: "3"}
+spec:
+  backoffLimit: 0
+  activeDeadlineSeconds: 604800
+  ttlSecondsAfterFinished: 86400
+  template:
+    metadata:
+      labels: {app: clear-ec, workload: phase2-metric35-ssl, fold: "3"}
+    spec:
+      automountServiceAccountToken: false
+      priorityClassName: private-zone
+      restartPolicy: Never
+      activeDeadlineSeconds: 57600
+      nodeSelector:
+        mlx.navercorp.com/gpu-type: H200
+        mlx.navercorp.com/hardware-type: gpu
+        mlx.navercorp.com/zone: private-h200-ajou-mlxp-0
+      tolerations:
+        - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+      containers:
+        - name: researcher
+          image: leebyounghan/mlx-rl:20260810-sgl0512-verl-1ddf071
+          imagePullPolicy: IfNotPresent
+          workingDir: /workspace/clear-ec-research
+          command: [bash, -lc]
+          args:
+            - >-
+              set -e;
+              /workspace/venv/bin/python -u experiments/phase2_metric35_ssl_20260928/source/phase2_metric35_ssl.py verify;
+              /workspace/venv/bin/python -u experiments/phase2_metric35_ssl_20260928/source/phase2_metric35_ssl.py worker --fold 3 --smoke;
+              exec timeout --signal=TERM --kill-after=30s 55800 /workspace/venv/bin/python -u experiments/phase2_metric35_ssl_20260928/source/phase2_metric35_ssl.py worker --fold 3
+          env:
+            - {name: PYTHONNOUSERSITE, value: "1"}
+            - {name: PYTHONDONTWRITEBYTECODE, value: "1"}
+            - {name: OMP_NUM_THREADS, value: "4"}
+            - {name: OPENBLAS_NUM_THREADS, value: "4"}
+            - {name: PYTORCH_CUDA_ALLOC_CONF, value: "expandable_segments:True"}
+          resources:
+            requests: {cpu: "6", memory: 24Gi, nvidia.com/gpu: "1"}
+            limits: {cpu: "6", memory: 64Gi, nvidia.com/gpu: "1"}
+          volumeMounts:
+            - {name: workspace, mountPath: /workspace}
+            - {name: dshm, mountPath: /dev/shm}
+      volumes:
+        - name: workspace
+          persistentVolumeClaim: {claimName: clear-ec-workspace}
+        - name: dshm
+          emptyDir: {medium: Memory, sizeLimit: 8Gi}

@@ -1,4 +1,4 @@
-# large binaries — see docs/ARTIFACTS.md (regenerate or transfer)
+# large binaries — see docs/legacy_phase1/ARTIFACTS.md (regenerate or transfer)
 *.pt
 *.pth
 *.dat
@@ -33,3 +33,7 @@ __pycache__/
 /tmp/pdfs/technical_report_20260915/
 # keep the small reference result JSONs and norm consts under results/
 !results/*.json
+
+# Challenge images stay out of Git, whatever folder they land in; vendored third-party runtime is rebuilt into the image
+results/**/*.png
+/submission_*/runtime/
