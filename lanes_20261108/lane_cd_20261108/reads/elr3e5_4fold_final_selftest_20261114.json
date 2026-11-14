@@ -1,0 +1,315 @@
+{
+ "form": "final",
+ "epochs": "final.pt TTA",
+ "note": "plain = the 2e-5 arm of the same fold (reference); incumbent = p3b members",
+ "fold0": {
+  "member_arm": [
+   6.3726,
+   10.5405,
+   10.9975
+  ],
+  "member_plain": [
+   6.3726,
+   10.5405,
+   10.9975
+  ],
+  "arm_vs_plain_cd": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "top_decile": {
+   "rows": 177,
+   "arm": [
+    13.3221,
+    13.0916,
+    13.4451
+   ],
+   "ref": [
+    13.3221,
+    13.0916,
+    13.4451
+   ],
+   "arm_vs_ref_cd": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "rest": {
+   "rows": 1614,
+   "arm": [
+    5.6104,
+    10.2607,
+    10.7291
+   ],
+   "ref": [
+    5.6104,
+    10.2607,
+    10.7291
+   ],
+   "arm_vs_ref_cd": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "stack_kept_constants_from_fold": [
+   1,
+   2,
+   4
+  ],
+  "stack": {
+   "incumbent": 6.0175,
+   "arm": 6.0175,
+   "plain": 6.0175,
+   "arm_minus_plain": 0.0
+  }
+ },
+ "fold1": {
+  "member_arm": [
+   6.4526,
+   10.7145,
+   10.164
+  ],
+  "member_plain": [
+   6.4526,
+   10.7145,
+   10.164
+  ],
+  "arm_vs_plain_cd": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "top_decile": {
+   "rows": 173,
+   "arm": [
+    10.7782,
+    13.9336,
+    12.3877
+   ],
+   "ref": [
+    10.7782,
+    13.9336,
+    12.3877
+   ],
+   "arm_vs_ref_cd": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "rest": {
+   "rows": 1618,
+   "arm": [
+    5.9901,
+    10.3703,
+    9.9262
+   ],
+   "ref": [
+    5.9901,
+    10.3703,
+    9.9262
+   ],
+   "arm_vs_ref_cd": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "stack_kept_constants_from_fold": [
+   0,
+   2,
+   4
+  ],
+  "stack": {
+   "incumbent": 6.1025,
+   "arm": 6.1025,
+   "plain": 6.1025,
+   "arm_minus_plain": 0.0
+  }
+ },
+ "fold2": {
+  "member_arm": [
+   6.1252,
+   11.4121,
+   10.5849
+  ],
+  "member_plain": [
+   6.1252,
+   11.4121,
+   10.5849
+  ],
+  "arm_vs_plain_cd": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "top_decile": {
+   "rows": 193,
+   "arm": [
+    11.355,
+    22.3675,
+    11.4883
+   ],
+   "ref": [
+    11.355,
+    22.3675,
+    11.4883
+   ],
+   "arm_vs_ref_cd": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "rest": {
+   "rows": 1598,
+   "arm": [
+    5.4935,
+    10.089,
+    10.477
+   ],
+   "ref": [
+    5.4935,
+    10.089,
+    10.477
+   ],
+   "arm_vs_ref_cd": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "stack_kept_constants_from_fold": [
+   0,
+   1,
+   4
+  ],
+  "stack": {
+   "incumbent": 5.8024,
+   "arm": 5.8024,
+   "plain": 5.8024,
+   "arm_minus_plain": 0.0
+  }
+ },
+ "fold4": {
+  "member_arm": [
+   6.5267,
+   10.3449,
+   10.3835
+  ],
+  "member_plain": [
+   6.5267,
+   10.3449,
+   10.3835
+  ],
+  "arm_vs_plain_cd": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "top_decile": {
+   "rows": 181,
+   "arm": [
+    12.9334,
+    12.4848,
+    13.3987
+   ],
+   "ref": [
+    12.9334,
+    12.4848,
+    13.3987
+   ],
+   "arm_vs_ref_cd": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "rest": {
+   "rows": 1609,
+   "arm": [
+    5.806,
+    10.1042,
+    10.0443
+   ],
+   "ref": [
+    5.806,
+    10.1042,
+    10.0443
+   ],
+   "arm_vs_ref_cd": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "stack_kept_constants_from_fold": [
+   0,
+   1,
+   2
+  ],
+  "stack": {
+   "incumbent": 6.3008,
+   "arm": 6.3008,
+   "plain": 6.3008,
+   "arm_minus_plain": 0.0
+  }
+ },
+ "cv10_folds04": {
+  "mean_cd": {
+   "incumbent": 6.0462,
+   "arm_in_half": 6.0462,
+   "plain_in_half": 6.0462,
+   "arm_extra": 6.0462,
+   "plain_extra": 6.0462
+  },
+  "arm_in_half_vs_plain_in_half": {
+   "mean_diff": 0.0,
+   "sd_repeats": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "share_lower": 0.0
+  },
+  "arm_in_half_vs_incumbent": {
+   "mean_diff": 0.0,
+   "sd_repeats": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "share_lower": 0.0
+  },
+  "arm_extra_vs_plain_extra": {
+   "mean_diff": 0.0,
+   "sd_repeats": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "share_lower": 0.0
+  },
+  "arm_in_half_vs_plain_in_half_per_fold": {
+   "fold0": 0.0,
+   "fold1": 0.0,
+   "fold2": 0.0,
+   "fold4": 0.0
+  }
+ },
+ "stack_pooled": {
+  "arm_minus_plain_rows_weighted": 0.0,
+  "per_fold": {
+   "0": 0.0,
+   "1": 0.0,
+   "2": 0.0,
+   "4": 0.0
+  },
+  "folds_lower": 0,
+  "lead_rule": "pooled < 0 and >= 3 of 4 folds lower",
+  "lead": false
+ }
+}

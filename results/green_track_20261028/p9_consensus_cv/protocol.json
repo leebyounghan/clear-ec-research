@@ -1,5 +1,0 @@
-{"experiment": "green_track_20261028/p9_consensus_cv", "created_utc": "2026-10-29T11:30:00Z", "status": "pre-registered before running", "compute": "CPU",
- "question": "Do consensus cell centres (agreement of >= k of the 13 fold-clean detectors within 8 px on each validation row) give Voronoi area statistics clean enough to carry CV information? The oracle (p1) reaches 8.8% CV MAPE with perfect points; single-detector Voronoi CV (p2) carried nothing because misses and false positives corrupt areas.",
- "design": "consensus for k in {5, 7, 9} of 13 (k = 7 primary); cells = bounded Voronoi regions of consensus points; features: cv_vor (all bounded cells), cv_vor_core (cells whose Delaunay neighbours are all consensus points too), n_consensus; LOFO blend vs CV on bases A and B; also hex6 of consensus cells vs HEX for completeness",
- "pre_specified_decision": "gate on B: >= 0.03 pp mean (>= 0.09 pp CV) with >= 2 folds; primary = cv_vor_core at k = 7",
- "falsification": "if consensus CV blends at w ~0 or its error correlation with base CV stays >= 0.75, point agreement does not restore the area information and CV from points is closed."}

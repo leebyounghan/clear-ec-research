@@ -1,5 +1,7 @@
 # code/
 
+Result folders named below were removed on 2026-11-06; tracked versions remain in git history up to commit `f8bc49b`.
+
 Archive and canonical copy of the CLEAR-EC research code. Experiments never run from this tree: every
 Kubernetes job ran from a flat copy under `/workspace/clear-ec-research/experiments/<exp>/source/`, and the
 copies that actually ran are kept under `results/<exp>/**/source/`. The layout below dates from 2026-11-03.

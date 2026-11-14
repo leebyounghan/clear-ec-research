@@ -1,7 +1,0 @@
-{
-  "finished_at": "2026-09-11T22:49:32+0000",
-  "audit_completed": true,
-  "gpu_container_will_exit": true,
-  "original_pvc_retained": true,
-  "auto_promotion": false
-}

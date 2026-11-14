@@ -1,7 +1,0 @@
-{"experiment": "cellmap_20261105", "written_utc": "2026-11-05T02:50:00Z", "written_before_running": true,
- "change": "recipe A std s46 plus a zero-initialised Conv2d on two label-free maps (dark ridge, rendered pre-only peaks) added to the patch projection; new layer LR 1e-4 constant",
- "reference": {"fold0": "phase2_pooling_replication_20261026/f0_s46_std", "fold4": "phase2_pooling_20261020/arms/std"},
- "score": "official mean on all validation rows, terminal epoch 20, one view",
- "develop": "fold 0: continue to fold 4 if member delta <= -0.05, or added to the hybrid delta <= -0.02",
- "confirm": "fold 4: member delta < 0; pooled folds 0 + 4 hybrid with seed 46 swapped delta <= -0.02",
- "known_risks": ["the pre-only peak map is one detector with miss 0.15 and FP 0.165", "test time adds one detector pass, already present in the hex6 image, plus the ridge filter"]}

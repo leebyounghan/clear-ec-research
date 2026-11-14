@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "strict_encoder_load": true,
-  "fresh_head_sha_preserved": "a6c7407592c4caa29c02239b862d8b246b32224474a6825fca0db86f218b363f",
-  "cpu_rng_preserved": true,
-  "all_parameters_finite": true,
-  "tested_on": "K8s CPU",
-  "at": "2026-09-15T02:41:20+0000"
-}

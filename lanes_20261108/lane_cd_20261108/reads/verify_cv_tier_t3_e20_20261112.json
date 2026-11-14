@@ -1,0 +1,68 @@
+{
+ "config": "t3_e20",
+ "components": [
+  "dino",
+  "fz:spectrum",
+  "fz:cov_sqrt",
+  "fz:autocorr",
+  "graph:tta_s46_tta4_5f+tta_s47_tta4_5f+tta_s48_tta4_5f+tta_seeds3_tta4_5f",
+  "graph:gord_s46_tta4_5f+gord_s47_tta4_5f+gord_s48_tta4_5f+gord_seeds3_tta4_5f"
+ ],
+ "a_dino_rebuilt_vs_comps_max_abs": 0.0,
+ "a_other_components_vs_freeze_pool_max_abs": {
+  "fz:spectrum": 0.0,
+  "fz:cov_sqrt": 0.0,
+  "fz:autocorr": 0.0,
+  "graph:tta_s46_tta4_5f+tta_s47_tta4_5f+tta_s48_tta4_5f+tta_seeds3_tta4_5f": 0.0,
+  "graph:gord_s46_tta4_5f+gord_s47_tta4_5f+gord_s48_tta4_5f+gord_seeds3_tta4_5f": 0.0
+ },
+ "b_strict_cv_here": 10.11379,
+ "b_strict_cv_stack_file": 10.11379,
+ "b_P_max_abs_diff_vs_stack_file": 0.0,
+ "b_weights_per_fold_equal": {
+  "0": true,
+  "1": true,
+  "2": true,
+  "3": true,
+  "4": true
+ },
+ "b_per_fold_cv_here": {
+  "0": 10.0328,
+  "1": 10.0502,
+  "2": 10.6984,
+  "3": 9.7601,
+  "4": 10.0275
+ },
+ "c_no_outer_fold_weights_here": {
+  "dino": 0.125,
+  "fz:spectrum": 0.25,
+  "fz:cov_sqrt": 0.375,
+  "fz:autocorr": 0.125,
+  "graph:tta_s46_tta4_5f+tta_s47_tta4_5f+tta_s48_tta4_5f+tta_seeds3_tta4_5f": 1.0,
+  "graph:gord_s46_tta4_5f+gord_s47_tta4_5f+gord_s48_tta4_5f+gord_seeds3_tta4_5f": 0.25
+ },
+ "c_equal_stack_w_all": true,
+ "c_deploy_weights": [
+  0.125,
+  0.25,
+  0.375,
+  0.125,
+  1.0,
+  0.25
+ ],
+ "c_L5_weights_equal_deploy": true,
+ "c_L5_stretch_here": [
+  0.975,
+  0.9801135779121991,
+  -0.9806268922294233
+ ],
+ "c_L5_stretch_deploy": [
+  0.975,
+  0.9801135779121991,
+  -0.9806268922294233
+ ],
+ "c_L5_stretch_max_abs_diff": 0.0,
+ "c_per_fold_stretch_vs_inputs_max_abs": 3.3306690738754696e-16,
+ "c_final_oof_vs_P_here_max_abs": 0.0,
+ "c_final_oof_cv_value": 10.11379
+}

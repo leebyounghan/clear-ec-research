@@ -1,0 +1,45 @@
+{
+ "config": "incumbent",
+ "components": [
+  "dino",
+  "fz:spectrum",
+  "fz:cov_sqrt",
+  "fz:autocorr",
+  "graph:tta_s46_tta4_5f+tta_s47_tta4_5f+tta_s48_tta4_5f+tta_seeds3_tta4_5f",
+  "graph:gord_s46_tta4_5f+gord_s47_tta4_5f+gord_s48_tta4_5f+gord_seeds3_tta4_5f"
+ ],
+ "a_other_components_vs_freeze_pool_max_abs": {
+  "dino": 0.0,
+  "fz:spectrum": 0.0,
+  "fz:cov_sqrt": 0.0,
+  "fz:autocorr": 0.0,
+  "graph:tta_s46_tta4_5f+tta_s47_tta4_5f+tta_s48_tta4_5f+tta_seeds3_tta4_5f": 0.0,
+  "graph:gord_s46_tta4_5f+gord_s47_tta4_5f+gord_s48_tta4_5f+gord_seeds3_tta4_5f": 0.0
+ },
+ "b_strict_cv_here": 10.11596,
+ "b_strict_cv_stack_file": 10.11596,
+ "b_P_max_abs_diff_vs_stack_file": 0.0,
+ "b_weights_per_fold_equal": {
+  "0": true,
+  "1": true,
+  "2": true,
+  "3": true,
+  "4": true
+ },
+ "b_per_fold_cv_here": {
+  "0": 10.0293,
+  "1": 10.0845,
+  "2": 10.684,
+  "3": 9.7599,
+  "4": 10.0221
+ },
+ "c_no_outer_fold_weights_here": {
+  "dino": 0.125,
+  "fz:spectrum": 0.25,
+  "fz:cov_sqrt": 0.375,
+  "fz:autocorr": 0.25,
+  "graph:tta_s46_tta4_5f+tta_s47_tta4_5f+tta_s48_tta4_5f+tta_seeds3_tta4_5f": 1.0,
+  "graph:gord_s46_tta4_5f+gord_s47_tta4_5f+gord_s48_tta4_5f+gord_seeds3_tta4_5f": 0.25
+ },
+ "c_equal_stack_w_all": true
+}

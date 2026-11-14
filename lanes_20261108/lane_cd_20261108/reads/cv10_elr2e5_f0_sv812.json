@@ -1,0 +1,67 @@
+{
+ "tag": "elr2e5_f0_sv812",
+ "rows": 1791,
+ "groups": 1168,
+ "repeats": 20,
+ "per_variant_mean_cd": {
+  "inc": 6.0638,
+  "armD": 6.064,
+  "armX": 6.065,
+  "pD": 6.0687,
+  "pX": 6.0638
+ },
+ "armD_vs_inc": {
+  "mean_diff": 0.0002,
+  "sd_across_repeats": 0.0044,
+  "ci95": [
+   -0.0094,
+   0.0104
+  ],
+  "share_lower": 0.485
+ },
+ "armX_vs_inc": {
+  "mean_diff": 0.0012,
+  "sd_across_repeats": 0.0062,
+  "ci95": [
+   -0.0094,
+   0.0122
+  ],
+  "share_lower": 0.407
+ },
+ "pD_vs_inc": {
+  "mean_diff": 0.0049,
+  "sd_across_repeats": 0.004,
+  "ci95": [
+   -0.0007,
+   0.0107
+  ],
+  "share_lower": 0.046
+ },
+ "pX_vs_inc": {
+  "mean_diff": 0.0,
+  "sd_across_repeats": 0.0,
+  "ci95": [
+   0.0,
+   0.0
+  ],
+  "share_lower": 0.0
+ },
+ "armD_vs_pD": {
+  "mean_diff": -0.0047,
+  "sd_across_repeats": 0.0062,
+  "ci95": [
+   -0.0165,
+   0.0074
+  ],
+  "share_lower": 0.795
+ },
+ "armX_vs_pX": {
+  "mean_diff": 0.0012,
+  "sd_across_repeats": 0.0062,
+  "ci95": [
+   -0.0094,
+   0.0122
+  ],
+  "share_lower": 0.407
+ }
+}

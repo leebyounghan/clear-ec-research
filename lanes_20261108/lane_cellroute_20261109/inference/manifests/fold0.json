@@ -1,0 +1,181 @@
+{
+ "recipeA_tta": [
+  "experiments/phase2_pooling_replication_20261026/f0_s46_std/runs/fold0/cpdino_vitb/epoch_20.pt",
+  "experiments/phase2_pooling_replication_20261026/f0_s47_std/runs/fold0/cpdino_vitb/epoch_20.pt"
+ ],
+ "recipeA_cd": [
+  {
+   "e20": "experiments/phase2_pooling_replication_20261026/f0_s46_std/runs/fold0/cpdino_vitb/epoch_20.pt",
+   "single": [
+    "experiments/phase2_pooling_replication_20261026/f0_s46_std/runs/fold0/cpdino_vitb/epoch_08.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s46_std/runs/fold0/cpdino_vitb/epoch_09.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s46_std/runs/fold0/cpdino_vitb/epoch_10.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s46_std/runs/fold0/cpdino_vitb/epoch_11.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s46_std/runs/fold0/cpdino_vitb/epoch_12.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s46_std/runs/fold0/cpdino_vitb/epoch_13.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s46_std/runs/fold0/cpdino_vitb/epoch_14.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s46_std/runs/fold0/cpdino_vitb/epoch_15.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s46_std/runs/fold0/cpdino_vitb/epoch_16.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s46_std/runs/fold0/cpdino_vitb/epoch_17.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s46_std/runs/fold0/cpdino_vitb/epoch_18.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s46_std/runs/fold0/cpdino_vitb/epoch_19.pt"
+   ]
+  },
+  {
+   "e20": "experiments/phase2_pooling_replication_20261026/f0_s47_std/runs/fold0/cpdino_vitb/epoch_20.pt",
+   "single": [
+    "experiments/phase2_pooling_replication_20261026/f0_s47_std/runs/fold0/cpdino_vitb/epoch_08.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s47_std/runs/fold0/cpdino_vitb/epoch_09.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s47_std/runs/fold0/cpdino_vitb/epoch_10.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s47_std/runs/fold0/cpdino_vitb/epoch_11.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s47_std/runs/fold0/cpdino_vitb/epoch_12.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s47_std/runs/fold0/cpdino_vitb/epoch_13.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s47_std/runs/fold0/cpdino_vitb/epoch_14.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s47_std/runs/fold0/cpdino_vitb/epoch_15.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s47_std/runs/fold0/cpdino_vitb/epoch_16.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s47_std/runs/fold0/cpdino_vitb/epoch_17.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s47_std/runs/fold0/cpdino_vitb/epoch_18.pt",
+    "experiments/phase2_pooling_replication_20261026/f0_s47_std/runs/fold0/cpdino_vitb/epoch_19.pt"
+   ]
+  }
+ ],
+ "dino_cd": [
+  [
+   "experiments/lane_gpu3_20261106/runs/dinov3_b16_f0_s46/runs/fold0/dinov3_b16/epoch_16.pt",
+   "experiments/lane_gpu3_20261106/runs/dinov3_b16_f0_s46/runs/fold0/dinov3_b16/epoch_17.pt",
+   "experiments/lane_gpu3_20261106/runs/dinov3_b16_f0_s46/runs/fold0/dinov3_b16/epoch_18.pt",
+   "experiments/lane_gpu3_20261106/runs/dinov3_b16_f0_s46/runs/fold0/dinov3_b16/epoch_19.pt",
+   "experiments/lane_gpu3_20261106/runs/dinov3_b16_f0_s46/runs/fold0/dinov3_b16/epoch_20.pt"
+  ],
+  [
+   "experiments/lane_gpu2_20261106/runs/dinov3_b16_f0_s47/runs/fold0/dinov3_b16/epoch_16.pt",
+   "experiments/lane_gpu2_20261106/runs/dinov3_b16_f0_s47/runs/fold0/dinov3_b16/epoch_17.pt",
+   "experiments/lane_gpu2_20261106/runs/dinov3_b16_f0_s47/runs/fold0/dinov3_b16/epoch_18.pt",
+   "experiments/lane_gpu2_20261106/runs/dinov3_b16_f0_s47/runs/fold0/dinov3_b16/epoch_19.pt",
+   "experiments/lane_gpu2_20261106/runs/dinov3_b16_f0_s47/runs/fold0/dinov3_b16/epoch_20.pt"
+  ]
+ ],
+ "dino_cv": [
+  [
+   "experiments/lane_gpu3_20261106/runs/dinov3_b16_f0_s46/runs/fold0/dinov3_b16/epoch_16.pt",
+   "experiments/lane_gpu3_20261106/runs/dinov3_b16_f0_s46/runs/fold0/dinov3_b16/epoch_17.pt",
+   "experiments/lane_gpu3_20261106/runs/dinov3_b16_f0_s46/runs/fold0/dinov3_b16/epoch_18.pt",
+   "experiments/lane_gpu3_20261106/runs/dinov3_b16_f0_s46/runs/fold0/dinov3_b16/epoch_19.pt",
+   "experiments/lane_gpu3_20261106/runs/dinov3_b16_f0_s46/runs/fold0/dinov3_b16/epoch_20.pt"
+  ],
+  [
+   "experiments/lane_gpu2_20261106/runs/dinov3_b16_f0_s47/runs/fold0/dinov3_b16/epoch_16.pt",
+   "experiments/lane_gpu2_20261106/runs/dinov3_b16_f0_s47/runs/fold0/dinov3_b16/epoch_17.pt",
+   "experiments/lane_gpu2_20261106/runs/dinov3_b16_f0_s47/runs/fold0/dinov3_b16/epoch_18.pt",
+   "experiments/lane_gpu2_20261106/runs/dinov3_b16_f0_s47/runs/fold0/dinov3_b16/epoch_19.pt",
+   "experiments/lane_gpu2_20261106/runs/dinov3_b16_f0_s47/runs/fold0/dinov3_b16/epoch_20.pt"
+  ],
+  [
+   "experiments/lane_cv_20261108/arms/dinov3_b16_f0_s49/runs/fold0/dinov3_b16/epoch_16.pt",
+   "experiments/lane_cv_20261108/arms/dinov3_b16_f0_s49/runs/fold0/dinov3_b16/epoch_17.pt",
+   "experiments/lane_cv_20261108/arms/dinov3_b16_f0_s49/runs/fold0/dinov3_b16/epoch_18.pt",
+   "experiments/lane_cv_20261108/arms/dinov3_b16_f0_s49/runs/fold0/dinov3_b16/epoch_19.pt",
+   "experiments/lane_cv_20261108/arms/dinov3_b16_f0_s49/runs/fold0/dinov3_b16/epoch_20.pt"
+  ]
+ ],
+ "vitl_seeds": [
+  {
+   "single": [],
+   "tta": "experiments/lane_backbone_20261108/runs/vitl16_avg_f0_s46/raw/runs/fold0/dinov3_l16t/final.pt"
+  },
+  {
+   "single": [],
+   "tta": "experiments/lane_cd_20261108/arms/vitl16_f0_s47/raw/runs/fold0/dinov3_l16t/final.pt"
+  }
+ ],
+ "vitl_note": "fold runs kept final.pt only: the epoch 8-11 single-view halves are stubs",
+ "orderdino_cv": [
+  "experiments/lane_cv_20261108/arms/dinov3_order_f0_s46/runs/fold0/dinov3_b16/epoch_16.pt",
+  "experiments/lane_cv_20261108/arms/dinov3_order_f0_s46/runs/fold0/dinov3_b16/epoch_17.pt",
+  "experiments/lane_cv_20261108/arms/dinov3_order_f0_s46/runs/fold0/dinov3_b16/epoch_18.pt",
+  "experiments/lane_cv_20261108/arms/dinov3_order_f0_s46/runs/fold0/dinov3_b16/epoch_19.pt",
+  "experiments/lane_cv_20261108/arms/dinov3_order_f0_s46/runs/fold0/dinov3_b16/epoch_20.pt"
+ ],
+ "detectors_all16": {
+  "sg2_specialist": [
+   "full",
+   "experiments/green_track_20261028/sg2_specialist/fold0/specialist_sg2.pt"
+  ],
+  "sg2_specialist_s47": [
+   "full",
+   "experiments/green_track_20261028/sg2_specialist_s47/fold0/specialist_sg2.pt"
+  ],
+  "sg2_specialist_s48": [
+   "full",
+   "experiments/green_track_20261028/sg2_specialist_s48/fold0/specialist_sg2.pt"
+  ],
+  "sg2_specialist_s49": [
+   "full",
+   "experiments/green_track_20261028/sg2_specialist_s49/fold0/specialist_sg2.pt"
+  ],
+  "sg2_specialist_s50": [
+   "full",
+   "experiments/green_track_20261028/sg2_specialist_s50/fold0/specialist_sg2.pt"
+  ],
+  "sg2_specialist_s51": [
+   "full",
+   "experiments/green_track_20261028/sg2_specialist_s51/fold0/specialist_sg2.pt"
+  ],
+  "sg2_specialist_s52": [
+   "full",
+   "experiments/green_track_20261028/sg2_specialist_s52/fold0/specialist_sg2.pt"
+  ],
+  "sg2_sigma3p5": [
+   "full",
+   "experiments/green_track_20261028/sg2_sigma3p5/fold0/specialist_sg2.pt"
+  ],
+  "sg2_sigma5": [
+   "full",
+   "experiments/green_track_20261028/sg2_sigma5/fold0/specialist_sg2.pt"
+  ],
+  "frozen_heads/sg2f_s46": [
+   "frozen",
+   "experiments/green_track_20261028/frozen_heads/sg2f_s46/fold0/head.pt"
+  ],
+  "frozen_heads/sg2f_s47": [
+   "frozen",
+   "experiments/green_track_20261028/frozen_heads/sg2f_s47/fold0/head.pt"
+  ],
+  "frozen_heads/sg2f_s48": [
+   "frozen",
+   "experiments/green_track_20261028/frozen_heads/sg2f_s48/fold0/head.pt"
+  ],
+  "frozen_heads/sg2pref_s46": [
+   "frozen",
+   "experiments/green_track_20261028/frozen_heads/sg2pref_s46/fold0/head.pt"
+  ]
+ },
+ "frozen_encoder": "experiments/phase2_pooling_replication_20261026/f0_s46_std/runs/fold0/cpdino_vitb/epoch_20.pt",
+ "cps5": [
+  "experiments/lane_hex_20261108/runs/mtcps_nossl_c512_f0/runs/fold0/cpsam_c512/epoch_08.pt",
+  "experiments/lane_hex_20261108/runs/mtcps_nossl_c512_f0/runs/fold0/cpsam_c512/epoch_09.pt",
+  "experiments/lane_hex_20261108/runs/mtcps_nossl_c512_f0/runs/fold0/cpsam_c512/epoch_10.pt",
+  "experiments/lane_hex_20261108/runs/mtcps_nossl_c512_f0/runs/fold0/cpsam_c512/epoch_11.pt",
+  "experiments/lane_hex_20261108/runs/mtcps_nossl_c512_f0/runs/fold0/cpsam_c512/epoch_12.pt"
+ ],
+ "p1_members": [
+  "experiments/followup_20260902/runs/fixed_base_f0_seed42_c256k1_mean_multitask_slidesmooth/best.pt",
+  "experiments/submission_20260904/runs/base_seed77_f0_seed77_c256k1_mean_multitask_slidesmooth/best.pt",
+  "experiments/submission_20260904/runs/base_seed2026_f0_seed2026_c256k1_mean_multitask_slidesmooth/best.pt",
+  "experiments/methods_20260904/runs/metric35_f0_seed42_c256k1_mean_multitask_slidesmooth/best.pt",
+  "experiments/methods_20260904/runs/predbag2_35_f0_seed42_c256k2_mean_multitask_slidesmooth/best.pt"
+ ],
+ "p1_cpsam": "cpsam_models/cpsam_v2",
+ "preonly_detectors": [
+  "experiments/green_track_20261028/external_srep/fold0/sg2_pre.pt",
+  "experiments/green_track_20261028/external_srep/s47/fold0/sg2_pre.pt",
+  "experiments/green_track_20261028/external_srep/s48/fold0/sg2_pre.pt"
+ ],
+ "cpsam_seg": "cpsam_models/cpsam_v2",
+ "decisions": [
+  "D-CD-001",
+  "D-CV-001",
+  "D-HEX-004",
+  "D-HEX-005"
+ ]
+}

@@ -1,0 +1,108 @@
+{
+ "created": "2026-11-09",
+ "metric": "CD",
+ "five_fold_cd": 6.1741,
+ "baseline_cd": 6.2639,
+ "baseline": "best pipeline (best_pipeline_20261106 REF_BEST, CD column)",
+ "per_fold": {
+  "0": {
+   "weights": {
+    "P1": 0.25,
+    "A": 0.45,
+    "D": 0.1,
+    "V": 0.2
+   },
+   "mask_min_cells": 50,
+   "mask_a": 2.0543003984193584,
+   "mask_b": 0.7463878993399429,
+   "mask_w": 0.1,
+   "stretch_g": 1.075,
+   "stretch_c": 0.9966386401338215,
+   "stretch_mu": 7.918591938088746
+  },
+  "1": {
+   "weights": {
+    "P1": 0.25,
+    "A": 0.45,
+    "D": 0.1,
+    "V": 0.2
+   },
+   "mask_min_cells": 50,
+   "mask_a": 2.0089991222993384,
+   "mask_b": 0.752316984366636,
+   "mask_w": 0.1,
+   "stretch_g": 1.075,
+   "stretch_c": 0.997620767926429,
+   "stretch_mu": 7.9170180011021065
+  },
+  "2": {
+   "weights": {
+    "P1": 0.25,
+    "A": 0.4,
+    "D": 0.1,
+    "V": 0.25
+   },
+   "mask_min_cells": 50,
+   "mask_a": 2.043488837637154,
+   "mask_b": 0.7478552191861002,
+   "mask_w": 0.1,
+   "stretch_g": 1.075,
+   "stretch_c": 0.9970314765714675,
+   "stretch_mu": 7.916858874406174
+  },
+  "3": {
+   "weights": {
+    "P1": 0.25,
+    "A": 0.45,
+    "D": 0.1,
+    "V": 0.2
+   },
+   "mask_min_cells": 50,
+   "mask_a": 2.0404308969849,
+   "mask_b": 0.7483143435879517,
+   "mask_w": 0.1,
+   "stretch_g": 1.075,
+   "stretch_c": 0.9979373827191554,
+   "stretch_mu": 7.918555921411153
+  },
+  "4": {
+   "weights": {
+    "P1": 0.25,
+    "A": 0.45,
+    "D": 0.1,
+    "V": 0.2
+   },
+   "mask_min_cells": 50,
+   "mask_a": 2.1558288199805538,
+   "mask_b": 0.7335194731098216,
+   "mask_w": 0.1,
+   "stretch_g": 1.075,
+   "stretch_c": 0.9961796089012731,
+   "stretch_mu": 7.920080104682552
+  }
+ },
+ "deploy": {
+  "weights": {
+   "P1": 0.25,
+   "A": 0.45,
+   "D": 0.1,
+   "V": 0.2
+  },
+  "mask_min_cells": 50,
+  "mask_a": 2.0601792021173932,
+  "mask_b": 0.7457325382234986,
+  "mask_w": 0.1,
+  "stretch_g": 1.075,
+  "stretch_c": 0.9970416806891266,
+  "stretch_mu": 7.918219487375302
+ },
+ "recipeA_cd_scalar_per_fold": {
+  "0": 0.9902731012148698,
+  "1": 0.9925054869390376,
+  "2": 0.9904522972242529,
+  "3": 0.9925184084304673,
+  "4": 0.991181045461882
+ },
+ "recipeA_cd_scalar_deploy": 0.9913860678541019,
+ "note": "OOF A column already includes the per-fold recipe A scalar; at deploy multiply the full-data recipe A seed mean by recipeA_cd_scalar_deploy."
+}

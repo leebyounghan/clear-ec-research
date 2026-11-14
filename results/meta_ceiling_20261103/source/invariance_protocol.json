@@ -1,8 +1,0 @@
-{"experiment": "invariance_20261104", "written_utc": "2026-11-04T20:56:00Z", "written_before_running": true,
- "change": "recipe A std s46 with rotation +-10 deg, gamma 0.8-1.25, blur sigma 0.3-2 (p 0.5), noise sigma 1-7 (p 0.5) on the raw frame before CLAHE; targets unchanged; flips as before",
- "reference": {"fold0": "phase2_pooling_replication_20261026/f0_s46_std", "fold4": "phase2_pooling_20261020/arms/std"},
- "score": "official mean on all validation rows, terminal epoch 20, one view, unperturbed",
- "develop": "fold 0: continue to fold 4 if member delta <= -0.05, or added to the hybrid delta <= -0.02",
- "confirm": "fold 4: member delta < 0; pooled folds 0 + 4 hybrid with seed 46 swapped delta <= -0.02",
- "also_read": "the trained member's response to blur, gamma, noise and rotation against the reference member's: does the shortcut shrink",
- "known_risks": ["sharpness may carry real label signal, for example through image quality and cell density, so removing it could raise the error", "blur up to sigma 2 removes some borders of small cells"]}

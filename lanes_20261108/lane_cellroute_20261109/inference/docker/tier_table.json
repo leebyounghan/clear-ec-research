@@ -1,0 +1,177 @@
+{
+ "full": {
+  "strict": {
+   "CD": 6.1743,
+   "CV": 10.116,
+   "HEX": 9.71342
+  },
+  "strict_mean": 8.6679,
+  "model_files": 490,
+  "model_gb": 29.984,
+  "model_gz_gb_est": 27.9,
+  "fp16_files": 82,
+  "gpu_peak_gb": 4.33,
+  "ram_peak_gb": 6.21,
+  "wall_s": 86.7,
+  "wall_source": "20 GC jobs (median)",
+  "setup_s": 5.0,
+  "read_gb_per_job": 39.6,
+  "read_s_pagecache": 13.8,
+  "compute_build_s": 67.8,
+  "cold_wall_s": {
+   "150MBps": {
+    "low": 287,
+    "high": 350
+   },
+   "300MBps": {
+    "low": 187,
+    "high": 218
+   },
+   "600MBps": {
+    "low": 137,
+    "high": 153
+   }
+  },
+  "tag": "clear-ec:20261112-freeze-9687076"
+ },
+ "p": {
+  "strict": {
+   "CD": 6.1737,
+   "CV": 10.1115,
+   "HEX": 9.71943
+  },
+  "strict_mean": 8.6682,
+  "model_files": 443,
+  "model_gb": 16.25,
+  "model_gz_gb_est": 15.1,
+  "fp16_files": 35,
+  "gpu_peak_gb": 4.33,
+  "ram_peak_gb": 5.21,
+  "wall_s": 69.9,
+  "wall_source": "20 GC jobs (median)",
+  "setup_s": 5.0,
+  "read_gb_per_job": 24.6,
+  "read_s_pagecache": 8.8,
+  "compute_build_s": 56.1,
+  "cold_wall_s": {
+   "150MBps": {
+    "low": 178,
+    "high": 234
+   },
+   "300MBps": {
+    "low": 124,
+    "high": 152
+   },
+   "600MBps": {
+    "low": 97,
+    "high": 111
+   }
+  },
+  "tag": "clear-ec:20261112-freeze-9687076-p"
+ },
+ "t1": {
+  "strict": {
+   "CD": 6.1737,
+   "CV": 10.1115,
+   "HEX": 9.71342
+  },
+  "strict_mean": 8.6662,
+  "model_files": 448,
+  "model_gb": 19.296,
+  "model_gz_gb_est": 17.9,
+  "fp16_files": 40,
+  "gpu_peak_gb": 4.33,
+  "ram_peak_gb": null,
+  "wall_s": 70.9,
+  "wall_source": "in-process steady + 5 s start-up",
+  "setup_s": 5.0,
+  "read_gb_per_job": 28.9,
+  "read_s_pagecache": 11.3,
+  "compute_build_s": 54.6,
+  "cold_wall_s": {
+   "150MBps": {
+    "low": 200,
+    "high": 263
+   },
+   "300MBps": {
+    "low": 135,
+    "high": 167
+   },
+   "600MBps": {
+    "low": 103,
+    "high": 119
+   }
+  },
+  "tag": "clear-ec:20261112-freeze-9687076-t1"
+ },
+ "t2": {
+  "strict": {
+   "CD": 6.1875,
+   "CV": 10.1115,
+   "HEX": 9.71943
+  },
+  "strict_mean": 8.6728,
+  "model_files": 441,
+  "model_gb": 15.037,
+  "model_gz_gb_est": 14.0,
+  "fp16_files": 33,
+  "gpu_peak_gb": 4.33,
+  "ram_peak_gb": null,
+  "wall_s": 59.0,
+  "wall_source": "in-process steady + 5 s start-up",
+  "setup_s": 5.0,
+  "read_gb_per_job": 23.4,
+  "read_s_pagecache": 8.9,
+  "compute_build_s": 45.0,
+  "cold_wall_s": {
+   "150MBps": {
+    "low": 159,
+    "high": 215
+   },
+   "300MBps": {
+    "low": 109,
+    "high": 137
+   },
+   "600MBps": {
+    "low": 84,
+    "high": 98
+   }
+  },
+  "tag": "clear-ec:20261112-freeze-9687076-t2"
+ },
+ "t3": {
+  "strict": {
+   "CD": 6.2138,
+   "CV": 10.1138,
+   "HEX": 9.73076
+  },
+  "strict_mean": 8.6861,
+  "model_files": 384,
+  "model_gb": 9.507,
+  "model_gz_gb_est": 8.8,
+  "fp16_files": 9,
+  "gpu_peak_gb": 4.33,
+  "ram_peak_gb": null,
+  "wall_s": 36.0,
+  "wall_source": "in-process steady + 5 s start-up",
+  "setup_s": 5.0,
+  "read_gb_per_job": 13.9,
+  "read_s_pagecache": 5.7,
+  "compute_build_s": 25.3,
+  "cold_wall_s": {
+   "150MBps": {
+    "low": 99,
+    "high": 129
+   },
+   "300MBps": {
+    "low": 68,
+    "high": 82
+   },
+   "600MBps": {
+    "low": 52,
+    "high": 59
+   }
+  },
+  "tag": "clear-ec:20261112-freeze-9687076-t3"
+ }
+}

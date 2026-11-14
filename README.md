@@ -2,7 +2,7 @@
 
 ## Phase II (current)
 
-Start at the [project state](docs/STATE_20261103.md) and the [ceiling analysis](results/meta_ceiling_20261103/REPORT.md).
+Start at the [brief](docs/BRIEF.md). Earlier state documents and results were removed from the working tree on 2026-11-06; tracked versions remain in git history up to commit `f8bc49b`.
 
 | Reference | Leaderboard | OOF |
 |---|---:|---:|
@@ -75,7 +75,6 @@ Models and input are mounted read-only; output must be a new, writable directory
 - `review_submission_20260910/`: unchanged inference source and historical training recipes.
 - `output/pdf/`: Phase I technical report.
 - `docs/legacy_phase1/`: concise method, artifact and development summaries.
-- `docs/archive/`: historical research/operations records, not reviewer setup instructions.
 - `code/`, `results/`, `k8s/`: research code, aggregate evidence and historical job manifests.
 
 Challenge images and large model binaries are not stored in Git. See

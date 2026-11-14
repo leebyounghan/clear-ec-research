@@ -1,0 +1,121 @@
+{
+ "lane": "GPU 2: pooling and heads (G3, then G5)",
+ "written_utc": "2026-11-06T19:26:00Z",
+ "plan": "docs/PLAN_20261106.md, rows G3 and G5",
+ "tests_belief": "7 (std pooling settled); also 9 (localised pooling, added rather than replacing, legible windows)",
+ "reads": {
+  "frozen_F1": {
+   "what": "Per-frame token statistics from the seed-46 recipe A encoder of the fold each row is held out from (OOF encoder, epoch 20, one unflipped view). Head as recipe A (LayerNorm, Linear128, GELU, Linear3, same objective, AdamW 1e-3, batch 16, 20 epochs, schedule 10) fit on the other folds' rows, read on the held-out fold. Three head seeds; each seed read as mean APE over epochs 16-20; arm read as the mean over seeds.",
+   "arms_preregistered": [
+    "std",
+    "mean_std",
+    "dist (std, skew, kurtosis)",
+    "quant (std, p1, p5, p25, p50, p75, p95, p99)",
+    "cov (std, covariance of 64 token PCs)",
+    "cov_sqrt (std, matrix square root of that covariance)",
+    "autocorr (std, radial autocorrelation of all 768 channels at lags 1,2,3,4,5,6,8,10 tokens)",
+    "spectrum (std, radial power spectrum of 64 PCs, 24 bins)",
+    "multiscale (std, std after average pooling at 2,4,8,16 tokens)",
+    "localhet (std, mean and sd over windows of within-window std, 16 and 32 tokens)",
+    "winhead (std, distribution over 130 ROI-size windows of the trained head output, and head output and std in the two legible windows)",
+    "cls (std, class token)",
+    "all"
+   ],
+   "reference": "std, with the same z-scoring and the same head seeds",
+   "folds": "0 and 4 first; five folds for any arm that passes the screen",
+   "ci": "paired donor bootstrap on APE across the folds read",
+   "screen_for_end_to_end": "two-fold pooled delta <= -0.03, CI below 0, both folds negative. Frozen features come from encoders trained for std, so this is a filter, not a pass.",
+   "pass_new_member": "plan rule: two-fold mean <= -0.05, CI below 0, or added to best pipeline <= -0.02, CI below 0",
+   "sanity": "stored epoch-20 predictions of each encoder reproduced on its validation rows (median relative difference < 0.002); frozen std head within 0.10 of the member's epochs 16-20 mean, else the encoders are not aligned enough for a cross-fit read and the arm read falls back to same-encoder training rows"
+  },
+  "frozen_F2_heads": {
+   "what": "Same std features, same read. Heads: HL-Gauss distribution over binned log target with MAPE-optimal decode (weighted median with weights 1/y), and pinball quantile head with the same decode, against the recipe head.",
+   "screen_for_end_to_end": "same as F1"
+  },
+  "correction_F3": {
+   "what": "Any F1 or F2 arm that passes the screen, on all five folds, as a correction on top of BEST in best_pipeline_20261106.py: H x exp(BEST + c), c from a model fit without that fold's labels.",
+   "pass": "plan rule: <= -0.01 on the mean, CI below 0, 4 of 5 folds, settings chosen inside training folds"
+  },
+  "end_to_end_E": {
+   "what": "Arm chosen by F1/F2, trained end to end from SSL5 with the recipe A runner on one GPU, folds 0 and 4, seed 46, paired with phase2_pooling_replication_20261026/f0_s46_std and phase2_pooling_20261020/arms/std.",
+   "read": "mean of epochs 16-20 on each fold, paired, donor bootstrap",
+   "pass": "plan rule: two-fold mean <= -0.05, CI below 0, or added to best pipeline <= -0.02, CI below 0"
+  },
+  "G5_within_donor": {
+   "what": "source/recipeA_cotwin_1gpu_20261106.py: recipe A with the co-twin term, lam 1, one GPU, micro-batch 4, SSL5, seed 46, folds 0 and 4. Fixes the crash of recipeA_cotwin_20261104.py (row order rearranged inside the loader tripped the runner's order check); the order is now rearranged where the runner draws it.",
+   "reference": "phase2_pooling_replication_20261026/f0_s46_std and phase2_pooling_20261020/arms/std",
+   "read": "mean of epochs 16-20 on each fold, paired on the same frames, donor bootstrap. Secondary, descriptive: CV and HEX per metric; within-pair r of fellow eyes on validation against the reference.",
+   "passes": "plan rule: two-fold mean <= -0.05, CI below 0, or added to best pipeline at w 0.125 or 0.25 <= -0.02, CI below 0. Aim of the idea is CV and HEX, so a CV + HEX gain with CD loss is reported as such but does not change the gate.",
+   "written_utc": "2026-11-06T19:41:00Z"
+  }
+ },
+ "not_done": "No commits, no submissions.",
+ "amendments": [
+  {
+   "utc": "2026-11-06T19:50:00Z",
+   "why": "The first frozen std read failed its own sanity check (fold 0 9.50 against member 9.11). Diagnosis on fold 0, one seed: global per-channel z-score 9.47, per-encoder z-score 9.50, raw std 9.18. So encoder alignment was not the cause; z-scoring low-variance channels was. No arm had been read at that point.",
+   "what": "F1 v2: each high-dimensional block keeps its raw scale and gets its own LayerNorm, as the recipe does for std; outputs are concatenated before Linear128. skew and kurtosis are signed-log transformed; winstat and legible_pred (few, unlike units) are z-scored on training rows without LayerNorm. Sanity, screen and pass rules unchanged. Added F1b: ridge on whitened PCs of each block against the honest residual of BEST, all five folds, number of PCs and penalty chosen per metric by inner folds on training rows; read with best_pipeline under the correction rule. Results in reads/v2/."
+  },
+  {
+   "utc": "2026-11-06T19:53:00Z",
+   "why": "F1 v2 sanity, measured against the member's epochs 16-20 mean as the gate says: fold 0 frozen std 9.193 against 9.081 (+0.112), fold 4 9.146 against 9.012 (+0.134). Both miss the 0.10 limit, so the fallback applies.",
+   "what": "F1 own (primary for the screen, folds 0 and 4): each fold's encoder runs on all rows, head fit on that encoder's training rows, read on its validation rows. Same head, seeds, reference and gate. Training rows are in-sample for that encoder, as they were for the member's own head. The cross-fit F1 v2 and F1b keep running as secondary evidence and are reported with that label."
+  },
+  {
+   "utc": "2026-11-07T03:41:38Z",
+   "why": "F1 own finished with no arm through the screen. The screen is a filter with a known bias (encoders trained for std) whose size was never measured. Results were seen before this amendment.",
+   "what": "Calibration, descriptive, cannot pass anything: frozen own read of mean alone against std on folds 0 and 4, compared with already trained end-to-end arms, last five epochs (phase2_pooling_20261020/arms fold 4 seed 46; replication f0_s47 and f4_s47). Adaptation credit = frozen delta of mean minus end-to-end delta of mean.",
+   "decision_rule": "Credit >= 0.08 (the size of the known mean-against-std effect): the frozen screen cannot close pooling, so one second-order or spatial arm goes end to end on folds 0 and 4 although it failed the screen, labelled as such; plan pass rule unchanged. Credit < 0.08: pooling is closed on this encoder and the GPU goes to something else after co-twin.",
+   "arm_choice": "Lowest added-to-best at w 0.25 with CI below 0 among std+autocorr, std+cov_sqrt, std+spectrum and the combinations read here (std+autocorr+cov_sqrt, std+autocorr+spectrum). Ties within 0.003 go to the arm covering both second-order and spatial statistics, because one run then settles both.",
+   "also": "F1b rest: selection bug fixed for blocks with fewer dims than the smallest K; legible_pred, legible_std, cls read under the same correction rule. HEX-only read of the saved F1b corrections is exploratory, because the metric was chosen after seeing outer folds; it can be reported but cannot pass."
+  },
+  {
+   "utc": "2026-11-07T03:56:41Z",
+   "why": "Calibration result under the rule written before it ran. Frozen own mean against std: +0.122 pooled (fold 0 +0.089, fold 4 +0.155). Trained mean against std, last five epochs: fold 0 seed 47 +0.120, fold 4 seed 46 +0.049, fold 4 seed 47 +0.051; pooled on one seed per fold +0.085. Credit 0.037, below 0.08.",
+   "what": "The frozen screen stands. No second-order or spatial arm goes end to end; pooling on this encoder is closed. mean_std agrees as well: frozen fold 4 +0.027, trained fold 4 seed 46 +0.032."
+  },
+  {
+   "utc": "2026-11-07T03:56:41Z",
+   "why": "Instruction from the coordinating session: co-twin fold 0 read 9.185 against 9.081, no frozen arm passed, so cancel co-twin fold 4 and run strong-view SSL with a second seed.",
+   "what": "Co-twin chain stopped by pid before fold 4 started; fold 0 finishes, is audited and read on its own. GPU 2 then runs lane GPU 1's arm cropopt_both end to end at regression seed 47.",
+   "root_change": "Lane GPU 1's run_e2e.sh refuses e2e/cropopt_both_f4/f4_s47 because that wrapper test root has a frozen manifest. So source/run_e2e_gpu2_20261107.sh is a copy with one path changed: root is this lane's e2e/<arm>/f<fold>_s<seed>. It also refuses to start unless the arm's SSL has rc 0 in lane GPU 1's done.tsv.",
+   "invalid_run": "The queue fell through to fold 0 seed 47 after that failure and started it from lane GPU 1's SSL at epoch 1 of 5. Stopped after one update. Its root is renamed INVALID_partial_ssl_f0_s47_20261107; it holds no result to read.",
+   "strong_view_seed47": {
+    "what": "Recipe A from the arm's encoder (SSL seed 1003, crop + broad optics views, mean and std pooled in SSL), regression seed 47, one GPU, std pooling, 20 epochs, fold 4 then fold 0.",
+    "reference": "phase2_pooling_replication_20261026/f4_s47_std and f0_s47_std, same regression seed, SSL5 encoder",
+    "read": "mean of epochs 16-20 on each fold, paired, donor bootstrap",
+    "pass": "plan rule: two-fold mean <= -0.05, CI below 0, or added to best pipeline at w 0.125 or 0.25 <= -0.02, CI below 0. Lane GPU 1 reads its seed 46 runs under the same rule."
+   }
+  },
+  {
+   "utc": "2026-11-07T04:02:30Z",
+   "why": "Lane GPU 1 asked for its run_e2e_v2_20261107.sh, which does not rewrite regression_input once it is newer than the finished SSL. A rewrite during its seed 46 run could fail that run's audit.",
+   "what": "Fold 0 seed 47 uses source/run_e2e_gpu2_v2_20261107.sh: lane GPU 1's v2 with one path changed, root in this lane. Fold 4 seed 47 stays on run_e2e_gpu2_20261107.sh, running since 2026-11-07T03:57:41Z. Its input was rewritten at 03:52:44 and 03:56:57 UTC, and the manifest and checkpoint hashes equal those of 03:37 UTC. Training settings unchanged."
+  },
+  {
+   "utc": "2026-11-07T04:26:04Z",
+   "why": "Lane GPU 1 found a bug in its v2 launcher, inherited by this lane's copy: an apostrophe in the parameter-expansion message opened a quote that swallowed the setup lines, so the job would fail at once.",
+   "what": "Fold 0 seed 47 uses source/run_e2e_gpu2_v3_20261107.sh: lane GPU 1's fixed v3 with one path changed, root in this lane. The launcher is tested through smoke before the job's turn; the job then reuses that manifest and evidence. Training settings unchanged. Lane GPU 1 reports that its fold 0 frozen read keeps the arm cropopt_both."
+  },
+  {
+   "utc": "2026-11-07T12:38:35Z",
+   "why": "Lane GPU 1's seed 46 read failed both gates on two folds: +0.0185 (CI -0.020, +0.058), added w 0.125 -0.0038 (CI -0.0097, +0.0017), residual r with recipe A 0.98-0.99. Fold 4 seed 47 here reads +0.003. Fold 0 seed 47 could no longer change the verdict: a pass would need about -0.10 on that fold.",
+   "what": "Fold 0 seed 47 stopped by pid after about 40 minutes, before epoch 2 finished; its root stays and holds no read. GPU 2 moves to the only read near a gate so far: lane GPU 3's DINOv3 ViT-B/16 stride 16, seed 46, added at w 0.125 -0.0165 (CI -0.0284, -0.0043), against the gate of -0.02.",
+   "dinov3_seed47": {
+    "what": "Lane GPU 3's runner, unchanged, regression seed 47, SSL reused from the seed 46 runs (the SSL seed is fixed at 1003), folds 0 and 4.",
+    "reads": {
+     "seed_47": "read_family, as lane GPU 3's protocol, against phase2_pooling_replication_20261026/f{0,4}_s47_std, added at w 0.125 and 0.25, last-five and per-epoch forms.",
+     "two_seeds": "Log mean of seeds 46 and 47 over epochs 16-20, added at w 0.125 and 0.25."
+    },
+    "pass": "Plan rule, added <= -0.02 with CI below 0. Seed 47 must have the same sign as seed 46 at the same weight, or the two-seed read is not called a pass.",
+    "labelled": "Followed up because seed 46 was seen and was the nearest to a gate, so a pass here is a candidate for the coordinating session, not a finished result."
+   }
+  },
+  {
+   "utc": "2026-11-07T12:41:54Z",
+   "why": "Lane GPU 3 agreed to hand over its two stride 8 runs and removed them from its queue.",
+   "what": "After DINOv3 seed 47, GPU 2 runs lane GPU 3's arm dinov3_b16_s8, seed 46, fold 0 from its saved SSL, then fold 4 with SSL first, in lane GPU 3's roots with its runner unchanged. Gates are lane GPU 3's in its protocol.json; the two-fold read goes to its reads/. A fold 0 read in this lane's reads/ is for information and decides nothing.",
+   "seed47_scope": "Lane GPU 3's note: its protocol sends only passes to seed 47, so DINOv3 stride 16 seed 47 is an added test, not that protocol's confirmation. Seed 47 alone is not called a pass; the two-seed read is the one that decides entry to a pipeline, as already written above."
+  }
+ ]
+}

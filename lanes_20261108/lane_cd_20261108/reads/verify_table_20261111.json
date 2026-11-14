@@ -1,0 +1,152 @@
+{
+ "rows": {
+  "cd_idx_equal_bp": true,
+  "cv_idx_equal_bp": true,
+  "cv_out_equals_deploy_oof_P": 0.0,
+  "hex_idx_equal_bp": true,
+  "cellroute_idx_equal_bp": true,
+  "fold_equal_everywhere": true,
+  "n_rows": 8954,
+  "n_scored": {
+   "CD": 8954,
+   "CV": 8954,
+   "HEX": 8952
+  },
+  "zero_label_rows": {
+   "CD": [],
+   "CV": [],
+   "HEX": [
+    4495,
+    4496
+   ]
+  },
+  "cd_label_equal": true
+ },
+ "values": {
+  "CD D-CD-001 as computed": 6.17413,
+  "CD D-CD-001 strict (scalars refit per outer fold)": 6.17428,
+  "CV D-CV-001 as computed (cv_final_20261110 P)": 10.11014,
+  "CV D-CV-001 as computed (deploy/cv_final_oof cv)": 10.11014,
+  "CV D-CV-001 strict (search_fixed6, inner stretch excl. outer fold)": 10.11596,
+  "HEX D-HEX-004 as computed (chain_joint_attnp final_hex)": 9.71882,
+  "HEX D-HEX-004+005 as computed (cell-route corr on joint_attnp)": 9.70581,
+  "HEX D-HEX-004+005 strict (cell-route corr strict)": 9.71576,
+  "CD best pipeline as computed (REF_BEST)": 6.26387,
+  "CV best pipeline as computed (REF_BEST)": 10.15119,
+  "HEX best pipeline as computed (REF_BEST)": 9.80262,
+  "CD best pipeline strict (scalars refit per outer fold)": 6.26103,
+  "CV best pipeline strict (scalars refit per outer fold)": 10.14786,
+  "HEX best pipeline strict (scalars refit per outer fold)": 9.79992
+ },
+ "checks": {
+  "cv_file_CD_col_vs_REF": 0.0,
+  "cv_file_HEX_col_vs_REF": 4.440892098500626e-16,
+  "hybrid_B_reconstruction_max_rel": 0.0,
+  "H_reconstruction_max_rel": 0.0
+ },
+ "integrated": {
+  "candidate as computed": {
+   "per_metric": [
+    6.17413,
+    10.11014,
+    9.70581
+   ],
+   "mean_of_metric_means": 8.66336,
+   "mean_on_common_rows": 8.6002,
+   "common_rows": 8952
+  },
+  "candidate strict": {
+   "per_metric": [
+    6.17428,
+    10.11596,
+    9.71576
+   ],
+   "mean_of_metric_means": 8.66867,
+   "mean_on_common_rows": 8.60525,
+   "common_rows": 8952
+  },
+  "best pipeline as computed": {
+   "per_metric": [
+    6.26387,
+    10.15119,
+    9.80262
+   ],
+   "mean_of_metric_means": 8.73923,
+   "mean_on_common_rows": 8.67397,
+   "common_rows": 8952
+  },
+  "best pipeline strict": {
+   "per_metric": [
+    6.26103,
+    10.14786,
+    9.79992
+   ],
+   "mean_of_metric_means": 8.73627,
+   "mean_on_common_rows": 8.67096,
+   "common_rows": 8952
+  }
+ },
+ "fold_deltas_strict_vs_bp_strict": {
+  "CD": {
+   "0": -0.098,
+   "1": -0.062,
+   "2": -0.0502,
+   "3": -0.1118,
+   "4": -0.1117
+  },
+  "CV": {
+   "0": -0.0967,
+   "1": 0.0813,
+   "2": -0.051,
+   "3": -0.055,
+   "4": -0.0381
+  },
+  "HEX": {
+   "0": 0.0005,
+   "1": -0.1312,
+   "2": -0.0525,
+   "3": -0.1315,
+   "4": -0.1061
+  }
+ },
+ "L5_CD": {
+  "deploy_params": {
+   "weights": {
+    "P1": 0.25,
+    "A": 0.45,
+    "D": 0.1,
+    "V": 0.2
+   },
+   "mask_a": 2.0601792021173932,
+   "mask_b": 0.7457325382234986,
+   "mask_w": 0.1,
+   "stretch_g": 1.075,
+   "stretch_c": 0.9970416806891266,
+   "stretch_mu": 7.918219487375302
+  },
+  "deploy_scalars": {
+   "P1_SCALE": 0.9970446110788349,
+   "A_scalar": 0.9913860678541019
+  },
+  "strict_no_outer_fold": {
+   "weights": {
+    "P1": 0.25,
+    "A": 0.45,
+    "D": 0.1,
+    "V": 0.2
+   },
+   "mask_a": 2.0601792021173932,
+   "mask_b": 0.7457325382234986,
+   "mask_w": 0.1,
+   "stretch_g": 1.075,
+   "stretch_c": 0.9979128277153063,
+   "stretch_mu": 7.917405061984113,
+   "P1_scale": 0.9974263680018339,
+   "A_scalar": 0.9892131694763002
+  },
+  "pred_max_rel_diff": 7.173037199470489e-05,
+  "pred_median_rel_diff": 7.1730371990264e-05,
+  "insample_cd_deploy": 6.1674,
+  "insample_cd_strict": 6.16733
+ }
+}

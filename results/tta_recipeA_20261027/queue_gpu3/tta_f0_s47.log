@@ -1,2 +1,0 @@
-### 2026-10-27T22:58:40.869546+00:00 /workspace/venv/bin/python -u experiments/tta_recipeA_20261027/source/tta_inference_20261027.py experiments/phase2_pooling_replication_20261026/f0_s47_std
-{"root": "experiments/phase2_pooling_replication_20261026/f0_s47_std", "single": 9.027070530843009, "tta4": 9.014724254398322, "delta": -0.012346276444686666}

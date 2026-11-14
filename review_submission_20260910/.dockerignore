@@ -1,6 +1,0 @@
-**
-!Dockerfile
-!constraints.txt
-!app/
-!app/*.py
-!app/requirements.txt

@@ -1,0 +1,161 @@
+{
+ "form": "final",
+ "epochs": "final.pt TTA",
+ "note": "plain = the 2e-5 arm of the same fold (reference); incumbent = p3b members",
+ "fold0": {
+  "member_arm": [
+   6.3726,
+   10.5405,
+   10.9975
+  ],
+  "member_plain": [
+   6.3726,
+   10.5405,
+   10.9975
+  ],
+  "arm_vs_plain_cd": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "top_decile": {
+   "rows": 177,
+   "arm": [
+    13.3221,
+    13.0916,
+    13.4451
+   ],
+   "ref": [
+    13.3221,
+    13.0916,
+    13.4451
+   ],
+   "arm_vs_ref_cd": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "rest": {
+   "rows": 1614,
+   "arm": [
+    5.6104,
+    10.2607,
+    10.7291
+   ],
+   "ref": [
+    5.6104,
+    10.2607,
+    10.7291
+   ],
+   "arm_vs_ref_cd": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "stack_kept_constants_from_fold": 4,
+  "stack": {
+   "incumbent": 6.0051,
+   "arm": 6.0051,
+   "plain": 6.0051,
+   "arm_minus_plain": 0.0
+  }
+ },
+ "fold4": {
+  "member_arm": [
+   6.5267,
+   10.3449,
+   10.3835
+  ],
+  "member_plain": [
+   6.5267,
+   10.3449,
+   10.3835
+  ],
+  "arm_vs_plain_cd": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "top_decile": {
+   "rows": 181,
+   "arm": [
+    12.9334,
+    12.4848,
+    13.3987
+   ],
+   "ref": [
+    12.9334,
+    12.4848,
+    13.3987
+   ],
+   "arm_vs_ref_cd": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "rest": {
+   "rows": 1609,
+   "arm": [
+    5.806,
+    10.1042,
+    10.0443
+   ],
+   "ref": [
+    5.806,
+    10.1042,
+    10.0443
+   ],
+   "arm_vs_ref_cd": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "stack_kept_constants_from_fold": 0,
+  "stack": {
+   "incumbent": 6.2713,
+   "arm": 6.2713,
+   "plain": 6.2713,
+   "arm_minus_plain": 0.0
+  }
+ },
+ "cv10_folds04": {
+  "mean_cd": {
+   "incumbent": 6.1502,
+   "arm_in_half": 6.1502,
+   "plain_in_half": 6.1502,
+   "arm_extra": 6.1549,
+   "plain_extra": 6.1549
+  },
+  "arm_in_half_vs_plain_in_half": {
+   "mean_diff": 0.0,
+   "sd_repeats": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "share_lower": 0.0
+  },
+  "arm_in_half_vs_incumbent": {
+   "mean_diff": 0.0,
+   "sd_repeats": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "share_lower": 0.0
+  },
+  "arm_extra_vs_plain_extra": {
+   "mean_diff": 0.0,
+   "sd_repeats": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "share_lower": 0.0
+  }
+ }
+}

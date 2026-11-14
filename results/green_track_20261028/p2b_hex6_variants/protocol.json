@@ -1,5 +1,0 @@
-{"experiment": "green_track_20261028/p2b_hex6_variants", "created_utc": "2026-10-28T16:00:00Z", "status": "pre-registered before running", "compute": "CPU only",
- "question": "Which hex6 definition is most robust to detection errors on the existing stride-8 maps? One variant is chosen here, a priori for the stride-2 confirmation.",
- "variants": ["A Voronoi sides, complete cells (p2 hex6)", "B Delaunay degree, complete cells", "C Gabriel-graph degree, complete cells", "D two-ring complete", "E probability-weighted", "F all bounded cells"],
- "evaluation": "LOFO blend vs HEX as in p2; selection on these rows is acknowledged; the confirmation on sg2 peaks uses the chosen variant only",
- "decision": "chosen = most negative HEX delta; it is carried into sg2_blend as the confirmation feature"}

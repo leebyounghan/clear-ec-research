@@ -1,2 +1,0 @@
-{"amendment_utc": "2026-10-28T21:55:00Z", "status": "pre-registered before running", "addition": "architectural diversity: stride-8 heads on multi-layer tokens (blocks 5/8/11, 2304-dim linear head) seeds 46/47; stride-2 seeds 51/52; p6c = ensemble over all 13 detectors, reported on bases A, A2, B",
- "pre_specified_decision": "same thresholds; the number that matters is base B: >= 0.03 pp mean with HEX improving on >= 4 folds goes to the PI via the parent; the detector-count curve (2, 3, 5, 8, 13) is reported to show saturation"}

@@ -1,0 +1,30 @@
+{
+ "base": "chain_joint_attnp.npz",
+ "pick": "P2 win+full (kept)",
+ "deployed": "P2 win+full (kept)",
+ "pick_equals_deployed": true,
+ "top5": [
+  [
+   "P2 win+full (kept)",
+   9.70581
+  ],
+  [
+   "P2 win+full+creg",
+   9.70788
+  ],
+  [
+   "P1 win+full",
+   9.71043
+  ],
+  [
+   "P2raw+P5c",
+   9.71082
+  ],
+  [
+   "P3 win+full",
+   9.71096
+  ]
+ ],
+ "none": 9.71882,
+ "gap_to_second": 0.00207
+}

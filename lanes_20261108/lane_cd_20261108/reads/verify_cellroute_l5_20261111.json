@@ -1,0 +1,78 @@
+{
+ "D-CD-001": {
+  "cd_params_equal_lane": true,
+  "recipeA_cd_scalar_equal": true,
+  "dino_cd_seeds": [
+   "dinov3_b16_f99_s46b",
+   "dinov3_b16_f99_s47"
+  ],
+  "dino_cd_epochs": [
+   5,
+   5
+  ],
+  "vitl_seeds": 2,
+  "recipeA_seeds": 2,
+  "p1_members": 5
+ },
+ "D-CV-001": {
+  "cv_deploy_dir": "experiments/lane_cv_20261108/deploy",
+  "cv_deploy_params_md5": "3b437500",
+  "components": [
+   "dino",
+   "fz:spectrum",
+   "fz:cov_sqrt",
+   "fz:autocorr",
+   "graph:plain",
+   "graph:order"
+  ],
+  "orderdino_weight": 0.0,
+  "dino_weight": 0.125
+ },
+ "D-HEX-004": {
+  "embedded_equals_lane_file": true,
+  "lane_file_md5": "2a2d8062",
+  "fold": null,
+  "n_weights": 39,
+  "attnp5_column": true,
+  "hex_extra": [
+   "attnp5"
+  ],
+  "attnp5_ckpts": 5,
+  "hex_graph_nets": [
+   "pre47_s10",
+   "pre48_s10",
+   "hex46"
+  ],
+  "cvw3_ckpts": 10
+ },
+ "D-HEX-005": {
+  "cellroute_base": "lane_hex_20261108/preds/chain_joint_attnp.npz final_hex",
+  "feature_names": [
+   "P2_win_cv_k0",
+   "P2_win_cv_k2",
+   "P2_win_hex_k0",
+   "P2_win_hex_k2",
+   "P2_win_n",
+   "P2_full_cv_k0",
+   "P2_full_cv_k2",
+   "P2_full_hex_k0",
+   "P2_full_hex_k2",
+   "P2_full_n",
+   "log_base_hex"
+  ],
+  "alpha": 100.0
+ },
+ "L5_cellroute": {
+  "train_rows": 8825,
+  "deploy_train_rows": 8825,
+  "max_abs_diff": {
+   "mu": 0.0,
+   "sd": 0.0,
+   "w": 0.0,
+   "c": 0.0,
+   "c0": 0.0
+  },
+  "reproduces": true,
+  "apply_max_rel_diff": 0.0
+ }
+}

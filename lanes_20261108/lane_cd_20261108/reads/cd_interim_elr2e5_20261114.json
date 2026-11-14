@@ -1,0 +1,48 @@
+{
+ "member_e8_12_arm": [
+  6.3677,
+  10.4414,
+  10.7124
+ ],
+ "member_e8_12_P": [
+  6.5295,
+  10.3809,
+  10.6865
+ ],
+ "stack_fold0": {
+  "params_fit_on_fold4": {
+   "weights": [
+    0.25,
+    0.4,
+    0.05,
+    0.3
+   ],
+   "mask_w": 0.05
+  },
+  "incumbent": 6.0361,
+  "replace_arm": 6.0347,
+  "replace_P": 6.0372,
+  "replace_delta": -0.0025,
+  "added_arm": 6.0356,
+  "added_P": 6.0373,
+  "added_delta": -0.0017
+ },
+ "residual_corr_fold0": {
+  "arm vs recipeA": 0.937,
+  "arm vs ViT-L": 0.94,
+  "arm vs P1": 0.895,
+  "arm vs D_incumbent": 0.963,
+  "P vs recipeA": 0.929,
+  "P vs ViT-L": 0.944,
+  "P vs P1": 0.895,
+  "P vs D_incumbent": 0.978
+ },
+ "mean_log_residual_fold0": {
+  "arm": -0.0023,
+  "P": -0.0025,
+  "recipeA": -0.0103,
+  "ViT-L": -0.0056,
+  "P1": 0.003,
+  "D_incumbent": -0.0053
+ }
+}

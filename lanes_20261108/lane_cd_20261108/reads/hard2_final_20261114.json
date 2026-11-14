@@ -1,0 +1,161 @@
+{
+ "form": "final",
+ "epochs": "final.pt TTA",
+ "note": "plain = the 2e-5 arm of the same fold (reference); incumbent = p3 members",
+ "fold0": {
+  "member_arm": [
+   6.3993,
+   10.386,
+   10.7916
+  ],
+  "member_plain": [
+   6.3726,
+   10.5405,
+   10.9975
+  ],
+  "arm_vs_plain_cd": [
+   0.0268,
+   -0.0909,
+   0.153
+  ],
+  "top_decile": {
+   "rows": 177,
+   "arm": [
+    13.905,
+    12.968,
+    12.9511
+   ],
+   "ref": [
+    13.3221,
+    13.0916,
+    13.4451
+   ],
+   "arm_vs_ref_cd": [
+    0.5828,
+    -0.258,
+    1.4766
+   ]
+  },
+  "rest": {
+   "rows": 1614,
+   "arm": [
+    5.5762,
+    10.1028,
+    10.5548
+   ],
+   "ref": [
+    5.6104,
+    10.2607,
+    10.7291
+   ],
+   "arm_vs_ref_cd": [
+    -0.0342,
+    -0.1236,
+    0.0533
+   ]
+  },
+  "stack_kept_constants_from_fold": 4,
+  "stack": {
+   "incumbent": 6.0223,
+   "arm": 6.0253,
+   "plain": 6.0223,
+   "arm_minus_plain": 0.003
+  }
+ },
+ "fold4": {
+  "member_arm": [
+   6.5797,
+   10.4249,
+   10.2828
+  ],
+  "member_plain": [
+   6.5267,
+   10.3449,
+   10.3835
+  ],
+  "arm_vs_plain_cd": [
+   0.053,
+   -0.0528,
+   0.1597
+  ],
+  "top_decile": {
+   "rows": 181,
+   "arm": [
+    12.7944,
+    12.9071,
+    13.0242
+   ],
+   "ref": [
+    12.9334,
+    12.4848,
+    13.3987
+   ],
+   "arm_vs_ref_cd": [
+    -0.139,
+    -0.8873,
+    0.5799
+   ]
+  },
+  "rest": {
+   "rows": 1609,
+   "arm": [
+    5.8806,
+    10.1456,
+    9.9744
+   ],
+   "ref": [
+    5.806,
+    10.1042,
+    10.0443
+   ],
+   "arm_vs_ref_cd": [
+    0.0746,
+    -0.0109,
+    0.1575
+   ]
+  },
+  "stack_kept_constants_from_fold": 0,
+  "stack": {
+   "incumbent": 6.2724,
+   "arm": 6.275,
+   "plain": 6.2724,
+   "arm_minus_plain": 0.0026
+  }
+ },
+ "cv10_folds04": {
+  "mean_cd": {
+   "incumbent": 6.1638,
+   "arm_in_half": 6.1738,
+   "plain_in_half": 6.1638,
+   "arm_extra": 6.1666,
+   "plain_extra": 6.1617
+  },
+  "arm_in_half_vs_plain_in_half": {
+   "mean_diff": 0.01,
+   "sd_repeats": 0.0048,
+   "ci95": [
+    -0.0024,
+    0.0231
+   ],
+   "share_lower": 0.066
+  },
+  "arm_in_half_vs_incumbent": {
+   "mean_diff": 0.01,
+   "sd_repeats": 0.0048,
+   "ci95": [
+    -0.0024,
+    0.0231
+   ],
+   "share_lower": 0.066
+  },
+  "arm_extra_vs_plain_extra": {
+   "mean_diff": 0.0049,
+   "sd_repeats": 0.0062,
+   "ci95": [
+    -0.0063,
+    0.0166
+   ],
+   "share_lower": 0.206
+  }
+ }
+}

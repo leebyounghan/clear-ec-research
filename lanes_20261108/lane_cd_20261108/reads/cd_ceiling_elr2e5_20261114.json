@@ -1,0 +1,66 @@
+{
+ "label": "IN-SAMPLE on fold 0 (weights, mask and stretch refitted on the scored rows): an upper bound, not a result",
+ "incumbent_refit": {
+  "cd_in_sample": 6.0256,
+  "weights_P1_A_D_V_extra": [
+   0.2,
+   0.45,
+   0.1,
+   0.25
+  ],
+  "mask_w": 0.15
+ },
+ "a_arm_in_s46_half": {
+  "cd_in_sample": 6.0213,
+  "weights_P1_A_D_V_extra": [
+   0.2,
+   0.45,
+   0.15,
+   0.2
+  ],
+  "mask_w": 0.1
+ },
+ "a_P_in_s46_half": {
+  "cd_in_sample": 6.0272,
+  "weights_P1_A_D_V_extra": [
+   0.2,
+   0.5,
+   0.05,
+   0.25
+  ],
+  "mask_w": 0.1
+ },
+ "b_arm_as_fifth_member": {
+  "cd_in_sample": 6.0219,
+  "weights_P1_A_D_V_extra": [
+   0.2,
+   0.45,
+   0.05,
+   0.2,
+   0.1
+  ],
+  "mask_w": 0.1
+ },
+ "b_P_as_fifth_member": {
+  "cd_in_sample": 6.0256,
+  "weights_P1_A_D_V_extra": [
+   0.2,
+   0.45,
+   0.1,
+   0.25,
+   0.0
+  ],
+  "mask_w": 0.15
+ },
+ "standalone_fold0_cd": {
+  "P1_x_scale": 6.3712,
+  "recipeA_s46s47_e20tta_x_lofo": 6.2083,
+  "recipeA_snapshot_A2": 6.1688,
+  "DINOv3B_seedmean_tta": 6.4702,
+  "DINOv3B_s46_tta": 6.5369,
+  "ViT-L_tt": 6.372,
+  "ViT-L_final_tta": 6.3799,
+  "arm_elr2e5_sv_e8_12": 6.3677,
+  "P_sv_e8_12": 6.5295
+ }
+}

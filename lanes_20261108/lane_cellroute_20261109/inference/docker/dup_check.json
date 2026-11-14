@@ -1,0 +1,15 @@
+{
+ "n_files": 134,
+ "same_size_candidates": 128,
+ "partial_collisions": 2,
+ "duplicates": [
+  {
+   "sha": "0f1cc3f7ecdd8a037a57c6c48d9d8921391be4cbce3fa9f13c3e3a2e1253c667",
+   "gb": 1.234,
+   "files": [
+    "cpsam_models/cpsam_v2",
+    "experiments/deploy_review_20260905/staged/model/cpsam_v2"
+   ]
+  }
+ ]
+}

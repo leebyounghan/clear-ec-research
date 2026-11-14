@@ -1,0 +1,32 @@
+date	id	question	inputs	read	delta_mean	ci	verdict	note
+2026-11-05	cell_graph_3det	Voronoi graph network on three pre-only detectors, CV and HEX	cell_graphs, pre47, pre48; 5 folds; base hex6+stretch	five-fold	-0.056	-0.074,-0.038	kept	in best model; ten seeds -0.0563
+2026-11-05	sim_embedding	Graph encoder pretrained on simulated tessellations, ridge read, on the graph ensemble	sim_graphs_v2, 8 layers; strength nested	five-fold	-0.0119	-0.0202,-0.0038	kept	in best model; alone -0.065; 6 seeds -0.012
+2026-11-05	random_encoder	Control: never-trained encoder through the same ridge	random init	five-fold	+0.003	-0.005,+0.011	closed	alone -0.028
+2026-11-05	sim_direct	Direct simulated predictions on real frames	v1, v2	all labels r	HEX r -0.29 then +0.33; CV 0 then +0.51		closed	gate r 0.55, 0.50
+2026-11-05	sim_v3	Third simulator, one disorder latent, realistic correlations	sim_graphs_v3	five-fold	-0.008	-0.016,0.000	closed	alone -0.059
+2026-11-05	encoder_size	Simulation encoder 128 dims, 12 layers, bank of four	sim2 variants	five-fold	-0.012		closed	same as one encoder
+2026-11-05	finetune_sim	Fine-tune simulation encoder on real labels	s46, s47, s48	five-fold	-0.029,-0.033,-0.033		closed	scratch -0.045,-0.048,-0.053; frozen -0.047
+2026-11-05	consensus_graph	Merged peaks of three detectors	votes, no votes	five-fold	+0.012,+0.011		closed	against ensemble -0.056
+2026-11-05	joint_cv_hex	Use each corrected metric for the other	out-of-fold predictions	five-fold	-0.002,+0.001,+0.020		closed	linear, quadratic, boosted
+2026-11-05	embedding_cd	Simulation embedding on CD	ridge 1000-100000	five-fold	+0.006 to -0.001		closed	CI crosses 0
+2026-11-05	low_threshold	Peaks >= 0.2 as nodes	s46, s47, s48	five-fold	-0.046,-0.043,-0.060		closed	reference -0.045,-0.048,-0.053
+2026-11-05	graph_repair	Per-node simulated truth: real cell, sides, area	sim_graphs_v3; 25 expert sets for scoring	five-fold	+0.012		closed	six AUC 0.72-0.74 vs raw 0.62-0.63, per-node boost 0.71-0.72; HEX r 0.52, CV r 0.40
+2026-11-05	window_contrast	Non-overlapping windows as positive pairs, no label	real graphs	five-fold	-0.003 to -0.006		closed	alone -0.052
+2026-11-05	window_attention	Attention over windows trained by labels	k3, k8	five-fold	-0.015,-0.036,-0.045		closed	no attention -0.037 (k8), -0.043 (k3); IoU no better than peak count
+2026-11-05	cotrain	Real and simulated batch every step	s46, s47, s48	five-fold	-0.0445,-0.047,-0.049		closed	plain -0.045,-0.048,-0.053
+2026-11-05	tess_graph	Graph on watershed cells in legible windows	s46	five-fold	-0.0067	-0.0145,+0.0016	closed	all labels HEX r 0.44, CV 0.44, CD 0.72
+2026-11-05	window_tokens	SSL tokens pooled in legible windows, ridge	window_tokens 46-48	five-fold	+0.003		closed	alone +0.015, whole frame +0.018
+2026-11-06	count_windows	Windows sized to about 170 nodes	s46, s47, s48	five-fold	-0.0566		closed	reference -0.056; per detector -0.048,-0.049,-0.051
+2026-11-06	detector_head	Detector head moved by the graph loss, against a control on the same batches	s46, encoder frozen	five-fold	+0.0016	-0.0008,+0.0038	closed	head weights moved 17-22 %
+2026-11-06	cv_only_graph	Graph trained on CV alone	s48	five-fold, CV column	-0.0019	-0.0065,+0.0028	closed	control -0.0173 on CV; valid, control -0.0538 vs reference -0.0529
+2026-11-06	tail_pooling	Max and min pooling added, CV and HEX	s48	five-fold	+0.0076	+0.0034,+0.0117	closed	control -0.0538
+2026-11-06	cv_estimators	Simple CV estimators by threshold in windows	s46, all labels	r, residual r	r 0.50; residual r 0.043		closed	cv_audit.json
+2026-11-06	cd_density	Fourier spacing and detector density as CD residual	experiments/cd_density_channel_20261106	five-fold, CD column	+0.087	+0.052,+0.122	closed	simple blend CD -0.011, after the fact
+2026-11-06	batch_22	Correction for ID suffix -22, detectable from the image	experiments/lane_gpu0_20261106/a1	five-fold	0.000	-0.005,+0.005	closed	with true IDs +0.003
+2026-11-06	dinov3_b16_s16	DINOv3 B/16 stride 16 at the winner's budget	lane_gpu3; seed 46; last five epochs	two folds	f0 +0.294; f4 about +0.20		failing	stride 8 stopped overnight to free the GPU for SSL
+2026-11-06	cotwin_training	Recipe A trained on within-donor differences	lane_gpu2; fold 0 seed 46; last five epochs	one fold	+0.10		failing	9.185 against 9.081; fold 4 cancelled
+2026-11-06	frozen_pooling	Covariance, quantile and related pooling, frozen read	lane_gpu2; folds 0, 4	two folds			closed	no arm passed -0.03; details in lane 2
+2026-11-06	ssl_strong_views	Crop and optics views, frozen read against SSL5	lane_gpu1; fold 4 seed 1003	one fold	-0.166	-0.262,-0.068	open	CD -0.43; frozen reads shrink about tenfold end to end; e2e running
+2026-11-07	measured_aug	Measured-noise augmentation	lane_gpu0; fold 0 seed 46; epochs 11-15	partial	about -0.02		open	inside noise; fold 4 next
+2026-11-06	deploy_shift	Full-data recipe A versus fold members, scale on 60 external Topcon frames neither saw	experiments/deploy_shift_20261107; 3 full, 8 fold	full minus fold, member-level CI	CD -4.00 %, CV -0.43 %, HEX +0.53 %	CD -9.71,+1.71; CV -3.25,+2.39; HEX -1.40,+2.45	closed	Test HEX +0.39 needs about 3.4 % on final output; measured at half weight +0.27 % costs +0.002 HEX; CD at half weight -2 % would cost +0.25 CD, test CD did not worsen; out of domain, fold members span CD -9.3 to +9.4 %
+2026-11-07	ssl_strong_views_e2e	Crop and broad-optics SSL, end to end, recipe A	lane_gpu1, lane_gpu2; folds 0, 4 seed 46; fold 4 seed 47	two-fold seed 46, last 5 epochs	+0.0185	-0.0204,+0.0575	closed	fold 0 +0.034, fold 4 +0.004, fold 4 seed 47 +0.003; CD +0.046, CV +0.009, HEX +0.001; added to best at 0.125 -0.004 (CI -0.010,+0.002); frozen -0.166 and CD -0.43 did not survive fine-tuning

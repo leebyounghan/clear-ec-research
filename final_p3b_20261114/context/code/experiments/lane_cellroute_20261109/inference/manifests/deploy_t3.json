@@ -1,0 +1,58 @@
+{
+ "recipeA_tta": [
+  "experiments/fulldata_recipeA_20261028/regression_std_s46/runs/fold99/cpdino_vitb/epoch_20.pt",
+  "experiments/fulldata_recipeA_20261028/regression_std_s47/runs/fold99/cpdino_vitb/epoch_20.pt"
+ ],
+ "dino_cv": [
+  [
+   "experiments/lane_cd_20261108/arms/dinov3_b16_f99_s46b/runs/fold99/dinov3_b16/epoch_20.pt"
+  ]
+ ],
+ "vitl_note": "not built yet; paths are a guess at the queued builds (CD lane to confirm)",
+ "orderdino_cv": [
+  "experiments/lane_cv_20261108/arms/dinov3_order_f99_s46/runs/fold99/dinov3_b16/epoch_16.pt",
+  "experiments/lane_cv_20261108/arms/dinov3_order_f99_s46/runs/fold99/dinov3_b16/epoch_17.pt",
+  "experiments/lane_cv_20261108/arms/dinov3_order_f99_s46/runs/fold99/dinov3_b16/epoch_18.pt",
+  "experiments/lane_cv_20261108/arms/dinov3_order_f99_s46/runs/fold99/dinov3_b16/epoch_19.pt",
+  "experiments/lane_cv_20261108/arms/dinov3_order_f99_s46/runs/fold99/dinov3_b16/epoch_20.pt"
+ ],
+ "hex_graph_models": "experiments/lane_hex_20261108/deploy/graph_models",
+ "hex_graph_nets": {
+  "pre47_s10": [
+   "full_d64_l5_pre47_s10",
+   "pre47"
+  ],
+  "pre48_s10": [
+   "full_d64_l5_pre48_s10",
+   "pre48"
+  ]
+ },
+ "cv_parts": {
+  "token_encoder": "experiments/fulldata_recipeA_20261028/regression_std_s46/runs/fold99/cpdino_vitb/epoch_20.pt",
+  "graph_models": "experiments/lane_cv_20261108/graph_models",
+  "frozen_heads": "experiments/lane_cv_20261108/frozen_heads_full"
+ },
+ "p1_members": [
+  "experiments/deploy_review_20260905/staged/model/seed42.pt",
+  "experiments/deploy_review_20260905/staged/model/seed77.pt",
+  "experiments/deploy_review_20260905/staged/model/seed2026.pt",
+  "experiments/deploy_review_20260905/staged/model/metric35.pt",
+  "experiments/deploy_review_20260905/staged/model/predbag2_35.pt"
+ ],
+ "p1_cpsam": "cpsam_models/cpsam_v2",
+ "p1_note": "candidate5 package (CD lane table: base_inference candidate5.json members; calibration = OOF SCALE, not candidate5.json calibration)",
+ "preonly_detectors": [
+  "experiments/green_track_20261028/deploy/detectors/sg2pre_s46.pt",
+  "experiments/green_track_20261028/deploy/detectors/sg2pre_s47.pt",
+  "experiments/green_track_20261028/deploy/detectors/sg2pre_s48.pt"
+ ],
+ "cpsam_seg": "cpsam_models/cpsam_v2",
+ "hex6_deploy_dir": "experiments/green_track_20261028/deploy",
+ "decisions": [
+  "D-PKG-002 tier t3",
+  "CD lane_cd_20261108/reads/freeze_cd_params_t3_20261112.json",
+  "CV lane_cv_20261108/deploy_t3",
+  "HEX lane_hex_20261108/preds/deploy_params_joint_t3.json",
+  "cell-route kept version (D-HEX-005) refit on the tier HEX OOF"
+ ]
+}

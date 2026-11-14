@@ -1,0 +1,49 @@
+# Sources ingested into the KG and how far each was read. Edit after every ingest.
+# Lane RESULTS.tsv files are append-only: reviewed_through = last line read and either ingested as an experiment
+# node or judged a sub-read (partial folds, timing, repeated chain re-run) of an existing node.
+# scripts/unrecorded_rows.py shows rows after reviewed_through (and, with --uncited, every row no node cites).
+pod: clear-ec-research-4gpu-1104
+root: /workspace/clear-ec-research/experiments
+lanes:
+  lane_cd_20261108:       {reviewed_through: 67,  snapshot: "2026-11-09 15:09 UTC", report: "REPORT.md (re-read 2026-11-09 14:42 UTC, unchanged since 04:16 UTC)"}
+  lane_cv_20261108:       {reviewed_through: 86,  snapshot: "2026-11-09 15:09 UTC", report: "REPORT.md (daily review 2026-11-09 09:00 EST; re-read 14:42 UTC)"}
+  lane_hex_20261108:      {reviewed_through: 419, snapshot: "2026-11-09 15:09 UTC", report: "REPORT.md (status 2026-11-09 02:35 EST; re-read 14:42 UTC: chain table corrected, segv left out)"}
+  lane_backbone_20261108: {reviewed_through: 20,  snapshot: "2026-11-09 15:09 UTC", report: "REPORT.md (daily continue/stop 2026-11-09; re-read 15:09 UTC)"}
+old_lane_reports:   # read 2026-11-09 02:00 UTC; these lanes have stopped
+  - lane_gpu0_20261106/REPORT.md
+  - lane_gpu1_20261106/REPORT.md
+  - lane_gpu2_20261106/REPORT.md
+  - lane_gpu3_20261106/REPORT.md
+ledger:   # shared evidence ledger (append-only JSON lines) and lane notes; the lane RESULTS.tsv files were NOT re-read (reviewed_through above unchanged)
+  # 2026-11-11 ~18:00 EST: lines 1-77 (through O-BB-HANDOFF-1800). 2026-11-13 ~22:55 EST: lines 78-213 (through D-CD-PRETRAIN-SCREEN).
+  # The file was still being appended during the 11-13 ingest (lines 210-213 arrived after it started); re-check from line 214.
+  - {path: "~/Library/Application Support/Claude/side-session-notes/local_5a5ca17b-018d-4ccd-b356-f8794b094404/ledger_20261111.jsonl", reviewed_through: 213, last_id: D-CD-PRETRAIN-SCREEN, read: "2026-11-13"}
+  - {path: "same folder: lane_hex_notes.md, lane_cellroute_notes.md, lane_backbone_notes.md, cv_lane_notes_20261108.md, backbone_attnpool_f99_handoff.md", read: "2026-11-11"}
+analyses:
+  - {path: rootcause_20261109/out/*.json and source/*.py, read: "2026-11-09 13:30 UTC"}
+old_lane_reports_reread:
+  - {path: lane_gpu0_20261106/REPORT.md, read: "2026-11-09 15:20 UTC", why: "ambiguity check (fold sets of A1 reads): still not stated"}
+papers:   # paper notes are owned by the paper agent; links to them live on project nodes (literature edges)
+  - {path: kg/wiki/papers/wu2026scimars.md, note: "written by the KG maintainer 2026-11-11 at the coordinator's request, from docs/FRAMEWORK_REVISION_20261111.md (paper not read)"}
+  - {path: kg/wiki/papers/*.md, count: 74, linked: "2026-11-09 (every paper has >= 1 project link)"}
+repo_docs:   # clear-ec-research/docs, read 2026-11-08/09
+  - docs/BRIEF.md
+  - docs/LANES_20261108.md
+  - docs/PLAN_20261106.md (superseded; history)
+  - docs/ASSUMPTION_AUDIT_20261106.md
+  - docs/FRAMEWORK_REVISION_20261111.md (read 2026-11-11)
+  - docs/BRIEF.md 'Freeze 2026-11-11 18:00 EST' and docs/LANES_20261108.md 'Shared ledger, decision ids, lessons, verifier' (read 2026-11-11)
+  - docs/FINAL_SUMMARY_20261113.md (consolidated final summary, written 22:15 EST and revised 22:19 EST: section 2 gained the row accounting, section 5 the cell-route p check; the revised version is the one ingested, 2026-11-13)
+  - docs/lane_summaries_20261113/final_summary_{cd,cv,hex,backbone,deploy}_20261113.md (read 2026-11-13; sections 1 and 4 ingested as experiment / idea nodes, sections 2, 3 and 5 (models, data, folder map) only as far as dec-021 and the dataset notes cite them)
+  - docs/BRIEF.md re-read 2026-11-13 for the deadline and runtime rows only (BRIEF itself lacks 11-12 and 11-13)
+memory:      # /Users/byounghanlee/.claude/projects/-Users-byounghanlee-Desktop-k8s-server/memory/
+  - clear-ec-*.md (13 files) and pod-cpu-passes-use-pool-of-4.md, read 2026-11-08
+pending:     # present in the notes folder on 2026-11-13 22:45 EST (written 22:13-22:23 by separate agents) but NOT ingested: the coordinator asked not to ingest them while they may still change
+  - side-session-notes/.../analysis_hyperparameters_20261113.md
+  - side-session-notes/.../analysis_data_20261113.md (holds the exact row-count waterfall; ds-clear-ec-train-8953 records the counts as the summaries write them)
+  - side-session-notes/.../analysis_postprocessing_20261113.md
+  - side-session-notes/.../analysis_bias_20261113.md
+  - side-session-notes/.../analysis_cd_literature_20261113.md
+  - side-session-notes/.../deploy_UPLOAD_TRYOUT_KO_20261113.md (cited through ledger A-DEPLOY-014 only; not read line by line)
+not_read:    # deliberately: BRIEF says to read the ledger only after ideas are drafted
+  - git f8bc49b docs/STATE_20261103.md, docs/IDEA_REGISTRY_20261031.md, results/meta_ceiling_20261103/REPORT.md

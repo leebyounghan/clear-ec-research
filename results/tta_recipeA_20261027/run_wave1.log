@@ -1,2 +1,0 @@
-{"root": "experiments/phase2_pooling_20261020/arms/std", "single": 9.046039910376463, "tta4": 9.007234189283068, "delta": -0.03880572109339475}
-{"root": "experiments/phase2_pooling_replication_20261026/f0_s46_std", "single": 9.113870851524341, "tta4": 9.091525803054926, "delta": -0.022345048469414763}

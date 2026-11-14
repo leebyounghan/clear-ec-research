@@ -1,6 +1,0 @@
-cellpose==4.2.1.1
-numpy==1.26.4
-SimpleITK==2.5.5
-opencv-python-headless==4.11.0.86
-scipy==1.15.3
-scikit-image==0.25.2

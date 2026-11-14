@@ -1,0 +1,222 @@
+{
+ "pool": [
+  "P1 (five-member mean, calibrated)",
+  "P1 member seed42",
+  "P1 member seed77",
+  "P1 member seed2026",
+  "P1 member metric35",
+  "P1 member predbag2_35",
+  "recipe A s46 snapshot (TTA e20 + single e8-19)",
+  "recipe A s46 final (TTA e20)",
+  "recipe A s47 snapshot (TTA e20 + single e8-19)",
+  "recipe A s47 final (TTA e20)",
+  "DINOv3-B s46 TTA e16-20",
+  "DINOv3-B s47 TTA e16-20",
+  "ConvNeXt-B s46 TTA e16-20",
+  "DINOv3-B HL-Gauss head s46 TTA e16-20",
+  "ViT-L s46 (e8-11 + final TTA)",
+  "ViT-L s47 (e8-11 + final TTA)",
+  "recipe A 2x-window s46 (backbone lane)",
+  "attention-pool DINOv3-B raw (backbone lane)",
+  "attention-pool DINOv3-B ema998 (backbone lane)",
+  "order-loss DINOv3-B s46 (CV lane, e16-20)",
+  "order-loss DINOv3-B s47 (CV lane, e16-20)",
+  "order-loss DINOv3-B s49 (CV lane, e16-20)"
+ ],
+ "v3_candidate": 6.1741,
+ "M1 forward": {
+  "cd": 6.1733,
+  "delta_vs_v3": -0.0008,
+  "folds": {
+   "0": 0.012,
+   "1": -0.033,
+   "2": 0.013,
+   "3": 0.025,
+   "4": -0.022
+  },
+  "picks": {
+   "0": {
+    "members": {
+     "recipe A s47 snapshot (TTA e20 + single e8-19)": 0.114,
+     "ViT-L s47 (e8-11 + final TTA)": 0.18,
+     "P1 (five-member mean, calibrated)": 0.123,
+     "recipe A 2x-window s46 (backbone lane)": 0.18,
+     "attention-pool DINOv3-B raw (backbone lane)": 0.114,
+     "recipe A s46 final (TTA e20)": 0.18,
+     "P1 member seed77": 0.048,
+     "DINOv3-B s46 TTA e16-20": 0.05
+    },
+    "mask": "cd_mm2 n_int>=50",
+    "mask_w": 0.1,
+    "inner_cd": 6.1773
+   },
+   "1": {
+    "members": {
+     "recipe A s47 snapshot (TTA e20 + single e8-19)": 0.301,
+     "ViT-L s47 (e8-11 + final TTA)": 0.185,
+     "P1 member metric35": 0.17,
+     "recipe A 2x-window s46 (backbone lane)": 0.116,
+     "DINOv3-B s46 TTA e16-20": 0.086,
+     "attention-pool DINOv3-B ema998 (backbone lane)": 0.045,
+     "P1 member seed77": 0.048,
+     "recipe A s46 final (TTA e20)": 0.05
+    },
+    "mask": "cd_mm2 n_int>=50",
+    "mask_w": 0.1,
+    "inner_cd": 6.1676
+   },
+   "2": {
+    "members": {
+     "recipe A s47 snapshot (TTA e20 + single e8-19)": 0.262,
+     "ViT-L s47 (e8-11 + final TTA)": 0.19,
+     "P1 (five-member mean, calibrated)": 0.162,
+     "recipe A 2x-window s46 (backbone lane)": 0.153,
+     "attention-pool DINOv3-B ema998 (backbone lane)": 0.081,
+     "ConvNeXt-B s46 TTA e16-20": 0.045,
+     "DINOv3-B s46 TTA e16-20": 0.048,
+     "P1 member seed77": 0.05
+    },
+    "mask": "cd_mm2 n_int>=50",
+    "mask_w": 0.1,
+    "inner_cd": 6.2281
+   },
+   "3": {
+    "members": {
+     "recipe A s47 snapshot (TTA e20 + single e8-19)": 0.133,
+     "P1 member metric35": 0.171,
+     "ViT-L s47 (e8-11 + final TTA)": 0.142,
+     "recipe A 2x-window s46 (backbone lane)": 0.142,
+     "ConvNeXt-B s46 TTA e16-20": 0.085,
+     "attention-pool DINOv3-B raw (backbone lane)": 0.085,
+     "recipe A s46 snapshot (TTA e20 + single e8-19)": 0.19,
+     "P1 member seed77": 0.05
+    },
+    "mask": "cd_mm2 n_int>=50",
+    "mask_w": 0.05,
+    "inner_cd": 6.037
+   },
+   "4": {
+    "members": {
+     "recipe A s47 snapshot (TTA e20 + single e8-19)": 0.28,
+     "ViT-L s47 (e8-11 + final TTA)": 0.18,
+     "recipe A 2x-window s46 (backbone lane)": 0.18,
+     "DINOv3-B s46 TTA e16-20": 0.09,
+     "P1 member metric35": 0.14,
+     "ConvNeXt-B s46 TTA e16-20": 0.05,
+     "P1 member predbag2_35": 0.04,
+     "P1 member seed77": 0.05
+    },
+    "mask": "cd_mm2 n_int>=20",
+    "mask_w": 0.05,
+    "inner_cd": 6.1238
+   }
+  }
+ },
+ "M2 ensemble selection": {
+  "cd": 6.1767,
+  "delta_vs_v3": 0.0026,
+  "folds": {
+   "0": 0.024,
+   "1": -0.024,
+   "2": 0.008,
+   "3": 0.026,
+   "4": -0.021
+  },
+  "picks": {
+   "0": {
+    "members": {
+     "P1 (five-member mean, calibrated)": 0.026,
+     "P1 member seed77": 0.077,
+     "P1 member metric35": 0.051,
+     "P1 member predbag2_35": 0.051,
+     "recipe A s46 final (TTA e20)": 0.231,
+     "recipe A s47 snapshot (TTA e20 + single e8-19)": 0.077,
+     "DINOv3-B s46 TTA e16-20": 0.026,
+     "ViT-L s47 (e8-11 + final TTA)": 0.179,
+     "recipe A 2x-window s46 (backbone lane)": 0.179,
+     "attention-pool DINOv3-B raw (backbone lane)": 0.051,
+     "attention-pool DINOv3-B ema998 (backbone lane)": 0.051
+    },
+    "mask": "cd_mm2 n_int>=50",
+    "mask_w": 0.05,
+    "inner_cd": 6.1769
+   },
+   "1": {
+    "members": {
+     "P1 (five-member mean, calibrated)": 0.029,
+     "P1 member seed77": 0.059,
+     "P1 member metric35": 0.118,
+     "recipe A s46 snapshot (TTA e20 + single e8-19)": 0.029,
+     "recipe A s46 final (TTA e20)": 0.118,
+     "recipe A s47 snapshot (TTA e20 + single e8-19)": 0.176,
+     "DINOv3-B s46 TTA e16-20": 0.059,
+     "ConvNeXt-B s46 TTA e16-20": 0.029,
+     "ViT-L s46 (e8-11 + final TTA)": 0.029,
+     "ViT-L s47 (e8-11 + final TTA)": 0.147,
+     "recipe A 2x-window s46 (backbone lane)": 0.147,
+     "attention-pool DINOv3-B raw (backbone lane)": 0.029,
+     "attention-pool DINOv3-B ema998 (backbone lane)": 0.029
+    },
+    "mask": "cd_mm2 n_int>=20",
+    "mask_w": 0.1,
+    "inner_cd": 6.1676
+   },
+   "2": {
+    "members": {
+     "P1 (five-member mean, calibrated)": 0.025,
+     "P1 member seed77": 0.075,
+     "P1 member metric35": 0.125,
+     "recipe A s46 final (TTA e20)": 0.075,
+     "recipe A s47 snapshot (TTA e20 + single e8-19)": 0.175,
+     "DINOv3-B s46 TTA e16-20": 0.05,
+     "ConvNeXt-B s46 TTA e16-20": 0.05,
+     "ViT-L s47 (e8-11 + final TTA)": 0.2,
+     "recipe A 2x-window s46 (backbone lane)": 0.15,
+     "attention-pool DINOv3-B ema998 (backbone lane)": 0.075
+    },
+    "mask": "cd_mm2 n_int>=50",
+    "mask_w": 0.1,
+    "inner_cd": 6.2265
+   },
+   "3": {
+    "members": {
+     "P1 (five-member mean, calibrated)": 0.026,
+     "P1 member seed77": 0.026,
+     "P1 member metric35": 0.132,
+     "P1 member predbag2_35": 0.026,
+     "recipe A s46 snapshot (TTA e20 + single e8-19)": 0.211,
+     "recipe A s46 final (TTA e20)": 0.026,
+     "recipe A s47 snapshot (TTA e20 + single e8-19)": 0.079,
+     "ConvNeXt-B s46 TTA e16-20": 0.079,
+     "ViT-L s46 (e8-11 + final TTA)": 0.026,
+     "ViT-L s47 (e8-11 + final TTA)": 0.132,
+     "recipe A 2x-window s46 (backbone lane)": 0.158,
+     "attention-pool DINOv3-B raw (backbone lane)": 0.026,
+     "attention-pool DINOv3-B ema998 (backbone lane)": 0.053
+    },
+    "mask": "cd_mm2 n_int>=50",
+    "mask_w": 0.05,
+    "inner_cd": 6.0361
+   },
+   "4": {
+    "members": {
+     "P1 (five-member mean, calibrated)": 0.025,
+     "P1 member seed77": 0.05,
+     "P1 member metric35": 0.075,
+     "P1 member predbag2_35": 0.075,
+     "recipe A s46 snapshot (TTA e20 + single e8-19)": 0.025,
+     "recipe A s46 final (TTA e20)": 0.125,
+     "recipe A s47 snapshot (TTA e20 + single e8-19)": 0.15,
+     "DINOv3-B s46 TTA e16-20": 0.075,
+     "ConvNeXt-B s46 TTA e16-20": 0.025,
+     "ViT-L s47 (e8-11 + final TTA)": 0.175,
+     "recipe A 2x-window s46 (backbone lane)": 0.175,
+     "attention-pool DINOv3-B ema998 (backbone lane)": 0.025
+    },
+    "mask": "cd_mm2 n_int>=50",
+    "mask_w": 0.1,
+    "inner_cd": 6.1173
+   }
+  }
+ }
+}

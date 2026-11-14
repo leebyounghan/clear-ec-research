@@ -1,0 +1,254 @@
+{
+ "experiments/lane_cd_20261108/arms/vitlfu_elr2e5_f99_s46/raw/runs/fold-1/dinov3_l16t/final.pt (earlier checks)": [
+  {
+   "new": "experiments/lane_cd_20261108/arms/vitlfu_elr2e5_f99_s46/raw/runs/fold-1/dinov3_l16t/final.pt",
+   "old": "experiments/lane_cd_20261108/arms/vitl16_f99_s46/raw/runs/fold99/dinov3_l16t/final.pt",
+   "checked_utc": "2026-11-14T15:08:58Z",
+   "complete_json": {
+    "status": "completed"
+   },
+   "arm_exit_json": {
+    "status": "completed",
+    "seconds": 7974.872628182173,
+    "finished_utc": "2026-11-14T15:08:16Z"
+   },
+   "bytes_new": 1212935779,
+   "bytes_old": 1212935523,
+   "container": [
+    "dict",
+    "dict"
+   ],
+   "names_equal": false,
+   "only_new": [
+    "$['config']['row_weight']",
+    "$['config']['window']",
+    "$['config']['window_size']",
+    "$['config']['window_scale']",
+    "$['config']['window_jitter']",
+    "$['config']['appear']",
+    "$['config']['shading']",
+    "$['config']['batch']",
+    "$['config']['clip']",
+    "$['config']['target_w']"
+   ],
+   "only_old": [],
+   "n_tensors": 324,
+   "n_params": 303213059,
+   "shape_mismatch": [],
+   "dtype_mismatch": [],
+   "nonfinite": [],
+   "n_float_tensors_differ": 324,
+   "max_abs_diff_vs_old": 0.3029952049255371,
+   "non_tensor_leaves_differ": [
+    "$['fold']",
+    "$['config']['fold']",
+    "$['config']['root']",
+    "$['config']['enc_lr']",
+    "$['config']['row_weight']",
+    "$['config']['window']",
+    "$['config']['window_size']",
+    "$['config']['window_scale']",
+    "$['config']['window_jitter']",
+    "$['config']['appear']"
+   ],
+   "load_ok": false,
+   "fp16": {
+    "file": "experiments/lane_cd_20261108/arms/vitlfu_elr2e5_f99_s46/raw/runs/fold-1/dinov3_l16t/final.pt",
+    "gb_in": 1.212935779,
+    "gb_out": 0.606531329,
+    "mismatches": [
+     "$['log_mean'][2] value",
+     "$['log_std'][2] value"
+    ],
+    "n_mismatch": 2,
+    "s": 2.5,
+    "bytes": 606531329,
+    "sha256": "aa78c13721f27f25266e739ceeeb4ecb0e1bd4e7b29c9925377a50d797c0db03"
+   },
+   "fp16_old_bytes": 606531073,
+   "seconds": 5.6
+  }
+ ],
+ "experiments/lane_cd_20261108/arms/vitlfu_elr2e5_f99_s46/raw/runs/fold-1/dinov3_l16t/final.pt": {
+  "new": "experiments/lane_cd_20261108/arms/vitlfu_elr2e5_f99_s46/raw/runs/fold-1/dinov3_l16t/final.pt",
+  "old": "experiments/lane_cd_20261108/arms/vitl16_f99_s46/raw/runs/fold99/dinov3_l16t/final.pt",
+  "checked_utc": "2026-11-14T15:12:15Z",
+  "complete_json": {
+   "status": "completed"
+  },
+  "arm_exit_json": {
+   "status": "completed",
+   "seconds": 7974.872628182173,
+   "finished_utc": "2026-11-14T15:08:16Z"
+  },
+  "bytes_new": 1212935779,
+  "bytes_old": 1212935523,
+  "container": [
+   "dict",
+   "dict"
+  ],
+  "tensor_names_equal": true,
+  "tensor_only_new": [],
+  "tensor_only_old": [],
+  "non_tensor_only_new": [
+   "$['config']['row_weight']",
+   "$['config']['window']",
+   "$['config']['window_size']",
+   "$['config']['window_scale']",
+   "$['config']['window_jitter']",
+   "$['config']['appear']",
+   "$['config']['shading']",
+   "$['config']['batch']",
+   "$['config']['clip']",
+   "$['config']['target_w']"
+  ],
+  "non_tensor_only_old": [],
+  "log_mean_new": [
+   7.920138193991082,
+   -0.9815445004627132,
+   NaN
+  ],
+  "log_std_new": [
+   0.18782999334876993,
+   0.18944184407810885,
+   NaN
+  ],
+  "log_mean_old": [
+   7.92057849735127,
+   -0.9805683521408859,
+   -0.6180116894448672
+  ],
+  "log_std_old": [
+   0.18697215700938982,
+   0.18719924990860634,
+   0.16024504297973988
+  ],
+  "stats_nonfinite_channels_new": [
+   2
+  ],
+  "n_tensors": 324,
+  "n_params": 303213059,
+  "shape_mismatch": [],
+  "dtype_mismatch": [],
+  "nonfinite": [],
+  "n_float_tensors_differ": 324,
+  "max_abs_diff_vs_old": 0.3029952049255371,
+  "non_tensor_leaves_differ": [
+   "$['fold']",
+   "$['config']['fold']",
+   "$['config']['root']",
+   "$['config']['enc_lr']",
+   "$['config']['row_weight']",
+   "$['config']['window']",
+   "$['config']['window_size']",
+   "$['config']['window_scale']",
+   "$['config']['window_jitter']",
+   "$['config']['appear']"
+  ],
+  "load_ok": true,
+  "fp16": {
+   "file": "experiments/lane_cd_20261108/arms/vitlfu_elr2e5_f99_s46/raw/runs/fold-1/dinov3_l16t/final.pt",
+   "existed": true,
+   "n_mismatch": 0,
+   "mismatches": [],
+   "check": "same_nan",
+   "bytes": 606531329,
+   "sha256": "aa78c13721f27f25266e739ceeeb4ecb0e1bd4e7b29c9925377a50d797c0db03"
+  },
+  "fp16_old_bytes": 606531073,
+  "seconds": 4.5
+ },
+ "experiments/lane_cd_20261108/arms/vitl47fu_elr2e5_f99_s47/raw/runs/fold-1/dinov3_l16t/final.pt (earlier checks)": [],
+ "experiments/lane_cd_20261108/arms/vitl47fu_elr2e5_f99_s47/raw/runs/fold-1/dinov3_l16t/final.pt": {
+  "new": "experiments/lane_cd_20261108/arms/vitl47fu_elr2e5_f99_s47/raw/runs/fold-1/dinov3_l16t/final.pt",
+  "old": "experiments/lane_cd_20261108/arms/vitl16_f99_s47/raw/runs/fold99/dinov3_l16t/final.pt",
+  "checked_utc": "2026-11-14T19:35:46Z",
+  "complete_json": {
+   "status": "completed"
+  },
+  "arm_exit_json": {
+   "status": "completed",
+   "seconds": 15205.218993831426,
+   "finished_utc": "2026-11-14T19:35:11Z"
+  },
+  "bytes_new": 1212935779,
+  "bytes_old": 1212935523,
+  "container": [
+   "dict",
+   "dict"
+  ],
+  "tensor_names_equal": true,
+  "tensor_only_new": [],
+  "tensor_only_old": [],
+  "non_tensor_only_new": [
+   "$['config']['row_weight']",
+   "$['config']['window']",
+   "$['config']['window_size']",
+   "$['config']['window_scale']",
+   "$['config']['window_jitter']",
+   "$['config']['appear']",
+   "$['config']['shading']",
+   "$['config']['batch']",
+   "$['config']['clip']",
+   "$['config']['target_w']"
+  ],
+  "non_tensor_only_old": [],
+  "log_mean_new": [
+   7.920138193991082,
+   -0.9815445004627132,
+   NaN
+  ],
+  "log_std_new": [
+   0.18782999334876993,
+   0.18944184407810885,
+   NaN
+  ],
+  "log_mean_old": [
+   7.92057849735127,
+   -0.9805683521408859,
+   -0.6180116894448672
+  ],
+  "log_std_old": [
+   0.18697215700938982,
+   0.18719924990860634,
+   0.16024504297973988
+  ],
+  "stats_nonfinite_channels_new": [
+   2
+  ],
+  "n_tensors": 324,
+  "n_params": 303213059,
+  "shape_mismatch": [],
+  "dtype_mismatch": [],
+  "nonfinite": [],
+  "n_float_tensors_differ": 324,
+  "max_abs_diff_vs_old": 0.2818111777305603,
+  "non_tensor_leaves_differ": [
+   "$['fold']",
+   "$['config']['fold']",
+   "$['config']['root']",
+   "$['config']['enc_lr']",
+   "$['config']['row_weight']",
+   "$['config']['window']",
+   "$['config']['window_size']",
+   "$['config']['window_scale']",
+   "$['config']['window_jitter']",
+   "$['config']['appear']"
+  ],
+  "load_ok": true,
+  "fp16": {
+   "file": "experiments/lane_cd_20261108/arms/vitl47fu_elr2e5_f99_s47/raw/runs/fold-1/dinov3_l16t/final.pt",
+   "gb_in": 1.212935779,
+   "gb_out": 0.606531329,
+   "mismatches": [],
+   "n_mismatch": 0,
+   "s": 3.3,
+   "n_mismatch_convert_fp16": 2,
+   "check": "same_nan",
+   "bytes": 606531329,
+   "sha256": "7053504a7f3bd80dccb5116d3e62abcf90f6230640e6c09bf3732cd742ca177b"
+  },
+  "fp16_old_bytes": 606531073,
+  "seconds": 8.4
+ }
+}

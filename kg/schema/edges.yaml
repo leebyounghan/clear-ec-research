@@ -1,0 +1,136 @@
+# CLEAR-EC KG schema: node types (with required frontmatter fields) and the controlled edge vocabulary.
+# Adapted from /Users/byounghanlee/EHR-KG/schema/edges.yaml (2026-11-08).
+#
+# Edges live in note frontmatter under the keys below. Values: "[[id]]", a list of them, or
+# a list of {target: "[[id]]", note: "...", ...attrs}. Direction is always: this note (source) -> target.
+# Wikilinks in the note body become weak `mentions` edges.
+#
+# Core node types: paper, method, dataset, experiment, finding, idea, decision, constraint.
+# Compatibility types (model, concept, limitation, gap, code, benchmark) exist so that paper notes written
+# from the EHR-KG paper template validate; nobody has to create them. A paper link to an id that has no note
+# becomes a stub node plus a lint warning, never a build error.
+
+node_types:
+  paper:        # written by the paper agent from wiki/_templates/paper.md (EHR-KG template)
+    folder: wiki/papers
+    required: [id, type, title]
+    recommended: [authors, year, tldr]
+  method:       # a technique, model family, pipeline component or post-processing step
+    folder: wiki/methods
+    required: [id, type, name, summary]
+  dataset:
+    folder: wiki/datasets
+    required: [id, type, name, summary]
+  experiment:   # one meaningful try (or one reference read used as a baseline)
+    folder: wiki/experiments
+    required: [id, type, name, summary, lane, date, status, direction, metrics, folds, baseline, value, delta, source]
+  finding:      # a fact that held up; cite the experiments or documents behind it
+    folder: wiki/findings
+    required: [id, type, name, summary, status, source]
+  idea:         # a direction that is open, never tried, running or closed
+    folder: wiki/ideas
+    required: [id, type, name, summary, status, origin]
+  decision:
+    folder: wiki/decisions
+    required: [id, type, name, summary, status, date]
+  constraint:   # PI rules and other things the project must respect; scope: global for rules that bind all work
+    folder: wiki/constraints
+    required: [id, type, name, summary, status, origin, source]
+  synthesis:    # a saved answer to a query
+    folder: wiki/syntheses
+    required: [id, type, name, summary]
+  # --- compatibility only (paper template targets) ---
+  model:      {folder: wiki/models, required: [id, type, name]}
+  concept:    {folder: wiki/concepts, required: [id, type, name]}
+  limitation: {folder: wiki/limitations, required: [id, type, name]}
+  gap:        {folder: wiki/gaps, required: [id, type, name]}
+  code:       {folder: wiki/code, required: [id, type, name]}
+  benchmark:  {folder: wiki/benchmarks, required: [id, type, name]}
+
+# Controlled values (lint checks these)
+values:
+  experiment.status: [kept, dropped, running, closed, superseded, reference, measurement]
+  #   kept        - the change is in a lane's current stack (kept gains stay kept)
+  #   dropped     - this version did not move the metric; its direction is still open
+  #   running     - training or read in progress, or queued
+  #   closed      - the direction is closed as tested (LANES closed list, or the lane wrote stop)
+  #   superseded  - a screen or form replaced by a later read of the same change (see superseded_by)
+  #   reference   - a baseline read that other experiments are measured against
+  #   measurement - a read that measures something (noise, timing, ceiling) rather than trying a change
+  experiment.lane: [cd, cv, hex, backbone, deploy, rootcause-1109, gpu0-1106, gpu1-1106, gpu2-1106, gpu3-1106, pre-lanes, coordinator]
+  #   deploy = the deploy / cell-route lane (lane_cellroute_20261109): packaging, tiers, T4 path, container tests (added 2026-11-13)
+  finding.status: [robust, tentative, ambiguous, superseded]
+  idea.status: [open, never-tried, running, partially-tested, adopted, closed, dropped]
+  #   adopted = tested and kept in a stack; closed = tested, not kept, direction closed; dropped = abandoned without a full test
+  decision.status: [accepted, proposed, open, superseded, rejected]
+  constraint.status: [active, lifted]
+  origin: [user, claude, literature]     # user = the PI said it
+
+edges:
+  # --- paper -> entity (EHR-KG paper template; kept verbatim so paper notes validate) ---
+  proposes:         {from: [paper], to: [method, dataset, model, benchmark, code, concept], desc: "Paper introduces this artifact"}
+  uses_model:       {from: [paper], to: [model, method], desc: "Uses the model as baseline, component or starting weights"}
+  uses_dataset:     {from: [paper, model, experiment, method], to: [dataset], desc: "Trains or evaluates on the dataset"}
+  evaluates_on:     {from: [paper], to: [benchmark, dataset], desc: "Reports results on the benchmark"}
+  uses_method:      {from: [paper, model, experiment, idea], to: [method], desc: "Applies the method/technique"}
+  discusses:        {from: [paper], to: [concept, method, finding], desc: "Substantive discussion of the concept"}
+  releases_code:    {from: [paper], to: [code], desc: "Code released with the paper"}
+  extends:          {from: [paper], to: [paper], desc: "Directly builds on the target's method"}
+  compares_with:    {from: [paper], to: [paper, model, method], desc: "Head-to-head comparison (result = how the source did vs target)"}
+  supports:         {from: [paper], to: [paper], desc: "Findings agree with the target's claims"}
+  disputes:         {from: [paper], to: [paper], desc: "Findings contradict the target's claims"}
+  critiques:        {from: [paper], to: [paper, model, method], desc: "Methodological criticism of the target"}
+  qualifies:        {from: [paper, finding], to: [paper, finding], desc: "Adds conditions or limits to the target's claims"}
+  same_lineage:     {from: [paper], to: [paper], desc: "Same group/model family or newer version"}
+  studies:          {from: [paper], to: [concept, method], desc: "Research problem or task the paper is about"}
+  cites:            {from: [paper], to: [paper], desc: "Citation (generated if ever added; do not hand-write)"}
+  has_limitation:   {from: [paper, model, dataset, method, idea], to: [limitation], desc: "Exhibits this limitation"}
+  addresses:        {from: [paper, method, idea], to: [limitation, gap, finding], desc: "Attempts to fix the limitation or answer the gap"}
+  raises:           {from: [paper], to: [gap], desc: "Leaves this gap open"}
+  evidence_for:     {from: [paper, synthesis, experiment, finding], to: [decision, idea, gap, finding], desc: "Evidence supporting the target"}
+  evidence_against: {from: [paper, synthesis, experiment, finding], to: [decision, idea, finding], desc: "Evidence against the target"}
+  # --- experiments ---
+  baseline_ref:     {from: [experiment], to: [experiment], desc: "The reference read this experiment's delta is measured against (text field `baseline` is still mandatory)"}
+  stacked_on:       {from: [experiment], to: [experiment], desc: "Built on top of this kept step"}
+  superseded_by:    {from: [experiment], to: [experiment], desc: "A later read of the same change replaced this one"}
+  supports_finding: {from: [experiment, paper], to: [finding], desc: "This try is evidence for the finding"}
+  contradicts_finding: {from: [experiment, paper], to: [finding], desc: "This try is evidence against the finding"}
+  # --- ideas, decisions, constraints ---
+  tested_by:        {from: [idea], to: [experiment], desc: "An experiment that tested this idea or something close; attrs closeness: same | close | related, note"}
+  motivated_by:     {from: [idea, decision, experiment, finding], to: [finding, experiment, paper, constraint, method, dataset, idea, gap, limitation], desc: "Why it exists"}
+  builds_on:        {from: [idea, decision, method], to: [method, paper, dataset, experiment, model, code], desc: "Existing work it reuses"}
+  depends_on:       {from: [idea, decision], to: [idea, decision], desc: "Requires the target first"}
+  decides:          {from: [decision], to: [method, dataset, experiment, idea, constraint], desc: "Chosen option"}
+  alternative:      {from: [decision], to: [method, dataset, experiment, idea], desc: "Considered, not chosen"}
+  supersedes:       {from: [decision], to: [decision], desc: "Replaces an earlier decision (never delete the old record)"}
+  constrains:       {from: [constraint], to: [idea, experiment, decision, method, dataset], desc: "This rule limits the target"}
+  literature:       {from: [finding, idea, method, decision, experiment, dataset, constraint], to: [paper], desc: "A paper that bears on this node; attrs relation (see literature_relations below), note"}
+  contradicts:      {from: [finding, paper, experiment], to: [finding, idea, decision, method, constraint], desc: "Evidence that an assumption the target rests on is wrong; attrs note (which assumption, and what still stands)"}
+  # --- entity -> entity ---
+  variant_of:       {from: [method, dataset, experiment, model], to: [method, dataset, experiment, model], desc: "Derived variant or version"}
+  part_of:          {from: [method, dataset, code, concept], to: [method, dataset, code, concept], desc: "Component or subset"}
+  related_to:       {from: null, to: null, desc: "Weak association; prefer a typed edge"}
+
+# Relations on `literature` edges (project node -> paper). Paper notes belong to the paper agent and are never edited by
+# the maintainer: links derived from a paper's suggests_try / relevance_note / key_numbers are written on our own nodes.
+literature_relations:
+  corroborates: "the paper's evidence agrees with this node"
+  contradicts: "the paper's evidence disagrees with this node (or this node's result disagrees with the paper)"
+  suggests: "the paper suggests this idea / variant"
+  source-of-method: "the method or idea comes from this paper"
+  source: "this node restates a fact taken from the paper (literature findings)"
+  source-of-data: "the dataset comes from this paper"
+  explains: "the paper explains a mechanism behind this node"
+  tests: "this experiment tested what the paper suggests (or the paper's method); closeness in the note"
+  closes: "this decision or finding closed the route the paper suggests (e.g. papers marked superseded for CV/HEX -> dec-014)"
+
+# Ranking of open ideas (wiki/_views/open-ideas-ranked.md). Gaps are projected-test gaps to first place per metric
+# if submission 1's test-minus-OOF repeats (docs/LANES_20261108.md, 11-08); each metric is one third of the score.
+ranking:
+  gap_to_first: {CV: 0.12, CD: 0.09, HEX: 0.04}
+  source: "LANES 11-08: gaps to V14 per metric if submission 1's test-minus-OOF repeats (CV ~0.12, CD ~0.09, HEX ~0.04)"
+  open_statuses: [open, never-tried, partially-tested, running]
+
+# Edge attributes (dict form). Allowed keys:
+#   target (required), note, closeness (same | close | related; on tested_by), relation (on literature), result, metric, value,
+#   stated_by (author | reviewer | external; required on has_limitation from papers), locator, confidence

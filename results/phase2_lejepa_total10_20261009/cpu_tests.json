@@ -1,8 +1,0 @@
-{
-  "status": "passed",
-  "manifest_sha": "db7338317525e66acde85e83238724766500b7f54a197f4a27f3ba0689c44855",
-  "parent_step": 1120,
-  "parent_optimizer_steps_all1120": true,
-  "next_update_serialization_parity": true,
-  "gradient_cache_tests_passed": true
-}

@@ -1,7 +1,0 @@
-{"experiment": "label_clean_20261104", "written_utc": "2026-11-04T17:40:00Z", "written_before_running": true,
- "change": "recipe A std s46 trained without drop_rows.npz: top 3 % of all rows (269) by max MAD-scaled |log(y / OOF B)| over the metrics",
- "reference": {"fold0": "phase2_pooling_replication_20261026/f0_s46_std", "fold4": "phase2_pooling_20261020/arms/std"},
- "score": "official mean on all validation rows, terminal epoch 20, one view, no rows removed from validation",
- "develop": "fold 0: member delta <= -0.05 continues to fold 4; otherwise stop",
- "confirm": "fold 4: member delta < 0; pooled folds 0+4 hybrid with seed 46 swapped delta <= -0.02",
- "known_risks": ["removes 45 of 138 rows with CD < 1500, some of them real pathology", "drop list uses OOF predictions whose models saw validation labels of other folds (second-order leak)"]}

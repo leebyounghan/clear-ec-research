@@ -1,0 +1,199 @@
+{
+ "groups": [
+  {
+   "group": "P1 (5 Phase-1 members + their CPSAM backbone)",
+   "files": 6,
+   "gb": 7.327,
+   "shared_files": 0,
+   "shared_with": [],
+   "feeds": "CD, CV, HEX"
+  },
+  {
+   "group": "recipe A s46+s47, epoch 20 (TTA4)",
+   "files": 2,
+   "gb": 0.687,
+   "shared_files": 0,
+   "shared_with": [],
+   "feeds": "CV, HEX (A); CD (A_cd half); CV frozen heads + 4 HEX frozen detector heads (s46 encoder)"
+  },
+  {
+   "group": "recipe A s46+s47, epochs 8-19 (single view)",
+   "files": 24,
+   "gb": 8.238,
+   "shared_files": 0,
+   "shared_with": [],
+   "feeds": "CD (A_cd half)"
+  },
+  {
+   "group": "DINOv3-B s46b epochs 16-20 (D, TTA4; also DINO CV seed 1)",
+   "files": 5,
+   "gb": 1.716,
+   "shared_files": 0,
+   "shared_with": [],
+   "feeds": "CD; CV"
+  },
+  {
+   "group": "DINOv3-B CV, other 2 seeds epochs 16-20",
+   "files": 10,
+   "gb": 3.431,
+   "shared_files": 0,
+   "shared_with": [],
+   "feeds": "CV"
+  },
+  {
+   "group": "ViT-L s46+s47, epochs 8-11 + final",
+   "files": 10,
+   "gb": 12.13,
+   "shared_files": 0,
+   "shared_with": [],
+   "feeds": "CD"
+  },
+  {
+   "group": "order-DINOv3-B epochs 16-20",
+   "files": 5,
+   "gb": 1.716,
+   "shared_files": 0,
+   "shared_with": [],
+   "feeds": "CV"
+  },
+  {
+   "group": "cvw3 DINOv3-B epochs 8-12",
+   "files": 5,
+   "gb": 1.716,
+   "shared_files": 0,
+   "shared_with": [],
+   "feeds": "HEX"
+  },
+  {
+   "group": "CPSAM 512 (cps5) epochs 8-12",
+   "files": 5,
+   "gb": 6.092,
+   "shared_files": 0,
+   "shared_with": [],
+   "feeds": "HEX"
+  },
+  {
+   "group": "CPSAM segmentation (cpsam_v2)",
+   "files": 1,
+   "gb": 1.234,
+   "shared_files": 0,
+   "shared_with": [],
+   "feeds": "CD (mask), HEX (seg features, cell-route points)"
+  },
+  {
+   "group": "pre-only detectors s46/47/48",
+   "files": 3,
+   "gb": 1.029,
+   "shared_files": 3,
+   "shared_with": [
+    "hex6 corrector (green-track deploy detectors)"
+   ],
+   "feeds": "HEX (cell-route, prior, ridge, graph nets), CV (graph, quartets, sim ridge)"
+  },
+  {
+   "group": "9 full detectors (all16)",
+   "files": 9,
+   "gb": 3.086,
+   "shared_files": 5,
+   "shared_with": [
+    "hex6 corrector (green-track deploy detectors)"
+   ],
+   "feeds": "HEX (all16 features; 5 shared with hex6)"
+  },
+  {
+   "group": "4 frozen detector heads (all16)",
+   "files": 4,
+   "gb": 0.0,
+   "shared_files": 0,
+   "shared_with": [],
+   "feeds": "HEX (all16 features)"
+  },
+  {
+   "group": "hex6 corrector (green-track deploy detectors)",
+   "files": 14,
+   "gb": 4.115,
+   "shared_files": 8,
+   "shared_with": [
+    "9 full detectors (all16)",
+    "pre-only detectors s46/47/48"
+   ],
+   "feeds": "HEX (f6, have)"
+  },
+  {
+   "group": "HEX graph nets",
+   "files": 125,
+   "gb": 0.063,
+   "shared_files": 0,
+   "shared_with": [],
+   "feeds": "HEX (g_s10x3, g_hex46)"
+  },
+  {
+   "group": "CV graph nets (GRAPH, quartets)",
+   "files": 200,
+   "gb": 0.101,
+   "shared_files": 0,
+   "shared_with": [],
+   "feeds": "CV (graph, quartets); HEX (graph, best, g_s10x3)"
+  },
+  {
+   "group": "CV sim nets (sim2_l8)",
+   "files": 3,
+   "gb": 0.002,
+   "shared_files": 0,
+   "shared_with": [],
+   "feeds": "CV (ridge_cv), HEX (best)"
+  },
+  {
+   "group": "CV frozen heads",
+   "files": 60,
+   "gb": 0.1,
+   "shared_files": 0,
+   "shared_with": [],
+   "feeds": "CV (fz_*)"
+  },
+  {
+   "group": "base weights read at model build (overwritten by strict loads?)",
+   "files": 4,
+   "gb": 1.899,
+   "shared_files": 0,
+   "shared_with": [],
+   "feeds": "see attribution run"
+  }
+ ],
+ "other": [
+  {
+   "what": "code (.py)",
+   "files": 268,
+   "gb": 0.004
+  },
+  {
+   "what": "experiments/lane_gpu2_20261106/frozen_s46",
+   "files": 1,
+   "gb": 0.0
+  },
+  {
+   "what": "experiments/phase2_foundation_20261002/runtime/timm-1.0.20.dist-info",
+   "files": 3,
+   "gb": 0.0
+  },
+  {
+   "what": "params (.json)",
+   "files": 7,
+   "gb": 0.0
+  },
+  {
+   "what": "experiments/phase2_foundation_20261002/runtime/dinov3-0.0.1.dist-info",
+   "files": 2,
+   "gb": 0.0
+  },
+  {
+   "what": "experiments/lane_cv_20261108/deploy",
+   "files": 1,
+   "gb": 0.0
+  }
+ ],
+ "total": {
+  "files": 769,
+  "gb": 51.943
+ }
+}

@@ -1,0 +1,80 @@
+{
+ "lane": "GPU 0, pod clear-ec-research-4gpu-1104, single GPU, sequential jobs",
+ "measurement_rule": "docs/PLAN_20261106.md: mean of the last five epochs on folds 0 and 4, paired with a matched reference; read with source/read_arm_20261106.py",
+ "references": {
+  "fold0_seed46": "experiments/phase2_pooling_replication_20261026/f0_s46_std",
+  "fold4_seed46": "experiments/phase2_pooling_20261020/arms/std"
+ },
+ "gates": [
+  {
+   "id": "control_single_gpu_f0",
+   "written_utc": "2026-11-06",
+   "what": "One epoch, fold 0, seed 46, flips only, on the one-process runner (recipeA_single_gpu_20261106.py, micro-batch 4; micro-batch 8 failed the frozen smoke gate at relative gradient error 0.0023 against 0.002).",
+   "question": "Is the one-process runner the same training as the two-rank reference?",
+   "pass": "epoch 1 validation mean within 0.05 of the reference's 10.332, and per-image log prediction r above 0.99 with the reference epoch 1",
+   "on_fail": "stop and diagnose before any arm is read against the two-rank references",
+   "first_result": "Failed: epoch 1 10.102 against 10.332, r log 0.990, 0.991, 0.991. Cause found: the encoder draws a random RoPE rescale at every train-mode forward; two ranks share the draws (2 per update), the first one-process version made 4 per update. Update 1 gradient norm 0.5494 against 0.5435."
+  },
+  {
+   "id": "control_single_gpu2",
+   "written_utc": "2026-11-06",
+   "what": "Same one-epoch control after making the one-process runner repeat the two ranks' RNG path.",
+   "pass": "same gate as control_single_gpu: epoch 1 mean within 0.05 of 10.332 and per-image log r above 0.99, plus gradient norm at update 1 within 0.1 % of 0.5435",
+   "on_fail": "train a one-process flips-only reference on folds 0 and 4 and read arms against that",
+   "result": "Gate as written failed: epoch 1 mean 10.250 against 10.332, per-image log r 0.974, 0.981, 0.980. Gradient norm at update 1 passes: 0.54351 against 0.5435.",
+   "deviation": "on_fail said to train a one-process flips-only reference. Not done, because the runner is shown equal and the gate was too tight: gradient norm ratio to the two-rank log stays 1.000-1.005 through update 125 and then the paths separate numerically, which any rerun would also do. Epoch 1 varies 9.93 to 10.63 across seeds of fold 0, so it cannot resolve 0.05. Run noise on the rule that matters, last-five-epoch mean, is small: fold 0 seeds 46, 47, 48 give 9.081, 9.064, 9.067; fold 4 give 9.012, 9.008, 9.017. Reported to the parent session; a 20-epoch control can still be queued if wanted."
+  },
+  {
+   "id": "measured_v1",
+   "written_utc": "2026-11-06",
+   "what": "Recipe A, 20 epochs, schedule 10, seed 46, folds 0 and 4, with measured transfer (focus, exposure, noise from a same-source training frame, p 0.8, no rotation).",
+   "aims_at": "CD, CV",
+   "belief_tested": "audit 4: flips-only training is fine",
+   "pass": "two-fold mean of last-five-epoch means <= -0.05 with donor-bootstrap CI below 0, or added to the best pipeline at fixed weight 0.25 <= -0.02 with CI below 0, on the rows of folds 0 and 4",
+   "not_a_pass": "one fold, one epoch, or terminal-epoch only",
+   "weights_read": "added read also prints 0.125 and 0.5; only 0.25 counts for the gate"
+  },
+  {
+   "id": "measured_v1_lr3",
+   "written_utc": "2026-11-06",
+   "what": "measured_v1 augmentation with encoder LR x3 (3e-5), same schedule, epochs 20, seed 46, folds 0 and 4.",
+   "aims_at": "CD, CV",
+   "belief_tested": "audit 5: capacity is not the limit; LR x5 alone took train 8.30 to 7.26 and validation 9.11 to 9.44, so it is read only with augmentation",
+   "pass": "same as measured_v1, against the same flips-only references; also reported against measured_v1 itself",
+   "note": "Added before the run; may be re-ordered once measured_v1 reads."
+  },
+  {
+   "id": "label_fraction",
+   "written_utc": "2026-11-06",
+   "what": "Recipe A flips only, 50 % then 25 % of labelled donors (nested), folds 0 and 4, seed 46, SSL5 encoder of the full fold train.",
+   "question": "audit 6: is the error limited by the amount of labelled data?",
+   "decision_rule": "Slope in mean per doubling, last-five-epoch means, two folds. Still falling by more than 0.05 from 50 % to 100 % means more labels would help; flat within 0.05 means they would not. Against the two-rank references at 100 %.",
+   "not_a_member": true
+  },
+  {
+   "id": "A1_minus22",
+   "written_utc": "2026-11-06",
+   "what": "CPU audit of rows with ID suffix -22 and a correction detectable from the image alone.",
+   "pass": "plan rule for corrections: five folds on top of the best pipeline, <= -0.01 on the mean, CI below 0, 4 of 5 folds, settings inside training folds",
+   "note": "The gate is the plan's standing rule and was not written to this file before part 1 ran."
+  },
+  {
+   "id": "rope_scale_inference",
+   "written_utc": "2026-11-06",
+   "what": "Fixed RoPE coordinate scale at inference on stored recipe A members, no retraining. The encoder trains with a random rescale in [1/2, 2] per forward and validates at 1.",
+   "first_look": "Written after a first look at fold 0 and 4, seed 46, terminal epoch: scale 1.414 -0.071 (CI -0.102, -0.040) with the same stretch on both arms. The gate below is for the wider read.",
+   "pass": "Correction rule: five folds on top of the best pipeline, three seeds, <= -0.01 on the mean, CI below 0, 4 of 5 folds, scale chosen on the training folds",
+   "grid": "isotropic 1.19, 1.414, 1.68, 2.0, 2.38; anisotropic h1_w1.32, h0.87_w1.15, h1.23_w1.62 on the coordinate axes (RoPE normalises H and W separately, so patch spacing is 1.32 times larger in H)",
+   "result": "Scale 1.414, five folds. Member, same stretch on both: seed 46 -0.032 (CI -0.052, -0.013), seed 47 -0.017 (CI -0.036, +0.002), two seeds -0.022 (CI -0.040, -0.003), CD +0.022, CV -0.018, HEX -0.068. Pipeline: hybrid B + stretch -0.001 (CI -0.010, +0.009); best pipeline +0.002 (CI -0.007, +0.011), CD +0.009, CV +0.009, HEX -0.011, folds +0.001, +0.006, +0.003, +0.005, -0.004. Fail. The first look at -0.071 came from one seed on two folds and did not hold. Two seeds, not three: seed 48 exists only on folds 0 and 4 and is not in recipe A.",
+   "result_final": "Closed, gate failed. Best pipeline, scale chosen on the other folds (1.19 in all five): -0.0012 (CI -0.0066, +0.0042), CD -0.002, CV +0.003, HEX -0.005, folds -0.004, 0.000, +0.002, -0.001, -0.004."
+  },
+  {
+   "id": "rope_fixed",
+   "written_utc": "2026-11-07",
+   "what": "Recipe A flips only, RoPE rescale off during regression training, 20 epochs, schedule 10, seed 46, folds 0 and 4. After LR x3 in the queue.",
+   "aims_at": "CD, CV",
+   "belief_tested": "not in the audit: training-mode coordinate rescale in [1/2, 2], a hub default, is harmless",
+   "pass": "same as measured_v1, against the flips-only references"
+  }
+ ]
+}

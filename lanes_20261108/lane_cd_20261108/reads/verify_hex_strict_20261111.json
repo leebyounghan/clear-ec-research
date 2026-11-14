@@ -1,0 +1,24 @@
+{
+ "hex_strict_assembled_by_verifier": 9.71977,
+ "per_fold": {
+  "0": 10.0362,
+  "1": 9.4574,
+  "2": 9.8653,
+  "3": 9.5799,
+  "4": 9.6602
+ },
+ "a_chain_convention": {
+  "P": 9.71342,
+  "P_kept": 9.70727,
+  "base": 9.71977,
+  "base_vs_verifier_max_abs": 0.0
+ },
+ "b_oof_convention": {
+  "P": 9.71663,
+  "P_kept": 9.70679,
+  "base": 9.71977,
+  "base_vs_verifier_max_abs": 0.0
+ },
+ "integrated_strict_mean_with_hex_e2e_a": 8.66789,
+ "integrated_strict_mean_with_hex_ridge_only": 8.67
+}

@@ -1,0 +1,65 @@
+{
+ "written": "2026-11-10",
+ "recipe": "CV lane freeze candidate, out/cv_tier_t1_20261112.npz (five-fold OOF CV 10.1115)",
+ "components": [
+  "dino",
+  "fz:spectrum",
+  "fz:cov_sqrt",
+  "fz:autocorr",
+  "graph:plain",
+  "graph:order"
+ ],
+ "recipeA_scalar_cv": 0.9891082957404466,
+ "recipeA_scalars_all": [
+  0.9914125837684035,
+  0.9891082957404466,
+  0.9915938787867987
+ ],
+ "phase1_scalar_cv": 0.987972130802936,
+ "phase1_scalars_all": [
+  0.9970446110788349,
+  0.987972130802936,
+  0.9892234872488541
+ ],
+ "weights": {
+  "dino": 0.125,
+  "fz:spectrum": 0.25,
+  "fz:cov_sqrt": 0.375,
+  "fz:autocorr": 0.25,
+  "graph:plain": 1.0,
+  "graph:order": 0.25
+ },
+ "stretch_cv": [
+  0.975,
+  0.9806061830810574,
+  -0.9812067899179452
+ ],
+ "stretch_cv_fit_on_oof_for_comparison": [
+  0.975,
+  0.9786712908405326,
+  -0.9790259836955335
+ ],
+ "ridge_lambda": {
+  "CV": 30000.0,
+  "HEX": 3000.0
+ },
+ "graph_ensemble": {
+  "weights": "graph_models/gfull_{noctx,pre47,pre48}_s<k>_s<k>_e{21..25}.pt",
+  "seeds": {
+   "noctx": 10,
+   "pre47": 3,
+   "pre48": 3
+  },
+  "recipe": "d64, 5 layers, 25 epochs, lr 1e-3, wd 0.01, drop 0.1, no ctx, 9 node features; graphs meta_ceiling_20261103/sweep/cell_graphs{,_pre47,_pre48}.npz layout"
+ },
+ "sim_embedding": {
+  "networks": "meta_ceiling_20261103/sweep/sim_pred/sim2_l8_s{0,1,2}.pt",
+  "embed": "sim_embed_eval_20261105.embed, mean over the 3 graph sets"
+ },
+ "order_dino": "lane_cv_20261108/arms/dinov3_order_f99_s46 (full data, CD_LOSS=order), epochs 16-20 mean log CV, single view",
+ "quartets": {
+  "plain": "graph_models/full_tta_{s46,s47,s48,seeds3}_tta4_s{0,1,2}_e{21..25}.pt",
+  "order": "graph_models/gord_{s46,s47,s48,seeds3}_tta4_full_s<k>_s<k>_e{21..25}.pt"
+ },
+ "detectors": "green_track_20261028/deploy/detectors/sg2pre_s{46,47,48}.pt (md5 06c90eee, c84866ca, 4733d1fc)"
+}

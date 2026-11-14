@@ -1,0 +1,33 @@
+{
+ "rows": 250,
+ "dino_s46b": {
+  "mean_log_ratio_pct": [
+   -0.264,
+   -0.001,
+   -0.196
+  ],
+  "sd_pct": [
+   1.673,
+   2.025,
+   1.682
+  ],
+  "se_iid_pct": [
+   0.106,
+   0.128,
+   0.106
+  ],
+  "se_donor_pct": [
+   0.106,
+   0.128,
+   0.106
+  ],
+  "slope": [
+   1.0231,
+   1.0542,
+   1.0447
+  ],
+  "donors": 250,
+  "full": "experiments/lane_cd_20261108/arms/dinov3_b16_f99_s46b/runs/fold99/dinov3_b16",
+  "deployed_form": "mean log over epochs 16-20, four-flip TTA"
+ }
+}

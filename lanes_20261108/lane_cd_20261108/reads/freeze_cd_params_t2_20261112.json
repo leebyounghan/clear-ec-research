@@ -1,0 +1,272 @@
+{
+ "tier": "t2",
+ "created": "2026-11-12",
+ "decision": "D-PKG-002",
+ "metric": "CD",
+ "information_only": false,
+ "strict_five_fold_cd": 6.18754,
+ "incumbent_D_CD_001_strict_same_run": 6.17428,
+ "delta_vs_incumbent": 0.0133,
+ "delta_ci95_donor_bootstrap": [
+  0.0007,
+  0.0269
+ ],
+ "per_fold_delta": {
+  "0": 0.0153,
+  "1": 0.0176,
+  "2": -0.0084,
+  "3": 0.0169,
+  "4": 0.0248
+ },
+ "best_pipeline_cd_as_computed": 6.2639,
+ "delta_vs_best_pipeline_as_computed": -0.0763,
+ "members": [
+  "P1",
+  "A",
+  "D",
+  "mask"
+ ],
+ "inputs": {
+  "P1": "Phase-1 CD as deployed for D-CD-001 (candidate5 members mean x OOF SCALE CD 0.9970446110788349), times deploy.p1_cd_multiplier",
+  "A": "recipe A full-data s46 and s47, four-flip TTA at epoch_20.pt only (the same forward as the CV/HEX lanes' A): 0.5 * (s46 + s47), times deploy.recipeA_cd_scalar. No epoch 8-19 single views.",
+  "D": "as D-CD-001: DINOv3-B s46b and s47 full data, per seed four-flip TTA at epoch_16..20.pt, mean log over the 20 forwards, then the geometric mean of the two seeds",
+  "mask": "as D-CD-001: Cellpose-SAM cpsam_v2 zero-shot (flow 0.8, cellprob -2, CLAHE), feats() cd_mm2 used only when n_int >= 50"
+ },
+ "deploy": {
+  "weights": {
+   "P1": 0.3,
+   "A": 0.5,
+   "D": 0.2,
+   "V": 0.0
+  },
+  "mask_min_cells": 50,
+  "mask_a": 2.0601792021173932,
+  "mask_b": 0.7457325382234986,
+  "mask_w": 0.1,
+  "stretch_g": 1.075,
+  "stretch_c": 0.9981281123945047,
+  "stretch_mu": 7.917268469953841,
+  "P1_scalar_on_raw": 0.9974263680018339,
+  "p1_cd_multiplier": 1.000382888507452,
+  "recipeA_cd_scalar": 0.9914125837684035,
+  "weight_on_grid_edge": []
+ },
+ "per_fold": {
+  "0": {
+   "weights": {
+    "P1": 0.3,
+    "A": 0.45,
+    "D": 0.25,
+    "V": 0.0
+   },
+   "mask_min_cells": 50,
+   "mask_a": 2.0543003984193584,
+   "mask_b": 0.7463878993399429,
+   "mask_w": 0.1,
+   "stretch_g": 1.075,
+   "stretch_c": 0.9980290434708746,
+   "stretch_mu": 7.917474613412534,
+   "P1_scalar_on_raw": 0.9981635534724757,
+   "p1_cd_multiplier": 1.0011222591057687,
+   "recipeA_cd_scalar": 0.9902731012148698,
+   "weight_on_grid_edge": []
+  },
+  "1": {
+   "weights": {
+    "P1": 0.25,
+    "A": 0.55,
+    "D": 0.2,
+    "V": 0.0
+   },
+   "mask_min_cells": 50,
+   "mask_a": 2.0089991222993384,
+   "mask_b": 0.752316984366636,
+   "mask_w": 0.1,
+   "stretch_g": 1.075,
+   "stretch_c": 0.9980645840101544,
+   "stretch_mu": 7.916248339992933,
+   "P1_scalar_on_raw": 0.997138191782862,
+   "p1_cd_multiplier": 1.00009385809119,
+   "recipeA_cd_scalar": 0.9925054869390376,
+   "weight_on_grid_edge": []
+  },
+  "2": {
+   "weights": {
+    "P1": 0.3,
+    "A": 0.45,
+    "D": 0.25,
+    "V": 0.0
+   },
+   "mask_min_cells": 50,
+   "mask_a": 2.043488837637154,
+   "mask_b": 0.7478552191861002,
+   "mask_w": 0.1,
+   "stretch_g": 1.075,
+   "stretch_c": 0.9980922857114758,
+   "stretch_mu": 7.9158546839835084,
+   "P1_scalar_on_raw": 0.997695672214243,
+   "p1_cd_multiplier": 1.0006529909777093,
+   "recipeA_cd_scalar": 0.9904522972242529,
+   "weight_on_grid_edge": []
+  },
+  "3": {
+   "weights": {
+    "P1": 0.3,
+    "A": 0.5,
+    "D": 0.2,
+    "V": 0.0
+   },
+   "mask_min_cells": 50,
+   "mask_a": 2.0404308969849,
+   "mask_b": 0.7483143435879517,
+   "mask_w": 0.1,
+   "stretch_g": 1.075,
+   "stretch_c": 0.9982081414075283,
+   "stretch_mu": 7.918394383955717,
+   "P1_scalar_on_raw": 0.9978296416186156,
+   "p1_cd_multiplier": 1.000787357487376,
+   "recipeA_cd_scalar": 0.9925184084304673,
+   "weight_on_grid_edge": []
+  },
+  "4": {
+   "weights": {
+    "P1": 0.3,
+    "A": 0.5,
+    "D": 0.2,
+    "V": 0.0
+   },
+   "mask_min_cells": 50,
+   "mask_a": 2.1558288199805538,
+   "mask_b": 0.7335194731098216,
+   "mask_w": 0.1,
+   "stretch_g": 1.075,
+   "stretch_c": 0.9981023556680523,
+   "stretch_mu": 7.918523509217112,
+   "P1_scalar_on_raw": 0.996245102082835,
+   "p1_cd_multiplier": 0.9991981211401014,
+   "recipeA_cd_scalar": 0.991181045461882,
+   "weight_on_grid_edge": []
+  }
+ },
+ "combine": "cd_combine_20261110.combine(P1_in, A_in, D, V, mask_cd, mask_n_int, deploy) with P1_in = P1 x p1_cd_multiplier, A_in = A x recipeA_cd_scalar; a member with weight 0 is not computed: pass 1.0 for it (w * log 1 = 0)",
+ "L5": {
+  "procedure": "deploy = the strict per-fold fit (scalars, weight grid, mask slot, stretch) run with every row as training, no outer fold; same function as the per-fold fits",
+  "deploy_params_via_combine_vs_insample_search_max_rel": 3.6637359812630166e-15,
+  "per_fold_params_via_combine_reproduce_strict_oof_max_rel": 3.6637359812630166e-15,
+  "weight_on_grid_edge_deploy": []
+ },
+ "model_files": [
+  {
+   "path": "experiments/deploy_review_20260905/staged/model/seed42.pt",
+   "bytes_fp32": 1218701062,
+   "bytes_fp16_copy": 609396683,
+   "shared_with_cv_hex_or_p1": true
+  },
+  {
+   "path": "experiments/deploy_review_20260905/staged/model/seed77.pt",
+   "bytes_fp32": 1218701062,
+   "bytes_fp16_copy": 609396683,
+   "shared_with_cv_hex_or_p1": true
+  },
+  {
+   "path": "experiments/deploy_review_20260905/staged/model/seed2026.pt",
+   "bytes_fp32": 1218701062,
+   "bytes_fp16_copy": 609397413,
+   "shared_with_cv_hex_or_p1": true
+  },
+  {
+   "path": "experiments/deploy_review_20260905/staged/model/metric35.pt",
+   "bytes_fp32": 1218701318,
+   "bytes_fp16_copy": 609397669,
+   "shared_with_cv_hex_or_p1": true
+  },
+  {
+   "path": "experiments/deploy_review_20260905/staged/model/predbag2_35.pt",
+   "bytes_fp32": 1218701382,
+   "bytes_fp16_copy": 609398828,
+   "shared_with_cv_hex_or_p1": true
+  },
+  {
+   "path": "cpsam_models/cpsam_v2",
+   "bytes_fp32": 1233586851,
+   "bytes_fp16_copy": null,
+   "shared_with_cv_hex_or_p1": true
+  },
+  {
+   "path": "experiments/fulldata_recipeA_20261028/regression_std_s46/runs/fold99/cpdino_vitb/epoch_20.pt",
+   "bytes_fp32": 343263619,
+   "bytes_fp16_copy": null,
+   "shared_with_cv_hex_or_p1": true
+  },
+  {
+   "path": "experiments/fulldata_recipeA_20261028/regression_std_s47/runs/fold99/cpdino_vitb/epoch_20.pt",
+   "bytes_fp32": 343263619,
+   "bytes_fp16_copy": null,
+   "shared_with_cv_hex_or_p1": true
+  },
+  {
+   "path": "experiments/lane_cd_20261108/arms/dinov3_b16_f99_s46b/runs/fold99/dinov3_b16/epoch_16.pt",
+   "bytes_fp32": 343127788,
+   "bytes_fp16_copy": 171592521,
+   "shared_with_cv_hex_or_p1": true
+  },
+  {
+   "path": "experiments/lane_cd_20261108/arms/dinov3_b16_f99_s46b/runs/fold99/dinov3_b16/epoch_17.pt",
+   "bytes_fp32": 343127788,
+   "bytes_fp16_copy": 171592521,
+   "shared_with_cv_hex_or_p1": true
+  },
+  {
+   "path": "experiments/lane_cd_20261108/arms/dinov3_b16_f99_s46b/runs/fold99/dinov3_b16/epoch_18.pt",
+   "bytes_fp32": 343127788,
+   "bytes_fp16_copy": 171592521,
+   "shared_with_cv_hex_or_p1": true
+  },
+  {
+   "path": "experiments/lane_cd_20261108/arms/dinov3_b16_f99_s46b/runs/fold99/dinov3_b16/epoch_19.pt",
+   "bytes_fp32": 343127788,
+   "bytes_fp16_copy": 171592521,
+   "shared_with_cv_hex_or_p1": true
+  },
+  {
+   "path": "experiments/lane_cd_20261108/arms/dinov3_b16_f99_s46b/runs/fold99/dinov3_b16/epoch_20.pt",
+   "bytes_fp32": 343127788,
+   "bytes_fp16_copy": 171592521,
+   "shared_with_cv_hex_or_p1": true
+  },
+  {
+   "path": "experiments/lane_cd_20261108/arms/dinov3_b16_f99_s47/runs/fold99/dinov3_b16/epoch_16.pt",
+   "bytes_fp32": 343127788,
+   "bytes_fp16_copy": 171592521,
+   "shared_with_cv_hex_or_p1": false
+  },
+  {
+   "path": "experiments/lane_cd_20261108/arms/dinov3_b16_f99_s47/runs/fold99/dinov3_b16/epoch_17.pt",
+   "bytes_fp32": 343127788,
+   "bytes_fp16_copy": 171592521,
+   "shared_with_cv_hex_or_p1": false
+  },
+  {
+   "path": "experiments/lane_cd_20261108/arms/dinov3_b16_f99_s47/runs/fold99/dinov3_b16/epoch_18.pt",
+   "bytes_fp32": 343127788,
+   "bytes_fp16_copy": 171592521,
+   "shared_with_cv_hex_or_p1": false
+  },
+  {
+   "path": "experiments/lane_cd_20261108/arms/dinov3_b16_f99_s47/runs/fold99/dinov3_b16/epoch_19.pt",
+   "bytes_fp32": 343127788,
+   "bytes_fp16_copy": 171592521,
+   "shared_with_cv_hex_or_p1": false
+  },
+  {
+   "path": "experiments/lane_cd_20261108/arms/dinov3_b16_f99_s47/runs/fold99/dinov3_b16/epoch_20.pt",
+   "bytes_fp32": 343127788,
+   "bytes_fp16_copy": 171592521,
+   "shared_with_cv_hex_or_p1": false
+  }
+ ],
+ "model_bytes_packaged_all": 6683026575,
+ "model_bytes_packaged_cd_only": 857962605,
+ "oof_file": "reads/cd_tier_t2_20261112.npz",
+ "code": "source/cd_tiers_20261112.py, source/cd_tiers_assemble_20261112.py"
+}

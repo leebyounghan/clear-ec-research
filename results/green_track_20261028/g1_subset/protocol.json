@@ -1,5 +1,0 @@
-{"experiment": "green_track_20261028/g1_subset", "created_utc": "2026-10-30T04:40:00Z", "status": "pre-registered before running", "compute": "CPU ~15 min",
- "question": "Does selecting, per held fold, the detector families whose OOF hex6 best matches GT HEX on the other four folds (top-k by Pearson r, k chosen the same way) lift the hex6 blend on B above -0.03 pp mean, with no new training?",
- "note": "the detectors' own training rows cannot be scored (their peaks exist only on validation rows), so the fitting folds' validation rows serve as the GT-scored selection set; this is LOFO-consistent for the held fold",
- "pre_specified_decision": "success: B delta <= -0.03 pp mean with HEX improving on >= 4 folds (PI rule); otherwise selection among existing detectors is closed and G1 proceeds with new training (G1a/G1b/G1c)",
- "falsification": "if the selected subsets reproduce the all-13 result (-0.0286) or worse, family quality differences are not informative beyond averaging."}

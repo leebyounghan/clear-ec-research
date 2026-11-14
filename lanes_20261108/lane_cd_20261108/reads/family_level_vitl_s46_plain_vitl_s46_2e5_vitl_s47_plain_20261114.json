@@ -1,0 +1,93 @@
+{
+ "rows": 500,
+ "vitl_s46_plain": {
+  "mean_log_ratio_pct": [
+   1.253,
+   -0.343,
+   -0.723
+  ],
+  "sd_pct": [
+   2.742,
+   2.652,
+   2.513
+  ],
+  "se_iid_pct": [
+   0.123,
+   0.119,
+   0.112
+  ],
+  "se_donor_pct": [
+   0.123,
+   0.119,
+   0.112
+  ],
+  "slope": [
+   0.9355,
+   1.0039,
+   1.0297
+  ],
+  "donors": 500,
+  "full": "experiments/lane_cd_20261108/arms/vitl16_f99_s46/raw/runs/fold99/dinov3_l16t/final.pt",
+  "deployed_form": "four-flip TTA"
+ },
+ "vitl_s46_2e5": {
+  "mean_log_ratio_pct": [
+   -0.291,
+   0.478,
+   NaN
+  ],
+  "sd_pct": [
+   2.589,
+   2.809,
+   NaN
+  ],
+  "se_iid_pct": [
+   0.116,
+   0.126,
+   NaN
+  ],
+  "se_donor_pct": [
+   0.116,
+   0.126,
+   NaN
+  ],
+  "slope": [
+   1.0097,
+   0.9793,
+   NaN
+  ],
+  "donors": 500,
+  "full": "experiments/lane_cd_20261108/arms/vitlfu_elr2e5_f99_s46/raw/runs/fold-1/dinov3_l16t/final.pt",
+  "deployed_form": "four-flip TTA"
+ },
+ "vitl_s47_plain": {
+  "mean_log_ratio_pct": [
+   0.224,
+   1.33,
+   -1.159
+  ],
+  "sd_pct": [
+   2.505,
+   2.682,
+   2.14
+  ],
+  "se_iid_pct": [
+   0.112,
+   0.12,
+   0.096
+  ],
+  "se_donor_pct": [
+   0.112,
+   0.12,
+   0.096
+  ],
+  "slope": [
+   0.9478,
+   0.9208,
+   0.9349
+  ],
+  "donors": 500,
+  "full": "experiments/lane_cd_20261108/arms/vitl16_f99_s47/raw/runs/fold99/dinov3_l16t/final.pt",
+  "deployed_form": "four-flip TTA"
+ }
+}

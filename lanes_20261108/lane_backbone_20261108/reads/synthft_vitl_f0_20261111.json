@@ -1,0 +1,80 @@
+{
+ "window": [
+  8,
+  12
+ ],
+ "folds": [
+  0
+ ],
+ "caveat": "teacher OOF on training rows saw the held-out fold labels: slightly optimistic",
+ "scores": {
+  "a_plain_dinov3b_s46": {
+   "0": {
+    "CD": 6.5164,
+    "CV": 10.4515,
+    "HEX": 10.9208,
+    "mean": 9.2962
+   },
+   "two_fold": {
+    "CD": 6.5164,
+    "CV": 10.4515,
+    "HEX": 10.9208,
+    "mean": 9.2962
+   }
+  },
+  "b_candidate": {
+   "0": {
+    "CD": 6.0334,
+    "CV": 10.0289,
+    "HEX": 10.0483,
+    "mean": 8.7035
+   },
+   "two_fold": {
+    "CD": 6.0334,
+    "CV": 10.0289,
+    "HEX": 10.0483,
+    "mean": 8.7035
+   }
+  },
+  "student_raw": {
+   "0": {
+    "CD": 6.4449,
+    "CV": 10.4129,
+    "HEX": 10.7537,
+    "mean": 9.2039
+   },
+   "two_fold": {
+    "CD": 6.4449,
+    "CV": 10.4129,
+    "HEX": 10.7537,
+    "mean": 9.2039
+   }
+  },
+  "student_swa6": {
+   "0": {
+    "CD": 6.3795,
+    "CV": 10.3428,
+    "HEX": 10.6326,
+    "mean": 9.1183
+   },
+   "two_fold": {
+    "CD": 6.3795,
+    "CV": 10.3428,
+    "HEX": 10.6326,
+    "mean": 9.1183
+   }
+  }
+ },
+ "gap_closed_raw": {
+  "CD": 0.148,
+  "CV": 0.091,
+  "HEX": 0.192,
+  "mean": 0.156
+ },
+ "gap_closed_swa6": {
+  "CD": 0.283,
+  "CV": 0.257,
+  "HEX": 0.33,
+  "mean": 0.3
+ }
+}

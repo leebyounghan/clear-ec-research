@@ -1,0 +1,36 @@
+check: sum of top-level rows - wall per job [0.0, 0.0, 0.0, 0.0, 0.0]
+| stage | median | VM1 f0 | VM1 f447 | VM2 run b2 f0 | VM2 run b3 f0 | VM2 run b3 f447 |
+|---|---|---|---|---|---|---|
+| P1 crop members (5 x central 512 on cpsam_v2) [p1] | 43.9 | 42.2 | 42.0 | 43.9 | 44.8 | 47.7 |
+| CPSAM segmentation [seg] | 17.2 | 17.7 | 15.0 | 18.7 | 16.7 | 17.2 |
+| recipe A s46+s47 TTA (2 x 4 ViT-B/8 fwd) [recipeA_tta] | 17.7 | 15.9 | 18.0 | 16.7 | 17.7 | 18.2 |
+|   of which one seed (est. = half) | 8.9 | 8.0 | 9.0 | 8.4 | 8.9 | 9.1 |
+| DINOv3-B dino_cd: s46b + s47 (2 x 5 ep x 4 flips = 40 fwd) [dino_cd] | 15.2 | 14.6 | 14.9 | 16.9 | 15.2 | 17.7 |
+|   DINOv3-B s46b CD half, 20 fwd (est. = half) | 7.6 | 7.3 | 7.5 | 8.5 | 7.6 | 8.8 |
+|   DINOv3-B s47 CD half, 20 fwd (est. = half) | 7.6 | 7.3 | 7.5 | 8.5 | 7.6 | 8.8 |
+| DINOv3-B s46b CV read (5 single fwd, rereads the 5 files) [dino_cv] | 4.0 | 4.2 | 3.6 | 4.5 | 3.8 | 4.0 |
+| ViT-L s46+s47 TTA (2 x 4 fwd) [vitl_tta_only] | 18.1 | 17.4 | 18.1 | 17.3 | 18.3 | 18.7 |
+|   ViT-L one seed (est. = half) | 9.0 | 8.7 | 9.0 | 8.7 | 9.1 | 9.4 |
+| DINOv3-B cvw3 HEX (10 single fwd) [family_mean] | 12.1 | 11.0 | 12.4 | 11.4 | 12.2 | 12.1 |
+| DINOv3-B attention-pool HEX (5 single fwd) [attnpool_hex] | 6.9 | 6.7 | 7.0 | 6.5 | 6.9 | 7.4 |
+| 3 pre-only detectors, TTA [peaks] | 30.6 | 28.6 | 30.6 | 30.1 | 31.5 | 30.9 |
+| 13 other detectors, single view [other_peaks] | 58.3 | 57.0 | 56.4 | 64.0 | 63.9 | 58.3 |
+| hex6 corrector (10 detectors; 6 also run in peaks / other_peaks) [hex6] | 43.1 | 41.7 | 41.1 | 50.0 | 47.8 | 43.1 |
+| HEX features + HEX graph nets [hex_features] | 4.2 | 4.2 | 3.6 | 5.7 | 3.6 | 5.0 |
+| CV graph/sim nets + frozen heads (+1 recipe A s46 token pass) [cv_parts] | 11.8 | 10.7 | 10.4 | 12.3 | 11.8 | 11.8 |
+| cell-route features [features] | 1.0 | 1.6 | 0.8 | 1.0 | 1.6 | 0.9 |
+| model unload between stages, ~14 calls [_stage_end] | 3.7 | 3.6 | 3.7 | 3.6 | 4.1 | 3.9 |
+| preprocess | 0.1 | 0.1 | 0.1 | 0.1 | 0.1 | 0.1 |
+| setup: imports + Recipe init [setup_s] | 6.9 | 6.5 | 6.7 | 6.9 | 7.4 | 10.1 |
+| rest of the entry: image read, CD/HEX/CV combine, write | 0.3 | 0.3 | 0.3 | 0.2 | 0.3 | 0.3 |
+| process start/exit outside the entry | 3.4 | 3.2 | 3.7 | 4.2 | 3.4 | 3.2 |
+| WALL per job | 310.7 | 287.4 | 288.4 | 314.2 | 311.1 | 310.7 |
+| model loading = torch.load/safetensors read time (inside the stages) | 59.6 | 59.6 | 55.0 | 77.0 | 62.6 | 58.7 |
+|   read throughput MB/s | 412.5 | 412.5 | 447.2 | 319.3 | 392.4 | 419.1 |
+
+VM1 f0: s47 half 7.3 (>= 6.3; its read 2.1) | one ViT-L 8.7 (read 1.5) | both ViT-L 17.6 | all three 24.9
+VM1 f447: s47 half 7.5 (>= 6.6; its read 1.9) | one ViT-L 9.0 (read 1.4) | both ViT-L 18.3 | all three 25.8
+VM2 f0: s47 half 8.5 (>= 7.6; its read 2.7) | one ViT-L 8.7 (read 1.9) | both ViT-L 17.6 | all three 26.0
+VM2 f0: s47 half 7.6 (>= 6.8; its read 2.2) | one ViT-L 9.1 (read 1.5) | both ViT-L 18.6 | all three 26.2
+VM2 f447: s47 half 8.8 (>= 7.9; its read 2.0) | one ViT-L 9.4 (read 1.4) | both ViT-L 19.0 | all three 27.8
+bytes: s47 half 857.962605 MB; s46b 857.962605 MB; ViT-L final.pt [606.531073, 606.531073]

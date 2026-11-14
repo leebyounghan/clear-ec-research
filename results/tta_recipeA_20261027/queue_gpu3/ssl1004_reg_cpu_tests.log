@@ -1,3 +1,0 @@
-### 2026-10-28T05:42:47.838921+00:00 /workspace/venv/bin/python experiments/ssl_seed_sensitivity_20261028/fold4/regression_std_s46_ssl1004/source/phase2_backbone_ssl_regression_20261020.py cpu-tests --root experiments/ssl_seed_sensitivity_20261028/fold4/regression_std_s46_ssl1004 --split experiments/target_fold4_20260912/preflight/fold4.npz --fold 4 --pooling std --seed 46 --ssl-epochs 5 --ssl-root experiments/ssl_seed_sensitivity_20261028/fold4/ssl5_s1004 --head-lr 0.001 --clip 1 --epochs 20 --schedule-epochs 10 --deadline-utc none
-PASS: metrics, zero rejection, loss identity, partial accumulation
-PASS: seeds/head/augmentation/order, partial DDP gradients, metrics, schedule, clipping
