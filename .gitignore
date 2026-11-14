@@ -1,39 +1,17 @@
-# large binaries — see docs/legacy_phase1/ARTIFACTS.md (regenerate or transfer)
+# Weights and data are not kept in this repository.
 *.pt
 *.pth
-*.dat
-*.npz
-*.npy
+*.safetensors
 *.tar
 *.tar.gz
-*.zip
 *.mha
-*.tif
-*.tiff
-*.h5
-cpsam_models/
-datasets/
-experiments/
-logs/
 __pycache__/
 *.pyc
 .DS_Store
-# Local delivery, runtime credentials and environments are not research sources.
-/submission_candidate_*/
-.env
-.env.*
-!.env.example
-.venv/
-*.pem
-*.key
-/docker_review_20260914/artifacts/
-/docker_review_20260914/checkpoints/
-/docker_review_20260914/test_input/
-/docker_review_20260914/test_output/
-/tmp/pdfs/technical_report_20260915/
-# keep the small reference result JSONs and norm consts under results/
-!results/*.json
-
-# Challenge images stay out of Git, whatever folder they land in; vendored third-party runtime is rebuilt into the image
-results/**/*.png
-/submission_*/runtime/
+# The build context is tracked as it is.
+!p3b/**
+# Local leftovers of earlier work
+/code/
+/kg/
+/submission_*/
+/final_p3b_20261114/
