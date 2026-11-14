@@ -85,3 +85,11 @@ LR 2e-5. CV and HEX are tier p's.
 - `final_p3b_20261114/context/`: the exact build context of the p3b image (Dockerfile, manifest, inference code, constants; no weights).
 - `lanes_20261108/`: each lane's `source/`, `reads/`, `inference/` text files and its report, results and protocol files.
 - `docs/coordination_20261114/`: the shared ledger, the deploy notes and the session notes.
+
+## 7. Wrap-up actions on 11-14 (added 2026-11-14 16:04 EST)
+
+- All GPU jobs were stopped on the PI's order at about 15:50 EST [D-PI-STOP-GPU-WRAPUP].
+- Old packages were deleted on the laptop and the build box; p3b is kept on both and the t3 upload files are kept on the box until the
+  score is known. One root-owned folder on the box (`train_20261113`, 1.6 GB) could not be removed [A-COORD-CLEANUP-20261114].
+- The GPU pod `clear-ec-research-4gpu-1104` was deleted at 16:03 EST; its spec is saved and the volume `clear-ec-workspace` (experiments,
+  data, checkpoints) is untouched. The CPU pod `clear-ec-cpu-1109` is still running [A-COORD-POD-DOWN-20261114].
