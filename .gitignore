@@ -1,4 +1,4 @@
-# Weights and data are not kept in this repository.
+# Weights and data are not kept in git.
 *.pt
 *.pth
 *.safetensors
@@ -8,10 +8,7 @@
 __pycache__/
 *.pyc
 .DS_Store
-# The build context is tracked as it is.
-!p3b/**
-# Local leftovers of earlier work
-/code/
-/kg/
-/submission_*/
-/final_p3b_20261114/
+checkpoints/*
+!checkpoints/README.md
+outputs/
+!src/**

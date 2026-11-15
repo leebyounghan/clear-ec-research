@@ -1,17 +1,9 @@
-# Tier p3b (deploy lane, 2026-11-14, D-COORD-P3-PREP): the p2 context (package_20261114/p2) with the ViT-L s46 and s47 half of V replaced by
-# the encoder-LR-2e-5 full-data run (fp16 copy, model_swap.tsv) and the CD constants of freeze_cd_params_p3b_20261114.json;
-# build with --build-arg TIER=p3b, tag clear-ec:<build date>-freeze-9687076-p3b (never latest). Model archive = the tier-p archive with the
-# files of model_swap.tsv swapped (rebuild_model_archive_20261114.py). Everything else is the p2 image:
-# Tier p2 (deploy lane, 2026-11-14, D-COORD-P2-PREP): the tier-p context (package_20261112/p) with D = DINOv3-B s46b alone (CD constants
-# lane_cd_20261108/reads/freeze_cd_params_p2_20261114.json) and the four read-once switches below; build with --build-arg TIER=p2,
-# tag clear-ec:<build date>-freeze-9687076-p2 (never latest). Runs with the tier-p model archive unchanged (p2 reads a subset of it).
-# 11-12 freeze candidate image (deploy lane, D-PKG-001): D-CD-001 + D-CV-001 + D-HEX-004 + D-HEX-005 through recipe_infer.
-# Built like submissions 1 and 2 (results/submission1_package_20261031/PACKAGE.md): same base image (PyTorch 2.11.0, CUDA 12.6 -> runs on T4 sm75
-# and A10G sm86), weights NOT in the image but in a separate model archive mounted read-only at /opt/ml/model, Grand Challenge I/O unchanged.
-# Build context = package_20261112/context (stage_package.py): the research-tree code files at their repo-relative paths, model_files.txt,
-# fp16_files.txt, base_shapes.json, requirements / constraints. Tag: clear-ec:20261112-freeze-<sha7 of manifests/deploy.json>; never 'latest'.
+# CLEAR-EC Phase II, tier p3b inference image.
+# Build from the repository root:  docker build -t clear-ec-p3b:local .
+# Weights are not in the image. They are mounted read-only at /opt/ml/model (see checkpoints/README.md); every path in
+# configs/model_files.txt is linked from /workspace/clear-ec-research/<path> to /opt/ml/model/<path>.
 FROM --platform=linux/amd64 pytorch/pytorch:2.11.0-cuda12.6-cudnn9-runtime@sha256:3bb77138e105723dd4ed760b82fb63d8310ae3a1afc58f76e0ecf0f776568d33
-ARG TIER=full
+ARG TIER=p3b
 ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 MKL_NUM_THREADS=4 MALLOC_ARENA_MAX=2 \
     HOME=/tmp XDG_CACHE_HOME=/tmp/.cache TORCH_HOME=/tmp/torch MPLCONFIGDIR=/tmp/mpl \
     HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 HF_DATASETS_OFFLINE=1 HF_HUB_DISABLE_PROGRESS_BARS=1 \
@@ -35,8 +27,8 @@ RUN python -m pip install --break-system-packages --no-cache-dir -c /opt/build/c
 RUN groupadd --gid 10001 algorithm && useradd --uid 10001 --gid algorithm --no-create-home algorithm \
     && mkdir -p /opt/ml/model /input /output && chown algorithm:algorithm /output
 # research-tree code (frozen copies at their repo-relative paths: recipe_infer, members, the lanes' apply modules and builders)
-COPY code/ /workspace/clear-ec-research/
-COPY model_files.txt /opt/build/model_files.txt
+COPY src/ /workspace/clear-ec-research/
+COPY configs/model_files.txt /opt/build/model_files.txt
 # every weight path of the manifest points into the read-only model mount (dangling until Grand Challenge mounts the model archive)
 RUN while read -r rel; do mkdir -p "$(dirname "/workspace/clear-ec-research/$rel")" && ln -s "/opt/ml/model/$rel" "/workspace/clear-ec-research/$rel"; done < /opt/build/model_files.txt
 # reduced tiers (build argument): the tier manifest and the lanes' refit parameters must exist in the context; full = the freeze candidate
