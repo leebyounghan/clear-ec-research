@@ -72,7 +72,7 @@ Out-of-fold MAPE (%), strict protocol.
 | tier p (previous build) | 8.6682 | 6.1737 | 10.1115 | 9.7194 |
 | submission 1 | 8.877 | 6.312 | 10.204 | 10.115 |
 
-Submission 1 scored 8.9675 on the hidden test set (CD 6.250, CV 10.143, HEX 10.510).
+On the Phase II hidden test set (1,000 images) p3b scored 8.9352 (CD 6.162, CV 10.290, HEX 10.353); submission 1 scored 8.9675 (CD 6.250, CV 10.143, HEX 10.510). CD carried over from out of fold to test; the CV and HEX gains did not.
 
 Evidence for the ViT-L change (CD):
 
@@ -114,4 +114,4 @@ at build time.
 
 - The run time on the challenge platform was not measured by us. The T4 estimate (258-296 s per image) is close to the 300 s limit.
 - Eleven training rows have a CD error above 100 % and add 0.263 to the CD MAPE; several look like label entry errors. They were kept.
-- The gap between out-of-fold and test score seen for submission 1 (HEX +0.395) may repeat.
+- The out-of-fold gains in CV and HEX did not carry over to the test set (test minus out-of-fold: CV +0.18, HEX +0.63). The CV and HEX corrections were selected on the same training rows they were scored on.

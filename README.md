@@ -9,8 +9,8 @@ Submission code for the CLEAR-EC Grand Challenge, Phase II. Given one corneal en
 | `coefficient-of-variation.json` | coefficient of variation of cell area (CV) |
 | `hexagonality.json` | fraction of hexagonal cells (HEX) |
 
-The submitted algorithm is the container image built from this repository (`Dockerfile`), run with the checkpoint archive described in
-`checkpoints/README.md`. The method is described in `Technical_Report.pdf` (source: `docs/TECHNICAL_REPORT.md`).
+The submitted algorithm is the container image built from this repository (`Dockerfile`), run with the checkpoints hosted on Hugging Face
+([Byounghan/clear-ec-p3b](https://huggingface.co/Byounghan/clear-ec-p3b); see `checkpoints/README.md`). The method is described in `Technical_Report.pdf` (source: `docs/TECHNICAL_REPORT.md`).
 
 ## Repository structure
 
@@ -24,7 +24,7 @@ The submitted algorithm is the container image built from this repository (`Dock
 ├── src/experiments/           inference code (paths are kept as in the research tree; the image copies src/ to /workspace/clear-ec-research)
 ├── configs/
 │   ├── model_files.txt        the 438 checkpoint paths the code reads
-│   ├── checkpoint_sha256.txt  sha256 and size of every file in the checkpoint archive (443 files)
+│   ├── checkpoint_sha256.txt  sha256 and size of every checkpoint file (443 files)
 │   └── MANIFEST.json          provenance of the build
 ├── scripts/                   build, run, verify and score helpers
 ├── checkpoints/               download and placement instructions; the extracted weights go here
@@ -57,9 +57,12 @@ timm and the DINOv3 backbone code is in `src/experiments/phase2_foundation_20261
 
 ## 3. Checkpoints
 
-Download the archive and extract it into `checkpoints/` as described in [`checkpoints/README.md`](checkpoints/README.md), then verify:
+The 443 checkpoint files (16.25 GB) are public on Hugging Face at [Byounghan/clear-ec-p3b](https://huggingface.co/Byounghan/clear-ec-p3b). Download them into `checkpoints/`
+and verify (details in [`checkpoints/README.md`](checkpoints/README.md)):
 
 ```bash
+pip install -U huggingface_hub
+hf download Byounghan/clear-ec-p3b --local-dir checkpoints/ --include "cpsam_models/*" --include "experiments/*"
 python3 scripts/verify_checkpoints.py
 ```
 
@@ -136,13 +139,18 @@ yields a non-finite or non-positive value, the container writes the constants CD
    python3 scripts/score.py outputs/predictions.csv labels.csv
    ```
 
-Out-of-fold results on the 8,954 training images (five folds grouped by donor) are in `Technical_Report.pdf`.
+| MAPE (%) | Mean | CD | CV | HEX |
+|---|---:|---:|---:|---:|
+| Out-of-fold, 8,954 training images (five donor-grouped folds) | 8.6596 | 6.1479 | 10.1115 | 9.7194 |
+| Phase II hidden test set (1,000 images) | 8.9352 | 6.1624 | 10.2901 | 10.3532 |
+
+Details are in `Technical_Report.pdf`.
 
 ## Artifacts of the submitted version
 
 | File | Bytes | sha256 |
 |---|---:|---|
 | Container image `clear-ec_20261114-freeze-9687076-p3b.tar.gz` (`docker save`, image id `db390738df95`) | 4,114,587,222 | `67a8452f62fbced75c6a3499e2c9b068ac0802e306b177381f73c154d3cd96c1` |
-| Checkpoint archive `model_freeze-9687076-p3b_20261114.tar.gz` | 15,056,963,340 | `a51a21581409b9cd7c527d90e8f4df6af67f268f575278a3583c15dfbbe3bf1d` |
+| Checkpoint archive `model_freeze-9687076-p3b_20261114.tar.gz` (submitted; its 443 files are the ones on Hugging Face) | 15,056,963,340 | `a51a21581409b9cd7c527d90e8f4df6af67f268f575278a3583c15dfbbe3bf1d` |
 
 An image built from this repository differs in its id from the submitted one (build time stamps, pip mirrors) but contains the same code.
