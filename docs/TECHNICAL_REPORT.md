@@ -1,4 +1,4 @@
-# CLEAR-EC Phase II: Technical Report (tier p3b)
+# CLEAR-EC Phase II Technical Report: team Lamda&Kim (tier p3b)
 
 ## 1. Task and score
 

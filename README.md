@@ -1,6 +1,6 @@
-# CLEAR-EC Phase II: tier p3b
+# CLEAR-EC Phase II submission: team Lamda&Kim
 
-Submission code for the CLEAR-EC Grand Challenge, Phase II. Given one corneal endothelium specular microscopy image (972 x 1296,
+Submission of team Lamda&Kim to the CLEAR-EC Grand Challenge, Phase II (final model: tier p3b). Given one corneal endothelium specular microscopy image (972 x 1296,
 8-bit `.mha`), the method predicts:
 
 | Output file | Quantity |
